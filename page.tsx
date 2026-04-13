@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+// Fixed the paths below to match your GitHub folder structure
+import { Button } from "./button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "./card";
+import { Badge } from "./badge";
+import { Input } from "./input";
+import { Textarea } from "./textarea";
 import {
   Dialog,
   DialogContent,
@@ -13,7 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "./dialog";
 import {
   Bike,
   Wrench,
