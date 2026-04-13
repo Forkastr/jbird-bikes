@@ -38,7 +38,7 @@ function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
-      <div className="container">
+      <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <a href="#" className="flex items-center gap-2 group">
             <div className="relative w-12 h-12 bg-primary rounded-xl flex items-center justify-center rotate-3 group-hover:rotate-0 transition-transform">
@@ -70,7 +70,7 @@ function Navigation() {
 function Hero() {
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
-      <div className="container relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
           <Badge className="mb-4 py-1 px-4 text-sm bg-primary/20 text-primary border-primary/30">
             Now Open on the Lafitte Greenway
@@ -102,11 +102,10 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        {/* Additional sections can be added here */}
       </main>
       
       <footer className="bg-black py-12 border-t border-white/5">
-        <div className="container">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div>
               <div className="flex items-center gap-2 mb-6">
@@ -118,4 +117,27 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-
+              <h4 className="font-bold mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li><a href="#ebikes" className="hover:text-primary transition-colors">eBikes</a></li>
+                <li><a href="#repairs" className="hover:text-primary transition-colors">Expert Repairs</a></li>
+                <li><a href="#nola" className="hover:text-primary transition-colors">NOLA Program</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-4 text-white">Visit Us</h4>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li>Lafitte Greenway, New Orleans, LA</li>
+                <li>(504) 555-BIKE</li>
+                <li>hello@jbirdbikes.com</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/10 pt-8 text-center">
+            <p className="text-white/40 text-xs">© 2024 JBird Bike Shop. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
