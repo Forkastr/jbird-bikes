@@ -1,54 +1,18 @@
-{
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": {
-    "enabled": false,
-    "clientKind": "git",
-    "useIgnoreFile": false
-  },
-  "files": {
-    "ignoreUnknown": false,
-    "ignore": ["dist", ".next", "node_modules", "build", "src/generated/**"],
-    "include": ["src/**/*.ts", "src/**/*.tsx"]
-  },
-  "formatter": {
-    "enabled": true,
-    "indentStyle": "space"
-  },
-  "organizeImports": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUnusedVariables": "off"
-      },
-      "nursery": {
-        "noImgElement": "off"
-      },
-      "a11y": {
-        "noAutofocus": "off",
-        "noDistractingElements": "off",
-        "noHeaderScope": "off",
-        "noInteractiveElementToNoninteractiveRole": "off",
-        "noLabelWithoutControl": "off",
-        "noNoninteractiveElementToInteractiveRole": "off",
-        "noNoninteractiveTabindex": "off",
-        "noPositiveTabindex": "off",
-        "noRedundantAlt": "off",
-        "noRedundantRoles": "off",
-        "noSvgWithoutTitle": "off",
-        "useAltText": "off",
-        "useKeyWithClickEvents": "off",
-        "useKeyWithMouseEvents": "off",
-        "useButtonType": "off"
-      }
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double"
-    }
-  }
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  return (
+    <input
+      type={type}
+      data-slot="input"
+      className={cn(
+        "flex h-12 w-full rounded-xl border-2 border-input bg-background px-4 py-2 text-base shadow-sm transition-all duration-200 file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
+      {...props}
+    />
+  )
 }
+
+export { Input }
