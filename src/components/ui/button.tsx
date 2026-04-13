@@ -8,16 +8,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 rounded-full",
-        destructive:
-          "bg-destructive text-white shadow-lg shadow-destructive/25 hover:bg-destructive/90 rounded-full",
-        outline:
-          "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground rounded-full",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-lg shadow-secondary/25 hover:bg-secondary/90 hover:shadow-xl hover:shadow-secondary/30 hover:-translate-y-0.5 active:translate-y-0 rounded-full",
-        ghost:
-          "hover:bg-primary/10 hover:text-primary rounded-full",
+        default: "bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0 rounded-full",
+        destructive: "bg-destructive text-white shadow-lg shadow-destructive/25 hover:bg-destructive/90 rounded-full",
+        outline: "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground rounded-full",
+        secondary: "bg-secondary text-secondary-foreground shadow-lg shadow-secondary/25 hover:bg-secondary/90 hover:shadow-xl hover:shadow-secondary/30 hover:-translate-y-0.5 active:translate-y-0 rounded-full",
+        ghost: "hover:bg-primary/10 hover:text-primary rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -35,18 +30,8 @@ const buttonVariants = cva(
   }
 )
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
+function Button({ className, variant, size, asChild = false, ...props }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "button"
-
   return (
     <Comp
       data-slot="button"
