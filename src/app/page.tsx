@@ -4,20 +4,20 @@ import React from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, ShoppingCart, Banknote, MapPin, Bike } from "lucide-react";
+import { Wrench, ShoppingCart, Banknote, MapPin, Bike, ArrowRight } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FFD700] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700]">
+    <div className="min-h-screen bg-[#FFD700] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
       {/* SECTION 1: HERO & LOGO */}
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
-        {/* Placeholder for Logo */}
-        <div className="w-24 h-24 bg-[#1A1A1A] rounded-full flex items-center justify-center mb-6 shadow-xl">
+        {/* Logo Placeholder */}
+        <div className="w-24 h-24 bg-[#1A1A1A] rounded-full flex items-center justify-center mb-6 shadow-xl border-4 border-white/20">
           <Bike size={48} className="text-[#FFD700]" />
         </div>
 
-        <h1 className="text-4xl font-black uppercase tracking-tighter mb-2">
+        <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">
           JBird Bike Shop
         </h1>
         
@@ -26,7 +26,7 @@ export default function HomePage() {
           If You're Looking for...
         </p>
 
-        {/* FEATURE CARDS - Optimized for Phone Tapping */}
+        {/* FEATURE CARDS */}
         <div className="space-y-6 w-full">
           
           {/* SALES CARD */}
@@ -55,7 +55,7 @@ export default function HomePage() {
             <CardContent className="p-6">
               <h2 className="text-xl font-bold mb-2 text-[#FFD700]">Buy an eBike Online?</h2>
               <p className="mb-4">We Assemble & Build it for You</p>
-              <div className="text-sm font-black uppercase tracking-widest bg-white/10 py-2 rounded">
+              <div className="text-xs font-black uppercase tracking-widest bg-white/10 py-2 rounded">
                 Ride with Peace of Mind
               </div>
             </CardContent>
@@ -73,16 +73,27 @@ export default function HomePage() {
 
         </div>
 
-        {/* LOCATION FOOTER */}
-        <footer className="mt-16 pb-8 flex flex-col items-center">
+        {/* LOCATION INFO */}
+        <div className="mt-12 mb-8 flex flex-col items-center">
           <div className="flex items-center gap-2 font-bold text-lg mb-2">
             <MapPin size={24} />
             <span>2336 St. Louis Street</span>
           </div>
-          <p className="text-sm font-black bg-[#1A1A1A] text-[#FFD700] px-4 py-1 rounded-full uppercase tracking-widest">
+          <p className="text-xs font-black bg-[#1A1A1A] text-[#FFD700] px-4 py-1 rounded-full uppercase tracking-widest">
             Directly on the Lafitte Greenway
           </p>
-        </footer>
+        </div>
+
+        {/* SECTION CTA BUTTON */}
+        <div className="w-full pt-4">
+          <Button 
+            className="w-full py-8 text-xl font-black uppercase tracking-widest bg-[#1A1A1A] text-white hover:bg-black shadow-2xl group"
+            onClick={() => console.log("Navigate to form")}
+          >
+            Find Out More
+            <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </div>
 
       </main>
     </div>
