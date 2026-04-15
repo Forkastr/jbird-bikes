@@ -1,172 +1,90 @@
 "use client";
 
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import React from 'react';
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, Bike, ShieldCheck, MapPin, Star, ArrowRight, Play, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Wrench, ShoppingCart, Banknote, MapPin, Bike } from "lucide-react";
 
-export default function LandingPage() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* Navigation */}
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b sticky top-0 bg-white/80 backdrop-blur-md z-50">
-        <div className="flex items-center gap-2 font-bold text-2xl tracking-tighter">
-          <div className="bg-primary text-primary-foreground p-1 rounded-lg">
-            <Bike className="size-6" />
-          </div>
-          <span>JBird Bikes</span>
+    <div className="min-h-screen bg-[#FFD700] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700]">
+      {/* SECTION 1: HERO & LOGO */}
+      <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
+        
+        {/* Placeholder for Logo */}
+        <div className="w-24 h-24 bg-[#1A1A1A] rounded-full flex items-center justify-center mb-6 shadow-xl">
+          <Bike size={48} className="text-[#FFD700]" />
         </div>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#bikes">Bikes</a>
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
-          <a className="text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
-        </nav>
-      </header>
 
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative py-12 md:py-24 lg:py-32 overflow-hidden bg-slate-50">
-          <div className="container px-4 md:px-6 relative z-10 mx-auto">
-            <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <Badge variant="secondary" className="w-fit mb-2 px-4 py-1">Now Open in New Orleans</Badge>
-                  <h1 className="text-4xl font-extrabold tracking-tighter sm:text-5xl xl:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 pb-2">
-                    Premium Electric Bikes & Expert Service
-                  </h1>
-                  <p className="max-w-[600px] text-gray-500 md:text-xl lg:text-lg xl:text-xl">
-                    Experience the future of urban mobility with JBird Bikes. Premium e-bikes, professional maintenance, and a community of riders.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row pt-4">
-                  <Button size="lg" className="gap-2">
-                    Explore Inventory <ArrowRight className="size-4" />
-                  </Button>
-                  <Button size="lg" variant="outline" className="gap-2">
-                    Book a Service <Play className="size-4" />
-                  </Button>
-                </div>
-              </div>
-              <div className="relative">
-                <div className="absolute -inset-4 bg-primary/10 rounded-full blur-3xl" />
-                <div className="relative bg-white p-2 rounded-3xl shadow-2xl border border-slate-200">
-                  <img
-                    alt="Premium Electric Bike"
-                    className="aspect-video overflow-hidden rounded-2xl object-cover object-center w-full"
-                    src="https://images.unsplash.com/photo-1571068316344-75bc76f77894?auto=format&fit=crop&q=80&w=800"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <h1 className="text-4xl font-black uppercase tracking-tighter mb-2">
+          JBird Bike Shop
+        </h1>
+        
+        <p className="text-xl font-medium italic mb-10 opacity-90">
+          ...the Place to Be <br />
+          If You're Looking for...
+        </p>
 
-        {/* Featured Products */}
-        <section id="bikes" className="py-20 bg-white">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Our Best Sellers</h2>
-                <p className="max-w-[900px] text-gray-500 md:text-xl">
-                  Hand-picked performance e-bikes for every terrain and lifestyle.
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { name: "Urban Commuter Pro", price: "$2,499", range: "60 miles", speed: "28 mph", img: "https://images.unsplash.com/photo-1571068316344-75bc76f77894?auto=format&fit=crop&q=80&w=600" },
-                { name: "Mountain Trail Elite", price: "$3,899", range: "45 miles", speed: "20 mph", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&q=80&w=600" },
-                { name: "City Foldable X", price: "$1,799", range: "40 miles", speed: "20 mph", img: "https://images.unsplash.com/photo-1596465492473-b3a62d8544e9?auto=format&fit=crop&q=80&w=600" }
-              ].map((bike, index) => (
-                <Card key={index} className="overflow-hidden group">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={bike.img}
-                      alt={bike.name}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 right-4">
-                      <Badge className="bg-white/90 text-black border-none backdrop-blur shadow-sm">Featured</Badge>
-                    </div>
-                  </div>
-                  <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <CardTitle className="text-xl mb-1">{bike.name}</CardTitle>
-                        <CardDescription>Performance Hybrid</CardDescription>
-                      </div>
-                      <span className="font-bold text-primary">{bike.price}</span>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-2 gap-4 text-sm mb-6">
-                      <div className="flex flex-col gap-1">
-                        <span className="text-gray-500">Range</span>
-                        <span className="font-semibold">{bike.range}</span>
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        <span className="text-gray-500">Top Speed</span>
-                        <span className="font-semibold">{bike.speed}</span>
-                      </div>
-                    </div>
-                    <Button className="w-full group/btn" variant="outline">
-                      View Specs <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* FEATURE CARDS - Optimized for Phone Tapping */}
+        <div className="space-y-6 w-full">
+          
+          {/* SALES CARD */}
+          <Card className="bg-white/95 border-none shadow-lg transform active:scale-95 transition-transform">
+            <CardContent className="p-6">
+              <ShoppingCart className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
+              <h2 className="text-2xl font-bold mb-1">Quality eBikes at Affordable Prices</h2>
+              <p className="text-lg font-semibold text-green-700 mb-2">Starting at $350</p>
+              <Badge variant="secondary" className="bg-[#FFD700] text-[#1A1A1A] font-bold">
+                Financing Available
+              </Badge>
+            </CardContent>
+          </Card>
 
-        {/* Why Choose Us */}
-        <section className="py-20 bg-slate-900 text-white">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid gap-12 lg:grid-cols-2 items-center">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-6">Built for the Long Ride</h2>
-                <div className="space-y-6">
-                  {[
-                    { title: "Expert Mechanics", desc: "Certified technicians with decades of combined experience.", icon: ShieldCheck },
-                    { title: "Premium Parts", desc: "We only use high-quality components from brands you trust.", icon: Star },
-                    { title: "Mobile Service", desc: "Can't get to us? We'll bring the bike shop to your front door.", icon: MapPin }
-                  ].map((feature, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="bg-primary/20 p-3 rounded-xl h-fit">
-                        <feature.icon className="size-6 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lg mb-1">{feature.title}</h3>
-                        <p className="text-slate-400">{feature.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          {/* SERVICE CARD */}
+          <Card className="bg-white/95 border-none shadow-lg transform active:scale-95 transition-transform">
+            <CardContent className="p-6">
+              <Wrench className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
+              <h2 className="text-2xl font-bold mb-1">Service & Maintenance</h2>
+              <p className="text-lg opacity-80 uppercase tracking-wide font-bold">Bicycles & eBikes</p>
+            </CardContent>
+          </Card>
+
+          {/* ASSEMBLY CARD */}
+          <Card className="bg-[#1A1A1A] text-white border-none shadow-lg">
+            <CardContent className="p-6">
+              <h2 className="text-xl font-bold mb-2 text-[#FFD700]">Buy an eBike Online?</h2>
+              <p className="mb-4">We Assemble & Build it for You</p>
+              <div className="text-sm font-black uppercase tracking-widest bg-white/10 py-2 rounded">
+                Ride with Peace of Mind
               </div>
-              <div className="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <blockquote className="text-xl italic text-slate-200 mb-6">
-                  "JBird Bikes completely changed my commute. The service is fast, friendly, and they really know their electric systems."
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="size-12 rounded-full bg-primary flex items-center justify-center text-xl font-bold">M</div>
-                  <div>
-                    <div className="font-bold">Mike Harrison</div>
-                    <div className="text-sm text-slate-400">New Orleans Resident</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </CardContent>
+          </Card>
+
+          {/* INCENTIVE PROGRAM CARD */}
+          <Card className="bg-white/95 border-2 border-[#1A1A1A] shadow-lg">
+            <CardContent className="p-6">
+              <Banknote className="mx-auto mb-3 text-green-600" size={32} />
+              <h2 className="text-xl font-bold">Get Up to $1,200 to Buy an eBike</h2>
+              <p className="text-sm font-bold my-2 opacity-70 italic">Official Retailer:</p>
+              <p className="text-lg font-black uppercase tracking-tight">NOLA eBike Incentive Program</p>
+            </CardContent>
+          </Card>
+
+        </div>
+
+        {/* LOCATION FOOTER */}
+        <footer className="mt-16 pb-8 flex flex-col items-center">
+          <div className="flex items-center gap-2 font-bold text-lg mb-2">
+            <MapPin size={24} />
+            <span>2336 St. Louis Street</span>
           </div>
-        </section>
+          <p className="text-sm font-black bg-[#1A1A1A] text-[#FFD700] px-4 py-1 rounded-full uppercase tracking-widest">
+            Directly on the Lafitte Greenway
+          </p>
+        </footer>
+
       </main>
-
-      {/* Footer */}
-      <footer className="py-12 border-t bg-slate-50">
-        <div className="container px-4 md:px-6 mx-auto text-center text-xs text-gray-400">
-          <p>© 2026 JBird Bikes. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
