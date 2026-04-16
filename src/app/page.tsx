@@ -1,4 +1,13 @@
-"use client";
+{/* 1. Add this style block to load the custom font */}
+<style>{`
+  @font-face {
+    font-family: 'Bugaki';
+    src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+`}</style>
+  "use client";
 
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
@@ -29,7 +38,7 @@ export default function HomePage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FFF8E1] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
+    <div className="min-h-screen bg-[#FEF9E7] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
       
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
