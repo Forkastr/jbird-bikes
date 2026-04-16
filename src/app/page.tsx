@@ -83,6 +83,7 @@ export default function HomePage() {
                     <div className="flex justify-between items-center border-b border-black/5 pb-2">
                       <span className="font-bold">Full Tune-Up</span>
                       <span className="font-black">$95</span>
+                      <span className="font-bold">Other Services Available</span>
                     </div>
                   </div>
                   <ContactButton />
@@ -126,8 +127,8 @@ export default function HomePage() {
           <Card className="bg-[#1A1A1A] text-white border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('assembly')}>
-                <h2 className="text-xl font-black uppercase mb-2 text-[#FFD700]">Buy an eBike Online?</h2>
-                <p className="text-lg font-bold">We Assemble & Build It</p>
+              <h2 className="text-xl font-black uppercase mb-1 text-[#FFD700]">Buy an eBike Online?</h2>
+<p className="text-lg font-bold leading-tight">Make Sure It’s Safe to Ride!</p>  
                 <div className="flex items-center justify-center gap-2 text-sm font-bold text-[#FFD700] mt-2">
                   <span>Get Details</span>
                   {expanded === 'assembly' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -136,7 +137,11 @@ export default function HomePage() {
               {expanded === 'assembly' && (
                 <div className="px-6 pb-6 text-left border-t border-white/10 pt-6">
                   <p className="text-xl font-black mb-4 text-[#FFD700]">Full Assembly: $135</p>
-                  <p className="text-lg font-bold mb-6">Including Extra Features and Full Safety Check.</p>
+                  <ul className="space-y-3 mb-6 text-lg font-bold">
+  <li>• Professional Assembly</li>
+  <li>• Extra Features Included</li>
+  <li>• Full Safety Inspection</li>
+</ul>
                   <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-black uppercase py-5">Contact Us</Button>
                 </div>
               )}
@@ -161,9 +166,9 @@ export default function HomePage() {
                     <p className="text-xl font-black uppercase text-[#FFD700]">NOLA eBike Incentive Program</p>
                   </div>
                   <ul className="space-y-3 mb-6 text-lg font-bold">
-                    <li>• Availability is Limited — First Come, First Served</li>
-                    <li>• Register Now for the City Program</li>
-                    <li>• We Handle All the Paperwork for You</li>
+                    <li>Availability is Limited — First Come, First Served</li>
+                    <li>Register Now for the City Program</li>
+                    <li>We Handle All the Paperwork for You</li>
                   </ul>
                   <ContactButton />
                 </div>
