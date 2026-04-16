@@ -46,10 +46,19 @@ export default function HomePage() {
           JBird Bikes
         </h1>
         
-        <p className="text-xl font-medium italic mb-10 opacity-90 leading-tight">
-          Sales & Service <br />
-          On the Lafitte Greenway
-        </p>
+        <p className="text-xl font-medium italic mb-6 opacity-90 leading-tight">
+  Sales & Service <br /> 
+  On the Lafitte Greenway 
+</p>
+
+{/* PHONE BOX */}
+<a 
+  href="tel:5045216997" 
+  className="mb-10 inline-block bg-[#1A1A1A] text-[#FFD700] px-8 py-4 rounded-xl shadow-lg transform active:scale-95 transition-transform"
+>
+  <p className="text-xs font-black uppercase tracking-widest mb-1">Call / Text</p>
+  <p className="text-2xl font-black">(504) 521-6997</p>
+</a>
 
         <div className="space-y-6 w-full mb-12">
           
