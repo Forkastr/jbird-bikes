@@ -96,8 +96,11 @@ export default function HomePage() {
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('sales')}>
                 <ShoppingCart className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
-                <h2 className="text-2xl font-black uppercase tracking-tight mb-1">Quality eBikes</h2>
-                <p className="text-lg font-bold text-green-700 mb-2">Fully Assembled</p>
+                <h2 className="text-2xl font-black uppercase tracking-tight mb-1 leading-tight">
+  Quality eBikes <br /> 
+  Affordable Prices
+</h2>
+<p className="text-lg font-bold text-green-700 mb-2">Starting at $350</p>
                 <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60">
                   <span>See Features</span>
                   {expanded === 'sales' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -106,11 +109,12 @@ export default function HomePage() {
               {expanded === 'sales' && (
                 <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
                   <ul className="space-y-3 mb-4 text-lg font-bold leading-tight">
-                    <li>• New ebikes, Fully Assembled</li>
-                    <li>• Our Exclusive JBird Build</li>
-                    <li>• UL Listed</li>
-                    <li>• Many Extra Features Included</li>
-                    <li>• Professional Service & Maintenance</li>
+                    <li>Financing Available</li>
+                    <li>Ready to Ride</li>
+                    <li>Our Exclusive JBird Build</li>
+                    <li>UL Listed</li>
+                    <li>Many Extra Features Included</li>
+                    <li>Professional Service & Maintenance</li>
                   </ul>
                   <ContactButton />
                 </div>
