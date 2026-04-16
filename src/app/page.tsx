@@ -67,7 +67,10 @@ export default function HomePage() {
               </div>
               {expanded === 'service' && (
                 <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <p className="text-lg font-bold mb-4 leading-tight">We Repair & Maintain ALL Bicycles and eBikes.</p>
+                  <p className="text-xl font-black mb-4 leading-tight">
+  We Repair & Maintain <br /> 
+  <span className="text-blue-700">All Bicycles and eBikes.</span>
+</p>
                   <div className="space-y-3 mb-4 text-lg">
                     <div className="flex justify-between items-center border-b border-black/5 pb-2">
                       <span className="font-bold">Single Repair</span>
