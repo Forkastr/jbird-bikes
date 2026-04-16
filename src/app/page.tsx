@@ -13,7 +13,9 @@ import {
   ArrowRight, 
   ChevronDown, 
   ChevronUp,
-  CheckCircle2
+  CheckCircle2,
+  ShieldCheck,
+  Star
 } from "lucide-react";
 
 export default function HomePage() {
@@ -22,15 +24,15 @@ export default function HomePage() {
   const toggle = (id: string) => setExpanded(expanded === id ? null : id);
 
   const ContactButton = () => (
-    <Button className="w-full mt-4 bg-[#1A1A1A] text-white font-bold uppercase tracking-widest text-xs py-4 hover:bg-black">
-      Contact Us <ArrowRight className="ml-2" size={14} />
+    <Button className="w-full mt-6 bg-[#1A1A1A] text-white font-black uppercase tracking-widest text-sm py-6 hover:bg-black shadow-md">
+      Contact Us <ArrowRight className="ml-2" size={16} />
     </Button>
   );
 
   return (
     <div className="min-h-screen bg-[#FFD700] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
       
-      {/* SECTION 1: HERO */}
+      {/* HERO SECTION */}
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
         <div className="w-24 h-24 bg-[#1A1A1A] rounded-full flex items-center justify-center mb-6 shadow-xl border-4 border-white/20">
@@ -42,79 +44,76 @@ export default function HomePage() {
         </h1>
         
         <p className="text-xl font-medium italic mb-10 opacity-90 leading-tight">
-          The Place to Be <br />
-          If You're Looking for...
+          Sales & Service <br />
+          On the Lafitte Greenway
         </p>
 
-        {/* CORE OFFER CARDS */}
+        {/* ACCORDION CARDS */}
         <div className="space-y-6 w-full mb-12">
           
-          {/* 1. SERVICE CARD (NOW FIRST) */}
-          <Card className="bg-white/95 border-none shadow-lg transform active:scale-95 transition-transform overflow-hidden">
+          {/* 1. SERVICE & MAINTENANCE (IMMEDIATE NEED) */}
+          <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-6 text-center" onClick={() => toggle('service')}>
+              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('service')}>
                 <Wrench className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
                 <h2 className="text-2xl font-black uppercase tracking-tight mb-1">Repairs & Maintenance</h2>
                 <p className="text-lg font-bold text-green-700 mb-2">Free Diagnostic</p>
                 <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60">
-                  <span>Find Out More</span>
+                  <span>View Rates</span>
                   {expanded === 'service' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
               </div>
               {expanded === 'service' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-4 animate-in slide-in-from-top-2">
+                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
                   <p className="text-lg font-bold mb-4 leading-tight">We Repair & Maintain ALL Bicycles and eBikes.</p>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-1">
+                  <div className="space-y-3 mb-4">
+                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-2">
                       <span className="font-bold">Single Repair</span>
-                      <span className="font-black">$65+</span>
+                      <span className="font-black">$65 + parts</span>
                     </div>
-                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-1">
+                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-2">
                       <span className="font-bold">Flat Tire</span>
-                      <span className="font-black">$30+</span>
+                      <span className="font-black">$30 + parts</span>
                     </div>
-                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-1">
+                    <div className="flex justify-between items-center text-lg border-b border-black/5 pb-2">
                       <span className="font-bold">Full Tune-Up</span>
                       <span className="font-black">$95</span>
                     </div>
                   </div>
-                  <p className="text-sm font-bold opacity-70 italic mb-2">Other Services Available</p>
+                  <p className="text-md font-bold opacity-70 italic mb-2 text-center">Other Services Available</p>
                   <ContactButton />
                 </div>
               )}
             </CardContent>
           </Card>
 
-          {/* 2. SALES CARD */}
-          <Card className="bg-white/95 border-none shadow-lg transform active:scale-95 transition-transform overflow-hidden">
+          {/* 2. QUALITY EBIKES */}
+          <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-6 text-center" onClick={() => toggle('sales')}>
+              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('sales')}>
                 <ShoppingCart className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
-                <h2 className="text-2xl font-black uppercase tracking-tight mb-1 leading-tight">Quality eBikes</h2>
-                <p className="text-lg font-bold text-green-700 mb-2">Fully Assembled</p>
+                <h2 className="text-2xl font-black uppercase tracking-tight mb-1">Quality eBikes</h2>
+                <p className="text-lg font-bold text-green-700 mb-2">Our Exclusive JBird Build</p>
                 <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60">
-                  <span>Find Out More</span>
+                  <span>See Features</span>
                   {expanded === 'sales' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
               </div>
               {expanded === 'sales' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-4 animate-in slide-in-from-top-2">
+                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
+                  <p className="text-lg font-black mb-4 uppercase text-center">New ebikes, Fully Assembled</p>
                   <ul className="space-y-3 mb-4">
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>Our Exclusive JBird Build</span>
+                    <li className="flex items-start gap-3 text-lg font-bold leading-tight">
+                      <CheckCircle2 size={22} className="text-green-600 shrink-0" />
+                      <span>UL Listed for Safety</span>
                     </li>
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>UL Listed Components</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
+                    <li className="flex items-start gap-3 text-lg font-bold leading-tight">
+                      <CheckCircle2 size={22} className="text-green-600 shrink-0" />
                       <span>Many Extra Features Included</span>
                     </li>
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>Professional Support</span>
+                    <li className="flex items-start gap-3 text-lg font-bold leading-tight">
+                      <CheckCircle2 size={22} className="text-green-600 shrink-0" />
+                      <span>Professional Service & Maintenance</span>
                     </li>
                   </ul>
                   <ContactButton />
@@ -123,62 +122,63 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          {/* 3. ASSEMBLY CARD */}
+          {/* 3. ONLINE ASSEMBLY */}
           <Card className="bg-[#1A1A1A] text-white border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-6 text-center" onClick={() => toggle('assembly')}>
+              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('assembly')}>
                 <h2 className="text-xl font-black uppercase tracking-tight mb-2 text-[#FFD700]">Buy an eBike Online?</h2>
-                <p className="text-lg leading-tight font-bold mb-2">We Assemble & Build It</p>
+                <p className="text-lg leading-tight font-bold mb-2">Professional Build & Safety Check</p>
                 <div className="flex items-center justify-center gap-2 text-sm font-bold text-[#FFD700]">
-                  <span>Find Out More</span>
+                  <span>Get Details</span>
                   {expanded === 'assembly' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
               </div>
               {expanded === 'assembly' && (
-                <div className="px-6 pb-6 text-left border-t border-white/10 pt-4 animate-in slide-in-from-top-2">
-                  <div className="bg-[#FFD700] text-[#1A1A1A] p-3 rounded-lg font-black text-lg mb-4 text-center">
+                <div className="px-6 pb-6 text-left border-t border-white/10 pt-6 animate-in slide-in-from-top-2">
+                  <div className="bg-[#FFD700] text-[#1A1A1A] p-4 rounded-lg font-black text-xl mb-4 text-center">
                     Full Assembly with Extra Features: $135
                   </div>
-                  <p className="text-lg font-bold leading-tight opacity-90 mb-4">
-                    Online bikes often ship 85% assembled. We complete the critical 15%—tuning gears, torquing bolts, and stress-testing the battery for your safety.
+                  <p className="text-lg font-bold leading-tight opacity-90 mb-6">
+                    We ensure your gears are tuned, bolts are torqued, and the battery is stress-tested. Keep your larger font and safety—let the pros handle the build.
                   </p>
-                  <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-bold uppercase tracking-widest text-xs py-4 hover:bg-yellow-400">
-                    Contact Us <ArrowRight className="ml-2" size={14} />
+                  <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-black uppercase tracking-widest text-sm py-6 hover:bg-yellow-400">
+                    Contact Us <ArrowRight className="ml-2" size={16} />
                   </Button>
                 </div>
               )}
             </CardContent>
           </Card>
 
-          {/* 4. INCENTIVE CARD */}
-          <Card className="bg-white/95 border-2 border-[#1A1A1A] shadow-lg overflow-hidden">
+          {/* 4. INCENTIVE (RESTORED VERSION) */}
+          <Card className="bg-white/95 border-4 border-[#1A1A1A] shadow-lg overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-6 text-center" onClick={() => toggle('nola')}>
-                <Banknote className="mx-auto mb-3 text-green-600" size={32} />
-                <h2 className="text-xl font-black uppercase tracking-tight mb-1 leading-none">
-                  Get Up to $1,200 <br /> <span className="text-sm opacity-70 italic">To Buy Your eBike!</span>
+              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('nola')}>
+                <Banknote className="mx-auto mb-3 text-green-600" size={36} />
+                <h2 className="text-2xl font-black uppercase tracking-tight mb-1">
+                  Get Up to $1,200
                 </h2>
+                <p className="text-lg font-bold">To Buy Your eBike!</p>
                 <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60 mt-4">
-                  <span>Find Out More</span>
+                  <span>How to Apply</span>
                   {expanded === 'nola' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 </div>
               </div>
               {expanded === 'nola' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-4 animate-in slide-in-from-top-2">
-                  <ul className="space-y-3 mb-4">
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>Availability is Limited</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>Register Now for the Program</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-lg font-bold leading-tight">
-                      <CheckCircle2 size={20} className="text-green-600 mt-1 shrink-0" />
-                      <span>We Handle All the Paperwork</span>
-                    </li>
-                  </ul>
+                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
+                  <div className="space-y-4 mb-6">
+                    <div className="flex gap-3">
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">1</div>
+                      <p className="text-lg font-bold leading-tight">Availability is Limited — First Come, First Served.</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">2</div>
+                      <p className="text-lg font-bold leading-tight">Register Now for the City Program.</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">3</div>
+                      <p className="text-lg font-bold leading-tight">We Handle All the Paperwork for you.</p>
+                    </div>
+                  </div>
                   <ContactButton />
                 </div>
               )}
@@ -215,26 +215,36 @@ export default function HomePage() {
           </Button>
         </section>
 
-        {/* WHY CHOOSE JBIRD (ACCORDION) */}
+        {/* WHY CHOOSE JBIRD (RESTORED VERSION) */}
         <div className="w-full mt-10">
-          <Card className="bg-transparent border-2 border-[#1A1A1A]/20 shadow-none overflow-hidden">
+          <Card className="bg-white/50 border-2 border-[#1A1A1A]/10 shadow-none overflow-hidden">
             <CardContent className="p-0">
-              <div className="p-4 text-center" onClick={() => toggle('why')}>
+              <div className="p-4 text-center cursor-pointer" onClick={() => toggle('why')}>
                 <h3 className="text-lg font-black uppercase tracking-widest">Why Choose JBird?</h3>
                 <div className="flex items-center justify-center gap-2 text-xs font-bold opacity-50 mt-1">
                   {expanded === 'why' ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                 </div>
               </div>
               {expanded === 'why' && (
-                <div className="px-6 pb-6 text-left border-t border-black/10 pt-4 animate-in slide-in-from-top-2">
-                  <p className="text-md font-bold italic leading-tight opacity-80 mb-4">
-                    "Our principle is simple: we invite our customers to come and test our ebikes, and purchase only after being satisfied."
-                  </p>
-                  <ul className="space-y-2 text-sm font-bold">
-                    <li>• One-year warranty on all bikes sold</li>
-                    <li>• Curated for reliability and quality</li>
-                    <li>• Serving the Greenway community</li>
-                  </ul>
+                <div className="px-6 pb-6 text-left border-t border-black/10 pt-6 animate-in slide-in-from-top-2">
+                   <div className="space-y-4">
+                    <div className="flex gap-3">
+                      <ShieldCheck className="text-blue-600 shrink-0" size={24} />
+                      <p className="text-lg font-bold leading-tight">One-year warranty on all bikes sold.</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <Star className="text-[#FFD700] shrink-0" size={24} />
+                      <p className="text-lg font-bold leading-tight">Curated for reliability, quality and ease of use.</p>
+                    </div>
+                    <div className="flex gap-3">
+                      <MapPin className="text-red-600 shrink-0" size={24} />
+                      <p className="text-lg font-bold leading-tight">Proudly serving the Greenway community.</p>
+                    </div>
+                    <p className="text-md font-bold italic leading-tight opacity-80 pt-4 border-t border-black/5">
+                      "Our principle is simple: we invite our customers to come and test our ebikes, and purchase only after being satisfied."
+                    </p>
+                  </div>
+                  <ContactButton />
                 </div>
               )}
             </CardContent>
