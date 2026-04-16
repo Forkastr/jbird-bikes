@@ -4,9 +4,20 @@ import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, ShoppingCart, Banknote, MapPin, Bike, ArrowRight, ChevronDown, ChevronUp, ShieldCheck } from "lucide-react";
+import { 
+  Wrench, 
+  ShoppingCart, 
+  Banknote, 
+  MapPin, 
+  Bike, 
+  ArrowRight, 
+  ChevronDown, 
+  ChevronUp, 
+  ShieldCheck,
+  CheckCircle2 
+} from "lucide-react";
 
-// Move the style block down here, after the imports
+// This loads Bugaki for the whole page
 const BugakiFont = () => (
   <style dangerouslySetInnerHTML={{ __html: `
     @font-face {
@@ -18,25 +29,7 @@ const BugakiFont = () => (
   `}} />
 );
 
-import React, { useState } from 'react';
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Wrench, 
-  ShoppingCart, 
-  Banknote, 
-  MapPin, 
-  Bike, 
-  ArrowRight, 
-  ChevronDown, 
-  ChevronUp,
-  ShieldCheck,
-  CheckCircle2
-} from "lucide-react";
-
 export default function HomePage() {
-  const [expanded, setExpanded] = useState<string | null>(null);
 
   const toggle = (id: string) => setExpanded(expanded === id ? null : id);
 
@@ -255,7 +248,7 @@ export default function HomePage() {
 {/* MAP SECTION */}
       <section className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1A1A1A]">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6353831!2d-90.088194!3d29.961139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713295800000!5m2!1sen!2sus"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6353831!2d-90.088194!3d29.961139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713295800000!5m2!1sen!2sus" 
           width="100%" 
           height="300" 
           style={{ border: 0 }} 
