@@ -51,7 +51,7 @@ export default function HomePage() {
         {/* ACCORDION CARDS */}
         <div className="space-y-6 w-full mb-12">
           
-          {/* 1. SERVICE & MAINTENANCE (IMMEDIATE NEED) */}
+          {/* 1. REPAIRS (UPDATED TEXT) */}
           <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('service')}>
@@ -65,7 +65,10 @@ export default function HomePage() {
               </div>
               {expanded === 'service' && (
                 <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <p className="text-lg font-bold mb-4 leading-tight">We Repair & Maintain ALL Bicycles and eBikes.</p>
+                  <p className="text-xl font-black mb-4 leading-tight uppercase text-center">
+                    We Repair & Maintain <br />
+                    All Bicycles and eBikes
+                  </p>
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between items-center text-lg border-b border-black/5 pb-2">
                       <span className="font-bold">Single Repair</span>
@@ -80,7 +83,6 @@ export default function HomePage() {
                       <span className="font-black">$95</span>
                     </div>
                   </div>
-                  <p className="text-md font-bold opacity-70 italic mb-2 text-center">Other Services Available</p>
                   <ContactButton />
                 </div>
               )}
@@ -122,7 +124,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          {/* 3. ONLINE ASSEMBLY */}
+          {/* 3. ONLINE ASSEMBLY (REVERTED TO PREVIOUS VERSION) */}
           <Card className="bg-[#1A1A1A] text-white border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('assembly')}>
@@ -139,7 +141,7 @@ export default function HomePage() {
                     Full Assembly with Extra Features: $135
                   </div>
                   <p className="text-lg font-bold leading-tight opacity-90 mb-6">
-                    We ensure your gears are tuned, bolts are torqued, and the battery is stress-tested. Keep your larger font and safety—let the pros handle the build.
+                    We ensure your gears are tuned, bolts are torqued, and the battery is stress-tested. Keep your factory warranty and safety—let the pros handle the build.
                   </p>
                   <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-black uppercase tracking-widest text-sm py-6 hover:bg-yellow-400">
                     Contact Us <ArrowRight className="ml-2" size={16} />
@@ -149,7 +151,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          {/* 4. INCENTIVE (RESTORED VERSION) */}
+          {/* 4. INCENTIVE (MATCHING SCREENSHOT) */}
           <Card className="bg-white/95 border-4 border-[#1A1A1A] shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('nola')}>
@@ -168,15 +170,15 @@ export default function HomePage() {
                   <div className="space-y-4 mb-6">
                     <div className="flex gap-3">
                       <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">1</div>
-                      <p className="text-lg font-bold leading-tight">Availability is Limited — First Come, First Served.</p>
+                      <p className="text-lg font-bold leading-tight">Availability is limited — First Come, First Served.</p>
                     </div>
                     <div className="flex gap-3">
                       <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">2</div>
-                      <p className="text-lg font-bold leading-tight">Register Now for the City Program.</p>
+                      <p className="text-lg font-bold leading-tight">Register now for the city program.</p>
                     </div>
                     <div className="flex gap-3">
                       <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">3</div>
-                      <p className="text-lg font-bold leading-tight">We Handle All the Paperwork for you.</p>
+                      <p className="text-lg font-bold leading-tight">We handle all the paperwork for you.</p>
                     </div>
                   </div>
                   <ContactButton />
@@ -215,7 +217,7 @@ export default function HomePage() {
           </Button>
         </section>
 
-        {/* WHY CHOOSE JBIRD (RESTORED VERSION) */}
+        {/* WHY CHOOSE JBIRD (MATCHING SCREENSHOT) */}
         <div className="w-full mt-10">
           <Card className="bg-white/50 border-2 border-[#1A1A1A]/10 shadow-none overflow-hidden">
             <CardContent className="p-0">
