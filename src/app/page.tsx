@@ -32,7 +32,14 @@ const BugakiFont = () => (
 export default function HomePage() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const toggle = (id: string) => setExpanded(expanded === id ? null : id);
-return (
+
+  const ContactButton = () => (
+    <Button className="w-full mt-6 bg-[#1A1A1A] text-white font-black uppercase tracking-widest text-sm py-6 hover:bg-black shadow-md">
+      Contact Us <ArrowRight className="ml-2" size={16} />
+    </Button>
+  );
+
+  return (
     <div 
       className="min-h-screen pb-24" 
       style={{ 
@@ -43,15 +50,7 @@ return (
     >
       <BugakiFont />
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-        className="min-h-screen pb-24" 
-        style={{ 
-          backgroundColor: '#FEF9E7', 
-          color: '#1A1A1A',
-          fontFamily: 'Bugaki, sans-serif' 
-        }}
-      >
-        <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-      {/* STORE IMAGE */}
+        {/* STORE IMAGE */}
 <div className="mb-8 w-full flex justify-center px-2">
   <img 
     src="/JBird Bikes Front.jpg" 
