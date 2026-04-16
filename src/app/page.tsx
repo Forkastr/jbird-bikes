@@ -13,9 +13,8 @@ import {
   ArrowRight, 
   ChevronDown, 
   ChevronUp,
-  CheckCircle2,
   ShieldCheck,
-  Star
+  CheckCircle2
 } from "lucide-react";
 
 export default function HomePage() {
@@ -40,7 +39,7 @@ export default function HomePage() {
         </div>
 
         <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">
-          JBird Bike Shop
+          JBird Bikes
         </h1>
         
         <p className="text-xl font-medium italic mb-10 opacity-90 leading-tight">
@@ -51,7 +50,7 @@ export default function HomePage() {
         {/* ACCORDION CARDS */}
         <div className="space-y-6 w-full mb-12">
           
-          {/* 1. REPAIRS (UPDATED TEXT) */}
+          {/* 1. REPAIRS & MAINTENANCE */}
           <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('service')}>
@@ -65,10 +64,7 @@ export default function HomePage() {
               </div>
               {expanded === 'service' && (
                 <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <p className="text-xl font-black mb-4 leading-tight uppercase text-center">
-                    We Repair & Maintain <br />
-                    All Bicycles and eBikes
-                  </p>
+                  <p className="text-lg font-bold mb-4 leading-tight">We Repair & Maintain ALL Bicycles and eBikes.</p>
                   <div className="space-y-3 mb-4">
                     <div className="flex justify-between items-center text-lg border-b border-black/5 pb-2">
                       <span className="font-bold">Single Repair</span>
@@ -124,7 +120,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          {/* 3. ONLINE ASSEMBLY (REVERTED TO PREVIOUS VERSION) */}
+          {/* 3. ONLINE ASSEMBLY */}
           <Card className="bg-[#1A1A1A] text-white border-none shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('assembly')}>
@@ -138,10 +134,10 @@ export default function HomePage() {
               {expanded === 'assembly' && (
                 <div className="px-6 pb-6 text-left border-t border-white/10 pt-6 animate-in slide-in-from-top-2">
                   <div className="bg-[#FFD700] text-[#1A1A1A] p-4 rounded-lg font-black text-xl mb-4 text-center">
-                    Full Assembly with Extra Features: $135
+                    Full Assembly: $135
                   </div>
                   <p className="text-lg font-bold leading-tight opacity-90 mb-6">
-                    We ensure your gears are tuned, bolts are torqued, and the battery is stress-tested. Keep your factory warranty and safety—let the pros handle the build.
+                    We ensure your gears are tuned, bolts are torqued, and the battery is stress-tested. 
                   </p>
                   <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-black uppercase tracking-widest text-sm py-6 hover:bg-yellow-400">
                     Contact Us <ArrowRight className="ml-2" size={16} />
@@ -151,7 +147,7 @@ export default function HomePage() {
             </CardContent>
           </Card>
 
-          {/* 4. INCENTIVE (MATCHING SCREENSHOT) */}
+          {/* 4. INCENTIVE SECTION (UPDATED) */}
           <Card className="bg-white/95 border-4 border-[#1A1A1A] shadow-lg overflow-hidden">
             <CardContent className="p-0">
               <div className="p-6 text-center cursor-pointer" onClick={() => toggle('nola')}>
@@ -167,18 +163,22 @@ export default function HomePage() {
               </div>
               {expanded === 'nola' && (
                 <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
+                  <div className="bg-[#1A1A1A] text-white p-4 rounded-lg mb-6 text-center">
+                    <p className="text-xs uppercase font-black tracking-widest opacity-70 mb-1">Official Retailer</p>
+                    <p className="text-xl font-black uppercase text-[#FFD700]">NOLA eBike Incentive Program</p>
+                  </div>
                   <div className="space-y-4 mb-6">
                     <div className="flex gap-3">
-                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">1</div>
-                      <p className="text-lg font-bold leading-tight">Availability is limited — First Come, First Served.</p>
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 text-sm">1</div>
+                      <p className="text-lg font-bold leading-tight">Availability is Limited — First Come, First Served.</p>
                     </div>
                     <div className="flex gap-3">
-                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">2</div>
-                      <p className="text-lg font-bold leading-tight">Register now for the city program.</p>
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 text-sm">2</div>
+                      <p className="text-lg font-bold leading-tight">Register now for the City Program.</p>
                     </div>
                     <div className="flex gap-3">
-                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">3</div>
-                      <p className="text-lg font-bold leading-tight">We handle all the paperwork for you.</p>
+                      <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 text-sm">3</div>
+                      <p className="text-lg font-bold leading-tight">We handle the paperwork for you.</p>
                     </div>
                   </div>
                   <ContactButton />
@@ -210,41 +210,38 @@ export default function HomePage() {
             ))}
           </div>
 
-          <Button 
-            className="w-full py-8 text-2xl font-black uppercase tracking-widest bg-green-600 text-white hover:bg-green-700 shadow-lg active:scale-95 transition-all"
-          >
+          <Button className="w-full py-8 text-2xl font-black uppercase tracking-widest bg-green-600 text-white hover:bg-green-700 shadow-lg active:scale-95 transition-all">
             Claim It!
           </Button>
         </section>
 
-        {/* WHY CHOOSE JBIRD (MATCHING SCREENSHOT) */}
+        {/* WHY CHOOSE JBIRD (10-POINT GUARANTEE) */}
         <div className="w-full mt-10">
           <Card className="bg-white/50 border-2 border-[#1A1A1A]/10 shadow-none overflow-hidden">
             <CardContent className="p-0">
               <div className="p-4 text-center cursor-pointer" onClick={() => toggle('why')}>
-                <h3 className="text-lg font-black uppercase tracking-widest">Why Choose JBird?</h3>
+                <h3 className="text-lg font-black uppercase tracking-widest underline decoration-[#FFD700] decoration-4">Why Choose JBird?</h3>
                 <div className="flex items-center justify-center gap-2 text-xs font-bold opacity-50 mt-1">
                   {expanded === 'why' ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                 </div>
               </div>
               {expanded === 'why' && (
                 <div className="px-6 pb-6 text-left border-t border-black/10 pt-6 animate-in slide-in-from-top-2">
-                   <div className="space-y-4">
-                    <div className="flex gap-3">
-                      <ShieldCheck className="text-blue-600 shrink-0" size={24} />
-                      <p className="text-lg font-bold leading-tight">One-year warranty on all bikes sold.</p>
-                    </div>
-                    <div className="flex gap-3">
-                      <Star className="text-[#FFD700] shrink-0" size={24} />
-                      <p className="text-lg font-bold leading-tight">Curated for reliability, quality and ease of use.</p>
-                    </div>
-                    <div className="flex gap-3">
-                      <MapPin className="text-red-600 shrink-0" size={24} />
-                      <p className="text-lg font-bold leading-tight">Proudly serving the Greenway community.</p>
-                    </div>
-                    <p className="text-md font-bold italic leading-tight opacity-80 pt-4 border-t border-black/5">
-                      "Our principle is simple: we invite our customers to come and test our ebikes, and purchase only after being satisfied."
-                    </p>
+                   <p className="text-md font-black uppercase tracking-widest mb-4 text-center text-blue-700">Our 10-Point Quality Guarantee:</p>
+                   <div className="grid grid-cols-1 gap-3 mb-6">
+                    {[
+                      "Full Safety Inspection",
+                      "Brake Calibration",
+                      "Drivetrain Tuning",
+                      "Battery Street Test",
+                      "Test Ride Verified",
+                      "and more..."
+                    ].map((item, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <ShieldCheck className="text-blue-600 shrink-0" size={20} />
+                        <span className="text-lg font-bold leading-tight">{item}</span>
+                      </div>
+                    ))}
                   </div>
                   <ContactButton />
                 </div>
@@ -266,9 +263,7 @@ export default function HomePage() {
 
         {/* STICKY CONTACT */}
         <div className="w-full pt-8">
-          <Button 
-            className="w-full py-10 text-2xl font-black uppercase tracking-widest bg-[#1A1A1A] text-white hover:bg-black shadow-2xl group active:scale-[0.98] transition-all"
-          >
+          <Button className="w-full py-10 text-2xl font-black uppercase tracking-widest bg-[#1A1A1A] text-white hover:bg-black shadow-2xl group active:scale-[0.98] transition-all">
             Contact Us
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
