@@ -245,7 +245,7 @@ export default function HomePage() {
     loading="lazy" 
     referrerPolicy="no-referrer-when-downgrade"
   ></iframe>
-</section>     
+</section>
 
         {/* FOOTER */}
         <footer className="mt-16 pb-8 flex flex-col items-center">
