@@ -234,10 +234,10 @@ export default function HomePage() {
             Claim It!
           </Button>
         </section>
-{/* MAP SECTION - HARD-LOCKED TO JBIRD CID */}
+{/* MAP SECTION - LOCKED TO JBIRD BIKES PLACE ID */}
 <section className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1A1A1A]">
   <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6913.270890428102!2d-90.081822!3d29.961139!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713295800000!5m2!1sen!2sus" 
+    src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_KEY&q=place_id:ChIJQ52Ai_CvIIYRh3LWOMliaX0"
     className="w-full h-[350px]" 
     style={{ border: 0 }} 
     allowFullScreen={true} 
