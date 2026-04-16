@@ -33,10 +33,14 @@ export default function HomePage() {
       
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
-        {/* LOGO */}
-        <div className="w-24 h-24 bg-[#1A1A1A] rounded-full flex items-center justify-center mb-6 shadow-xl border-4 border-white/20">
-          <Bike size={48} className="text-[#FFD700]" />
-        </div>
+       {/* LOGO */}
+<div className="mb-6 flex justify-center">
+  <img 
+    src="/JBird Bikes Front.jpg" 
+    alt="JBird Bikes Logo" 
+    className="w-32 h-auto object-contain drop-shadow-xl" 
+  />
+</div>
 
         <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">
           JBird Bikes
