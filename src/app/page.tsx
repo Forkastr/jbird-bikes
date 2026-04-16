@@ -30,7 +30,7 @@ const BugakiFont = () => (
 );
 
 export default function HomePage() {
-
+  const [expanded, setExpanded] = useState<string | null>(null);
   const toggle = (id: string) => setExpanded(expanded === id ? null : id);
 
   const ContactButton = () => (
@@ -40,7 +40,7 @@ export default function HomePage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FEF9E7] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
+  <div className="min-h-screen bg-[#FEF9E7] text-[#1A1A1A] pb-24" style={{ fontFamily: 'Bugaki, sans-serif' }}>
       
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
