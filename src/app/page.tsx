@@ -6,47 +6,37 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Wrench, ShoppingCart, MapPin, Bike, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
+const GlobalStyles = () => (
+  <style dangerouslySetInnerHTML={{ __html: `
+    @font-face {
+      font-family: 'Bugaki';
+      src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
+      font-weight: normal; font-style: normal; font-display: swap;
+    }
+    
+    /* FORCE COLORS AND FONTS ON EVERYTHING */
+    html, body, #__next, .forced-jbird-bg {
+      background-color: #FEF9E7 !important;
+      font-family: 'Bugaki', sans-serif !important;
+      color: #1A1A1A !important;
+    }
+
+    /* THE TRADER JOE'S FIX */
+    .google-map-embed {
+      filter: saturate(1.2);
+      border: 4px solid #1A1A1A;
+      border-radius: 1.5rem;
+    }
+  `}} />
+);
+
 export default function HomePage() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const toggle = (id: string) => setExpanded(expanded === id ? null : id);
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        @font-face {
-          font-family: 'Bugaki';
-          src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
-          font-weight: normal; font-style: normal; font-display: swap;
-        }
-        /* THE NUCLEAR OPTION: This forces the color and font on everything */
-        html, body, #__next, .forced-brand-bg {
-          background-color: #FEF9E7 !important;
-          font-family: 'Bugaki', sans-serif !important;
-          color: #1A1A1A !important;
-        }
-        .map-container {
-          border: 4px solid #1A1A1A;
-          border-radius: 1.5rem;
-          overflow: hidden;
-          margin-top: 3rem;
-        }
-      `}} />
-
-      <div className="forced-brand-bg min-h-screen pb-24">
-        <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-          <div className="mb-8 w-full flex justify-center px-2">
-            <img src="/JBird Bikes Front.jpg" alt="JBird Bikes Front" className="w-full max-w-sm h-64 object-cover rounded-2xl shadow-2xl border-4 border-white/30" />
-          </div>
-
-          <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">JBird Bikes</h1>
-          <p className="text-xl font-medium italic mb-6 opacity-90 leading-tight">Sales & Service <br /> On the Lafitte Greenway</p>
-
-          <a href="tel:5045216997" className="mb-10 inline-block bg-[#1A1A1A] text-[#FFD700] px-8 py-4 rounded-xl shadow-lg transform active:scale-95 transition-transform">
-            <p className="text-xs font-black uppercase tracking-widest mb-1">Call / Text</p>
-            <p className="text-2xl font-black">(504) 521-6997</p>
-          </a>
-
-          <div className="space-y-6 w-full mb-12">
+    <div className="forced-jbird-bg min-h-screen pb-24">
+      <GlobalStyles />
             {/* SERVICE CARD */}
             <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
               <CardContent className="p-0">
@@ -115,10 +105,13 @@ export default function HomePage() {
 
           {/* THE TRADER JOE'S KILLER MAP */}
           <div className="map-container w-full">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6354673322!2d-90.088194!3d29.961139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713295800000!5m2!1sen!2sus" 
-              width="100%" height="300" style={{ border: 0 }} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade">
-            </iframe>
+           <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.6354!2d-90.088194!3d29.961139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713295800000!5m2!1sen!2sus" 
+  className="google-map-embed w-full h-[300px]" 
+  style={{ border: 0 }} 
+  allowFullScreen={true} 
+  loading="lazy"
+></iframe>
           </div>
 
           <footer className="mt-16 pb-8 flex flex-col items-center">
