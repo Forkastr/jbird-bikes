@@ -140,21 +140,19 @@ export default function HomePage() {
                 </div>
               </div>
               {expanded === 'nola' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <div className="bg-[#1A1A1A] text-white p-3 rounded mb-4 text-center">
-                    <p className="text-xs font-black uppercase tracking-widest opacity-70">Official Retailer</p>
-                    <p className="text-lg font-black uppercase text-[#FFD700]">NOLA eBike Incentive Program</p>
-                  </div>
-                  <ul className="space-y-3 mb-6 text-lg font-bold">
-                    <li>• Availability is Limited</li>
-                    <li>• Register Now for the Program</li>
-                    <li>• We Handle All the Paperwork</li>
-                  </ul>
-                  <Button className="w-full bg-[#1A1A1A] text-white font-bold uppercase py-5">Contact Us <ArrowRight className="ml-2" size={16} /></Button>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+               <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
+  <div className="bg-[#1A1A1A] text-white p-3 rounded mb-4 text-center">
+    <p className="text-xs font-black uppercase tracking-widest opacity-70">Official Retailer</p>
+    <p className="text-lg font-black uppercase text-[#FFD700]">NOLA eBike Incentive Program</p>
+  </div>
+  <ul className="space-y-3 mb-6 text-lg font-bold">
+    <li>• Get Up to $1,200 to Buy Your eBike!</li>
+    <li>• Availability is Limited — First Come, First Served</li>
+    <li>• Register Now for the City Program</li>
+    <li>• We Handle All the Paperwork for You</li>
+  </ul>
+  <Button className="w-full bg-[#1A1A1A] text-white font-bold uppercase py-5">Contact Us <ArrowRight className="ml-2" size={16} /></Button>
+</div>
 
         </div>
 
