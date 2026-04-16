@@ -152,7 +152,6 @@ export default function HomePage() {
     <li>• We Handle All the Paperwork for You</li>
   </ul>
   <Button className="w-full bg-[#1A1A1A] text-white font-bold uppercase py-5">Contact Us <ArrowRight className="ml-2" size={16} /></Button>
-</div>
 
         </div>
 
