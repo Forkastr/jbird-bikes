@@ -235,16 +235,17 @@ export default function HomePage() {
           </Button>
         </section>
 {/* MAP SECTION - JBIRD BIKES VERIFIED PIN */}
-<section className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1A1A1A]">
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.5746356070675!2d-90.0818274!3d29.9628864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713472000000!5m2!1sen!2sus"
-    className="w-full h-[350px]" 
-    style={{ border: 0 }} 
-    allowFullScreen={true} 
-    loading="lazy" 
-    referrerPolicy="no-referrer-when-downgrade"
-  ></iframe>
-</section>
+        <section className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1A1A1A]">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.5746356070675!2d-90.0818274!3d29.9628864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620af0f8b809d43%3A0x7d6c62c938d67287!2sJBird%20Bikes!5e0!3m2!1sen!2sus!4v1713472000000!5m2!1sen!2sus"
+            className="w-full h-[350px]" 
+            style={{ border: 0 }} 
+            allowFullScreen={true} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </section>
+
         {/* FOOTER */}
         <footer className="mt-16 pb-8 flex flex-col items-center">
           <div className="flex items-center gap-2 font-black text-xl mb-2">
@@ -255,7 +256,6 @@ export default function HomePage() {
             Directly on the Lafitte Greenway
           </p>
         </footer>
-
       </main>
     </div>
   );
