@@ -1,13 +1,22 @@
-{/* 1. Add this style block to load the custom font */}
-<style>{`
-  @font-face {
-    font-family: 'Bugaki';
-    src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-`}</style>
-  "use client";
+"use client";
+
+import React, { useState } from 'react';
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Wrench, ShoppingCart, Banknote, MapPin, Bike, ArrowRight, ChevronDown, ChevronUp, ShieldCheck } from "lucide-react";
+
+// Move the style block down here, after the imports
+const BugakiFont = () => (
+  <style dangerouslySetInnerHTML={{ __html: `
+    @font-face {
+      font-family: 'Bugaki';
+      src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  `}} />
+);
 
 import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
