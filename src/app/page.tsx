@@ -16,8 +16,6 @@ import {
   ShieldCheck,
   CheckCircle2 
 } from "lucide-react";
-
-// This loads Bugaki for the whole page
 const BugakiFont = () => (
   <style dangerouslySetInnerHTML={{ __html: `
     @font-face {
@@ -25,8 +23,21 @@ const BugakiFont = () => (
       src: url('https://fonts.cdnfonts.com/s/93123/Bugaki.woff') format('woff');
       font-weight: normal;
       font-style: normal;
+      font-display: swap;
+    }
+    
+    /* This forces the whole page to change */
+    body, html, #__next, .min-h-screen {
+      background-color: #FEF9E7 !important;
+      font-family: 'Bugaki', sans-serif !important;
+    }
+
+    /* Force the specific container yellow */
+    .bg-warm-yellow {
+      background-color: #FEF9E7 !important;
     }
   `}} />
+);
 );
 
 export default function HomePage() {
@@ -39,15 +50,10 @@ export default function HomePage() {
     </Button>
   );
 
-  return (
-    <div 
-      className="min-h-screen pb-24" 
-      style={{ 
-        backgroundColor: '#FEF9E7', 
-        color: '#1A1A1A',
-        fontFamily: 'Bugaki, sans-serif' 
-      }}
-    >
+ return (
+    <div className="min-h-screen pb-24 bg-warm-yellow">
+      <BugakiFont />
+      <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
       <BugakiFont />
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         {/* STORE IMAGE */}
