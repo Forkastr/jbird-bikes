@@ -43,7 +43,6 @@ return (
     >
       <BugakiFont />
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-      <div 
         className="min-h-screen pb-24" 
         style={{ 
           backgroundColor: '#FEF9E7', 
