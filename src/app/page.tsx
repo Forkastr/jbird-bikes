@@ -29,7 +29,7 @@ export default function HomePage() {
   );
 
   return (
-    <div className="min-h-screen bg-[#FFD700] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
+    <div className="min-h-screen bg-[#FFF8E1] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
       
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
         
