@@ -4,18 +4,8 @@ import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Wrench, 
-  ShoppingCart, 
-  Banknote, 
-  MapPin, 
-  Bike, 
-  ArrowRight, 
-  ChevronDown, 
-  ChevronUp, 
-  ShieldCheck,
-  CheckCircle2 
-} from "lucide-react";
+import { Wrench, ShoppingCart, Banknote, MapPin, Bike, ArrowRight, ChevronDown, ChevronUp, ShieldCheck, CheckCircle2 } from "lucide-react";
+
 const BugakiFont = () => (
   <style dangerouslySetInnerHTML={{ __html: `
     @font-face {
@@ -26,18 +16,11 @@ const BugakiFont = () => (
       font-display: swap;
     }
     
-    /* This forces the whole page to change */
-    body, html, #__next, .min-h-screen {
+    body, html, .min-h-screen {
       background-color: #FEF9E7 !important;
       font-family: 'Bugaki', sans-serif !important;
     }
-
-    /* Force the specific container yellow */
-    .bg-warm-yellow {
-      background-color: #FEF9E7 !important;
-    }
   `}} />
-);
 );
 
 export default function HomePage() {
@@ -50,13 +33,10 @@ export default function HomePage() {
     </Button>
   );
 
- return (
-    <div className="min-h-screen pb-24 bg-warm-yellow">
+  return (
+    <div className="min-h-screen pb-24">
       <BugakiFont />
       <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-      <BugakiFont />
-      <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
-        {/* STORE IMAGE */}
 <div className="mb-8 w-full flex justify-center px-2">
   <img 
     src="/JBird Bikes Front.jpg" 
