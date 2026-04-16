@@ -170,7 +170,7 @@ export default function HomePage() {
                   <div className="space-y-4 mb-6">
                     <div className="flex gap-3">
                       <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 text-sm">1</div>
-                      <p className="text-lg font-bold leading-tight">Availability is Limited — First Come, First Served.</p>
+                      <p className="text-lg font-bold leading-tight">Availability is Limited — Don't Miss Out.</p>
                     </div>
                     <div className="flex gap-3">
                       <div className="bg-[#1A1A1A] text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0 text-sm">2</div>
