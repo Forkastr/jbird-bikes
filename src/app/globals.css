@@ -1,6 +1,11 @@
-/* Updated color variables */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  --background: hsl(120, 100%, 50%); /* JBird Green */
-  --card: hsl(206, 100%, 38%); /* JBird Blue */
-  --card-foreground: white; /* For readability */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 120 100% 25%;
+  --primary-foreground: 210 40% 98%;
+  --radius: 0.5rem;
 }
