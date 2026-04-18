@@ -92,7 +92,10 @@ export default function Home() {
             <div>
                 <h2 class="text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
                 <p class="text-xl mb-8 leading-relaxed"><li>Flat Fee on All Repairs
-</li> </p>
+</li> <li>Single Repair: $65 + Parts
+</li></p><li>Flat Tire: $30 + Parts
+</li><li>Tune Tup: $95 + Parts if Needed
+</li>
                 <p class="font-bold text-gray-600 mb-4 italic">Free Diagnostic</p>
             </div>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
