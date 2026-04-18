@@ -2,7 +2,8 @@ export default function Home() {
   return (
     <div dangerouslySetInnerHTML={{ __html: `
       
-      <!-- JBird Bikes Homepage - Enhanced -->
+     web application/stitch/projects/5675435376661681681/screens/2a3c24f88c774a0b9026c5c042055956
+<!-- JBird Bikes Final Production Code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +63,7 @@ export default function Home() {
 </head>
 <body>
 
-    <!-- HEADER (Mirror of Footer) -->
+    <!-- HEADER -->
     <header class="bg-white border-b border-gray-200 py-6 px-8 flex flex-col items-center">
         <div class="flex justify-between items-center w-full max-w-7xl">
             <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
@@ -70,7 +71,7 @@ export default function Home() {
                 <p class="text-lg font-bold uppercase tracking-widest text-gray-500">Call / Text</p>
                 <a href="tel:5045216997" class="text-2xl font-black text-primary-blue hover:underline">(504) 521-6997</a>
             </div>
-            <div class="w-32"></div> <!-- Spacer for balance -->
+            <div class="w-12"></div>
         </div>
     </header>
 
@@ -164,7 +165,7 @@ export default function Home() {
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
 
-        <!-- NEW: Test-Ride Section -->
+        <!-- Test-Ride Section -->
         <div class="md:col-span-2 bg-accent-yellow p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-primary-green">
             <div class="text-center md:text-left">
                 <h2 class="text-5xl mb-4 text-primary-green">Test-Ride an eBike</h2>
@@ -217,7 +218,6 @@ export default function Home() {
 
 </body>
 </html>
-        
       
     ` }} />
   );
