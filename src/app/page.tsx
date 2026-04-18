@@ -1,21 +1,223 @@
 export default function Home() {
   return (
     <div dangerouslySetInnerHTML={{ __html: `
-     
-<!doctype html><html lang="en" dir="ltr"><head><base href="https://stitch.withgoogle.com/"><link rel="preconnect" href="//www.gstatic.com"><meta name="referrer" content="origin"><script nonce="ebBo2wcqlsDs1AZhYX8w_g">window['ppConfig'] = {productName: 'Nemo', deleteIsEnforced:  true , sealIsEnforced:  true , heartbeatRate:  0.5 , periodicReportingRateMillis:  60000.0 , disableAllReporting:  false };(function(){'use strict';function k(a){var b=0;return function(){return b<a.length?{done:!1,value:a[b++]}:{done:!0}}}function l(a){var b=typeof Symbol!="undefined"&&Symbol.iterator&&a[Symbol.iterator];if(b)return b.call(a);if(typeof a.length=="number")return{next:k(a)};throw Error(String(a)+" is not an iterable or ArrayLike");}var m=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,c){if(a==Array.prototype||a==Object.prototype)return a;a[b]=c.value;return a};
-function n(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var c=a[b];if(c&&c.Math==Math)return c}throw Error("Cannot find global object");}var p=n(this);function q(a,b){if(b)a:{var c=p;a=a.split(".");for(var d=0;d<a.length-1;d++){var e=a[d];if(!(e in c))break a;c=c[e]}a=a[a.length-1];d=c[a];b=b(d);b!=d&&b!=null&&m(c,a,{configurable:!0,writable:!0,value:b})}}
-q("Object.is",function(a){return a?a:function(b,c){return b===c?b!==0||1/b===1/c:b!==b&&c!==c}});q("Array.prototype.includes",function(a){return a?a:function(b,c){var d=this;d instanceof String&&(d=String(d));var e=d.length;c=c||0;for(c<0&&(c=Math.max(c+e,0));c<e;c++){var f=d[c];if(f===b||Object.is(f,b))return!0}return!1}});
-q("String.prototype.includes",function(a){return a?a:function(b,c){if(this==null)throw new TypeError("The 'this' value for String.prototype.includes must not be null or undefined");if(b instanceof RegExp)throw new TypeError("First argument to String.prototype.includes must not be a regular expression");return this.indexOf(b,c||0)!==-1}});function r(a,b,c){a("https://csp.withgoogle.com/csp/proto/"+encodeURIComponent(b),JSON.stringify(c))}function t(){var a;if((a=window.ppConfig)==null?0:a.disableAllReporting)return function(){};var b,c,d,e;return(e=(b=window)==null?void 0:(c=b.navigator)==null?void 0:(d=c.sendBeacon)==null?void 0:d.bind(navigator))!=null?e:u}function u(a,b){var c=new XMLHttpRequest;c.open("POST",a);c.send(b)}
-function v(){var a=(w=Object.prototype)==null?void 0:w.__lookupGetter__("__proto__"),b=x,c=y;return function(){var d=a.call(this),e,f,g,h;r(c,b,{type:"ACCESS_GET",origin:(f=window.location.origin)!=null?f:"unknown",report:{className:(g=d==null?void 0:(e=d.constructor)==null?void 0:e.name)!=null?g:"unknown",stackTrace:(h=Error().stack)!=null?h:"unknown"}});return d}}
-function z(){var a=(A=Object.prototype)==null?void 0:A.__lookupSetter__("__proto__"),b=x,c=y;return function(d){d=a.call(this,d);var e,f,g,h;r(c,b,{type:"ACCESS_SET",origin:(f=window.location.origin)!=null?f:"unknown",report:{className:(g=d==null?void 0:(e=d.constructor)==null?void 0:e.name)!=null?g:"unknown",stackTrace:(h=Error().stack)!=null?h:"unknown"}});return d}}function B(a,b){C(a.productName,b);setInterval(function(){C(a.productName,b)},a.periodicReportingRateMillis)}
-var D="constructor __defineGetter__ __defineSetter__ hasOwnProperty __lookupGetter__ __lookupSetter__ isPrototypeOf propertyIsEnumerable toString valueOf __proto__ toLocaleString x_ngfn_x".split(" "),E=D.concat,F=navigator.userAgent.match(/Firefox\/([0-9]+)\./),G=(!F||F.length<2?0:Number(F[1])<75)?["toSource"]:[],H;if(G instanceof Array)H=G;else{for(var I=l(G),J,K=[];!(J=I.next()).done;)K.push(J.value);H=K}var L=E.call(D,H),M=[];
-function C(a,b){for(var c=[],d=l(Object.getOwnPropertyNames(Object.prototype)),e=d.next();!e.done;e=d.next())e=e.value,L.includes(e)||M.includes(e)||c.push(e);e=Object.prototype;d=[];for(var f=0;f<c.length;f++){var g=c[f];d[f]={name:g,descriptor:Object.getOwnPropertyDescriptor(Object.prototype,g),type:typeof e[g]}}if(d.length!==0){c=l(d);for(e=c.next();!e.done;e=c.next())M.push(e.value.name);var h;r(b,a,{type:"SEAL",origin:(h=window.location.origin)!=null?h:"unknown",report:{blockers:d}})}};var N=Math.random(),O=t(),P=window.ppConfig;P&&(P.disableAllReporting||P.deleteIsEnforced&&P.sealIsEnforced||N<P.heartbeatRate&&r(O,P.productName,{origin:window.location.origin,type:"HEARTBEAT"}));var y=t(),Q=window.ppConfig;if(Q)if(Q.deleteIsEnforced)delete Object.prototype.__proto__;else if(!Q.disableAllReporting){var x=Q.productName;try{var w,A;Object.defineProperty(Object.prototype,"__proto__",{enumerable:!1,get:v(),set:z()})}catch(a){}}
-(function(){var a=t(),b=window.ppConfig;b&&(b.sealIsEnforced?Object.seal(Object.prototype):b.disableAllReporting||(document.readyState!=="loading"?B(b,a):document.addEventListener("DOMContentLoaded",function(){B(b,a)})))})();}).call(this);
-</script><link rel="canonical" href="https://stitch.withgoogle.com/preview/5675435376661681681"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="application-name" content="Stitch"><meta name="apple-mobile-web-app-title" content="Stitch"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="msapplication-tap-highlight" content="no"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Text:wght@400;500;700" nonce="uCcTNDbkIPwnT9X5NmYN_g"><link rel="preconnect" href="//app-companion-430619.appspot.com"><link rel="manifest" crossorigin="use-credentials" href="_/Nemo/manifest.json"><link rel="home" href="/?lfhs=2"><link rel="msapplication-starturl" href="/?lfhs=2"><link rel="icon" href="//www.gstatic.com/labs-code/favicon-16x16.png" sizes="16x16"><link rel="apple-touch-icon-precomposed" href="//www.gstatic.com/labs-code/favicon-16x16.png" sizes="16x16"><link rel="msapplication-square16x16logo" href="//www.gstatic.com/labs-code/favicon-16x16.png" sizes="16x16"><link rel="icon" href="//www.gstatic.com/labs-code/favicon-32x32.png" sizes="32x32"><link rel="apple-touch-icon-precomposed" href="//www.gstatic.com/labs-code/favicon-32x32.png" sizes="32x32"><link rel="msapplication-square32x32logo" href="//www.gstatic.com/labs-code/favicon-32x32.png" sizes="32x32"><link rel="icon" href="//www.gstatic.com/labs-code/favicon-48x48.png" sizes="48x48"><link rel="apple-touch-icon-precomposed" href="//www.gstatic.com/labs-code/favicon-48x48.png" sizes="48x48"><link rel="msapplication-square48x48logo" href="//www.gstatic.com/labs-code/favicon-48x48.png" sizes="48x48"><link rel="icon" href="//www.gstatic.com/labs-code/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon-precomposed" href="//www.gstatic.com/labs-code/favicon-192x192.png" sizes="192x192"><link rel="msapplication-square192x192logo" href="//www.gstatic.com/labs-code/favicon-192x192.png" sizes="192x192"><link rel="icon" href="//www.gstatic.com/labs-code/favicon-512x512.png" sizes="512x512"><link rel="apple-touch-icon-precomposed" href="//www.gstatic.com/labs-code/favicon-512x512.png" sizes="512x512"><link rel="msapplication-square512x512logo" href="//www.gstatic.com/labs-code/favicon-512x512.png" sizes="512x512"><link rel="preload" href="https://www.gstatic.com/_/mss/boq-pitchfork/_/js/k=boq-pitchfork.Nemo.en.qMwBXwqRgsA.2018.O/d=1/excm=_b/ed=1/dg=0/br=1/wt=2/ujg=1/rs=AFTLRifr0_nFZ5dmTMnWHYdhl2l8KEQ5dQ/ee=Pjplud:PoEs9b;QGR0gd:Mlhmy;ScI3Yc:e7Hzgb;YIZmRd:A1yn5d;cEt90b:ws9Tlc;dowIGb:ebZ3mb/dti=1/m=_b" as="script" nonce="ebBo2wcqlsDs1AZhYX8w_g"><link rel="preload" href="https://www.gstatic.com/_/mss/boq-pitchfork/_/js/k=boq-pitchfork.Nemo.en.qMwBXwqRgsA.2018.O/ck=boq-pitchfork.Nemo.BwN9NWtI7W0.L.B1.O/d=1/exm=_b/excm=_b/ed=1/br=1/wt=2/ujg=1/rs=AFTLRifSkobC4xVtOgB5NVH8RgwCPg_fow/ee=Pjplud:PoEs9b;QGR0gd:Mlhmy;ScI3Yc:e7Hzgb;YIZmRd:A1yn5d;cEt90b:ws9Tlc;dowIGb:ebZ3mb/dti=1/m=oxe1Cc" as="script" nonce="ebBo2wcqlsDs1AZhYX8w_g"><script data-id="_gd" nonce="ebBo2wcqlsDs1AZhYX8w_g">window.WIZ_global_data = {"ANdtfc":"https://accounts.google.com/SignOutOptions?continue\u003dhttps://stitch.withgoogle.com/preview/5675435376661681681?node-id%3D9085d686007248e3987b68ba33754159","AeXYXb":"https://accounts.google.com/ServiceLogin?hl\u003den\u0026authuser\u003d0\u0026continue\u003dhttps://stitch.withgoogle.com/preview/5675435376661681681?node-id%3D9085d686007248e3987b68ba33754159","AfY8Hf":false,"DpimGf":false,"EP1ykd":["/_/*","/accounts/*"],"FdrFJe":"-6869936853019299714","Fjvd2c":false,"HiPsbb":1,"I5EGtf":true,"Im6cmf":"/_/Nemo","LoQv7e":true,"MT7f9b":[],"MUE6Ne":"pitchfork-nemo-ui","QrtxK":"0","Rompu":false,"S06Grb":"103795932845600927110","S6lZl":89354086,"SNlM0e":"AK9kwlKdpZmZU4Q3mcJQUCcbrSF1:1776548325550","TSDtV":"%.@.[[null,[[45759959,null,true,null,null,null,\"znyHuc\"],[45753509,null,true,null,null,null,\"koS7oe\"],[45756006,null,true,null,null,null,\"zRZ0hb\"],[45738929,null,false,null,null,null,\"UZ6Fl\"],[45741062,null,true,null,null,null,\"TaCxKd\"],[45743223,null,true,null,null,null,\"m6GqHf\"],[45737106,null,true,null,null,null,\"eqjCrb\"],[45729720,null,true,null,null,null,\"vXM21c\"],[45739241,null,false,null,null,null,\"I9doIc\"],[45753945,null,true,null,null,null,\"o3QAKf\"],[45741063,null,false,null,null,null,\"jyE9ef\"],[45755994,null,true,null,null,null,\"FORbNc\"],[45770967,null,false,null,null,null,\"I2BKT\"],[45753594,null,false,null,null,null,\"ld2dob\"],[45778232,null,false,null,null,null,\"p8HC5\"],[45800002,null,null,null,\"gemini-2.5-flash-native-audio-preview-12-2025\",null,\"y8yIbe\"],[45800000,null,false,null,null,null,\"V0RMqe\"],[45759159,null,true,null,null,null,\"xOnUfd\"],[45694644,null,true,null,null,null,\"vFuQpe\"],[45740274,null,true,null,null,null,\"lG3nqe\"],[45741091,null,true,null,null,null,\"CV9Zlc\"],[45775046,null,false,null,null,null,\"iP8kKd\"],[45724214,null,true,null,null,null,\"h0cke\"],[45743450,null,true,null,null,null,\"Ny9AL\"],[45759715,null,true,null,null,null,\"yMAAne\"],[45733546,null,true,null,null,null,\"CpWUbe\"],[45720191,null,true,null,null,null,\"irL5fc\"],[45743448,null,false,null,null,null,\"vwQWDc\"],[45722869,null,false,null,null,null,\"MItzbb\"],[45746220,null,true,null,null,null,\"iW3Uxc\"],[45780000,null,false,null,null,null,\"tdTjoc\"],[45739237,null,true,null,null,null,\"Cjtg4\"],[45728512,null,true,null,null,null,\"EevKgd\"],[45766838,null,false,null,null,null,\"ibNXBf\"],[45759893,null,false,null,null,null,\"EWX5Q\"],[45734967,null,true,null,null,null,\"gEBC1e\"],[45751860,null,true,null,null,null,\"HpOL6c\"],[45775045,null,false,null,null,null,\"RbmHmd\"],[45763944,null,true,null,null,null,\"Sjkicd\"],[45722792,null,true,null,null,null,\"SlKPnd\"],[45759172,null,true,null,null,null,\"TJDysb\"],[45775431,null,false,null,null,null,\"jnw3mf\"],[45725597,null,false,null,null,null,\"NnxIHc\"],[45778697,null,false,null,null,null,\"LCsc5c\"],[45735752,null,true,null,null,null,\"qtEtvc\"],[45741061,null,false,null,null,null,\"jczEpe\"],[45759173,null,true,null,null,null,\"eIe17d\"],[45775484,null,false,null,null,null,\"WLjL4\"],[45737043,null,true,null,null,null,\"vn93Zb\"],[45758996,null,false,null,null,null,\"iiOqEd\"],[45777887,null,true,null,null,null,\"pYt1xf\"],[45733898,null,false,null,null,null,\"Al13qf\"],[45727938,null,true,null,null,null,\"DTgGrb\"],[45727937,null,true,null,null,null,\"yWrqEe\"],[45778308,null,false,null,null,null,\"g1s7Xc\"],[45737125,null,true,null,null,null,\"IQ5mSb\"],[45774245,null,false,null,null,null,\"gJaQCb\"],[45732756,null,false,null,null,null,\"xlLJN\"],[45749206,null,false,null,null,null,\"qsKaef\"],[45739242,null,true,null,null,null,\"GQZGae\"],[45759970,null,true,null,null,null,\"H8GJuc\"],[45733833,null,null,null,\"\",null,\"vMWIlb\"],[45720148,null,true,null,null,null,\"YmK1Xd\"],[45745919,null,false,null,null,null,\"ylt5z\"],[45775044,null,false,null,null,null,\"mxvXfb\"],[45748699,null,true,null,null,null,\"AQHZmf\"],[45743449,null,true,null,null,null,\"AQSk4b\"],[45722478,null,null,null,\"pro\",null,\"xE07Wb\"],[45765872,null,false,null,null,null,\"wtJBSd\"],[45765176,null,false,null,null,null,\"b8hKbd\"],[45756624,null,true,null,null,null,\"vKUEB\"],[45743884,null,true,null,null,null,\"YMnHbf\"],[45753834,null,true,null,null,null,\"LbbRj\"],[45741699,null,true,null,null,null,\"DXbYob\"],[45766839,null,false,null,null,null,\"SD0M5e\"],[45765345,null,true,null,null,null,\"PTquPc\"],[45732208,null,true,null,null,null,\"sJc3ge\"],[45739239,null,true,null,null,null,\"sg96Kb\"],[45741319,null,false,null,null,null,\"wETSsb\"],[45750269,null,true,null,null,null,\"RP6JNb\"],[45739238,null,true,null,null,null,\"y1rCw\"],[45758995,null,true,null,null,null,\"KSgl8c\"],[45753595,null,false,null,null,null,\"wnO21\"],[45719558,null,true,null,null,null,\"bqdwue\"],[45739240,null,false,null,null,null,\"U4JZdf\"],[45734058,null,true,null,null,null,\"JBskOd\"],[45705432,null,true,null,null,null,\"PL3Amf\"],[45731066,null,true,null,null,null,\"On8cZb\"],[45760513,null,false,null,null,null,\"vERFFd\"],[45738333,null,false,null,null,null,\"lRlUP\"],[45720192,null,true,null,null,null,\"PCA8td\"],[45756898,null,true,null,null,null,\"ap2pod\"],[45776279,null,false,null,null,null,\"gGgdKb\"],[45746186,null,true,null,null,null,\"xzhpcb\"],[45747657,null,true,null,null,null,\"o1M7Ye\"],[45759960,null,true,null,null,null,\"rNGcGc\"],[45765159,null,true,null,null,null,\"IPBUWe\"],[45760528,null,true,null,null,null,\"XoVPM\"],[45753384,null,false,null,null,null,\"Cf9ybc\"],[45800001,null,false,null,null,null,\"EFYdfd\"]],\"CAMSIB0Z8eCyNQqRkA0Gx54CBqy1BQaNLQa+GAaalAUG0gwG\"]]]","UUFaWc":"%.@.null,1000,2]","Vvafkd":false,"W3Yyqf":"103795932845600927110","WqTxgc":"https://accounts.google.com/AccountChooser?continue\u003dhttps://stitch.withgoogle.com/preview/5675435376661681681?node-id%3D9085d686007248e3987b68ba33754159\u0026hl\u003den","b5W2zf":"default_Nemo","c7zZhc":"AIzaSyB6mXqwKcLh98v7NNrQKdDo1ICzlrALKxA","cfb2h":"boq_pitchfork-nemo-ui_20260416.13_p0","eptZe":"/_/Nemo/","fPDxwd":[105739268],"gGcLoe":false,"hsFLT":"%.@.null,10,3]","iCzhFc":false,"mL6Y7b":true,"mXaIFf":true,"nQyAE":{},"oPEP7c":"info@endirectusa.com","p9hQne":"https://www.gstatic.com/_/boq-pitchfork/_/r/","qDCSke":"103795932845600927110","qwAQke":"Nemo","rtQCxc":300,"sLXzRb":"en","u4g7r":"%.@.null,1,3]","vJQk6":false,"xd8Uj":"https://docs.google.com/picker","xnI9P":false,"xwAfE":true,"y2FhP":"prod","yFnxrf":1957,"zChJod":"%.@.]"};</script><script nonce="ebBo2wcqlsDs1AZhYX8w_g">window["_F_toggles_default_Nemo"] = [0x702008, ];</script><script nonce="ebBo2wcqlsDs1AZhYX8w_g"></script><script nonce="ebBo2wcqlsDs1AZhYX8w_g">var _F_cssRowKey = 'boq-pitchfork.Nemo.BwN9NWtI7W0.L.B1.O';var _F_combinedSignature = 'AFTLRifSkobC4xVtOgB5NVH8RgwCPg_fow';function _DumpException(e) {throw e;}</script><style data-href="https://www.gstatic.com/_/mss/boq-pitchfork/_/ss/k=boq-pitchfork.Nemo.BwN9NWtI7W0.L.B1.O/am=CCBw/d=1/ed=1/rs=AFTLRifW-H-TXdLyOkkk6FuGYO-8OcMFCA/m=_b" nonce="uCcTNDbkIPwnT9X5NmYN_g">.picker-api-container,.picker-iframe-container{height:100%;width:100%;position:relative}.picker-close-button{position:absolute;z-index:100;top:12px;right:14px;width:36px;height:36px;border-radius:18px;border-width:0;background-color:rgba(0,0,0,0)}.picker-close-button:hover{background-color:rgba(60,64,67,.04)}.picker-close-button:active{background-color:rgba(60,64,67,.12)}.picker-close-button-svg{fill:#616161}.content-library .picker-close-button-svg{color:var(--dt-on-neutral-container,rgb(60,64,67))}.content-library .picker-loading-container{position:absolute;height:100%;width:100%;background-color:var(--dt-surface-container,#fff);align-items:center;justify-content:space-evenly;display:none}.content-library.loading .picker-loading-container{display:flex;background-color:#f0f4f9}.content-library.loaded .picker-loading-container,.content-library.loading .picker-iframe-container,.content-library.loading-timed-out .picker-loading-container{display:none}.goog-modalpopup,.modal-dialog{box-shadow:0 4px 16px rgba(0,0,0,.2);background:#fff;background-clip:padding-box;border:1px solid #acacac;border:1px solid rgba(0,0,0,.333);outline:0;position:absolute}.goog-modalpopup-bg,.modal-dialog-bg{background:#fff;left:0;position:absolute;top:0}div.goog-modalpopup-bg,div.modal-dialog-bg{filter:alpha(opacity=75);opacity:.75}.modal-dialog{color:#000;padding:30px 42px}.modal-dialog-title{background-color:#fff;color:#000;cursor:default;font-size:16px;font-weight:400;line-height:24px;margin:0 0 16px}.modal-dialog-title-close{height:11px;opacity:.7;padding:17px;position:absolute;right:0;top:0;width:11px}.modal-dialog-title-close:after{content:"";background:url(https://ssl.gstatic.com/ui/v1/dialog/close-x.png);position:absolute;height:11px;width:11px;right:17px}.modal-dialog-title-close:hover{opacity:1}.modal-dialog-content{background-color:#fff;line-height:1.4em;word-wrap:break-word}.modal-dialog-buttons{margin-top:16px}.modal-dialog-buttons button{border-radius:2px;background-color:#f5f5f5;background-image:linear-gradient(top,#f5f5f5,#f1f1f1);border:1px solid #dcdcdc;border:1px solid rgba(0,0,0,.1);color:#444;cursor:default;font-family:inherit;font-size:11px;font-weight:700;height:29px;line-height:27px;margin:0 16px 0 0;min-width:72px;outline:0;padding:0 8px}.modal-dialog-buttons button:active,.modal-dialog-buttons button:hover{box-shadow:0 1px 1px rgba(0,0,0,.1);background-color:#f8f8f8;background-image:linear-gradient(top,#f8f8f8,#f1f1f1);border:1px solid #c6c6c6;color:#333}.modal-dialog-buttons button:active{box-shadow:inset 0 1px 2px rgba(0,0,0,.1)}.modal-dialog-buttons button:focus{border:1px solid #4d90fe}.modal-dialog-buttons button[disabled]{box-shadow:none;background:#fff;background-image:none;border:1px solid #f3f3f3;border:1px solid rgba(0,0,0,.05);color:#b8b8b8}.modal-dialog-buttons .goog-buttonset-action{background-color:#4d90fe;background-image:linear-gradient(top,#4d90fe,#4787ed);border:1px solid #3079ed;color:#fff}.modal-dialog-buttons .goog-buttonset-action:active,.modal-dialog-buttons .goog-buttonset-action:hover{background-color:#357ae8;background-image:linear-gradient(180deg,#4d90fe,#357ae8);border:1px solid #2f5bb7;color:#fff}.modal-dialog-buttons .goog-buttonset-action:active{box-shadow:inset 0 1px 2px rgba(0,0,0,.3)}.modal-dialog-buttons .goog-buttonset-action:focus{box-shadow:inset 0 0 0 1px #fff;border:1px solid #fff;border:1px solid rgba(0,0,0,0);outline:1px solid #4d90fe;outline:0 rgba(0,0,0,0)}.modal-dialog-buttons .goog-buttonset-action[disabled]{box-shadow:none;background:#4d90fe;color:#fff;filter:alpha(opacity=50);opacity:.5}.jfk-alert,.jfk-confirm,.jfk-prompt{width:512px}.google-picker.modal-dialog{background-color:var(--dt-background,#fff);border:none;padding:0;transition:top .5s ease-in-out;z-index:1004;border-radius:8px;box-shadow:0 4px 8px 3px rgba(60,64,67,.15),0 1px 3px rgba(60,64,67,.3);overflow:hidden;right:auto;bottom:auto}.google-picker.modal-dialog .picker-close-button{top:20px;right:18px}.google-picker.modal-dialog-bg{background-color:var(--dt-scrim,rgba(32,33,36,.6));z-index:1003;border:none;bottom:auto;right:auto}.google-picker.transparent-picker.modal-dialog{background-color:transparent;border:none;box-shadow:none;padding:0}.google-picker.transparent-picker.modal-dialog-content{background-color:transparent}html{-webkit-font-smoothing:antialiased;background:#191a1f;font-size:13px;overscroll-behavior:none}:root{--ogb-height:48px;--ogb-z-index:100}body{box-sizing:border-box;color:#fff;font-family:Google Sans;height:100svh;height:100vh;height:100dvh;line-height:1.35;margin:0;overscroll-behavior:none}sentinel{}</style><style data-font-stylesheet nonce="uCcTNDbkIPwnT9X5NmYN_g">@font-face{font-family:'Google Material Icons';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlematerialicons/v144/Gw6kwdfw6UnXLJCcmafZyFRXb3BL9rvi0QZG3Q.woff2)format('woff2');}.google-material-icons{font-family:'Google Material Icons';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl1pynSEg.woff2)format('woff2');unicode-range:U+0308,U+0530-058F,U+2010,U+2024,U+25CC,U+FB13-FB17;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl3pynSEg.woff2)format('woff2');unicode-range:U+0951-0952,U+0964-0965,U+0980-09FE,U+1CD0,U+1CD2,U+1CD5-1CD6,U+1CD8,U+1CE1,U+1CEA,U+1CED,U+1CF2,U+1CF5-1CF7,U+200C-200D,U+20B9,U+25CC,U+A8F1;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlopynSEg.woff2)format('woff2');unicode-range:U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlhpynSEg.woff2)format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlkpynSEg.woff2)format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl0pynSEg.woff2)format('woff2');unicode-range:U+030E,U+1200-1399,U+2D80-2DDE,U+AB01-AB2E,U+1E7E0-1E7E6,U+1E7E8-1E7EB,U+1E7ED-1E7EE,U+1E7F0-1E7FE;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl6pynSEg.woff2)format('woff2');unicode-range:U+0589,U+10A0-10FF,U+1C90-1CBA,U+1CBD-1CBF,U+205A,U+2D00-2D2F,U+2E31;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlmpynSEg.woff2)format('woff2');unicode-range:U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl-pynSEg.woff2)format('woff2');unicode-range:U+0951-0952,U+0964-0965,U+0A80-0AFF,U+200C-200D,U+20B9,U+25CC,U+A830-A839;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlGpynSEg.woff2)format('woff2');unicode-range:U+0951-0952,U+0964-0965,U+0A01-0A76,U+200C-200D,U+20B9,U+25CC,U+262C,U+A830-A839;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlnpynSEg.woff2)format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlupynSEg.woff2)format('woff2');unicode-range:U+1780-17FF,U+19E0-19FF,U+200C-200D,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlspynSEg.woff2)format('woff2');unicode-range:U+0E81-0EDF,U+200C-200D,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl8pynSEg.woff2)format('woff2');unicode-range:U+0951-0952,U+0964-0965,U+0B01-0B77,U+1CDA,U+1CF2,U+200C-200D,U+20B9,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl4pynSEg.woff2)format('woff2');unicode-range:U+0964-0965,U+0D81-0DF4,U+1CF2,U+200C-200D,U+25CC,U+111E1-111F4;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlzpynSEg.woff2)format('woff2');unicode-range:U+0964-0965,U+0B82-0BFA,U+200C-200D,U+20B9,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJl5pynSEg.woff2)format('woff2');unicode-range:U+0951-0952,U+0964-0965,U+0C00-0C7F,U+1CDA,U+1CF2,U+200C-200D,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlxpynSEg.woff2)format('woff2');unicode-range:U+02D7,U+0303,U+0331,U+0E01-0E5B,U+200C-200D,U+25CC;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlqpynSEg.woff2)format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJlrpynSEg.woff2)format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}@font-face{font-family:'Google Sans';font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/googlesans/v58/4Ua_rENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iqcsih3SAyH6cAwhX9RFD48TE63OOYKtrwEIJllpyk.woff2)format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}</style><title>Stitch - Design with AI</title><meta property="og:title" content="Stitch - Design with AI"><meta name="twitter:title" content="Stitch - Design with AI"><meta name="google-site-verification" content="QSfwUKTF_y1yMtJ8dPHEAoK608yBT7CGaOQ9FkwtuEE"/><meta name="description" content="Stitch generates UIs for mobile and web applications, making design ideation fast and easy."><meta property="og:description" content="Stitch generates UIs for mobile and web applications, making design ideation fast and easy."><meta name="twitter:description" content="Stitch generates UIs for mobile and web applications, making design ideation fast and easy."><meta name="keywords" content="stitch, AI, design, generate, mobile, web"><meta property="og:type" content="website"><meta property="og:url" content="https://stitch.withgoogle.com"><meta property="og:site_name" content="Stitch"><meta property="og:image" content="https://app-companion-430619.appspot.com/static/og.png"><meta property="og:image:alt" content="Stitch wordmark, Stitch (Beta), on black background with particle wave"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@stitchbygoogle"><meta name="twitter:creator" content="@stitchbygoogle"><meta name="twitter:url" content="https://stitch.withgoogle.com"><meta name="twitter:image" content="https://app-companion-430619.appspot.com/static/og.png"><meta name="twitter:image:alt" content="Stitch wordmark, Stitch (Beta), on black background with particle wave">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1CD1CPGEYF" nonce="ebBo2wcqlsDs1AZhYX8w_g"></script>
-  <script nonce="ebBo2wcqlsDs1AZhYX8w_g">var AF_initDataKeys = []; var AF_dataServiceRequests = {}; var AF_initDataChunkQueue = []; var AF_initDataCallback; var AF_initDataInitializeCallback; if (AF_initDataInitializeCallback) {AF_initDataInitializeCallback(AF_initDataKeys, AF_initDataChunkQueue, AF_dataServiceRequests);}if (!AF_initDataCallback) {AF_initDataCallback = function(chunk) {AF_initDataChunkQueue.push(chunk);};}</script></head><appcompanion-root></appcompanion-root><script src="https://www.gstatic.com/_/mss/boq-pitchfork/_/js/k=boq-pitchfork.Nemo.en.qMwBXwqRgsA.2018.O/d=1/excm=_b/ed=1/dg=0/br=1/wt=2/ujg=1/rs=AFTLRifr0_nFZ5dmTMnWHYdhl2l8KEQ5dQ/ee=Pjplud:PoEs9b;QGR0gd:Mlhmy;ScI3Yc:e7Hzgb;YIZmRd:A1yn5d;cEt90b:ws9Tlc;dowIGb:ebZ3mb/dti=1/m=_b" id="base-js" nonce="ebBo2wcqlsDs1AZhYX8w_g"></script></body></html> 
-  
-      ` }} />
+      
+     <!-- JBird Bikes Homepage - Enhanced -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBird Bikes - Sales & Service On the Lafitte Greenway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #008000;
+            --primary-blue: #3064c7;
+            --neutral-gray: #E0E1DD;
+            --accent-yellow: #FFD700;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .bg-primary-green { background-color: var(--primary-green); }
+        .text-primary-green { color: var(--primary-green); }
+        .bg-primary-blue { background-color: var(--primary-blue); }
+        .bg-neutral-gray { background-color: var(--neutral-gray); }
+        .bg-accent-yellow { background-color: var(--accent-yellow); }
+        .text-accent-yellow { color: var(--accent-yellow); }
+        
+        .btn-contact {
+            background-color: var(--accent-yellow);
+            color: var(--primary-green);
+            font-weight: 900;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item:hover .accordion-content {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (Mirror of Footer) -->
+    <header class="bg-white border-b border-gray-200 py-6 px-8 flex flex-col items-center">
+        <div class="flex justify-between items-center w-full max-w-7xl">
+            <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
+            <div class="text-center">
+                <p class="text-lg font-bold uppercase tracking-widest text-gray-500">Call / Text</p>
+                <a href="tel:5045216997" class="text-2xl font-black text-primary-blue hover:underline">(504) 521-6997</a>
+            </div>
+            <div class="w-32"></div> <!-- Spacer for balance -->
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden bg-black">
+        <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?q=80&w=2070&auto=format&fit=crop" alt="Bike Shop Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="relative z-10 max-w-4xl">
+            <h1 class="text-7xl md:text-9xl text-accent-yellow mb-4 italic leading-tight">JBird Bikes</h1>
+            <p class="text-3xl md:text-4xl text-accent-yellow font-bold mb-12 uppercase tracking-wide">Sales & Service<br>On the Lafitte Greenway</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact text-2xl px-12 py-6">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- CORE OFFERINGS -->
+    <main class="max-w-7xl mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Repair & Maintenance -->
+        <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
+                <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a high-performance carbon road bike, our expert technicians provide surgical-level precision to keep you rolling.</p>
+                <p class="font-bold text-gray-600 mb-4 italic">Free Diagnostic</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
+
+        <!-- Quality eBike Sales -->
+        <div class="bg-primary-blue p-10 rounded-3xl text-white flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6">Quality eBikes Sales<br>Affordable Prices</h2>
+                <p class="text-xl mb-8 leading-relaxed">Engineered for NOLA streets. Durable, stylish, and powerful. Affordable quality without the compromise.</p>
+                
+                <div class="accordion-item border-t border-blue-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">See Features</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 opacity-90">
+                        <li>Financing Available</li>
+                        <li>Ready to Ride</li>
+                        <li>Our Exclusive JBird Build</li>
+                        <li>UL Listed</li>
+                        <li>Many Extra Features Included</li>
+                        <li>Professional Service & Maintenance</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
+
+        <!-- Buy Online - We Build It -->
+        <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6 text-primary-green">Buy Online – We Build It</h2>
+                <p class="text-xl mb-8 leading-relaxed">Don't struggle with a box in your living room. Order online and pick it up professionally assembled and safety-checked.</p>
+                
+                <div class="accordion-item border-t border-gray-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">Get Details</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Full Assembly: $135</li>
+                        <li>Professional Assembly</li>
+                        <li>Extra Features Included</li>
+                        <li>Full Safety Inspection</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
+
+        <!-- NOLA eBike Incentive -->
+        <div class="bg-primary-green p-10 rounded-3xl text-white flex flex-col justify-between relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-4xl mb-6">NOLA eBike Incentive</h2>
+                <p class="text-5xl font-black mb-8">Get up to $1,200 to buy an eBike</p>
+                
+                <div class="accordion-item border-t border-green-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">View Details</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 opacity-90">
+                        <li>Availability is Limited</li>
+                        <li>Get Your Application In</li>
+                        <li>We Handle All the Paperwork for You</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
+
+        <!-- NEW: Test-Ride Section -->
+        <div class="md:col-span-2 bg-accent-yellow p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-primary-green">
+            <div class="text-center md:text-left">
+                <h2 class="text-5xl mb-4 text-primary-green">Test-Ride an eBike</h2>
+                <p class="text-3xl font-bold text-primary-blue mb-2 italic">Get a 20-dollar Voucher</p>
+                <p class="text-xl font-bold uppercase tracking-widest text-primary-green opacity-70">Limited Time Offer</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact bg-primary-green text-accent-yellow text-3xl px-12 py-8 hover:bg-green-800">Contact Us</a>
+        </div>
+
+    </main>
+
+    <!-- VISIT US SECTION (Map) -->
+    <section class="bg-white py-20 px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl text-center mb-16 text-primary-green">Visit Us On The Greenway</h2>
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-neutral-gray">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776541031107!5m2!1sen!2sus" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-neutral-gray py-20 px-8 border-t border-gray-300 flex flex-col items-center text-center">
+        <div class="max-w-7xl w-full">
+            <div class="text-6xl font-black italic tracking-tighter text-primary-green mb-10">JBird Bikes</div>
+            
+            <div class="mb-12">
+                <p class="text-3xl font-bold uppercase tracking-widest text-gray-500 mb-2">Call / Text</p>
+                <a href="tel:5045216997" class="text-5xl font-black text-primary-blue hover:underline">(504) 521-6997</a>
+            </div>
+
+            <div class="flex justify-center gap-10 mb-16">
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="w-12 h-12"></a>
+            </div>
+
+            <div class="space-y-4 text-gray-600 font-bold">
+                <p class="text-2xl">On the Lafitte Greenway, New Orleans</p>
+                <div class="flex justify-center gap-8 text-lg uppercase tracking-widest mt-8">
+                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Privacy Policy</a>
+                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Terms</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="text-primary-green hover:underline">Contact Us</a>
+                </div>
+                <p class="text-sm mt-12 opacity-50">&copy; 2026 JBird Bikes. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+      
+    ` }} />
   );
 }
