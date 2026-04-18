@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div dangerouslySetInnerHTML={{ __html: `
 
-     <!-- JBird Bikes Final Production Code -->
+<!-- JBird Bikes Final Production Code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +10,7 @@ export default function Home() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBird Bikes - Sales & Service On the Lafitte Greenway</title>
     <script src="https://cdn.tailwindcss.com"></script>
-   <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;0,900;1,900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-green: #008000;
@@ -18,18 +18,16 @@ export default function Home() {
             --neutral-gray: #E0E1DD;
             --accent-yellow: #FFD700;
         }
-     body {
-  font-family: 'Space Grotesk', sans-serif;
-  background-color: #191a1f;
-  color: white;
-}
-h1, h2, h3 {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-}
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
         .bg-primary-green { background-color: var(--primary-green); }
         .text-primary-green { color: var(--primary-green); }
         .bg-primary-blue { background-color: var(--primary-blue); }
@@ -93,12 +91,8 @@ h1, h2, h3 {
         <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
             <div>
                 <h2 class="text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
-                <p class="text-xl mb-8 leading-relaxed"><li>Flat Fee on All Repairs
-</li> <li>Single Repair: $65 + Parts
-</li></p><li>Flat Tire: $30 + Parts
-</li><li>Tune Tup: $95 + Parts if Needed
-</li>
-                <p class="font-bold text-gray-600 mb-4 italic">Free Diagnostic</p>
+                <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a stubborn eBike with issues, our expert technicians provide surgical-level precision to keep you rolling.</p>
+                <p class="font-bold text-gray-900 mb-4 italic">Free Diagnostic</p>
             </div>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
