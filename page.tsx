@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, ShoppingCart, Banknote, MapPin, Bike, ArrowRight, ChevronDown, ChevronUp, ShieldCheck } from "lucide-react";
+import { Wrench, ShoppingCart, MapPin, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function HomePage() {
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -21,15 +21,12 @@ export default function HomePage() {
         <div className="mb-8 w-full flex justify-center px-2">
           <img src="/JBird Bikes Front.jpg" alt="JBird Bikes Front" className="w-full max-w-sm h-64 object-cover rounded-2xl shadow-2xl border-4 border-black/5" />
         </div>
-
         <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">JBird Bikes</h1>
         <p className="text-xl font-medium italic mb-6 opacity-60 leading-tight">Sales & Service <br /> On the Lafitte Greenway</p>
-
         <a href="tel:5045216997" className="mb-10 inline-block bg-black text-white px-8 py-4 rounded-xl shadow-lg transform active:scale-95 transition-transform">
           <p className="text-xs font-black uppercase tracking-widest mb-1 opacity-70">Call / Text</p>
           <p className="text-2xl font-black">(504) 521-6997</p>
         </a>
-
         <div className="space-y-6 w-full mb-12">
           {[
             { id: 'service', icon: Wrench, title: 'Repairs & Maintenance', sub: 'Free Diagnostic', details: 'We Repair All Bicycles.' },
@@ -55,7 +52,6 @@ export default function HomePage() {
             </Card>
           ))}
         </div>
-
         <footer className="mt-16 pb-8 flex flex-col items-center opacity-40">
           <div className="flex items-center gap-2 font-black text-xl mb-2"><MapPin size={24} /> <span>2336 St. Louis Street</span></div>
           <p className="text-sm font-bold uppercase tracking-widest">Directly on the Lafitte Greenway</p>
