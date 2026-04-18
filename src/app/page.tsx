@@ -1,262 +1,224 @@
-"use client";
-
-import React, { useState } from 'react';
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Wrench, 
-  ShoppingCart, 
-  Banknote, 
-  MapPin, 
-  Bike, 
-  ArrowRight, 
-  ChevronDown, 
-  ChevronUp,
-  ShieldCheck,
-  CheckCircle2
-} from "lucide-react";
-
-export default function HomePage() {
-  const [expanded, setExpanded] = useState<string | null>(null);
-
-  const toggle = (id: string) => setExpanded(expanded === id ? null : id);
-
-  const ContactButton = () => (
-    <Button className="w-full mt-6 bg-[#1A1A1A] text-white font-black uppercase tracking-widest text-sm py-6 hover:bg-black shadow-md">
-      Contact Us <ArrowRight className="ml-2" size={16} />
-    </Button>
-  );
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFF8E1] text-[#1A1A1A] font-sans selection:bg-[#1A1A1A] selection:text-[#FFD700] pb-24">
+    <div dangerouslySetInnerHTML={{ __html: `
       
-      <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
+      <!-- JBird Bikes Homepage - Enhanced -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBird Bikes - Sales & Service On the Lafitte Greenway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #008000;
+            --primary-blue: #3064c7;
+            --neutral-gray: #E0E1DD;
+            --accent-yellow: #FFD700;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f8f9fa;
+            color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            font-family: 'Epilogue', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .bg-primary-green { background-color: var(--primary-green); }
+        .text-primary-green { color: var(--primary-green); }
+        .bg-primary-blue { background-color: var(--primary-blue); }
+        .bg-neutral-gray { background-color: var(--neutral-gray); }
+        .bg-accent-yellow { background-color: var(--accent-yellow); }
+        .text-accent-yellow { color: var(--accent-yellow); }
         
-      {/* STORE IMAGE */}
-<div className="mb-8 w-full flex justify-center px-2">
-  <img 
-    src="/JBird Bikes Front.jpg" 
-    alt="JBird Bikes Front" 
-    className="w-full max-w-sm h-64 object-cover rounded-2xl shadow-2xl border-4 border-white/30" 
-  />
-</div>
+        .btn-contact {
+            background-color: var(--accent-yellow);
+            color: var(--primary-green);
+            font-weight: 900;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-transform: uppercase;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-item:hover .accordion-content {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body>
 
-        <h1 className="text-4xl font-black uppercase tracking-tighter mb-2 leading-none">
-          JBird Bikes
-        </h1>
+    <!-- HEADER (Mirror of Footer) -->
+    <header class="bg-white border-b border-gray-200 py-6 px-8 flex flex-col items-center">
+        <div class="flex justify-between items-center w-full max-w-7xl">
+            <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
+            <div class="text-center">
+                <p class="text-lg font-bold uppercase tracking-widest text-gray-500">Call / Text</p>
+                <a href="tel:5045216997" class="text-2xl font-black text-primary-blue hover:underline">(504) 521-6997</a>
+            </div>
+            <div class="w-32"></div> <!-- Spacer for balance -->
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden bg-black">
+        <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?q=80&w=2070&auto=format&fit=crop" alt="Bike Shop Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="relative z-10 max-w-4xl">
+            <h1 class="text-7xl md:text-9xl text-accent-yellow mb-4 italic leading-tight">JBird Bikes</h1>
+            <p class="text-3xl md:text-4xl text-accent-yellow font-bold mb-12 uppercase tracking-wide">Sales & Service<br>On the Lafitte Greenway</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact text-2xl px-12 py-6">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- CORE OFFERINGS -->
+    <main class="max-w-7xl mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
         
-        <p className="text-xl font-medium italic mb-6 opacity-90 leading-tight">
-  Sales & Service <br /> 
-  On the Lafitte Greenway 
-</p>
-
-{/* PHONE BOX */}
-<a 
-  href="tel:5045216997" 
-  className="mb-10 inline-block bg-[#1A1A1A] text-[#FFD700] px-8 py-4 rounded-xl shadow-lg transform active:scale-95 transition-transform"
->
-  <p className="text-xs font-black uppercase tracking-widest mb-1">Call / Text</p>
-  <p className="text-2xl font-black">(504) 521-6997</p>
-</a>
-
-        <div className="space-y-6 w-full mb-12">
-          
-          {/* 1. REPAIRS & MAINTENANCE */}
-          <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
-            <CardContent className="p-0">
-              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('service')}>
-                <Wrench className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
-                <h2 className="text-2xl font-black uppercase tracking-tight mb-1">Repairs & Maintenance</h2>
-                <p className="text-lg font-bold text-green-700 mb-2">Free Diagnostic</p>
-                <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60">
-                  <span>View Rates</span>
-                  {expanded === 'service' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
-              </div>
-              {expanded === 'service' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <p className="text-xl font-black mb-4 leading-tight">
-  We Repair & Maintain <br /> 
-  <span className="text-blue-700">All Bicycles and eBikes.</span>
-</p>
-                  <div className="space-y-3 mb-4 text-lg">
-                    <div className="flex justify-between items-center border-b border-black/5 pb-2">
-                      <span className="font-bold">Single Repair</span>
-                      <span className="font-black">$65 + parts</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-black/5 pb-2">
-                      <span className="font-bold">Flat Tire</span>
-                      <span className="font-black">$30 + parts</span>
-                    </div>
-                    <div className="flex justify-between items-center border-b border-black/5 pb-2">
-                      <span className="font-bold">Full Tune-Up</span>
-                      <span className="font-black">$95</span>
-                      <span className="font-bold">Other Services Available</span>
-                    </div>
-                  </div>
-                  <ContactButton />
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* 2. QUALITY EBIKES */}
-          <Card className="bg-white/95 border-none shadow-lg overflow-hidden">
-            <CardContent className="p-0">
-              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('sales')}>
-                <ShoppingCart className="mx-auto mb-3 text-[#1A1A1A]" size={32} />
-                <h2 className="text-2xl font-black uppercase tracking-tight mb-1 leading-tight">
-  Quality eBikes <br /> 
-  Affordable Prices
-</h2>
-<p className="text-lg font-bold text-green-700 mb-2">Starting at $350</p>
-                <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60">
-                  <span>See Features</span>
-                  {expanded === 'sales' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
-              </div>
-              {expanded === 'sales' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <ul className="space-y-3 mb-4 text-lg font-bold leading-tight">
-                    <li>Financing Available</li>
-                    <li>Ready to Ride</li>
-                    <li>Our Exclusive JBird Build</li>
-                    <li>UL Listed</li>
-                    <li>Many Extra Features Included</li>
-                    <li>Professional Service & Maintenance</li>
-                  </ul>
-                  <ContactButton />
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* 3. ASSEMBLY CARD */}
-          <Card className="bg-[#1A1A1A] text-white border-none shadow-lg overflow-hidden">
-            <CardContent className="p-0">
-              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('assembly')}>
-              <h2 className="text-xl font-black uppercase mb-1 text-[#FFD700]">Buy an eBike Online?</h2>
-<p className="text-lg font-bold leading-tight">Make Sure It’s Safe to Ride!</p>  
-                <div className="flex items-center justify-center gap-2 text-sm font-bold text-[#FFD700] mt-2">
-                  <span>Get Details</span>
-                  {expanded === 'assembly' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
-              </div>
-              {expanded === 'assembly' && (
-                <div className="px-6 pb-6 text-left border-t border-white/10 pt-6">
-                  <p className="text-xl font-black mb-4 text-[#FFD700]">Full Assembly: $135</p>
-                  <ul className="space-y-3 mb-6 text-lg font-bold">
-  <li>• Professional Assembly</li>
-  <li>• Extra Features Included</li>
-  <li>• Full Safety Inspection</li>
-</ul>
-                  <Button className="w-full bg-[#FFD700] text-[#1A1A1A] font-black uppercase py-5">Contact Us</Button>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
-          {/* 4. INCENTIVE CARD (FIXED TEXT) */}
-          <Card className="bg-white/95 border-4 border-[#1A1A1A] shadow-lg overflow-hidden">
-            <CardContent className="p-0">
-              <div className="p-6 text-center cursor-pointer" onClick={() => toggle('nola')}>
-                <Banknote className="mx-auto mb-3 text-green-600" size={32} />
-                <h2 className="text-2xl font-black uppercase tracking-tight mb-1 leading-none">Get Up to $1,200 <br />To Buy Your eBike!</h2>
-                <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-60 mt-3">
-                  <span>How to Apply</span>
-                  {expanded === 'nola' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </div>
-              </div>
-              {expanded === 'nola' && (
-                <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 animate-in slide-in-from-top-2">
-                  <div className="bg-[#1A1A1A] text-white p-3 rounded mb-4 text-center">
-                    <p className="text-xs font-black uppercase tracking-widest opacity-70">Official Retailer</p>
-                    <p className="text-xl font-black uppercase text-[#FFD700]">NOLA eBike Incentive Program</p>
-                  </div>
-                  <ul className="space-y-3 mb-6 text-lg font-bold">
-                    <li>Availability is Limited — First Come, First Served</li>
-                    <li>Register Now for the City Program</li>
-                    <li>We Handle All the Paperwork for You</li>
-                  </ul>
-                  <ContactButton />
-                </div>
-              )}
-            </CardContent>
-          </Card>
-
+        <!-- Repair & Maintenance -->
+        <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
+                <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a high-performance carbon road bike, our expert technicians provide surgical-level precision to keep you rolling.</p>
+                <p class="font-bold text-gray-600 mb-4 italic">Free Diagnostic</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
 
-        {/* WHY CHOOSE JBIRD (10-POINT GUARANTEE) */}
-        <div className="w-full mt-4">
-          <Card className="bg-white/50 border-2 border-[#1A1A1A]/10 shadow-none overflow-hidden">
-            <CardContent className="p-0">
-              <div className="p-4 cursor-pointer" onClick={() => toggle('why')}>
-                <h3 className="text-lg font-black uppercase tracking-widest">Why Choose JBird?</h3>
-                <div className="flex justify-center mt-1">
-                  {expanded === 'why' ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+        <!-- Quality eBike Sales -->
+        <div class="bg-primary-blue p-10 rounded-3xl text-white flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6">Quality eBikes Sales<br>Affordable Prices</h2>
+                <p class="text-xl mb-8 leading-relaxed">Engineered for NOLA streets. Durable, stylish, and powerful. Affordable quality without the compromise.</p>
+                
+                <div class="accordion-item border-t border-blue-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">See Features</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 opacity-90">
+                        <li>Financing Available</li>
+                        <li>Ready to Ride</li>
+                        <li>Our Exclusive JBird Build</li>
+                        <li>UL Listed</li>
+                        <li>Many Extra Features Included</li>
+                        <li>Professional Service & Maintenance</li>
+                    </ul>
                 </div>
-              </div>
-              {expanded === 'why' && (
-                <div className="px-6 pb-6 text-left border-t border-black/10 pt-6 animate-in slide-in-from-top-2">
-                  <p className="text-md font-black uppercase tracking-widest mb-4 text-center text-blue-700">Our 10-Point Quality Guarantee:</p>
-                  <ul className="grid grid-cols-1 gap-3 mb-6 text-lg font-bold">
-                    <li className="flex items-center gap-2"><ShieldCheck size={20} className="text-blue-600" /> Full Safety Inspection</li>
-                    <li className="flex items-center gap-2"><ShieldCheck size={20} className="text-blue-600" /> Brake Calibration</li>
-                    <li className="flex items-center gap-2"><ShieldCheck size={20} className="text-blue-600" /> Drivetrain Tuning</li>
-                    <li className="flex items-center gap-2"><ShieldCheck size={20} className="text-blue-600" /> Battery Street Test</li>
-                    <li className="flex items-center gap-2"><ShieldCheck size={20} className="text-blue-600" /> Test Ride Verified</li>
-                    <li className="flex items-center gap-2 opacity-60 italic">and more...</li>
-                  </ul>
-                  <ContactButton />
-                </div>
-              )}
-            </CardContent>
-          </Card>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
 
-        {/* TEST RIDE SECTION */}
-        <section className="w-full py-10 px-6 bg-white rounded-3xl shadow-xl text-center border-4 border-[#1A1A1A] mt-12">
-          <Badge className="bg-green-600 text-white mb-4 animate-pulse">Limited Time Offer</Badge>
-          <h2 className="text-3xl font-black uppercase mb-2 leading-tight">Test-Ride <br /> Get $20</h2>
-          <p className="text-sm font-bold opacity-70 mb-8 italic">Toward any service or accessory.</p>
-          <div className="grid grid-cols-2 gap-4 mb-8">
-            {["XPeak 2.0", "Alpine Fat Tire", "XPpedition", "Gotrax Ranger"].map((name, i) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="w-full aspect-square bg-slate-100 rounded-xl mb-2 flex items-center justify-center border border-black/5">
-                   <Bike className="opacity-20 text-[#1A1A1A]" size={40} />
+        <!-- Buy Online - We Build It -->
+        <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
+            <div>
+                <h2 class="text-4xl mb-6 text-primary-green">Buy Online – We Build It</h2>
+                <p class="text-xl mb-8 leading-relaxed">Don't struggle with a box in your living room. Order online and pick it up professionally assembled and safety-checked.</p>
+                
+                <div class="accordion-item border-t border-gray-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">Get Details</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Full Assembly: $135</li>
+                        <li>Professional Assembly</li>
+                        <li>Extra Features Included</li>
+                        <li>Full Safety Inspection</li>
+                    </ul>
                 </div>
-                <span className="text-[10px] font-black uppercase tracking-tighter leading-none">{name}</span>
-              </div>
-            ))}
-          </div>
-          <Button className="w-full py-8 text-2xl font-black uppercase bg-green-600 text-white shadow-lg active:scale-95 transition-all">
-            Claim It!
-          </Button>
-        </section>
-{/* MAP SECTION - JBIRD BIKES OFFICIAL EMBED */}
-        <section className="w-full mt-12 rounded-3xl overflow-hidden shadow-2xl border-4 border-[#1A1A1A]">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776371373927!5m2!1sen!2sus"
-            className="w-full h-[450px]" 
-            style={{ border: 0 }} 
-            allowFullScreen={true} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </section>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
 
-        {/* FOOTER */}
-        <footer className="mt-16 pb-8 flex flex-col items-center">
-          <div className="flex items-center gap-2 font-black text-xl mb-2">
-            <MapPin size={24} />
-            <span>2336 St. Louis Street</span>
-          </div>
-          <p className="text-[10px] font-black bg-[#1A1A1A] text-[#FFD700] px-4 py-1 rounded-full uppercase tracking-widest">
-            Directly on the Lafitte Greenway
-          </p>
-        </footer>
-      </main>
-    </div>
+        <!-- NOLA eBike Incentive -->
+        <div class="bg-primary-green p-10 rounded-3xl text-white flex flex-col justify-between relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-4xl mb-6">NOLA eBike Incentive</h2>
+                <p class="text-5xl font-black mb-8">Get up to $1,200 to buy an eBike</p>
+                
+                <div class="accordion-item border-t border-green-400 pt-4">
+                    <div class="flex justify-between items-center cursor-pointer mb-2">
+                        <span class="font-bold uppercase tracking-widest">View Details</span>
+                        <span>↓</span>
+                    </div>
+                    <ul class="accordion-content list-disc pl-5 space-y-2 opacity-90">
+                        <li>Availability is Limited</li>
+                        <li>Get Your Application In</li>
+                        <li>We Handle All the Paperwork for You</li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+        </div>
+
+        <!-- NEW: Test-Ride Section -->
+        <div class="md:col-span-2 bg-accent-yellow p-12 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 border-4 border-primary-green">
+            <div class="text-center md:text-left">
+                <h2 class="text-5xl mb-4 text-primary-green">Test-Ride an eBike</h2>
+                <p class="text-3xl font-bold text-primary-blue mb-2 italic">Get a 20-dollar Voucher</p>
+                <p class="text-xl font-bold uppercase tracking-widest text-primary-green opacity-70">Limited Time Offer</p>
+            </div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact bg-primary-green text-accent-yellow text-3xl px-12 py-8 hover:bg-green-800">Contact Us</a>
+        </div>
+
+    </main>
+
+    <!-- VISIT US SECTION (Map) -->
+    <section class="bg-white py-20 px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-6xl text-center mb-16 text-primary-green">Visit Us On The Greenway</h2>
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-neutral-gray">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776541031107!5m2!1sen!2sus" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-neutral-gray py-20 px-8 border-t border-gray-300 flex flex-col items-center text-center">
+        <div class="max-w-7xl w-full">
+            <div class="text-6xl font-black italic tracking-tighter text-primary-green mb-10">JBird Bikes</div>
+            
+            <div class="mb-12">
+                <p class="text-3xl font-bold uppercase tracking-widest text-gray-500 mb-2">Call / Text</p>
+                <a href="tel:5045216997" class="text-5xl font-black text-primary-blue hover:underline">(504) 521-6997</a>
+            </div>
+
+            <div class="flex justify-center gap-10 mb-16">
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="w-12 h-12"></a>
+                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="w-12 h-12"></a>
+            </div>
+
+            <div class="space-y-4 text-gray-600 font-bold">
+                <p class="text-2xl">On the Lafitte Greenway, New Orleans</p>
+                <div class="flex justify-center gap-8 text-lg uppercase tracking-widest mt-8">
+                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Privacy Policy</a>
+                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Terms</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="text-primary-green hover:underline">Contact Us</a>
+                </div>
+                <p class="text-sm mt-12 opacity-50">&copy; 2024 JBird Bikes. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+        
+      
+    ` }} />
   );
 }
