@@ -3,14 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
- --primary: 120 100% 25%;
-   --ring: 120 100% 25%;
-    --secondary: 219 61% 49%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+  /* This sets the main background to Green */
+  --background: 120 100% 25%; 
+  --foreground: 0 0% 100%;
+  
+  /* This sets the buttons/boxes to Blue */
+  --primary: 219 61% 49%;
+  --primary-foreground: 0 0% 100%;
+  
+  --card: 219 61% 49%;
+  --card-foreground: 0 0% 100%;
+  
+  --border: 219 61% 49%;
+  --input: 219 61% 49%;
+  --ring: 219 61% 49%;
   --radius: 0.5rem;
+}
+
+.dark {
+  --background: 120 100% 25%;
+  --foreground: 0 0% 100%;
+  --primary: 219 61% 49%;
 }
