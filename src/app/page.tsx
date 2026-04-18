@@ -10,7 +10,7 @@ export default function Home() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JBird Bikes - Sales & Service On the Lafitte Greenway</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,700;0,900;1,900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-green: #008000;
@@ -18,16 +18,18 @@ export default function Home() {
             --neutral-gray: #E0E1DD;
             --accent-yellow: #FFD700;
         }
-        body {
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: #f8f9fa;
-            color: #1a1a1a;
-        }
-        h1, h2, h3 {
-            font-family: 'Epilogue', sans-serif;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
+     body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #191a1f;
+  color: white;
+}
+h1, h2, h3 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -0.04em;
+}
         .bg-primary-green { background-color: var(--primary-green); }
         .text-primary-green { color: var(--primary-green); }
         .bg-primary-blue { background-color: var(--primary-blue); }
