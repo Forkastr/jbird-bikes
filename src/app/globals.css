@@ -3,33 +3,42 @@
 @tailwind utilities;
 
 :root {
-  /* Main Background - Green */
+  /* Main Page Background */
   --background: 120 100% 25%;
-  --foreground: 0 0% 0%;
+  --foreground: 0 0% 100%;
 
-  /* Boxes & Cards - Blue */
+  /* Every Possible "Box" or "Card" variable set to Blue */
   --card: 219 61% 49%;
-  --card-foreground: 255 255% 100%; /* White text inside blue boxes */
+  --card-foreground: 255 255% 100%;
+  
+  --popover: 219 61% 49%;
+  --popover-foreground: 255 255% 100%;
 
-  /* Buttons & Primary Accents - Blue */
   --primary: 219 61% 49%;
   --primary-foreground: 255 255% 100%;
 
-  --muted: 120 50% 20%;
-  --muted-foreground: 0 0% 0%;
+  --secondary: 219 61% 49%;
+  --secondary-foreground: 255 255% 100%;
+
+  --muted: 219 61% 49%;
+  --muted-foreground: 255 255% 100%;
 
   --accent: 219 61% 49%;
   --accent-foreground: 255 255% 100%;
 
-  --border: 0 0% 0%;
-  --input: 0 0% 0%;
+  /* Borders and UI */
+  --border: 0 0% 100%;
+  --input: 0 0% 100%;
   --ring: 219 61% 49%;
   --radius: 0.5rem;
 }
 
+/* Force Dark Mode to be the exact same */
 .dark {
   --background: 120 100% 25%;
-  --foreground: 0 0% 0%;
+  --foreground: 0 0% 100%;
   --card: 219 61% 49%;
   --primary: 219 61% 49%;
+  --secondary: 219 61% 49%;
+  --muted: 219 61% 49%;
 }
