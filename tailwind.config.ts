@@ -20,13 +20,13 @@ export default {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))'
         },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))'
+      primary: {
+          DEFAULT: "#008000",
+          foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))'
+          DEFAULT: "#3064C7",
+          foreground: "#FFFFFF",
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
