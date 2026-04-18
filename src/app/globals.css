@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  /* Main Page Background */
+  /* This is the Main Page Background (Green) */
   --background: 120 100% 25%;
   --foreground: 0 0% 100%;
 
-  /* Every Possible "Box" or "Card" variable set to Blue */
+  /* This turns all the "Section Boxes" and "Cards" Blue */
   --card: 219 61% 49%;
-  --card-foreground: 255 255% 100%;
+  --card-foreground: 0 0% 100%;
   
   --popover: 219 61% 49%;
-  --popover-foreground: 255 255% 100%;
+  --popover-foreground: 0 0% 100%;
 
-  --primary: 219 61% 49%;
-  --primary-foreground: 255 255% 100%;
-
+  /* Secondary & Muted are likely what those white boxes are using */
   --secondary: 219 61% 49%;
-  --secondary-foreground: 255 255% 100%;
+  --secondary-foreground: 0 0% 100%;
 
   --muted: 219 61% 49%;
-  --muted-foreground: 255 255% 100%;
+  --muted-foreground: 0 0% 100%;
 
   --accent: 219 61% 49%;
-  --accent-foreground: 255 255% 100%;
+  --accent-foreground: 0 0% 100%;
 
-  /* Borders and UI */
+  /* Primary Buttons (Blue) */
+  --primary: 219 61% 49%;
+  --primary-foreground: 0 0% 100%;
+
   --border: 0 0% 100%;
   --input: 0 0% 100%;
   --ring: 219 61% 49%;
   --radius: 0.5rem;
 }
 
-/* Force Dark Mode to be the exact same */
 .dark {
   --background: 120 100% 25%;
   --foreground: 0 0% 100%;
