@@ -90,7 +90,7 @@ export default function Home() {
         <!-- Repair & Maintenance -->
         <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
             <div>
-                <h2 class="text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
+                <h2 class="text-2xl md:text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
                 <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a stubborn eBike with issues, our expert technicians provide surgical-level precision to keep you rolling.</p>
                 <p class="font-bold text-gray-900 mb-4 italic">Free Diagnostic</p>
             </div>
