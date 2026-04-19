@@ -67,8 +67,8 @@ export default function Home() {
         <div class="flex justify-between items-center w-full max-w-7xl">
             <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
             <div class="text-center">
-                <p class="text-lg font-bold uppercase tracking-widest text-primary-green">Call / Text</p>
-                <a href="tel:5045216997" class="text-base md:text-2xl font-bold text-primary-blue underline whitespace-nowrap">(504) 521-6997</a>
+                <p class="text-sm md:text-xl font-bold uppercase tracking-widest text-gray-500">Call / Text</p>
+                <a href="tel:5045216997" class="text-base md:text-2xl font-bold underline whitespace-nowrap" style="color: #0000FF;">(504) 521-6997</a>
             </div>
             <div class="w-12"></div>
         </div>
@@ -183,7 +183,7 @@ export default function Home() {
                 <p class="text-xl md:text-3xl font-black mb-6">Get a 20-dollar Voucher</p>
                 <p class="text-xl font-bold uppercase tracking-widest text-primary-green opacity-70">Limited Time Offer</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact bg-primary-blue text-white self-start mt-8">Contact Us</a>
         </div>
 
     </main>
