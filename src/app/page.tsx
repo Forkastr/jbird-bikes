@@ -77,7 +77,7 @@ export default function Home() {
     <!-- HERO SECTION -->
    <section class="relative h-[80vh] w-full flex items-center justify-center text-center px-4 overflow-hidden bg-black">
     <div class="absolute inset-0 z-0">
-        <img src="/hero-bike.jpg" alt="JBird Bikes Hero" class="w-full h-full object-cover object-center opacity-60">
+        <img src="/hero-bike.png" alt="JBird Bikes Hero" class="w-full h-full object-cover object-center opacity-60">
     </div>
     <div class="relative z-10 max-w-4xl">
         <h1 class="text-5xl md:text-9xl italic mb-4" style="color: #FFD700;">JBird Bikes</h1>
