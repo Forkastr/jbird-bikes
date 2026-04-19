@@ -183,7 +183,7 @@ export default function Home() {
                 <p class="text-xl md:text-3xl font-black mb-6">Get a 20-dollar Voucher</p>
                 <p class="text-xl font-bold uppercase tracking-widest text-primary-green opacity-70">Limited Time Offer</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact bg-primary-blue text-white self-start mt-8">Contact Us</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8" style="background-color: #0000FF; color: #FFFFFF;">Contact Us</a>
         </div>
 
     </main>
@@ -205,7 +205,7 @@ export default function Home() {
             
             <div class="mb-12">
                <p class="text-xl font-bold uppercase tracking-widest text-gray-500 mb-2">Call / Text</p>
-               <a href="tel:5045216997" class="text-xl md:text-4xl mt-2 block font-bold text-primary-blue underline">(504) 521-6997</a>
+               <a href="tel:5045216997" class="text-xl md:text-4xl mt-2 block font-bold underline" style="color: #0000FF;">(504) 521-6997</a>
             </div>
 
            <div class="flex justify-center gap-10 mb-16">
