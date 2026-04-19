@@ -67,7 +67,7 @@ export default function Home() {
         <div class="flex justify-between items-center w-full max-w-7xl">
             <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
             <div class="text-center">
-                <p class="text-lg font-bold uppercase tracking-widest text-gray-500">Call / Text</p>
+                <p class="text-lg font-bold uppercase tracking-widest" style="color: #FFD700;">Call / Text</p>
                 <a href="tel:5045216997" class="text-lg md:text-2xl font-bold text-primary-green">(504) 521-6997</a>
             </div>
             <div class="w-12"></div>
@@ -79,7 +79,7 @@ export default function Home() {
         <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?q=80&w=2070&auto=format&fit=crop" alt="Bike Shop Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
         <div class="relative z-10 max-w-4xl">
             <h1 class="text-5xl md:text-9xl italic mb-4" style="color: #FFD700;">JBird Bikes</h1>
-            <p class="text-lg md:text-2xl font-bold mb-12 uppercase tracking-widest opacity-80">Sales & Service • On the Greenway</p>
+            <p class="text-base md:text-2xl font-bold mb-12 uppercase tracking-widest" style="color: #FFD700;">Sales & Service • On the Greenway</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact text-2xl px-12 py-6">Contact Us</a>
         </div>
     </section>
