@@ -68,7 +68,7 @@ export default function Home() {
             <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
             <div class="text-center">
                 <p class="text-lg font-bold uppercase tracking-widest text-primary-green">Call / Text</p>
-                <a href="tel:5045216997" class="text-lg md:text-2xl font-bold text-primary-blue underline">(504) 521-6997</a>
+                <a href="tel:5045216997" class="text-base md:text-2xl font-bold text-primary-blue underline whitespace-nowrap">(504) 521-6997</a>
             </div>
             <div class="w-12"></div>
         </div>
