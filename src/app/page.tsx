@@ -67,8 +67,8 @@ export default function Home() {
         <div class="flex justify-between items-center w-full max-w-7xl">
             <div class="text-3xl font-black italic tracking-tighter text-primary-green">JBird Bikes</div>
             <div class="text-center">
-                <p class="text-lg font-bold uppercase tracking-widest" style="color: #FFD700;">Call / Text</p>
-                <a href="tel:5045216997" class="text-lg md:text-2xl font-bold text-primary-green">(504) 521-6997</a>
+                <p class="text-lg font-bold uppercase tracking-widest text-primary-green">Call / Text</p>
+                <a href="tel:5045216997" class="text-lg md:text-2xl font-bold text-primary-blue underline">(504) 521-6997</a>
             </div>
             <div class="w-12"></div>
         </div>
@@ -79,7 +79,7 @@ export default function Home() {
         <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?q=80&w=2070&auto=format&fit=crop" alt="Bike Shop Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
         <div class="relative z-10 max-w-4xl">
             <h1 class="text-5xl md:text-9xl italic mb-4" style="color: #FFD700;">JBird Bikes</h1>
-            <p class="text-base md:text-2xl font-bold mb-12 uppercase tracking-widest" style="color: #FFD700;">Sales & Service • On the Greenway</p>
+            <p class="text-base md:text-2xl font-bold mb-12 uppercase tracking-widest" style="color: #FFD700;">Sales & Service<br>On the Greenway</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact text-2xl px-12 py-6">Contact Us</a>
         </div>
     </section>
@@ -93,8 +93,20 @@ export default function Home() {
                 <h2 class="text-2xl md:text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
                 <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a stubborn eBike with issues, our expert technicians provide surgical-level precision to keep you rolling.</p>
                 <p class="font-bold text-gray-900 mb-4 italic">Free Diagnostic</p>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
+<div class="accordion-item border-t border-gray-400 pt-4">
+    <div class="flex justify-between items-center cursor-pointer mb-2">
+        <span class="font-bold uppercase tracking-widest text-primary-green">View Rates</span>
+        <span class="text-primary-green">↓</span>
+    </div>
+    <ul class="accordion-content list-disc pl-5 space-y-2 text-gray-700">
+        <li>Single Repair: $65 + parts</li>
+        <li>Flat: $30 + parts</li>
+        <li>Full Tune-Up: $95</li>
+        <li>Other Services Available</li>
+    </ul>
+</div>
+</div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
 
         <!-- Quality eBike Sales -->
@@ -124,7 +136,7 @@ export default function Home() {
         <!-- Buy Online - We Build It -->
         <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
             <div>
-                <h2 class="text-2xl md:text-4xl mb-6 text-primary-green font-bold">Buy Online – We Build It</h2>
+                <h2 class="text-2xl md:text-4xl mb-6 text-primary-green font-bold">Buy Online<br>We Build It</h2>
                 <p class="text-xl mb-8 leading-relaxed">Don't struggle with a box in your living room. Order online and pick it up professionally assembled and safety-checked.</p>
                 
                 <div class="accordion-item border-t border-gray-400 pt-4">
@@ -147,7 +159,7 @@ export default function Home() {
         <div class="bg-primary-green p-10 rounded-3xl text-white flex flex-col justify-between relative overflow-hidden">
             <div class="relative z-10">
                 <h2 class="text-2xl md:text-4xl mb-6 font-bold">NOLA eBike Incentive</h2>
-                <p class="text-5xl font-black mb-8">Get up to $1,200 to buy an eBike</p>
+                <p class="text-3xl md:text-5xl font-black mb-8">Get up to $1,200 to buy an eBike</p>
                 
                 <div class="accordion-item border-t border-green-400 pt-4">
                     <div class="flex justify-between items-center cursor-pointer mb-2">
@@ -171,7 +183,7 @@ export default function Home() {
                 <p class="text-xl md:text-3xl font-black mb-6">Get a 20-dollar Voucher</p>
                 <p class="text-xl font-bold uppercase tracking-widest text-primary-green opacity-70">Limited Time Offer</p>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact bg-primary-green text-accent-yellow text-3xl px-12 py-8 hover:bg-green-800">Contact Us</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="btn-contact self-start mt-8">Contact Us</a>
         </div>
 
     </main>
@@ -181,7 +193,7 @@ export default function Home() {
         <div class="max-w-7xl mx-auto">
            <h2 class="text-3xl md:text-6xl text-center mb-16 text-primary-green font-bold">Visit Us On The Greenway</h2>
             <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-neutral-gray">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776541031107!5m2!1sen!2sus" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776541031107!5m2!1sen!2sus" width="100%" class="aspect-square" style="border:0; min-height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -189,27 +201,29 @@ export default function Home() {
     <!-- FOOTER -->
     <footer class="bg-neutral-gray py-20 px-8 border-t border-gray-300 flex flex-col items-center text-center">
         <div class="max-w-7xl w-full">
-            <div class="text-6xl font-black italic tracking-tighter text-primary-green mb-10">JBird Bikes</div>
+            <div class="text-4xl md:text-6xl font-black italic tracking-tighter text-primary-green mb-10">JBird Bikes</div>
             
             <div class="mb-12">
-                <p class="text-3xl font-bold uppercase tracking-widest text-gray-500 mb-2">Call / Text</p>
-                <a href="tel:5045216997" class="text-2xl md:text-4xl mt-2 block">(504) 521-6997</a>
+               <p class="text-xl font-bold uppercase tracking-widest text-gray-500 mb-2">Call / Text</p>
+               <a href="tel:5045216997" class="text-xl md:text-4xl mt-2 block font-bold text-primary-blue underline">(504) 521-6997</a>
             </div>
 
-            <div class="flex justify-center gap-10 mb-16">
-                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-12 h-12"></a>
-                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-12 h-12"></a>
-                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="w-12 h-12"></a>
-                <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="w-12 h-12"></a>
-            </div>
+           <div class="flex justify-center gap-10 mb-16">
+    <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="w-8 h-8 md:w-12 md:h-12"></a>
+    <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-8 h-8 md:w-12 md:h-12"></a>
+    <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="w-8 h-8 md:w-12 md:h-12"></a>
+    <a href="https://jbirdbikes.com/" class="opacity-70 hover:opacity-100 transition-opacity"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" class="w-8 h-8 md:w-12 md:h-12"></a>
+</div>
 
-            <div class="space-y-4 text-gray-600 font-bold">
-                <p class="text-2xl">On the Lafitte Greenway, New Orleans</p>
-                <div class="flex justify-center gap-8 text-lg uppercase tracking-widest mt-8">
-                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Privacy Policy</a>
-                    <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Terms</a>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="text-primary-green hover:underline">Contact Us</a>
-                </div>
+          <div class="space-y-4 text-gray-600 font-bold">
+    <p class="text-lg md:text-2xl">On the Lafitte Greenway, New Orleans</p>
+    <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-lg uppercase tracking-widest mt-8">
+        <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Privacy Policy</a>
+        <a href="https://jbirdbikes.com/" class="hover:text-primary-blue">Terms</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="text-primary-green hover:underline">Contact Us</a>
+    </div>
+    <p class="text-[10px] md:text-sm mt-12 opacity-50">&copy; 2026 JBird Bikes. All Rights Reserved.</p>
+</div>
                 <p class="text-sm mt-12 opacity-50">&copy; 2026 JBird Bikes. All Rights Reserved.</p>
             </div>
         </div>
