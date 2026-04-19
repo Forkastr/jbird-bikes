@@ -93,10 +93,10 @@ export default function Home() {
                 <h2 class="text-2xl md:text-4xl mb-6 text-primary-green">Repair & Maintenance for All Bikes</h2>
                 <p class="text-xl mb-8 leading-relaxed">Whether it's a vintage cruiser or a stubborn eBike with issues, our expert technicians provide surgical-level precision to keep you rolling.</p>
                 <p class="font-bold text-gray-900 mb-4 italic">Free Diagnostic</p>
-<div class="accordion-item border-t border-gray-400 pt-4">
-    <div class="flex justify-between items-center cursor-pointer mb-2">
+<div class="accordion-item border-t border-gray-400">
+    <div class="flex justify-between items-center cursor-pointer py-4 group">
         <span class="font-bold uppercase tracking-widest text-primary-green">View Rates</span>
-        <span class="text-primary-green">↓</span>
+        <span class="text-primary-green transform transition-transform group-hover:rotate-180">↓</span>
     </div>
     <ul class="accordion-content list-disc pl-5 space-y-2 text-gray-700">
         <li>Single Repair: $65 + parts</li>
