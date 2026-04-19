@@ -100,7 +100,7 @@ export default function Home() {
         <!-- Quality eBike Sales -->
         <div class="bg-primary-blue p-10 rounded-3xl text-white flex flex-col justify-between">
             <div>
-                <h2 class="text-4xl mb-6">Quality eBikes Sales<br>Affordable Prices</h2>
+                <h2 class="text-2xl md:text-4xl mb-6 font-bold">Quality eBikes Sales<br>Affordable Prices</h2>
                 <p class="text-xl mb-8 leading-relaxed">Engineered for NOLA streets. Durable, stylish, and powerful. Affordable quality without the compromise.</p>
                 
                 <div class="accordion-item border-t border-blue-400 pt-4">
@@ -124,7 +124,7 @@ export default function Home() {
         <!-- Buy Online - We Build It -->
         <div class="bg-neutral-gray p-10 rounded-3xl flex flex-col justify-between">
             <div>
-                <h2 class="text-4xl mb-6 text-primary-green">Buy Online – We Build It</h2>
+                <h2 class="text-2xl md:text-4xl mb-6 text-primary-green font-bold">Buy Online – We Build It</h2>
                 <p class="text-xl mb-8 leading-relaxed">Don't struggle with a box in your living room. Order online and pick it up professionally assembled and safety-checked.</p>
                 
                 <div class="accordion-item border-t border-gray-400 pt-4">
@@ -146,7 +146,7 @@ export default function Home() {
         <!-- NOLA eBike Incentive -->
         <div class="bg-primary-green p-10 rounded-3xl text-white flex flex-col justify-between relative overflow-hidden">
             <div class="relative z-10">
-                <h2 class="text-4xl mb-6">NOLA eBike Incentive</h2>
+                <h2 class="text-2xl md:text-4xl mb-6 font-bold">NOLA eBike Incentive</h2>
                 <p class="text-5xl font-black mb-8">Get up to $1,200 to buy an eBike</p>
                 
                 <div class="accordion-item border-t border-green-400 pt-4">
@@ -179,7 +179,7 @@ export default function Home() {
     <!-- VISIT US SECTION (Map) -->
     <section class="bg-white py-20 px-8">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-6xl text-center mb-16 text-primary-green">Visit Us On The Greenway</h2>
+           <h2 class="text-3xl md:text-6xl text-center mb-16 text-primary-green font-bold">Visit Us On The Greenway</h2>
             <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-neutral-gray">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.4573444586567!2d-90.08376382609781!3d29.966283822272693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5bd54333c35%3A0x53d82eb12f09b98b!2sJBird%20Bike%20Shop!5e0!3m2!1sen!2sus!4v1776541031107!5m2!1sen!2sus" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
