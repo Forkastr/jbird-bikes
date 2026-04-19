@@ -75,8 +75,7 @@ export default function Home() {
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden bg-black">
-        <img src="/hero-bike.png" alt="Bike Shop Interior" class="absolute inset-0 w-full h-full object-cover opacity-60">
+    <section class="relative h-[80vh] flex items-center justify-center text-center px-4 overflow-hidden bg-black bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/hero-bike.png');">
         <div class="relative z-10 max-w-4xl">
             <h1 class="text-5xl md:text-9xl italic mb-4" style="color: #FFD700;">JBird Bikes</h1>
             <p class="text-base md:text-2xl font-bold mb-12 uppercase tracking-widest" style="color: #FFD700;">Sales & Service<br>On the Greenway</p>
