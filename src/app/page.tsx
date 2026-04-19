@@ -55,9 +55,7 @@ export default function Home() {
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
-        .accordion-item:hover .accordion-content {
-            max-height: 500px;
-        }
+        .accordion-item.active .accordion-content { max-height: 500px; }
     </style>
 </head>
 <body>
@@ -97,6 +95,10 @@ export default function Home() {
     <div class="flex justify-between items-center cursor-pointer py-4 group">
         <span class="font-bold uppercase tracking-widest text-primary-green">View Rates</span>
         <span class="text-primary-green transform transition-transform group-hover:rotate-180">↓</span>
+    <div class="accordion-item border-t border-gray-400">
+    <div class="flex justify-between items-center cursor-pointer py-6" onclick="this.parentElement.classList.toggle('active')">
+        <span class="font-bold uppercase tracking-widest text-primary-green select-none text-xl">View Rates</span>
+        <span class="text-primary-green text-3xl transition-transform duration-300 select-none">↓</span>
     </div>
     <ul class="accordion-content list-disc pl-5 space-y-2 text-gray-700">
         <li>Single Repair: $65 + parts</li>
