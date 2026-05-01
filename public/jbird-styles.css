@@ -71,3 +71,63 @@ h1 {
     border-left: 5px solid var(--jbird-green);
     margin-bottom: 20px;
 }
+/* --- Mobile Menu Extension --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: black;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    width: 280px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: 0.3s ease-in-out;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-menu.open {
+    right: 0; /* Slides in */
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .nav-links, .desktop-links { display: none !important; }
+    .hamburger { display: block !important; }
+}
