@@ -1,51 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/jbird-styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bike Sales | JBird Bikes NOLA</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
-        :root { --jbird-black: #1a1a1a; --jbird-accent: #007bff; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; background: #f4f4f4; }
-        
-        /* Sticky Header & Nav */
-        .sticky-nav { position: sticky; top: 0; background: white; z-index: 1000; border-bottom: 2px solid black; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-around; }
-        .nav-item { text-decoration: none; color: black; font-weight: bold; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-
-        /* Carousel Sections */
-        .category-section { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .category-title { font-size: 24px; text-transform: uppercase; border-left: 5px solid var(--jbird-black); padding-left: 15px; margin-bottom: 20px; }
+        .category-section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        .category-title { font-size: 24px; text-transform: uppercase; border-left: 5px solid var(--jbird-green); padding-left: 15px; margin-bottom: 20px; }
         .carousel { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-behavior: smooth; }
         .carousel::-webkit-scrollbar { height: 8px; }
         .carousel::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
-
-        /* Product Card */
-        .bike-card { min-width: 280px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; flex: 0 0 auto; }
+        .bike-card { min-width: 280px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; flex: 0 0 auto; border: 1px solid #eee; }
         .bike-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
         .bike-name { font-size: 18px; font-weight: bold; margin: 10px 0; }
-        .status-tag { font-size: 10px; font-weight: bold; color: var(--jbird-accent); text-transform: uppercase; }
-        .view-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: black; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; }
+        .status-tag { font-size: 10px; font-weight: bold; color: var(--jbird-green); text-transform: uppercase; }
+        .view-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: black; color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        
+        /* Category Nav */
+        .sticky-nav { background: #f4f4f4; border-bottom: 1px solid #ddd; position: sticky; top: 70px; z-index: 99; overflow-x: auto; white-space: nowrap; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; }
+        .nav-item { display: inline-block; margin-right: 20px; text-decoration: none; color: #666; font-weight: bold; font-size: 13px; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-<div class="sticky-nav">
-    <div class="nav-container" id="category-nav">
-        </div>
+<nav class="nav-shim">
+    <a href="/" class="logo">JBIRD BIKES</a>
+    <div class="nav-links">
+        <a href="/repairs.html">Repairs</a>
+        <a href="/assembly.html">Assembly</a>
+        <a href="/nola-incentive.html">Incentive</a>
+        <a href="https://square.site/book/your-link" style="background:#0000FF; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">BOOK TEST-RIDE</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<div id="mobileSideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="/repairs.html">Repairs & Service</a>
+    <a href="/sales.html">Bike Sales</a>
+    <a href="/assembly.html">eBike Assembly</a>
+    <a href="/nola-incentive.html">NOLA Incentive</a>
+    <a href="/about.html">About Us</a>
+    <hr>
+    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration:none;">(504) 521-6997</a>
 </div>
 
-<div style="text-align:center; padding:60px 20px; background:white;">
-    <h1 style="font-size:42px; margin:0;">Find Your Next Bike Here</h1>
-    <p style="color:#666;">NOLA's Precision E-Bike Shop on the Greenway</p>
+<div class="sticky-nav">
+    <div class="nav-container" id="category-nav"></div>
+</div>
+
+<div style="text-align: center; padding: 60px 20px; background: white;">
+    <h1 style="font-size: 42px; margin: 0; text-transform: uppercase;">Find Your Next Bike</h1>
+    <p style="color:#666;">Precision E-Bikes. Authorized Dealer. Greenway Local.</p>
 </div>
 
 <div id="gallery-container">
-    <p style="text-align:center; padding:50px;">Loading JBird Inventory...</p>
+    <p style="text-align: center; padding: 50px;">Loading JBird Inventory...</p>
 </div>
 
 <script>
+    function toggleMenu() {
+        document.getElementById('mobileSideMenu').classList.toggle('open');
+    }
+
     const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7jIUjF04ckanexKOkvrfSdfgqqFjekg2896Keqq7jccCfUDEmoKiTP9kvGyfo6q6JS_N9VwnNJh22/pub?gid=1318810178&single=true&output=csv';
 
     Papa.parse(csvUrl, {
@@ -58,17 +80,17 @@
     });
 
     function renderGallery(data) {
-        // Group bikes by Category
         const categories = [...new Set(data.map(bike => bike.Category))];
         let navHtml = '';
         let galleryHtml = '';
 
         categories.forEach(cat => {
-            navHtml += `<a href="#${cat.replace(/\s+/g, '')}" class="nav-item">${cat}</a>`;
-            
+            const catId = cat.replace(/\s+/g, '');
+            navHtml += `<a href="#${catId}" class="nav-item">${cat}</a>`;
             const bikesInCat = data.filter(b => b.Category === cat);
+
             galleryHtml += `
-                <div class="category-section" id="${cat.replace(/\s+/g, '')}">
+                <div class="category-section" id="${catId}">
                     <h2 class="category-title">${cat}</h2>
                     <div class="carousel">
                         ${bikesInCat.map(bike => `
@@ -77,17 +99,17 @@
                                 <div class="status-tag">${bike['JBird Status'] || ''}</div>
                                 <div class="bike-name">${bike['Model Name']}</div>
                                 <div style="font-size:14px; color:#666;">Range: ${bike['Range']} | Speed: ${bike['Top Speed']}</div>
-                                <a href="flyer.html?model=${encodeURIComponent(bike['Model Name'])}" class="view-btn">VIEW SPECS & PRINT FLYER</a>
+                                <a href="flyer.html?model=${encodeURIComponent(bike['Model Name'])}" class="view-btn">VIEW SPECS</a>
                             </div>
                         `).join('')}
                     </div>
-                </div>
-            `;
+                </div>`;
         });
 
         document.getElementById('category-nav').innerHTML = navHtml;
         document.getElementById('gallery-container').innerHTML = galleryHtml;
     }
 </script>
+
 </body>
 </html>
