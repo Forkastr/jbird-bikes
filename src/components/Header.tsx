@@ -9,7 +9,7 @@ export default function Header() {
           JBird Bikes
         </a>
 
-        <div style={{ textAlign: 'center' }}>
+       <div style={{ textAlign: 'right' }}>
           <p style={{ fontSize: 'clamp(0.6rem, 1.5vw, 0.75rem)', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.1em', color: '#6b7280', marginBottom: '0.2rem' }}>
             Call / Text
           </p>
