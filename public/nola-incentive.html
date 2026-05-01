@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOLA E-Bike Incentive | JBird Bikes</title>
+    <style>
+        /* Mobile-First Surgical Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem !important; }
+            .card h2 { font-size: 1.5rem !important; }
+            .voucher-grid { grid-template-columns: 1fr !important; }
+            .apply-btn { width: 100%; box-sizing: border-box; }
+        }
+        .apply-btn {
+            display: inline-block;
+            background-color: #d32f2f;
+            color: white !important;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,7 +36,6 @@
         <a href="/repairs.html">Repairs</a>
         <a href="/sales.html">Bike Sales</a>
         <a href="/assembly.html">Assembly</a>
-        <a href="https://square.site/book/your-link" class="btn-blue">BOOK TEST-RIDE</a>
     </div>
 </div>
 
@@ -23,16 +44,16 @@
     <h1>NOLA E-BIKE INCENTIVE</h1>
     
     <div class="card" style="background: #fff3e0; border: 2px solid #ef6c00; padding: 30px; margin-top: 20px;">
-        <h2 style="margin-top: 0; color: #ef6c00;">Do Your Want a Free eBike?</h2>
+        <h2 style="margin-top: 0; color: #ef6c00;">Do You Want a Free eBike?</h2>
         <p style="font-size: 1.2rem; line-height: 1.4;">The City of New Orleans is <strong>giving away 3,000 eBikes this year!</strong>, but these vouchers are moving fast. If you wait until next month, you're paying full price. Why would you do that?</p>
     </div>
 
-    <div style="margin: 30px 0; border-radius: 8px; overflow: hidden; background: #eee;">
-        <img src="/happy-rider.jpg" alt="Smiling JBird Customer with their new eBike" style="width: 100%; display: block;">
+    <div style="margin: 30px 0; border-radius: 8px; overflow: hidden; background: #eee; max-height: 400px;">
+        <img src="/happy-rider.jpg" alt="Smiling JBird Customer with their new eBike" style="width: 100%; height: 100%; object-fit: cover; display: block;">
     </div>
 
     <h2>DO YOU QUALIFY?</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div class="voucher-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
         <div class="card" style="border-left: 10px solid var(--jbird-green);">
             <h3 style="margin:0;">STANDARD</h3>
             <p style="font-size: 2.5rem; font-weight: 900; margin: 10px 0;">$600 OFF</p>
@@ -45,15 +66,20 @@
         </div>
     </div>
 
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="https://cleanfleetnola.com/" target="_blank" class="apply-btn">APPLY HERE</a>
+    </div>
+
     <h2>HOW TO GET YOURS (DO THIS NOW)</h2>
     <div class="card">
-        <p><strong>APPLY:</strong>Fill in the Form Below - We Do It All for You!</p>
-        <p><strong>TEST-RIDE:</strong> Test-Ride the model you like. We have ebikes specially designed to fit your voucher<em>Schedule Your Ride</em>.</p>
-        <p><strong>FOLLOW-UP</strong> We follow up with the City for you! <strong>We Update</strong>. No Hassle - No Fuss  </div>
+        <p><strong>APPLY:</strong> Fill in the Form Above - We Do It All for You!</p>
+        <p><strong>TEST-RIDE:</strong> Test-Ride the model you like. We have ebikes specially designed to fit your voucher. <em>Schedule Your Ride below.</em></p>
+        <p><strong>FOLLOW-UP:</strong> We follow up with the City for you! <strong>We Update</strong>. No Hassle - No Fuss.</p>
+    </div>
 
     <div style="margin-top: 60px; text-align: center; background: #000; color: #fff; padding: 40px; border-radius: 8px;">
-        <h2 style="color: #fff;">DON'T WAIT!</h2>
-        <p>FILL IN THE FORM NOW</p>
+        <h2 style="color: #fff; margin-top: 0;">DON'T WAIT!</h2>
+        <p>STILL HAVE QUESTIONS?</p>
         <a href="tel:5045216997" style="font-size: 2rem; font-weight: 900; color: var(--jbird-green); text-decoration: none;">(504) 521-6997</a>
     </div>
 </div>
