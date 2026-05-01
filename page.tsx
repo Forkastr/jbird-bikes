@@ -34,23 +34,27 @@ export default function HomePage() {
           ].map((item) => (
             <Card key={item.id} className="bg-white border-2 border-black/5 shadow-sm overflow-hidden">
               <CardContent className="p-0">
-                <div className="p-6 text-center cursor-pointer" onClick={() => toggle(item.id)}>
-                  <item.icon className="mx-auto mb-3 opacity-80" size={32} />
-                  <h2 className="text-2xl font-black uppercase tracking-tight mb-1 text-black">{item.title}</h2>
-                  <p className="text-lg font-bold text-black/60 mb-2">{item.sub}</p>
-                  <div className="flex items-center justify-center gap-2 text-sm font-bold opacity-40">
-                    <span>{expanded === item.id ? <ChevronUp size={16} /> : <ChevronDown size={16} />}</span>
-                  </div>
-                </div>
-                {expanded === item.id && (
-                  <div className="px-6 pb-6 text-left border-t border-black/5 pt-6 bg-gray-50/50">
-                    <p className="text-xl font-black mb-4">{item.details}</p>
-                    <ContactButton />
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
+           <div className="space-y-6 w-full mb-12">
+  {[
+    { id: 'service', icon: Wrench, title: 'Repairs & Maintenance', sub: 'Free Diagnostic', url: '/repairs.html' },
+    { id: 'sales', icon: ShoppingCart, title: 'Quality eBikes', sub: 'Starting at $350', url: '/sales.html' },
+    { id: 'assembly', icon: ArrowRight, title: 'eBike Assembly', sub: 'Flat Rate $135', url: '/assembly.html' },
+    { id: 'incentive', icon: MapPin, title: 'NOLA Incentive', sub: 'Up to $1,200 Off', url: '/nola-incentive.html' }
+  ].map((item) => (
+    <Card key={item.id} className="bg-white border-2 border-black/5 shadow-sm overflow-hidden hover:border-black/20 transition-colors">
+      <CardContent className="p-0">
+        <a href={item.url} className="p-6 text-center block no-underline">
+          <item.icon className="mx-auto mb-3 opacity-80 text-black" size={32} />
+          <h2 className="text-2xl font-black uppercase tracking-tight mb-1 text-black">{item.title}</h2>
+          <p className="text-lg font-bold text-black/60 mb-4">{item.sub}</p>
+          <div className="inline-block bg-black text-white px-4 py-2 rounded-lg text-xs font-black uppercase tracking-widest">
+            Find Out More
+          </div>
+        </a>
+      </CardContent>
+    </Card>
+  ))}
+</div>     
         </div>
         <footer className="mt-16 pb-8 flex flex-col items-center opacity-40">
           <div className="flex items-center gap-2 font-black text-xl mb-2"><MapPin size={24} /> <span>2336 St. Louis Street</span></div>
