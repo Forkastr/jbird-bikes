@@ -1,3 +1,4 @@
+import React from 'react';
 export default function Hero() {
   return (
     <section style={{ position: 'relative', height: '80vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', backgroundColor: 'black', overflow: 'hidden' }}>
