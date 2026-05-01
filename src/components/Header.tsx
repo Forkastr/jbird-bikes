@@ -1,3 +1,5 @@
+"use client"; // This line fixes the Netlify build error
+
 import React, { useState } from 'react';
 
 export default function Header() {
@@ -15,7 +17,7 @@ export default function Header() {
             JBIRD BIKES
           </a>
           
-          {/* Desktop Nav (Hidden on Mobile) */}
+          {/* Desktop Nav */}
           <nav className="desktop-nav" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             <a href="/repairs.html" style={navStyle}>Repairs</a>
             <a href="/sales.html" style={navStyle}>Bike Sales</a>
@@ -24,8 +26,8 @@ export default function Header() {
             <a href="https://square.site/book/your-link" target="_blank" style={testRideBtn}>BOOK TEST-RIDE</a>
           </nav>
 
-          {/* Mobile Menu Toggle (Hidden on Desktop) */}
-          <button onClick={toggleMenu} style={hamburgerStyle} aria-label="Menu">
+          {/* Mobile Menu Toggle */}
+          <button onClick={toggleMenu} style={hamburgerStyle} aria-label="Menu" className="hamburger-btn">
             <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
             <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
             <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
@@ -38,10 +40,10 @@ export default function Header() {
         position: 'fixed' as const,
         top: 0,
         right: isOpen ? 0 : '-100%',
-        width: '250px',
+        width: '280px',
         height: '100%',
         backgroundColor: 'white',
-        boxShadow: '-2px 0 10px rgba(0,0,0,0.1)',
+        boxShadow: '-5px 0 15px rgba(0,0,0,0.1)',
         zIndex: 1000,
         transition: '0.3s ease-in-out',
         padding: '2rem',
@@ -49,14 +51,14 @@ export default function Header() {
         flexDirection: 'column' as const,
         gap: '1.5rem'
       }}>
-        <button onClick={toggleMenu} style={{ alignSelf: 'flex-end', background: 'none', border: 'none', fontSize: '1.5rem', fontWeight: 'bold' }}>✕</button>
+        <button onClick={toggleMenu} style={{ alignSelf: 'flex-end', background: 'none', border: 'none', fontSize: '1.5rem', fontWeight: 'bold', cursor: 'pointer' }}>✕</button>
         <a href="/repairs.html" onClick={toggleMenu} style={mobileNavLink}>Repairs & Service</a>
         <a href="/sales.html" onClick={toggleMenu} style={mobileNavLink}>Bike Sales</a>
         <a href="/assembly.html" onClick={toggleMenu} style={mobileNavLink}>eBike Assembly</a>
         <a href="/nola-incentive.html" onClick={toggleMenu} style={mobileNavLink}>NOLA Incentive</a>
         <a href="/about.html" onClick={toggleMenu} style={mobileNavLink}>About Us</a>
-        <hr />
-        <a href="tel:5045216997" style={{ fontWeight: 800, color: 'black', textDecoration: 'none' }}>(504) 521-6997</a>
+        <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '10px 0' }} />
+        <a href="tel:5045216997" style={{ fontWeight: 800, color: 'black', textDecoration: 'none', fontSize: '1.2rem' }}>(504) 521-6997</a>
         <a href="https://square.site/book/your-link" target="_blank" style={testRideBtn}>BOOK TEST-RIDE</a>
       </div>
 
@@ -64,10 +66,10 @@ export default function Header() {
       <style>{`
         @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
-          .hamburger { display: block !important; }
+          .hamburger-btn { display: block !important; }
         }
         @media (min-width: 901px) {
-          .hamburger { display: none !important; }
+          .hamburger-btn { display: none !important; }
         }
       `}</style>
     </>
@@ -85,25 +87,27 @@ const navStyle = {
 
 const mobileNavLink = {
   ...navStyle,
-  fontSize: '1.1rem',
+  fontSize: '1.2rem',
   borderBottom: '1px solid #eee',
-  paddingBottom: '0.5rem'
+  paddingBottom: '0.8rem',
+  color: '#222'
 };
 
 const hamburgerStyle = {
   background: 'none',
   border: 'none',
   cursor: 'pointer',
-  padding: '0'
+  padding: '0',
+  display: 'none'
 };
 
 const testRideBtn = {
   textDecoration: 'none',
   backgroundColor: '#0000FF',
   color: 'white',
-  padding: '10px 20px',
+  padding: '12px 24px',
   borderRadius: '4px',
   fontWeight: 800,
-  fontSize: '0.85rem',
+  fontSize: '0.9rem',
   textAlign: 'center' as const
 };
