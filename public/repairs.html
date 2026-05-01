@@ -5,20 +5,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repairs & Service | JBird Bikes</title>
+    <style>
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1rem; line-height: 1.4; }
+        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--jbird-green); font-weight: bold; font-size: 1.2rem; }
+        
+        .contact-btn-footer {
+            display: block;
+            background: #000;
+            color: #fff !important;
+            padding: 20px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            .mechanic-header { flex-direction: column; text-align: center; }
+            .mechanic-img { margin: 0 auto 20px auto !important; }
+        }
+    </style>
 </head>
 <body>
 
 <nav class="nav-shim">
     <a href="/" class="logo">JBIRD BIKES</a>
-    
     <div class="nav-links">
-        <a href="/repairs.html">Repairs</a>
-        <a href="/sales.html">Bike Sales</a>
+        <a href="/sales.html">Sales</a>
         <a href="/assembly.html">Assembly</a>
         <a href="/nola-incentive.html">Incentive</a>
-        <a href="https://square.site/book/your-link" style="background:#0000FF; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">BOOK TEST-RIDE</a>
     </div>
-
     <div class="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
     </div>
@@ -30,28 +49,19 @@
     <a href="/sales.html">Bike Sales</a>
     <a href="/assembly.html">eBike Assembly</a>
     <a href="/nola-incentive.html">NOLA Incentive</a>
-    <a href="/about.html">About Us</a>
-    <hr style="border:none; border-top:1px solid #eee; margin:10px 0;">
-    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration:none;">(504) 521-6997</a>
-</div>
+    <hr>
+    <a href="tel:5045216997" style="color: black; font-weight: 800;">(504) 521-6997</a>
 </div>
 
 <div class="container">
-    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 0;">Surgical Service</p>
-    <h1>Repair & Service List</h1>
-    
-    <div style="margin: 20px 0; border-radius: 8px; overflow: hidden; height: 300px; background: #eee;">
-        <img src="/happy-mechanic.jpg" alt="Our Happy Mechanic" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-
-    <p>Professional maintenance and specialized diagnostics on the Lafitte Greenway. Note: Customers are required to sign a waiver releasing the shop from responsibility for issues not included in the diagnostic.</p>
-
-    <h2>Repair Rates</h2>
-    <div class="card">
-        <h3>General Repair</h3>
-        <p><strong>$65 + parts</strong> (Flat fee)<br>
-        <strong>$40 + parts</strong> (Small repair)<br>
-        Note: If more than one repair is needed, labor is billed at $65/hour.</p>
+    <div class="mechanic-header" style="display: flex; align-items: center; gap: 30px; margin-bottom: 40px;">
+        <div class="mechanic-img" style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 4px solid var(--jbird-green); flex-shrink: 0;">
+            <img src="" alt="Friendly Mechanic" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div>
+            <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin: 0;">Surgical Precision</p>
+            <h1 style="margin: 0; border: none;">Repair & Service</h1>
+        </div>
     </div>
 
     <div class="card">
@@ -60,17 +70,14 @@
         <strong>Pedal Bike:</strong> $20 per wheel + parts.</p>
     </div>
 
-    <div class="card" style="border-left-color: var(--jbird-blue);">
+    <div class="card" style="border-left-color: var(--jbird-blue); background: #f0f4ff;">
         <h3>Free Diagnostic</h3>
-        <p>We check the issue to determine necessary service, parts cost, and turnaround time.</p>
+        <p>We check the issue to determine necessary service and turnaround time.</p>
     </div>
 
-    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
-
-    <h2>Specialized eBike Services</h2>
-    <div class="card">
-        <h3>eBike Tune-Up — $95</h3>
-        <ul style="column-count: 2; font-size: 0.9rem; padding-left: 20px;">
+    <h2 style="margin-top: 40px; text-transform: uppercase; border-bottom: 3px solid var(--jbird-green); display: inline-block;">eBike Specialized Tune-Up — $95</h2>
+    <div class="card" style="margin-top: 20px;">
+        <ul class="check-list">
             <li>Fasteners tightened & lubricated</li>
             <li>Cockpit/ergonomics adjusted</li>
             <li>Headset bearing load adjusted</li>
@@ -89,20 +96,17 @@
         </ul>
     </div>
 
-    <div class="card">
-        <h3>Safety Check — $35</h3>
-        <p>Torque check, headset adjustment, brake alignment, and wear checks for pads, tires, and chain[cite: 1].</p>
-    </div>
-
-    <div style="margin-top: 60px; text-align: center; padding: 40px; background: #f9f9f9; border-radius: 8px;">
-        <h3>Need a quote?</h3>
-        <a href="tel:5045216997" style="font-size: 1.5rem; font-weight: 900; color: black; text-decoration: none;">(504) 521-6997</a>
+    <div style="text-align: center;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdpA_6_9PshQzD9-MbeJ9_i6M6_v8XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v6XjH-T1Q8_v/viewform" class="contact-btn-footer">Contact Us / Schedule Service</a>
+        <p style="margin-top: 15px; font-weight: bold;">(504) 521-6997</p>
     </div>
 </div>
+
 <script>
     function toggleMenu() {
         document.getElementById('mobileSideMenu').classList.toggle('open');
     }
 </script>
+
 </body>
 </html>
