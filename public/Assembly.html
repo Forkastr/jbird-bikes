@@ -5,19 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eBike Assembly | JBird Bikes</title>
+    <style>
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1rem; line-height: 1.4; }
+        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--jbird-green); font-weight: bold; font-size: 1.2rem; }
+        
+        .contact-btn-footer {
+            display: block;
+            background: #000;
+            color: #fff !important;
+            padding: 20px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem !important; }
+            .hero-img { height: 200px !important; }
+        }
+    </style>
 </head>
 <body>
+
 <nav class="nav-shim">
     <a href="/" class="logo">JBIRD BIKES</a>
-    
     <div class="nav-links">
         <a href="/repairs.html">Repairs</a>
         <a href="/sales.html">Bike Sales</a>
         <a href="/assembly.html">Assembly</a>
         <a href="/nola-incentive.html">Incentive</a>
-        <a href="https://square.site/book/your-link" style="background:#0000FF; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">BOOK TEST-RIDE</a>
     </div>
-
     <div class="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
     </div>
@@ -29,60 +50,53 @@
     <a href="/sales.html">Bike Sales</a>
     <a href="/assembly.html">eBike Assembly</a>
     <a href="/nola-incentive.html">NOLA Incentive</a>
-    <a href="/about.html">About Us</a>
-    <hr style="border:none; border-top:1px solid #eee; margin:10px 0;">
-    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration:none;">(504) 521-6997</a>
+    <hr>
+    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration: none;">(504) 521-6997</a>
 </div>
 
-
 <div class="container">
-    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 0;">Direct-to-Consumer Support</p>
+    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 5px;">Pro-Shop Service</p>
     <h1>Professional eBike Assembly</h1>
-    <p>Ordered a bike online? Don't struggle with a heavy box and complex electronics. Have it shipped to us (or bring the box in) for a professional <strong>JBird Pro-Build</strong>.</p>
+
+    <div class="hero-img" style="width: 100%; height: 300px; border-radius: 8px; overflow: hidden; margin-bottom: 30px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrxn0SDxAu28bHu5LVirD_V090wsdtGtZmtQ&s" alt="JBird Assembly Team" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
 
     <div class="card" style="background: #2E7D32; color: white; border: none; text-align: center;">
-        <h2 style="margin: 0;">Flat Rate Assembly: $135</h2>
+        <h2 style="margin: 0; color: white;">Flat Rate Assembly: $135</h2>
         <p style="margin: 5px 0 0 0;">Includes packaging disposal and 30-day safety adjustment period.</p>
     </div>
 
     <h2>The JBird Pro-Build Checklist</h2>
-    <p>Every assembly undergoes our "Surgical" 25-point inspection, including:</p>
-    
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div class="card">
-            <h3>Mechanical Setup</h3>
-            <ul>
-                <li>Derailleur indexing & shifting check</li>
-                <li>Hydraulic or mechanical brake bed-in</li>
-                <li>Wheel true & spoke tension check</li>
-                <li>Bottom bracket & crank torque</li>
-            </ul>
-        </div>
-        <div class="card">
-            <h3>Electrical & Safety</h3>
-            <ul>
-                <li>Battery health & terminal check</li>
-                <li>Firmware update (if applicable)</li>
-                <li>Display & sensor calibration</li>
-                <li>Full bolt-torque safety certification</li>
-            </ul>
-        </div>
+    <div class="card">
+        <ul class="check-list">
+            <li>Derailleur indexing & shifting check</li>
+            <li>Hydraulic or mechanical brake bed-in</li>
+            <li>Wheel true & spoke tension check</li>
+            <li>Bottom bracket & crank torque</li>
+            <li>Battery health & terminal check</li>
+            <li>Firmware update (if applicable)</li>
+            <li>Display & sensor calibration</li>
+            <li>Full 25-point bolt-torque safety certification</li>
+        </ul>
     </div>
 
     <div class="card" style="border-left-color: var(--jbird-blue);">
-        <h3>Ship Your Bike Directly to Us</h3>
-        <p>Save yourself the hassle of hauling a 70lb box. Contact us for our shipping address, and we'll have your bike built and ready for pick-up within 48 hours of delivery.</p>
+        <h3>Ship Directly to the Shop</h3>
+        <p>Save the hassle of hauling a 70lb box. Contact us for our shipping address, and we'll have your bike built and ready for pick-up within 48 hours of delivery.</p>
     </div>
 
-    <div style="margin-top: 60px; text-align: center;">
-        <p><strong>Ready to schedule your build?</strong></p>
-        <a href="tel:5045216997" style="background: black; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 4px;">TEXT US: (504) 521-6997</a>
+    <div style="text-align: center;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header" class="contact-btn-footer">Contact Us</a>
+        <p style="margin-top: 15px; font-weight: bold; font-size: 1.3rem;">(504) 521-6997</p>
     </div>
 </div>
+
 <script>
     function toggleMenu() {
         document.getElementById('mobileSideMenu').classList.toggle('open');
     }
 </script>
+
 </body>
 </html>
