@@ -4,66 +4,62 @@
     <link rel="stylesheet" href="/jbird-styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repairs & Maintenance | JBird Bikes</title>
-    <style>
-        :root { --jbird-green: #2E7D32; --jbird-blue: #0000FF; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; }
-        
-        /* Navigation Shim (Matching Header.tsx) */
-        .nav-shim { background: white; border-bottom: 2px solid #000; padding: 1rem 1.5rem; position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Arial Narrow', sans-serif; font-weight: 900; color: var(--jbird-green); font-size: 1.8rem; text-decoration: none; font-style: italic; }
-        .nav-links a { text-decoration: none; color: #444; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-left: 1.5rem; }
-        .test-ride-btn { background: var(--jbird-blue); color: white !important; padding: 8px 16px; border-radius: 4px; }
-
-        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-        h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 10px; border-bottom: 4px solid var(--jbird-green); display: inline-block; }
-        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-        .price-card { background: #f9f9f9; padding: 25px; border-radius: 8px; border-left: 5px solid var(--jbird-green); }
-        .price { font-size: 1.5rem; font-weight: 900; color: var(--jbird-green); }
-    </style>
+    <title>eBike Assembly | JBird Bikes</title>
 </head>
 <body>
 
 <div class="nav-shim">
     <a href="/" class="logo">JBIRD BIKES</a>
     <div class="nav-links">
+        <a href="/repairs.html">Repairs</a>
         <a href="/sales.html">Bike Sales</a>
-        <a href="/assembly.html">Assembly</a>
         <a href="/nola-incentive.html">Incentive</a>
-        <a href="https://square.site/book/your-link" class="test-ride-btn">BOOK TEST-RIDE</a>
+        <a href="https://square.site/book/your-link" class="btn-blue">BOOK TEST-RIDE</a>
     </div>
 </div>
 
 <div class="container">
-    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 0;">Surgical Precision</p>
-    <h1>Repairs & Service</h1>
-    <p style="font-size: 1.2rem; color: #666;">Whether it's a vintage cruiser or a high-tech eBike, our expert technicians keep NOLA rolling. We offer free diagnostics and transparent pricing.</p>
+    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 0;">Direct-to-Consumer Support</p>
+    <h1>Professional eBike Assembly</h1>
+    <p>Ordered a bike online? Don't struggle with a heavy box and complex electronics. Have it shipped to us (or bring the box in) for a professional <strong>JBird Pro-Build</strong>.</p>
 
-    <div class="price-grid">
-        <div class="price-card">
-            <h3>Full Tune-Up</h3>
-            <p>Comprehensive safety check, brake adjustment, gear indexing, and cleaning.</p>
-            <div class="price">$95</div>
+    <div class="card" style="background: #2E7D32; color: white; border: none; text-align: center;">
+        <h2 style="margin: 0;">Flat Rate Assembly: $135</h2>
+        <p style="margin: 5px 0 0 0;">Includes packaging disposal and 30-day safety adjustment period.</p>
+    </div>
+
+    <h2>The JBird Pro-Build Checklist</h2>
+    <p>Every assembly undergoes our "Surgical" 25-point inspection, including:</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="card">
+            <h3>Mechanical Setup</h3>
+            <ul>
+                <li>Derailleur indexing & shifting check</li>
+                <li>Hydraulic or mechanical brake bed-in</li>
+                <li>Wheel true & spoke tension check</li>
+                <li>Bottom bracket & crank torque</li>
+            </ul>
         </div>
-        <div class="price-card">
-            <h3>Single Repair</h3>
-            <p>Labor for specific fixes like brake bleeds or derailleur hangers.</p>
-            <div class="price">$65 <small>+ parts</small></div>
-        </div>
-        <div class="price-card">
-            <h3>Flat Fix</h3>
-            <p>Quick turnaround to get you back on the Greenway.</p>
-            <div class="price">$30 <small>+ parts</small></div>
-        </div>
-        <div class="price-card">
-            <h3>eBike Diagnostic</h3>
-            <p>Electronic troubleshooting and battery health checks.</p>
-            <div class="price">FREE</div>
+        <div class="card">
+            <h3>Electrical & Safety</h3>
+            <ul>
+                <li>Battery health & terminal check</li>
+                <li>Firmware update (if applicable)</li>
+                <li>Display & sensor calibration</li>
+                <li>Full bolt-torque safety certification</li>
+            </ul>
         </div>
     </div>
-    
+
+    <div class="card" style="border-left-color: var(--jbird-blue);">
+        <h3>Ship Your Bike Directly to Us</h3>
+        <p>Save yourself the hassle of hauling a 70lb box. Contact us for our shipping address, and we'll have your bike built and ready for pick-up within 48 hours of delivery.</p>
+    </div>
+
     <div style="margin-top: 60px; text-align: center;">
-        <a href="tel:5045216997" style="background: black; color: white; padding: 20px 40px; text-decoration: none; font-weight: bold; border-radius: 5px;">TEXT US TO BOOK: (504) 521-6997</a>
+        <p><strong>Ready to schedule your build?</strong></p>
+        <a href="tel:5045216997" style="background: black; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 4px;">TEXT US: (504) 521-6997</a>
     </div>
 </div>
 
