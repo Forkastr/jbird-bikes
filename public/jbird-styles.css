@@ -1,0 +1,73 @@
+:root {
+    --jbird-green: #2E7D32;
+    --jbird-black: #1a1a1a;
+    --jbird-blue: #0000FF;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Professional Nav Bar */
+.nav-shim {
+    background: white;
+    border-bottom: 2px solid var(--jbird-black);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 900;
+    color: var(--jbird-green);
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-left: 1.2rem;
+}
+
+.btn-blue {
+    background: var(--jbird-blue);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+/* Page Layout */
+.container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    border-bottom: 5px solid var(--jbird-green);
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 5px solid var(--jbird-green);
+    margin-bottom: 20px;
+}
