@@ -57,7 +57,7 @@
       margin-bottom: 1.2rem;
       color: var(--white);
     }
-    .sales-hero h1 span { color: var(--accent); }
+    .sales-hero h1 span { color: var(--accent); display: block; }
     .sales-hero p {
       font-size: 1rem;
       line-height: 1.7;
@@ -340,7 +340,7 @@
 <div class="sales-hero">
   <div class="sales-hero-inner">
     <div class="sales-eyebrow">Curated eBike Catalog</div>
-    <h1>The Best eBikes in New Orleans <span>Assembled, Tested & Ready to Ride</span></h1>
+    <h1>The Best eBikes in New Orleans <span>Assembled, Tested</span> <span>Ready to Ride</span></h1>
     <p>Every bike we sell is professionally assembled, safety-inspected, and tuned for NOLA streets. We carry only the models we believe in — UL-listed, reliable, and built to last. Come test ride before you buy, and ride away the same day.</p>
     <div class="trust-badges">
       <div class="trust-badge">Professional Assembly</div>
@@ -441,7 +441,8 @@
 
       CATEGORIES.forEach(cat => {
         const group = bikes.filter(b =>
-          (b['Category'] || '').toString().trim().toLowerCase() === cat.toLowerCase()
+          (b['Category'] || '').toString().trim().toLowerCase() === cat.toLowerCase() &&
+          (b['JBird Status'] || '').toString().trim().toLowerCase() === 'available'
         );
         if (group.length > 0) {
           catalog.innerHTML += makeCarousel(cat, group);
