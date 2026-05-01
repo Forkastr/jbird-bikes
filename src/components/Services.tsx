@@ -38,7 +38,7 @@ function Card({ children, bg, text }: { children: React.ReactNode; bg: string; t
 export default function Services() {
   return (
     <section style={{ maxWidth: '1280px', margin: '0 auto', padding: '5rem 2rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
         <Card bg="var(--neutral-gray)">
           <div>
             <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--primary-green)', marginBottom: '1rem' }}>Repair & Maintenance for All Bikes</h2>
