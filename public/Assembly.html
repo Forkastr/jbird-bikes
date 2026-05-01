@@ -7,21 +7,10 @@
     <title>eBike Assembly | JBird Bikes</title>
     <style>
         .check-list { list-style: none; padding: 0; }
-        .check-list li { position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1rem; line-height: 1.4; }
-        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--jbird-green); font-weight: bold; font-size: 1.2rem; }
+        .check-list li { position: relative; padding-left: 30px; margin-bottom: 10px; font-size: 0.95rem; line-height: 1.4; }
+        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--jbird-green); font-weight: bold; }
         
-        .contact-btn-footer {
-            display: block;
-            background: #000;
-            color: #fff !important;
-            padding: 20px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2rem;
-            border-radius: 8px;
-            text-transform: uppercase;
-            margin-top: 40px;
-        }
+        .contact-btn-footer { display: block; background: #000; color: #fff !important; padding: 20px; text-decoration: none; font-weight: 900; font-size: 1.2rem; border-radius: 8px; text-transform: uppercase; margin-top: 40px; }
 
         @media (max-width: 600px) {
             h1 { font-size: 1.8rem !important; }
@@ -70,19 +59,26 @@
     <h2>JBird Pro-Build Checklist</h2>
     <div class="card">
         <ul class="check-list">
-            <li>Unpack and inspect for shipping damage</li>
-            <li>Professional drivetrain indexing and adjustment</li>
-            <li>Hydraulic or mechanical brake alignment and bed-in</li>
-            <li>Full wheel true and spoke tension calibration</li>
-            <li>Torque-check every critical bolt to manufacturer spec</li>
-            <li>Tire pressure optimization</li>
-            <li>Cockpit and ergonomic setup</li>
-            <li>Electrical system and battery health diagnostic</li>
-            <li>Full safety certification test ride</li>
+            <li>All fasteners tightened, lubricated and thread locker applied</li>
+            <li>Cockpit accessories adjusted to proper ergonomics</li>
+            <li>Headset adjusted to proper bearing load</li>
+            <li>Front & rear breaking system inspected & adjusted</li>
+            <li>Front & rear brake cables lubricated</li>
+            <li>Front & rear brake hydraulics fluid inspected</li>
+            <li>Front & rear rotors bolts inspected and tightened</li>
+            <li>Front & rear brake levers bike points adjusted & lubricated, thread locker applied</li>
+            <li>Shifting adjusted, system cleaned, chain stretch inspected</li>
+            <li>Derailler alignment inspected and trued if needed</li>
+            <li>Fender positioning adjusted & corrected if out of alignment</li>
+            <li>Front & rear wheel spokes tightened & adjusted</li>
+            <li>All electrical connections & wirings inspected</li>
+            <li>Cable management addressed</li>
+            <li>Frame cleaned</li>
+            <li>General visual inspection</li>
         </ul>
     </div>
 
-    <div class="card" style="border-left-color: var(--jbird-blue);">
+    <div class="card" style="border-left-color: var(--jbird-blue); background: #f9fbff;">
         <h3>60-Day Safety Adjustment</h3>
         <p>New bikes go through a "break-in" period where cables stretch and spokes settle. We include a complimentary safety check and re-adjustment within 60 days of your build to keep everything running surgical.</p>
     </div>
@@ -95,13 +91,11 @@
 
 <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid #eee; margin-top: 60px;">
     <p style="font-size: 0.8rem; color: #666;">© 2024 JBird Bikes NOLA</p>
-    <a href="/privacy.html" style="font-size: 0.8rem; color: #666; text-decoration: none;">Privacy / Terms</a>
+    <a href="/privacy.html" style="font-size: 0.8rem; color: #666; text-decoration: none;">Privacy</a>
 </footer>
 
 <script>
-    function toggleMenu() {
-        document.getElementById('mobileSideMenu').classList.toggle('open');
-    }
+    function toggleMenu() { document.getElementById('mobileSideMenu').classList.toggle('open'); }
 </script>
 
 </body>
