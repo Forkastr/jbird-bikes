@@ -65,6 +65,17 @@
       max-width: 560px;
       margin: 0 auto 2rem;
     }
+    .hero-pricing {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--white);
+      margin: 1.5rem auto 0.5rem;
+      letter-spacing: 1px;
+    }
+    .hero-pricing strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
     .trust-badges {
       display: flex;
       justify-content: center;
@@ -340,7 +351,8 @@
 <div class="sales-hero">
   <div class="sales-hero-inner">
     <div class="sales-eyebrow">Curated eBike Catalog</div>
-    <h1>The Best eBikes in New Orleans <span>Assembled, Tested</span> <span>Ready to Ride</span></h1>
+    <h1>Bikes & eBikes Sales <span>Best Value in New Orleans</span> <span>Assembled, Tested</span> <span>Ready to Ride</span></h1>
+    <p class="hero-pricing">eBikes from <strong>$350</strong> or <strong>$95/month</strong></p>
     <p>Every bike we sell is professionally assembled, safety-inspected, and tuned for NOLA streets. We carry only the models we believe in — UL-listed, reliable, and built to last. Come test ride before you buy, and ride away the same day.</p>
     <div class="trust-badges">
       <div class="trust-badge">Professional Assembly</div>
@@ -419,14 +431,14 @@
           <div class="category-count">${bikes.length} model${bikes.length !== 1 ? 's' : ''}</div>
         </div>
         <div class="carousel-wrapper">
-          <button class="carousel-btn prev" onclick="scroll('${id}',-1)">&#8592;</button>
+          <button class="carousel-btn prev" onclick="scrollCarousel('${id}',-1)">&#8592;</button>
           <div class="carousel" id="${id}">${cards}</div>
-          <button class="carousel-btn next" onclick="scroll('${id}',1)">&#8594;</button>
+          <button class="carousel-btn next" onclick="scrollCarousel('${id}',1)">&#8594;</button>
         </div>
       </div>`;
   }
 
-  function scroll(id, dir) {
+  function scrollCarousel(id, dir) {
     const el = document.getElementById(id);
     if (el) el.scrollBy({ left: dir * 280, behavior: 'smooth' });
   }
