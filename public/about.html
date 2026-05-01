@@ -19,9 +19,31 @@
 </head>
 <body>
 
-<div class="nav-shim">
+<nav class="nav-shim">
     <a href="/" class="logo">JBIRD BIKES</a>
-    <div style="font-weight: bold;"><a href="/sales.html" style="text-decoration:none; color:black; margin-right:15px;">BIKE SALES</a> <a href="tel:5045216997" style="text-decoration:none; color:var(--jbird-blue);">(504) 521-6997</a></div>
+    
+    <div class="nav-links">
+        <a href="/repairs.html">Repairs</a>
+        <a href="/sales.html">Bike Sales</a>
+        <a href="/assembly.html">Assembly</a>
+        <a href="/nola-incentive.html">Incentive</a>
+        <a href="https://square.site/book/your-link" style="background:#0000FF; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">BOOK TEST-RIDE</a>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<div id="mobileSideMenu" class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">✕</button>
+    <a href="/repairs.html">Repairs & Service</a>
+    <a href="/sales.html">Bike Sales</a>
+    <a href="/assembly.html">eBike Assembly</a>
+    <a href="/nola-incentive.html">NOLA Incentive</a>
+    <a href="/about.html">About Us</a>
+    <hr style="border:none; border-top:1px solid #eee; margin:10px 0;">
+    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration:none;">(504) 521-6997</a>
 </div>
 
 <div class="container">
@@ -45,6 +67,10 @@
         <a href="tel:5045216997" style="background: black; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 4px;">GET IN TOUCH</a>
     </div>
 </div>
-
+<script>
+    function toggleMenu() {
+        document.getElementById('mobileSideMenu').classList.toggle('open');
+    }
+</script>
 </body>
 </html>
