@@ -1,70 +1,69 @@
 "use client";
 
 import React from 'react';
-import { Card, CardContent } from "@/components/ui/card";
 import { Wrench, ShoppingCart, MapPin, ArrowRight, Phone } from "lucide-react";
 
 export default function HomePage() {
+  const items = [
+    { id: 'service', icon: Wrench, title: 'Repairs & Maintenance', sub: 'Free Diagnostic', url: '/repairs.html' },
+    { id: 'sales', icon: ShoppingCart, title: 'Quality eBikes', sub: 'Authorized Gotrax Dealer', url: '/sales.html' },
+    { id: 'assembly', icon: ArrowRight, title: 'eBike Assembly', sub: 'Professional Flat Rate', url: '/assembly.html' },
+    { id: 'incentive', icon: MapPin, title: 'NOLA Incentive', sub: 'Up to $1,200 Off', url: '/nola-incentive.html' }
+  ];
+
   return (
-    <div className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white pb-24">
-      <main className="flex flex-col items-center justify-center px-6 py-12 text-center max-w-md mx-auto">
+    <div style={{ backgroundColor: 'white', color: 'black', minHeight: '100vh', fontFamily: 'sans-serif', paddingBottom: '100px' }}>
+      <main style={{ maxWidth: '450px', margin: '0 auto', padding: '60px 24px', textAlign: 'center' }}>
         
-        {/* Hero Image Section */}
-        <div className="mb-8 w-full flex justify-center px-2">
+        {/* Hero Image */}
+        <div style={{ marginBottom: '32px', width: '100%' }}>
           <img 
             src="/JBird Bikes Front.jpg" 
             alt="JBird Bikes Front" 
-            className="w-full max-w-sm h-72 object-cover rounded-2xl shadow-2xl border-4 border-black/5" 
+            style={{ width: '100%', height: '280px', objectFit: 'cover', borderRadius: '24px', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)', border: '4px solid rgba(0,0,0,0.05)' }} 
           />
         </div>
 
         {/* Branding */}
-        <h1 className="text-5xl font-black uppercase tracking-tighter mb-2 leading-none">JBird Bikes</h1>
-        <p className="text-xl font-medium italic mb-8 opacity-60 leading-tight">
+        <h1 style={{ fontSize: '48px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '-0.05em', margin: '0 0 8px 0', lineHeight: '1' }}>JBird Bikes</h1>
+        <p style={{ fontSize: '20px', fontWeight: '500', fontStyle: 'italic', marginBottom: '32px', opacity: '0.6', lineHeight: '1.2' }}>
           Sales & Service <br /> On the Lafitte Greenway
         </p>
 
         {/* Contact CTA */}
-        <a href="tel:5045216997" className="mb-12 w-full max-w-xs flex items-center justify-center gap-3 bg-black text-white px-6 py-5 rounded-2xl shadow-xl transform active:scale-95 transition-all hover:bg-zinc-800">
-          <Phone size={24} fill="white" />
-          <div className="text-left">
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] leading-none mb-1 opacity-70">Call or Text</p>
-            <p className="text-xl font-black leading-none">(504) 521-6997</p>
+        <a href="tel:5045216997" style={{ marginBottom: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', backgroundColor: 'black', color: 'white', padding: '20px', borderRadius: '20px', textDecoration: 'none', boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)' }}>
+          <Phone size={24} color="white" />
+          <div style={{ textAlign: 'left' }}>
+            <p style={{ fontSize: '10px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.2em', margin: '0 0 4px 0', opacity: '0.7' }}>Call or Text</p>
+            <p style={{ fontSize: '20px', fontWeight: '900', margin: '0' }}>(504) 521-6997</p>
           </div>
         </a>
 
         {/* Navigation Modules */}
-        <div className="space-y-4 w-full text-left">
-          {[
-            { id: 'service', icon: Wrench, title: 'Repairs & Maintenance', sub: 'Free Diagnostic', url: '/repairs.html' },
-            { id: 'sales', icon: ShoppingCart, title: 'Quality eBikes', sub: 'Authorized Gotrax Dealer', url: '/sales.html' },
-            { id: 'assembly', icon: ArrowRight, title: 'eBike Assembly', sub: 'Professional Flat Rate', url: '/assembly.html' },
-            { id: 'incentive', icon: MapPin, title: 'NOLA Incentive', sub: 'Up to $1,200 Off', url: '/nola-incentive.html' }
-          ].map((item) => (
-            <a key={item.id} href={item.url} className="block group">
-              <Card className="bg-white border-2 border-black/5 shadow-sm overflow-hidden group-hover:border-black/20 group-hover:shadow-md transition-all duration-200">
-                <CardContent className="p-6 flex items-center justify-between">
-                  <div>
-                    <item.icon className="mb-3 opacity-80 text-black" size={28} />
-                    <h2 className="text-xl font-black uppercase tracking-tight mb-0.5 text-black">{item.title}</h2>
-                    <p className="text-sm font-bold text-black/40">{item.sub}</p>
-                  </div>
-                  <div className="bg-black text-white h-10 px-4 flex items-center rounded-lg text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                    Find Out More
-                  </div>
-                </CardContent>
-              </Card>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', textAlign: 'left' }}>
+          {items.map((item) => (
+            <a key={item.id} href={item.url} style={{ textDecoration: 'none', color: 'black' }}>
+              <div style={{ backgroundColor: 'white', border: '2px solid rgba(0,0,0,0.05)', borderRadius: '20px', padding: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.2s' }}>
+                <div style={{ flexGrow: 1 }}>
+                  <item.icon style={{ marginBottom: '12px', opacity: '0.8' }} size={28} />
+                  <h2 style={{ fontSize: '20px', fontWeight: '900', textTransform: 'uppercase', margin: '0 0 2px 0' }}>{item.title}</h2>
+                  <p style={{ fontSize: '14px', fontWeight: '700', color: 'rgba(0,0,0,0.4)', margin: '0' }}>{item.sub}</p>
+                </div>
+                <div style={{ backgroundColor: 'black', color: 'white', padding: '10px 16px', borderRadius: '8px', fontSize: '10px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  Find Out More
+                </div>
+              </div>
             </a>
           ))}
         </div>
 
         {/* Location Footer */}
-        <footer className="mt-20 pb-10 flex flex-col items-center opacity-30">
-          <div className="flex items-center gap-2 font-black text-lg mb-1">
+        <footer style={{ marginTop: '80px', opacity: '0.3', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '18px', fontWeight: '900', marginBottom: '4px' }}>
             <MapPin size={20} /> 
             <span>2336 St. Louis Street</span>
           </div>
-          <p className="text-[10px] font-black uppercase tracking-[0.3em]">Directly on the Greenway</p>
+          <p style={{ fontSize: '10px', fontWeight: '900', textTransform: 'uppercase', letterSpacing: '0.3em', margin: '0' }}>Directly on the Greenway</p>
         </footer>
 
       </main>
