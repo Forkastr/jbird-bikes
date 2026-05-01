@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JBird Bikes — Product</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f3ef;
+      --green: #2d6a4f;
+      --green-light: #40916c;
+      --green-pale: #d8f3dc;
+      --accent: #f4a261;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
+      --card-bg: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* ── HEADER (screen only) ── */
+    header {
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+    }
+    header .brand span { color: var(--accent); }
+    header nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    header nav a:hover { opacity: 1; color: var(--accent); }
+
+    /* ── MAIN WRAPPER ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ── SECTION 1: HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid var(--green-pale);
+    }
+    .hero-text {}
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .hero-description {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 1.5rem;
+    }
+    .colors-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gray);
+      margin-bottom: 0.4rem;
+    }
+    .colors-value {
+      font-size: 0.95rem;
+      color: var(--black);
+      font-weight: 500;
+    }
+    .badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+    .badge {
+      background: var(--green-pale);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+    }
+    .badge.accent { background: #fff3e0; color: #c05c00; }
+
+    .hero-image {
+      position: relative;
+    }
+    .hero-image img {
+      width: 100%;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f0f4f0;
+      padding: 1rem;
+    }
+    .hero-image .no-image {
+      width: 100%;
+      height: 320px;
+      background: var(--green-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ── SECTION 2: ICON GRID ── */
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      color: var(--black);
+      margin-bottom: 1.2rem;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 2px solid var(--green-pale);
+    }
+    .icon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--gray-light);
+      border-radius: 12px;
+      padding: 1.2rem 0.8rem;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .icon-card:hover {
+      box-shadow: 0 4px 20px rgba(45,106,79,0.12);
+      transform: translateY(-2px);
+    }
+    .icon-card img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      margin-bottom: 0.6rem;
+    }
+    .icon-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gray);
+      margin-bottom: 0.3rem;
+    }
+    .icon-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    /* ── SECTION 3: FULL SPECS ── */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 2rem;
+      margin-bottom: 3rem;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .spec-key {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray);
+      flex-shrink: 0;
+      margin-right: 1rem;
+    }
+    .spec-val {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--black);
+      text-align: right;
+    }
+
+    /* ── STATUS BAR ── */
+    .status-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 3rem;
+      align-items: center;
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .status-dot.green { background: #4ade80; }
+
+    /* ── CTA ── */
+    .cta-block {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 2rem;
+      background: var(--green-pale);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    .cta-text { flex: 1; min-width: 200px; }
+    .cta-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.3rem;
+    }
+    .cta-text p { font-size: 0.85rem; color: #374151; }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-secondary { background: var(--black); color: white; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+    }
+
+    /* ── FOOTER (screen only) ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* ── LOADING / ERROR ── */
+    #loading {
+      text-align: center;
+      padding: 6rem 2rem;
+      font-size: 1rem;
+      color: var(--gray);
+    }
+    #error-msg {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #c0392b;
+      font-size: 1rem;
+    }
+    #product-content { display: none; }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      @page { size: 8.5in 11in; margin: 0.6in; }
+
+      header, footer, .cta-block, .btn, nav { display: none !important; }
+
+      body { background: white; color: black; font-size: 11pt; }
+
+      main { max-width: 100%; padding: 0; }
+
+      .print-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #2d6a4f;
+      }
+
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .hero-title { font-size: 2.5rem; }
+      .hero-image img { max-height: 260px; }
+
+      .icon-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      .icon-card { padding: 0.8rem 0.5rem; border: 1px solid #ccc; }
+      .icon-card:hover { box-shadow: none; transform: none; }
+      .icon-card img { width: 36px; height: 36px; }
+
+      .specs-grid { gap: 0.3rem 1.5rem; margin-bottom: 1rem; }
+      .spec-row { padding: 0.35rem 0; }
+
+      .status-bar {
+        background: #f0f4f0;
+        color: black;
+        padding: 0.8rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+      }
+      .status-dot { background: #2d6a4f !important; }
+
+      #product-content { display: block !important; }
+    }
+
+    /* ── PRINT HEADER (hidden on screen) ── */
+    .print-header {
+      display: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { order: -1; }
+      .hero-title { font-size: 2.8rem; }
+      .icon-grid { grid-template-columns: repeat(2, 1fr); }
+      .specs-grid { grid-template-columns: 1fr; }
+      header nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SCREEN HEADER -->
+<header>
+  <div class="brand">JBird <span>Bikes</span> <span style="font-size:0.9rem;opacity:0.6;">New Orleans</span></div>
+  <nav>
+    <a href="index.html">← All Bikes</a>
+    <a href="tel:5045216997">(504) 521-6997</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- PRINT-ONLY HEADER -->
+  <div class="print-header">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;">
+      JBird Bikes <span style="font-size:1rem;font-weight:400;">New Orleans</span>
+    </div>
+    <div style="font-size:0.8rem;text-align:right;color:#555;">
+      (504) 521-6997<br>jbirdbikes.com<br>On the Lafitte Greenway
+    </div>
+  </div>
+
+  <div id="loading">Loading product data…</div>
+  <div id="error-msg">Product not found. <a href="index.html">Return to catalog →</a></div>
+
+  <div id="product-content">
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow" id="cat-label">eBike</div>
+        <h1 class="hero-title" id="bike-title">—</h1>
+        <p class="hero-description" id="bike-desc">—</p>
+        <div class="colors-label">Colors Available</div>
+        <div class="colors-value" id="bike-colors">—</div>
+        <div class="badge-row" id="badge-row"></div>
+      </div>
+      <div class="hero-image">
+        <img id="bike-img" src="" alt="Bike image" onerror="this.style.display='none';document.getElementById('no-img').style.display='flex'"/>
+        <div class="no-image" id="no-img" style="display:none;">Image Coming Soon</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ICON GRID -->
+    <h2 class="section-title">Key Specifications</h2>
+    <div class="icon-grid">
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1cl4DGrCVN_I9g4bG5uRgdAgqK52YKjTh&sz=w96" alt="Range"/>
+        <div class="icon-label">Range</div>
+        <div class="icon-value" id="spec-range">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1y1vSCUFY5XHdP6oSlJTHEeOeyD59L1V&sz=w96" alt="Top Speed"/>
+        <div class="icon-label">Top Speed</div>
+        <div class="icon-value" id="spec-speed">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1ROBpnZZjU-E4QfLdDNAsUEsnO2eF6sIP&sz=w96" alt="Tire Size"/>
+        <div class="icon-label">Tire Size</div>
+        <div class="icon-value" id="spec-tire">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1uu7TQCQThHNSCnizHcBhFMaOoMbAy5OI&sz=w96" alt="Payload"/>
+        <div class="icon-label">Payload</div>
+        <div class="icon-value" id="spec-payload">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1GAR14wmTYe5XDip5Z6dEiYhembF95fdR&sz=w96" alt="Motor Size"/>
+        <div class="icon-label">Motor Size</div>
+        <div class="icon-value" id="spec-motor">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1UX5we1AbEX0WwPwebnpyHniDy8Nmo1x6&sz=w96" alt="Easy Storage"/>
+        <div class="icon-label">Easy Storage</div>
+        <div class="icon-value" id="spec-storage">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1CX95NwQ1voa-e3qyvMizofmsuKTxcwCv&sz=w96" alt="Warranty"/>
+        <div class="icon-label">Warranty</div>
+        <div class="icon-value" id="spec-warranty">—</div>
+      </div>
+      <div class="icon-card">
+        <img src="https://drive.google.com/thumbnail?id=1VRe52zS-MvL-6ITqBoVh2e9HQv6-sq3S&sz=w96" alt="Safety"/>
+        <div class="icon-label">Safety</div>
+        <div class="icon-value" id="spec-safety">—</div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: FULL SPECS -->
+    <h2 class="section-title">Full Specifications</h2>
+    <div class="specs-grid">
+      <div class="spec-row"><span class="spec-key">Battery</span><span class="spec-val" id="spec-battery">—</span></div>
+      <div class="spec-row"><span class="spec-key">Battery Size</span><span class="spec-val" id="spec-batterysize">—</span></div>
+      <div class="spec-row"><span class="spec-key">Class</span><span class="spec-val" id="spec-class">—</span></div>
+      <div class="spec-row"><span class="spec-key">Bike Weight</span><span class="spec-val" id="spec-weight">—</span></div>
+      <div class="spec-row"><span class="spec-key">Charge Time</span><span class="spec-val" id="spec-chargetime">—</span></div>
+      <div class="spec-row"><span class="spec-key">Charger</span><span class="spec-val" id="spec-charger">—</span></div>
+      <div class="spec-row"><span class="spec-key">Headlight</span><span class="spec-val" id="spec-headlight">—</span></div>
+      <div class="spec-row"><span class="spec-key">Sensor Type</span><span class="spec-val" id="spec-sensor">—</span></div>
+      <div class="spec-row"><span class="spec-key">Frame Material</span><span class="spec-val" id="spec-frame">—</span></div>
+      <div class="spec-row"><span class="spec-key">Waterproof Rating</span><span class="spec-val" id="spec-waterproof">—</span></div>
+      <div class="spec-row"><span class="spec-key">Display / Console</span><span class="spec-val" id="spec-display">—</span></div>
+      <div class="spec-row"><span class="spec-key">Gears</span><span class="spec-val" id="spec-gears">—</span></div>
+      <div class="spec-row"><span class="spec-key">Suspension</span><span class="spec-val" id="spec-suspension">—</span></div>
+      <div class="spec-row"><span class="spec-key">Brakes</span><span class="spec-val" id="spec-brakes">—</span></div>
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar" id="status-bar">
+      <div class="status-item"><div class="status-dot green"></div><span id="status-jbird">—</span></div>
+      <div class="status-item"><div class="status-dot"></div><span id="status-testride">—</span></div>
+      <div class="status-item"><div class="status-dot"></div><span id="status-category">—</span></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-text">
+        <h3>Ready to Ride?</h3>
+        <p>Visit us on the Lafitte Greenway or contact us to schedule a test ride.</p>
+      </div>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
+      <button class="btn btn-secondary" onclick="window.print()">Print / Save PDF</button>
+      <a class="btn btn-outline" href="index.html">← All Bikes</a>
+    </div>
+
+  </div><!-- end product-content -->
+</main>
+
+<footer>
+  © 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997
+</footer>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
+
+  function val(bike, key) {
+    const v = bike[key];
+    return (v !== undefined && v !== null && v !== '') ? v : '—';
+  }
+
+  function set(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+  }
+
+  async function loadProduct() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug') || params.get('model');
+
+    if (!slug) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error-msg').style.display = 'block';
+      return;
+    }
+
+    try {
+      const res = await fetch(SCRIPT_URL);
+      const bikes = await res.json();
+      const bike = bikes.find(b =>
+        (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase() ||
+        (b['Title'] || '').toString().toLowerCase() === slug.toLowerCase()
+      );
+
+      if (!bike) throw new Error('Not found');
+
+      // Populate hero
+      document.title = `${val(bike,'Title')} — JBird Bikes`;
+      set('bike-title', val(bike, 'Title'));
+      set('bike-desc', val(bike, 'Description'));
+      set('bike-colors', val(bike, 'Colors Available'));
+      set('cat-label', val(bike, 'Category'));
+
+      const img = document.getElementById('bike-img');
+      const imgUrl = val(bike, 'Image-URL');
+      if (imgUrl && imgUrl !== '—') {
+        img.src = imgUrl;
+      } else {
+        img.style.display = 'none';
+        document.getElementById('no-img').style.display = 'flex';
+      }
+
+      // Badges
+      const badgeRow = document.getElementById('badge-row');
+      if (val(bike,'Test Ride Available') && bike['Test Ride Available'].toString().toLowerCase() === 'yes') {
+        const b = document.createElement('span');
+        b.className = 'badge accent';
+        b.textContent = 'Test Ride Available';
+        badgeRow.appendChild(b);
+      }
+      if (val(bike,'JBird Status') !== '—') {
+        const b = document.createElement('span');
+        b.className = 'badge';
+        b.textContent = val(bike,'JBird Status');
+        badgeRow.appendChild(b);
+      }
+
+      // Icon grid
+      set('spec-range', val(bike, 'Range'));
+      set('spec-speed', val(bike, 'Top Speed'));
+      set('spec-tire', val(bike, 'Tire Size'));
+      set('spec-payload', val(bike, 'Payload'));
+      set('spec-motor', val(bike, 'Motor Size'));
+      set('spec-storage', val(bike, 'Easy Storage'));
+      set('spec-warranty', val(bike, 'Warranty'));
+      set('spec-safety', val(bike, 'Safety'));
+
+      // Full specs
+      set('spec-battery', val(bike, 'Battery'));
+      set('spec-batterysize', val(bike, 'Battery Size'));
+      set('spec-class', val(bike, 'Class'));
+      set('spec-weight', val(bike, 'Bike Weight'));
+      set('spec-chargetime', val(bike, 'Charge Time'));
+      set('spec-charger', val(bike, 'Charger'));
+      set('spec-headlight', val(bike, 'Headlight'));
+      set('spec-sensor', val(bike, 'Sensor Type'));
+      set('spec-frame', val(bike, 'Frame Material'));
+      set('spec-waterproof', val(bike, 'Waterproof Rating'));
+      set('spec-display', val(bike, 'Display / Console'));
+      set('spec-gears', val(bike, 'Gears'));
+      set('spec-suspension', val(bike, 'Suspension'));
+      set('spec-brakes', val(bike, 'Brakes'));
+
+      // Status bar
+      set('status-jbird', val(bike, 'JBird Status'));
+      set('status-testride', bike['Test Ride Available']?.toString().toLowerCase() === 'yes' ? 'Test Ride Available' : 'Contact for Test Ride');
+      set('status-category', val(bike, 'Category') + ' eBike');
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('product-content').style.display = 'block';
+
+    } catch(e) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('error-msg').style.display = 'block';
+    }
+  }
+
+  loadProduct();
+</script>
+</body>
+</html>
