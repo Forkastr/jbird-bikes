@@ -1,3 +1,4 @@
+import React from 'react';
 const CONTACT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header";
 
 export default function TestRideBanner() {
