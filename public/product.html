@@ -567,13 +567,23 @@
       set('cat-label', val(bike, 'Category'));
 
       const img = document.getElementById('bike-img');
-      const imgUrl = val(bike, 'Image-URL');
-      if (imgUrl && imgUrl !== '—') {
-        img.src = imgUrl;
-      } else {
-        img.style.display = 'none';
-        document.getElementById('no-img').style.display = 'flex';
-      }
+const noImg = document.getElementById('no-img');
+const imgUrl = val(bike, 'Image-URL');
+if (imgUrl && imgUrl !== '—') {
+  img.onload = function() {
+    img.style.display = 'block';
+    noImg.style.display = 'none';
+  };
+  img.onerror = function() {
+    img.style.display = 'none';
+    noImg.style.display = 'flex';
+  };
+  img.style.display = 'block';
+  img.src = imgUrl;
+} else {
+  img.style.display = 'none';
+  noImg.style.display = 'flex';
+}
 
       // Badges
       const badgeRow = document.getElementById('badge-row');
