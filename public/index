@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JBird Bikes | Product Catalog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <style>
+        /* All the CSS we perfected in CodePen goes here */
+        :root { --jbird-black: #1a1a1a; --jbird-gray: #f8f9fa; --jbird-accent: #007bff; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 20px; background: #eee; }
+        .product-page { background: white; max-width: 850px; margin: auto; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        header { display: flex; justify-content: space-between; border-bottom: 2px solid black; padding-bottom: 15px; margin-bottom: 25px; }
+        .logo { height: 55px; }
+        .specs-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 25px 0; }
+        .icon-card { background: var(--jbird-gray); padding: 12px 5px; text-align: center; border-radius: 6px; border: 1px solid #eee; }
+        .icon-card img { height: 28px; margin-bottom: 6px; }
+        .tech-matrix { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .tech-matrix td { padding: 10px; border-bottom: 1px solid #eee; font-size: 12px; }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .no-print { display: none; }
+            .product-page { width: 100%; box-shadow: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="content" class="product-page">
+    <p>Loading JBird Catalog...</p>
+</div>
+
+<script>
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7jIUjF04ckanexKOkvrfSdfgqqFjekg2896Keqq7jccCfUDEmoKiTP9kvGyfo6q6JS_N9VwnNJh22/pub?gid=1318810178&single=true&output=csv';
+
+    function loadProduct() {
+        // We get the product name from the URL (e.g., jbirdbikes.com/?model=NANO)
+        const urlParams = new URLSearchParams(window.location.search);
+        const modelQuery = urlParams.get('model') || 'NANO'; 
+
+        Papa.parse(csvUrl, {
+            download: true,
+            header: true,
+            complete: function(results) {
+                const data = results.data;
+                const bike = data.find(row => row['Model Name'].toUpperCase() === modelQuery.toUpperCase());
+
+                if (bike) {
+                    renderPage(bike);
+                } else {
+                    document.getElementById('content').innerHTML = "<h1>Bike Not Found</h1>";
+                }
+            }
+        });
+    }
+
+    function renderPage(bike) {
+        const html = `
+            <header>
+                <div>
+                    <h1>${bike['Model Name']}</h1>
+                    <div style="font-size:12px; font-weight:bold; color:#666;">SKU: ${bike['Refined SKU']} | ${bike['Category']}</div>
+                </div>
+                <img src="https://drive.google.com/thumbnail?id=1JaxFs27aM_AgT3_1yYMdUxG0RzICm3jY&sz=w500" class="logo">
+            </header>
+
+            <div style="display:flex; gap:40px; margin-bottom:30px;">
+                <div style="flex:1.2;"><img src="${bike['Image_URL']}" style="width:100%;"></div>
+                <div style="flex:1;">
+                    <p style="border-left:3px solid black; padding-left:15px; font-style:italic;">${bike['Marketing Description'] || 'Precision engineering for NOLA streets.'}</p>
+                    <p><strong>Test Ride:</strong> ${bike['Test Ride Available']}</p>
+                    <p><strong>Status:</strong> ${bike['JBird Status']}</p>
+                </div>
+            </div>
+
+            <div class="specs-grid">
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=139vX78q4A-CjW4xZlA9G-1L2E-K0V3i4&sz=w100"><span>Range</span><br><strong>${bike['Range']}</strong></div>
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=14V6jE7_5A2B3_C7D8E9F0G1H2I3J4K5L&sz=w100"><span>Speed</span><br><strong>${bike['Top Speed']}</strong></div>
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=15W7kF8_6B3C4_D8E9F0G1H2I3J4K5L6M&sz=w100"><span>Motor</span><br><strong>${bike['Motor Size']}</strong></div>
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=16X8lG9_7C4D5_E9F0G1H2I3J4K5L6M7N&sz=w100"><span>Tires</span><br><strong>${bike['Tire Size']}</strong></div>
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=17Y9mH0_8D5E6_F0G1H2I3J4K5L6M7N8O&sz=w100"><span>Payload</span><br><strong>${bike['Payload Capacity']}</strong></div>
+                <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=128uX67p3A-BjW3xZkZ8G-0L1E-K0V2i3&sz=w100"><span>Storage</span><br><strong>${bike['Easy Storage']}</strong></div>
+            </div>
+
+            <table class="tech-matrix">
+                <tr><td><strong>Battery</strong></td><td>${bike['Battery']}</td><td><strong>Weight</strong></td><td>${bike['Bike Weight']}</td></tr>
+                <tr><td><strong>Class</strong></td><td>${bike['Class']}</td><td><strong>Brakes</strong></td><td>${bike['Brakes']}</td></tr>
+            </table>
+
+            <button class="no-print" onclick="window.print()" style="margin-top:30px; background:black; color:white; padding:10px 20px; border:none; cursor:pointer;">Print Flyer</button>
+        `;
+        document.getElementById('content').innerHTML = html;
+    }
+
+    loadProduct();
+</script>
+</body>
+</html>
