@@ -4,10 +4,12 @@ import Services from '@/components/Services';
 import TestRideBanner from '@/components/TestRideBanner';
 import MapSection from '@/components/MapSection';
 import Footer from '@/components/Footer';
+import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 
 export default function HomePage() {
   return (
     <>
+      <LocalBusinessSchema />
       <Header />
       <Hero />
       <Services />
