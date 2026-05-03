@@ -183,3 +183,16 @@ h1 {
 .dropdown-menu a:hover {
   background: #f0fdf4;
 }
+/* ── FIX DESKTOP NAV LAYOUT ── */
+.nav-shim .nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-shim .nav-links a,
+.nav-shim .nav-links .dropdown {
+  display: flex;
+  align-items: center;
+}
