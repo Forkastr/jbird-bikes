@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/jbird-styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy & Terms | JBird Bikes</title>
+  <link rel="stylesheet" href="/jbird-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy & Terms | JBird Bikes</title>
 </head>
 <body>
 
 <nav class="nav-shim">
-    <a href="/" class="logo">JBIRD BIKES</a>
-    
-    <div class="nav-links">
-        <a href="/repairs.html">Repairs</a>
-        <a href="/sales.html">Bike Sales</a>
-        <a href="/assembly.html">Assembly</a>
-        <a href="/nola-incentive.html">Incentive</a>
-        <a href="https://square.site/book/your-link" style="background:#0000FF; color:white; padding:8px 16px; border-radius:4px; text-decoration:none;">BOOK TEST-RIDE</a>
+  <a href="/" class="logo">JBIRD BIKES</a>
+  <div class="nav-links">
+    <a href="/repairs.html">Repairs</a>
+    <div class="dropdown">
+      <a href="/sales.html" class="dropdown-toggle">Bike Sales ▾</a>
+      <div class="dropdown-menu">
+        <a href="/sales.html">All Bikes</a>
+        <a href="/gotrax-ebikes-new-orleans">Gotrax</a>
+        <a href="/aventon-ebikes-new-orleans">Aventon</a>
+        <a href="/lectric-ebikes-new-orleans">Lectric</a>
+        <a href="/retrospec-ebikes-new-orleans">Retrospec</a>
+        <a href="/mockwheel-ebikes-new-orleans">Mockwheel</a>
+        <a href="/vanpowers-ebikes-new-orleans">Vanpowers</a>
+      </div>
     </div>
-
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-    </div>
+    <a href="/assembly.html">Assembly</a>
+    <a href="/nola-incentive.html">Incentive</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <div id="mobileSideMenu" class="side-menu">
-    <button class="close-btn" onclick="toggleMenu()">✕</button>
-    <a href="/repairs.html">Repairs & Service</a>
-    <a href="/sales.html">Bike Sales</a>
-    <a href="/assembly.html">eBike Assembly</a>
-    <a href="/nola-incentive.html">NOLA Incentive</a>
-    <a href="/about.html">About Us</a>
-    <hr style="border:none; border-top:1px solid #eee; margin:10px 0;">
-    <a href="tel:5045216997" style="color: black; font-weight: 800; text-decoration:none;">(504) 521-6997</a>
-</div>
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+  <a href="/repairs.html">Repairs & Service</a>
+  <div style="border-bottom:1px solid #eee;padding-bottom:0.8rem;">
+    <div style="font-weight:800;color:#2E7D32;text-transform:uppercase;font-size:0.85rem;padding:0.8rem 0 0.3rem;">Bike Sales</div>
+    <a href="/sales.html" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">All Bikes</a>
+    <a href="/gotrax-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Gotrax</a>
+    <a href="/aventon-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Aventon</a>
+    <a href="/lectric-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Lectric</a>
+    <a href="/retrospec-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Retrospec</a>
+    <a href="/mockwheel-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Mockwheel</a>
+    <a href="/vanpowers-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Vanpowers</a>
+  </div>
+  <a href="/assembly.html">eBike Assembly</a>
+  <a href="/nola-incentive.html">NOLA Incentive</a>
+  <a href="/about.html">About Us</a>
+  <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
+  <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
 </div>
 
 <div class="container">
-    <p style="text-transform: uppercase; font-weight: bold; color: var(--jbird-green); margin-bottom: 0;">Legal & Transparency</p>
-    <h1>Privacy & Terms</h1>
+  <p style="text-transform:uppercase;font-weight:bold;color:var(--jbird-green);margin-bottom:0;">Legal & Transparency</p>
+  <h1>Privacy & Terms</h1>
 
-    <div class="card">
-        <h3>1. Privacy Policy</h3>
-        <p>At JBird Bikes, we value your privacy as much as we value precision. We only collect information you voluntarily provide (like your name or phone number) to facilitate repairs or test-rides. We never sell your data to third parties.</p>
-    </div>
+  <div class="card">
+    <h3>1. Privacy Policy</h3>
+    <p>At JBird Bikes, we value your privacy as much as we value precision. We only collect information you voluntarily provide (like your name or phone number) to facilitate repairs or test-rides. We never sell your data to third parties.</p>
+  </div>
 
-    <div class="card">
-        <h3>2. Service & Repairs</h3>
-        <p>All bikes brought in for service receive a free diagnostic. Labor is warranted for 30 days. JBird Bikes is not responsible for bikes left longer than 30 days after repair completion.</p>
-    </div>
+  <div class="card">
+    <h3>2. Service & Repairs</h3>
+    <p>All bikes brought in for service receive a free diagnostic. Labor is warranted for 30 days. JBird Bikes is not responsible for bikes left longer than 30 days after repair completion.</p>
+  </div>
 
-    <div class="card">
-        <h3>3. Sales & Returns</h3>
-        <p>New bikes include professional assembly and a 25-point safety check. Due to the custom nature of our "Pro-Builds," all sales are final once the bike leaves the shop, but we stand by our work with local technical support.</p>
-    </div>
+  <div class="card">
+    <h3>3. Sales & Returns</h3>
+    <p>New bikes include professional assembly and a 25-point safety check. Due to the custom nature of our "Pro-Builds," all sales are final once the bike leaves the shop, but we stand by our work with local technical support.</p>
+  </div>
 
-    <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px; font-size: 0.8rem; color: #666;">
-        Last Updated: May 2024 | New Orleans, LA
-    </div>
-    <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid #eee; margin-top: 60px;">
-    <p style="font-size: 0.8rem; color: #666;">© 2024 JBird Bikes NOLA</p>
-    <a href="/privacy.html" style="font-size: 0.8rem; color: #666; text-decoration: none;">Privacy</a>
-</footer>
+  <div style="margin-top:40px;border-top:1px solid #ddd;padding-top:20px;font-size:0.8rem;color:#666;">
+    Last Updated: May 2026 | New Orleans, LA
+  </div>
 </div>
+
+<footer style="text-align:center;padding:40px 20px;border-top:1px solid #eee;margin-top:60px;">
+  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans</p>
+  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy</a>
+</footer>
+
 <script>
-    function toggleMenu() {
-        document.getElementById('mobileSideMenu').classList.toggle('open');
-    }
+  function toggleMenu() {
+    document.getElementById('mobileSideMenu').classList.toggle('open');
+  }
 </script>
 </body>
 </html>
