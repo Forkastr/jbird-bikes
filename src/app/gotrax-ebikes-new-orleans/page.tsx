@@ -1,7 +1,7 @@
-'use client';
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import GotraxBikes from './GotraxBikes';
 
 export const metadata: Metadata = {
   title: 'Gotrax eBikes New Orleans | Authorized Dealer — JBird Bikes',
@@ -41,20 +41,8 @@ export default function GotraxPage() {
       <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-        .brand-hero {
-          background: #0a0a0a;
-          color: white;
-          padding: 4rem 2rem;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-        .brand-hero::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%);
-        }
+        .brand-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
+        .brand-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
         .brand-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
         .brand-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4a261; margin-bottom: 0.8rem; }
         .brand-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; color: white; margin-bottom: 1rem; letter-spacing: 2px; }
@@ -84,23 +72,6 @@ export default function GotraxPage() {
         .bikes-section h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; color: #0a0a0a; margin-bottom: 0.5rem; }
         .bikes-section-sub { font-size: 0.85rem; color: #6b7280; margin-bottom: 2rem; }
 
-        .bike-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
-        .bike-card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
-        .bike-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(45,106,79,0.13); }
-        .bike-card-img { width: 100%; height: 180px; background: #f0f4f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .bike-card-img img { width: 100%; height: 100%; object-fit: cover; }
-        .bike-card-img .no-img { font-size: 0.78rem; color: #6b7280; }
-        .bike-card-body { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
-        .bike-card-status { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2d6a4f; margin-bottom: 0.4rem; }
-        .bike-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #0a0a0a; margin-bottom: 0.4rem; flex: 1; }
-        .bike-card-range { font-size: 0.78rem; color: #6b7280; margin-bottom: 1rem; }
-        .btn-findout { display: block; text-align: center; background: #2d6a4f; color: white; text-decoration: none; padding: 0.6rem 1rem; border-radius: 8px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: background 0.2s; }
-        .btn-findout:hover { background: #40916c; }
-
-        .loading-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
-        .skeleton { height: 300px; background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 14px; }
-        @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
         .brand-cta { background: #2d6a4f; color: white; text-align: center; padding: 3rem 2rem; }
         .brand-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
         .brand-cta p { color: #d8f3dc; font-size: 0.95rem; margin-bottom: 1.5rem; }
@@ -115,7 +86,6 @@ export default function GotraxPage() {
 
       <Header />
 
-      {/* HERO */}
       <div className="brand-hero">
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
@@ -130,7 +100,6 @@ export default function GotraxPage() {
         </div>
       </div>
 
-      {/* ABOUT GOTRAX */}
       <div className="brand-about">
         <div className="brand-about-text">
           <h2>About Gotrax</h2>
@@ -138,26 +107,13 @@ export default function GotraxPage() {
           <p>With over 15,000 independent reviews and a presence in major retailers nationwide, Gotrax is one of the most trusted names in affordable eBikes. At JBird Bikes, we carry their best models — fully assembled and ready for NOLA streets.</p>
         </div>
         <div className="brand-stat-box">
-          <div className="brand-stat">
-            <div className="brand-stat-num">1M+</div>
-            <div className="brand-stat-label">Riders Worldwide</div>
-          </div>
-          <div className="brand-stat">
-            <div className="brand-stat-num">15K+</div>
-            <div className="brand-stat-label">Independent Reviews</div>
-          </div>
-          <div className="brand-stat">
-            <div className="brand-stat-num">2yr</div>
-            <div className="brand-stat-label">Warranty</div>
-          </div>
-          <div className="brand-stat">
-            <div className="brand-stat-num">2017</div>
-            <div className="brand-stat-label">Founded</div>
-          </div>
+          <div className="brand-stat"><div className="brand-stat-num">1M+</div><div className="brand-stat-label">Riders Worldwide</div></div>
+          <div className="brand-stat"><div className="brand-stat-num">15K+</div><div className="brand-stat-label">Independent Reviews</div></div>
+          <div className="brand-stat"><div className="brand-stat-num">2yr</div><div className="brand-stat-label">Warranty</div></div>
+          <div className="brand-stat"><div className="brand-stat-num">2017</div><div className="brand-stat-label">Founded</div></div>
         </div>
       </div>
 
-      {/* JBIRD SPECIAL */}
       <div className="jbird-special">
         <div className="jbird-special-title">The JBird Special</div>
         <div className="jbird-special-inner">
@@ -179,23 +135,12 @@ export default function GotraxPage() {
         </div>
       </div>
 
-      {/* BIKES */}
       <div className="bikes-section">
         <h2>Our Gotrax eBikes</h2>
         <p className="bikes-section-sub">All models fully assembled with the JBird Special. Stop by and test ride one today.</p>
-        <div id="bike-grid-loading" className="loading-grid">
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-          <div className="skeleton"></div>
-        </div>
-        <div id="bike-grid" className="bike-grid" style={{ display: 'none' }}></div>
-        <p id="no-bikes" style={{ display: 'none', color: '#6b7280', textAlign: 'center', padding: '3rem' }}>
-          No Gotrax bikes currently available. Check back soon or contact us.
-        </p>
+        <GotraxBikes />
       </div>
 
-      {/* CTA */}
       <div className="brand-cta">
         <h2>Ready to Test Ride?</h2>
         <p>Visit us on the Lafitte Greenway. We're here to help you find the right Gotrax eBike for NOLA.</p>
@@ -204,48 +149,6 @@ export default function GotraxPage() {
       </div>
 
       <Footer />
-
-      <script dangerouslySetInnerHTML={{ __html: `
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
-
-        async function loadBikes() {
-          try {
-            const res = await fetch(SCRIPT_URL);
-            const bikes = await res.json();
-            const gotrax = bikes.filter(function(b) {
-              return (b['Slug'] || '').toString().toLowerCase().startsWith('gotrax-') &&
-                (b['JBird Status'] || '').toString().trim().toLowerCase() === 'available';
-            });
-
-            document.getElementById('bike-grid-loading').style.display = 'none';
-
-            if (gotrax.length === 0) {
-              document.getElementById('no-bikes').style.display = 'block';
-              return;
-            }
-
-            var grid = document.getElementById('bike-grid');
-            grid.style.display = 'grid';
-            grid.innerHTML = gotrax.map(function(bike) {
-              var slug = bike['Slug'] || '';
-              var title = bike['Title'] || 'Unnamed Bike';
-              var imgUrl = bike['Image-URL'] || '';
-              var range = bike['Range'] ? 'Range: ' + bike['Range'] : '';
-              var status = bike['JBird Status'] || '';
-              var testRide = (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? ' · Test Ride' : '';
-              var imgHtml = imgUrl
-                ? '<img src="' + imgUrl + '" alt="' + title + '" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"/><div class="no-img" style="display:none;">Image Coming Soon</div>'
-                : '<div class="no-img">Image Coming Soon</div>';
-              return '<div class="bike-card"><div class="bike-card-img">' + imgHtml + '</div><div class="bike-card-body"><div class="bike-card-status">' + status + testRide + '</div><div class="bike-card-title">' + title + '</div><div class="bike-card-range">' + range + '</div><a class="btn-findout" href="/product.html?slug=' + encodeURIComponent(slug) + '">Find Out More</a></div></div>';
-            }).join('');
-          } catch(e) {
-            document.getElementById('bike-grid-loading').style.display = 'none';
-            document.getElementById('no-bikes').style.display = 'block';
-          }
-        }
-
-        loadBikes();
-      `}} />
     </>
   );
 }
