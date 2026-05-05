@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Gotrax eBikes New Orleans | Authorized Dealer — JBird Bikes',
@@ -110,6 +112,8 @@ export default function GotraxPage() {
         }
       ` }} />
 
+      <Header />
+
       {/* HERO */}
       <div className="brand-hero">
         <div className="brand-hero-inner">
@@ -120,7 +124,7 @@ export default function GotraxPage() {
             <div className="brand-badge">Authorized Dealer</div>
             <div className="brand-badge">Test Rides Available</div>
             <div className="brand-badge">Professional Assembly</div>
-            <div className="brand-badge">Same Day Pickup</div>
+            <div className="brand-badge">2-Year Warranty</div>
           </div>
         </div>
       </div>
@@ -177,7 +181,7 @@ export default function GotraxPage() {
       {/* BIKES */}
       <div className="bikes-section">
         <h2>Our Gotrax eBikes</h2>
-        <p className="bikes-section-sub">All models fully assembled with the JBird Special. Available for in-store pickup today.</p>
+        <p className="bikes-section-sub">All models fully assembled with the JBird Special. Stop by and test ride one today.</p>
         <div id="bike-grid-loading" className="loading-grid">
           <div className="skeleton"></div>
           <div className="skeleton"></div>
@@ -197,6 +201,8 @@ export default function GotraxPage() {
         <a className="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
         <a className="btn-cta-outline" href="/sales.html">Browse All Bikes</a>
       </div>
+
+      <Footer />
 
       <script dangerouslySetInnerHTML={{ __html: `
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
