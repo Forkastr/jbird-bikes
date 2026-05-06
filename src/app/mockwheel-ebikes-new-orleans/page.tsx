@@ -14,7 +14,6 @@ export default function MockwheelPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: 'Mockwheel eBikes at JBird Bikes New Orleans', url: 'https://jbirdbikes.com/mockwheel-ebikes-new-orleans' }) }} />
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
         .brand-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
         .brand-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
         .brand-hero-inner { position: relative; max-width: 760px; margin: 0 auto; }
