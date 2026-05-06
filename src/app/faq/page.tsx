@@ -118,7 +118,6 @@ export default function FAQPage() {
       />
 
       <style dangerouslySetInnerHTML={{ __html: `
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
         .faq-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
         .faq-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
         .faq-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
