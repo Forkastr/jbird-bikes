@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FAQAccordion from './FAQAccordion';
 
 export const metadata: Metadata = {
   title: 'FAQ | JBird Bikes New Orleans — eBike Questions Answered',
@@ -57,7 +58,7 @@ const faqs = [
       },
       {
         q: 'Do you repair all brands of eBikes?',
-        a: 'Yes. We service all brands of eBikes and pedal bikes, not just the ones we sell. Whether it\'s a vintage cruiser or a complex electric system, we offer a free diagnostic and expert repair.',
+        a: "Yes. We service all brands of eBikes and pedal bikes, not just the ones we sell. Whether it's a vintage cruiser or a complex electric system, we offer a free diagnostic and expert repair.",
       },
       {
         q: 'How much does an eBike tune-up cost?',
@@ -74,7 +75,7 @@ const faqs = [
       },
       {
         q: 'Do I qualify for the NOLA eBike incentive?',
-        a: 'If you live in New Orleans, you may qualify for a standard discount. If you receive government assistance, you may qualify for a larger discount. We are keeping track of the program\'s progress and will help you through the process. Contact us to find out more.',
+        a: "If you live in New Orleans, you may qualify for a standard discount. If you receive government assistance, you may qualify for a larger discount. We are keeping track of the program's progress and will help you through the process. Contact us to find out more.",
       },
     ],
   },
@@ -118,103 +119,21 @@ export default function FAQPage() {
 
       <style dangerouslySetInnerHTML={{ __html: `
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
-
-        .faq-hero {
-          background: #0a0a0a;
-          color: white;
-          padding: 4rem 2rem;
-          text-align: center;
-          position: relative;
-          overflow: hidden;
-        }
-        .faq-hero::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%);
-        }
+        .faq-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
+        .faq-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
         .faq-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
         .faq-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4a261; margin-bottom: 0.8rem; }
         .faq-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: white; margin-bottom: 1rem; letter-spacing: 2px; }
         .faq-hero p { font-size: 1rem; line-height: 1.75; color: #d1d5db; max-width: 540px; margin: 0 auto; }
-
-        .faq-body { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem; }
-
-        .faq-category { margin-bottom: 3rem; }
-        .faq-category-title {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 1.6rem;
-          letter-spacing: 2px;
-          color: #0a0a0a;
-          margin-bottom: 1rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 2px solid #d8f3dc;
-        }
-
-        .faq-item {
-          border: 1px solid #e5e7eb;
-          border-radius: 12px;
-          margin-bottom: 0.8rem;
-          overflow: hidden;
-          background: white;
-        }
-        .faq-question {
-          width: 100%;
-          background: none;
-          border: none;
-          padding: 1.2rem 1.5rem;
-          text-align: left;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 1rem;
-          font-weight: 600;
-          color: #0a0a0a;
-          cursor: pointer;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 1rem;
-          transition: background 0.15s;
-        }
-        .faq-question:hover { background: #f0fdf4; }
-        .faq-question.open { background: #f0fdf4; color: #2d6a4f; }
-        .faq-chevron {
-          font-size: 0.9rem;
-          color: #2d6a4f;
-          flex-shrink: 0;
-          transition: transform 0.2s;
-        }
-        .faq-question.open .faq-chevron { transform: rotate(180deg); }
-        .faq-answer {
-          display: none;
-          padding: 0 1.5rem 1.2rem;
-          font-size: 0.95rem;
-          line-height: 1.8;
-          color: #374151;
-          border-top: 1px solid #e5e7eb;
-          padding-top: 1rem;
-        }
-        .faq-answer.open { display: block; }
-
-        .faq-cta {
-          background: #2d6a4f;
-          color: white;
-          text-align: center;
-          padding: 3rem 2rem;
-        }
+        .faq-cta { background: #2d6a4f; color: white; text-align: center; padding: 3rem 2rem; }
         .faq-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
         .faq-cta p { color: #d8f3dc; font-size: 0.95rem; margin-bottom: 1.5rem; }
         .btn-cta { display: inline-block; background: #f4a261; color: #0a0a0a; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
         .btn-cta-outline { display: inline-block; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
-
-        @media (max-width: 600px) {
-          .faq-question { font-size: 0.9rem; padding: 1rem; }
-          .faq-answer { padding: 0 1rem 1rem; padding-top: 0.8rem; }
-        }
       ` }} />
 
       <Header />
 
-      {/* HERO */}
       <div className="faq-hero">
         <div className="faq-hero-inner">
           <div className="faq-eyebrow">Got Questions?</div>
@@ -223,33 +142,8 @@ export default function FAQPage() {
         </div>
       </div>
 
-      {/* FAQ BODY */}
-      <div className="faq-body">
-        {faqs.map((cat, ci) => (
-          <div className="faq-category" key={ci}>
-            <div className="faq-category-title">{cat.category}</div>
-            {cat.items.map((item, ii) => (
-              <div className="faq-item" key={ii}>
-                <button
-                  className="faq-question"
-                  onClick={(e) => {
-                    const btn = e.currentTarget;
-                    const answer = btn.nextElementSibling as HTMLElement;
-                    btn.classList.toggle('open');
-                    answer.classList.toggle('open');
-                  }}
-                >
-                  {item.q}
-                  <span className="faq-chevron">▼</span>
-                </button>
-                <div className="faq-answer">{item.a}</div>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <FAQAccordion faqs={faqs} />
 
-      {/* CTA */}
       <div className="faq-cta">
         <h2>Still Have Questions?</h2>
         <p>We're here Monday–Saturday, 10am–6pm. Call, text, or send us a message.</p>
