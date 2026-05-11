@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Return & Exchange Policy | JBird Bikes New Orleans</title>
+  <meta name="description" content="JBird Bikes return, exchange, and warranty policy. Learn about our 30-day labor warranty, used bike warranty, and service policies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #F5C842;
+      --blue: #2563EB;
+      --red: #DC2626;
+      --green: #16A34A;
+      --dark: #111827;
+      --mid: #374151;
+      --light: #F9FAFB;
+      --border: #E5E7EB;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    /* NAV — matches site */
+    nav {
+      background: #fff;
+      border-bottom: 2px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    /* HERO */
+    .hero {
+      background: var(--dark);
+      color: #fff;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      color: #9CA3AF;
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* SECTION CARDS */
+    .policy-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .icon-blue { background: #DBEAFE; }
+    .icon-green { background: #DCFCE7; }
+    .icon-yellow { background: #FEF9C3; }
+    .icon-red { background: #FEE2E2; }
+    .icon-purple { background: #F3E8FF; }
+
+    .card-header h2 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+
+    .policy-card p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-card p:last-child { margin-bottom: 0; }
+
+    /* LISTS */
+    .policy-list {
+      list-style: none;
+      margin: 0.75rem 0;
+    }
+
+    .policy-list li {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-list li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .policy-list.cross li::before {
+      content: '✕';
+      color: var(--red);
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: #EFF6FF;
+      border: 1.5px solid #BFDBFE;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+      color: #1E40AF;
+      font-weight: 500;
+    }
+
+    /* WARRANTY TABLE */
+    .warranty-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .warranty-table th {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      text-align: left;
+      padding: 0.6rem 1rem;
+    }
+
+    .warranty-table th:first-child { border-radius: 8px 0 0 0; }
+    .warranty-table th:last-child { border-radius: 0 8px 0 0; }
+
+    .warranty-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--mid);
+    }
+
+    .warranty-table tr:nth-child(even) td { background: #F9FAFB; }
+    .warranty-table tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+    }
+
+    .badge-green { background: #DCFCE7; color: var(--green); }
+    .badge-blue { background: #DBEAFE; color: var(--blue); }
+
+    /* CONTACT STRIP */
+    .contact-strip {
+      background: var(--dark);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .contact-strip h3 {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-strip p {
+      color: #9CA3AF;
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-yellow { background: var(--yellow); color: var(--dark); }
+    .btn-yellow:hover { background: #EAB308; }
+    .btn-outline { background: transparent; color: #fff; border: 1.5px solid #374151; }
+    .btn-outline:hover { border-color: #6B7280; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: #9CA3AF;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: #6B7280; text-decoration: none; }
+    footer a:hover { color: var(--blue); }
+
+    /* LAST UPDATED */
+    .last-updated {
+      text-align: center;
+      color: #9CA3AF;
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .policy-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://jbirdbikes.com/"><span>j-bird</span> bikes</a>
+  <ul class="nav-links">
+    <li><a href="https://jbirdbikes.com/repairs">Repairs</a></li>
+    <li><a href="https://jbirdbikes.com/sales">Bike Sales</a></li>
+    <li><a href="https://jbirdbikes.com/assembly">Assembly</a></li>
+    <li><a href="https://jbirdbikes.com/nola-incentive">Incentive</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">JBird Bikes</div>
+  <h1>Return & Exchange Policy</h1>
+  <p>We stand behind every bike we sell. Here's exactly how we handle returns, exchanges, and warranty claims.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <p class="last-updated">Last updated: May 2026 &nbsp;·&nbsp; Questions? Call or text <a href="tel:5045216997" style="color: var(--blue);">(504) 521-6997</a></p>
+
+  <!-- NEW BIKES -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon icon-blue">🚲</div>
+      <h2>New Bike Returns & Exchanges</h2>
+    </div>
+
+    <p>All new bikes sold at JBird Bikes include our exclusive <strong>JBird Pro-Build</strong> — professional assembly, no-flat tire sealant, and a 30-day full labor warranty. We want you to love your bike.</p>
+
+    <div class="highlight">
+      📅 <strong>30-day return window</strong> on all new bikes purchased in-store, unused and in original condition.
+    </div>
+
+    <ul class="policy-list">
+      <li>Returns accepted within 30 days of purchase date</li>
+      <li>Bike must be unused, unridden, and in original condition</li>
+      <li>Original receipt or proof of purchase required</li>
+      <li>Full refund or exchange at customer's choice</li>
+      <li>Exchange for a different model available within 30 days</li>
+    </ul>
+
+    <ul class="policy-list cross" style="margin-top: 0.5rem;">
+      <li>Ridden or used bikes are not eligible for return — see warranty below</li>
+      <li>Bikes with damage caused by rider are not eligible for return</li>
+      <li>Bikes purchased through third-party retailers are not eligible</li>
+    </ul>
+  </div>
+
+  <!-- WARRANTY -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon icon-green">🛡️</div>
+      <h2>Warranty Coverage</h2>
+    </div>
+
+    <p>Every bike sold at JBird Bikes comes with warranty coverage. Here's a full breakdown:</p>
+
+    <table class="warranty-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Warranty Type</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>New eBikes — Labor</td>
+          <td><span class="badge badge-green">JBird Labor Warranty</span></td>
+          <td>30 days</td>
+        </tr>
+        <tr>
+          <td>New eBikes — Parts & Defects</td>
+          <td><span class="badge badge-blue">Manufacturer Warranty</span></td>
+          <td>Per manufacturer (typically 1 year)</td>
+        </tr>
+        <tr>
+          <td>Used Bikes</td>
+          <td><span class="badge badge-green">JBird Warranty</span></td>
+          <td>3 months</td>
+        </tr>
+        <tr>
+          <td>Assembly Service</td>
+          <td><span class="badge badge-green">60-Day Safety Check</span></td>
+          <td>60 days (included free)</td>
+        </tr>
+        <tr>
+          <td>Repair & Service Work</td>
+          <td><span class="badge badge-green">Labor Guarantee</span></td>
+          <td>30 days on labor performed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ul class="policy-list">
+      <li>Warranty claims handled in-store at 2336 St. Louis Street, New Orleans</li>
+      <li>JBird labor warranty covers all adjustments, tuning, and workmanship</li>
+      <li>Manufacturer warranty covers defective parts — we handle the claim on your behalf</li>
+      <li>Free tune-up included 6 months after new bike purchase</li>
+    </ul>
+
+    <ul class="policy-list cross" style="margin-top: 0.5rem;">
+      <li>Warranty does not cover damage from accidents, misuse, or neglect</li>
+      <li>Warranty does not cover normal wear and tear (tires, brake pads, chains)</li>
+      <li>Warranty does not transfer to a second owner</li>
+    </ul>
+  </div>
+
+  <!-- USED BIKES -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon icon-yellow">♻️</div>
+      <h2>Used Bike Policy</h2>
+    </div>
+
+    <p>Used bikes at JBird Bikes start at <strong>$150</strong> and are inspected and serviced before sale. All used bikes include a <strong>3-month JBird warranty</strong> covering defects in the bike as sold.</p>
+
+    <ul class="policy-list">
+      <li>All used bikes inspected and serviced before sale</li>
+      <li>3-month JBird warranty included on all used bikes</li>
+      <li>Exchange for store credit available within 14 days if a defect is found</li>
+    </ul>
+
+    <ul class="policy-list cross" style="margin-top: 0.5rem;">
+      <li>Used bikes are sold as-is beyond the 3-month warranty period</li>
+      <li>Cash refunds not available on used bike sales</li>
+    </ul>
+  </div>
+
+  <!-- REPAIRS -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon icon-purple">🔧</div>
+      <h2>Repair & Service Policy</h2>
+    </div>
+
+    <p>All repairs begin with a <strong>free diagnostic</strong>. We provide a clear quote before any work begins — no surprises, no hidden fees.</p>
+
+    <ul class="policy-list">
+      <li>Free diagnostic on all bikes — any brand, any condition</li>
+      <li>Written quote provided before work begins</li>
+      <li>30-day labor guarantee on all repair work performed</li>
+      <li>If the same issue recurs within 30 days, we fix it free</li>
+      <li>Parts carry manufacturer warranty where applicable</li>
+    </ul>
+
+    <div class="highlight">
+      ⚠️ <strong>Important:</strong> Customers are required to sign a waiver releasing the shop from responsibility for repair issues not included in the original diagnostic. Any additional issues found during repair will be quoted separately before work proceeds.
+    </div>
+  </div>
+
+  <!-- HOW TO RETURN -->
+  <div class="policy-card">
+    <div class="card-header">
+      <div class="card-icon icon-blue">📋</div>
+      <h2>How to Make a Return or Warranty Claim</h2>
+    </div>
+
+    <p>All returns and warranty claims are handled in-store. We do not process returns or warranty claims by mail at this time.</p>
+
+    <ul class="policy-list">
+      <li><strong>Step 1:</strong> Call or text us at (504) 521-6997 to let us know you're coming in</li>
+      <li><strong>Step 2:</strong> Bring your bike and original receipt to our shop at 2336 St. Louis Street</li>
+      <li><strong>Step 3:</strong> Our team will inspect the bike and process your return, exchange, or warranty claim same day</li>
+    </ul>
+
+    <p style="margin-top: 0.75rem;"><strong>Store Hours:</strong> Monday–Saturday, 10am–6pm<br>
+    <strong>Address:</strong> 2336 St. Louis Street, New Orleans, LA 70119 (on the Lafitte Greenway)<br>
+    <strong>Phone/Text:</strong> (504) 521-6997</p>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-strip">
+    <h3>Questions About Your Purchase?</h3>
+    <p>We're here to help. Call, text, or stop by the shop — we'll make it right.</p>
+    <div class="contact-buttons">
+      <a href="tel:5045216997" class="btn btn-yellow">📞 Call or Text Us</a>
+      <a href="https://jbirdbikes.com/sales" class="btn btn-outline">← Back to Bikes</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
+  <p style="margin-top: 0.4rem;">
+    <a href="https://jbirdbikes.com/privacy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="https://jbirdbikes.com/return-policy">Return Policy</a> &nbsp;·&nbsp;
+    <a href="https://jbirdbikes.com/">Home</a>
+  </p>
+</footer>
+
+</body>
+</html>
