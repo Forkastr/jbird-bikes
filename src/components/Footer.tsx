@@ -35,6 +35,7 @@ export default function Footer() {
           <p style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>On the Lafitte Greenway, New Orleans</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1.5rem', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '2rem' }}>
            <a href="/privacy" style={{ color: '#4b5563' }}>Privacy Policy</a>
+            {' · '}<a href="/return-policy" style={{ color: '#4b5563' }}>Return Policy</a>
 <span style={{ color: '#4b5563', margin: '0 0.5rem' }}>·</span>
 <a href="/faq" style={{ color: '#4b5563' }}>FAQ</a>
             <a href={CONTACT_URL} style={{ color: 'var(--primary-green)' }}>Contact Us</a>
