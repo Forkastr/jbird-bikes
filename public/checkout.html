@@ -169,7 +169,7 @@ function formatPrice(p) {
   return '$' + p.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
-function renderProduct(slug, bike) {
+function renderProduct(slug, bike, coupon) {
   const container = document.getElementById('page-content');
   const taxPrice = (bike.price * 1.1).toFixed(2);
 
@@ -310,15 +310,40 @@ function submitReservation() {
   }, 800);
 }
 
-// Init
-const slug = getSlug();
-const bike  = CATALOG[slug];
-if (bike) {
-  document.title = bike.title + ' | JBird Bikes New Orleans';
-  renderProduct(slug, bike);
-} else {
-  renderNotFound();
+// Init — handle both Meta's ?products=SKU:1 format and our ?slug=Gotrax-Nano format
+function init() {
+  const params = new URLSearchParams(window.location.search);
+  
+  // Handle Meta's products parameter: ?products=GTX-CM-006%3A1
+  const productsParam = params.get('products');
+  if (productsParam) {
+    // Decode and parse: GTX-CM-006:1
+    const decoded = decodeURIComponent(productsParam);
+    const productId = decoded.split(':')[0].trim();
+    // Find bike by SKU
+    const bike = Object.values(CATALOG).find(b => b.sku === productId);
+    if (bike) {
+      const slug = Object.keys(CATALOG).find(k => CATALOG[k].sku === productId);
+      document.title = bike.title + ' | JBird Bikes New Orleans';
+      // Handle optional coupon
+      const coupon = params.get('coupon') || '';
+      renderProduct(slug, bike, coupon);
+      return;
+    }
+  }
+  
+  // Handle our slug parameter: ?slug=Gotrax-Nano
+  const slug = params.get('slug') || '';
+  const bike = CATALOG[slug];
+  if (bike) {
+    document.title = bike.title + ' | JBird Bikes New Orleans';
+    renderProduct(slug, bike, '');
+  } else {
+    renderNotFound();
+  }
 }
+
+init();
 </script>
 
 </body>
