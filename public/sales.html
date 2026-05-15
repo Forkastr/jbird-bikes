@@ -206,6 +206,7 @@
     const range = bike['Range'] ? `Range: ${bike['Range']}` : '';
     const status = bike['JBird Status'] || '';
     const testRide = (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? ' · Test Ride' : '';
+    const price = bike['JBird Retail Price'] ? `$${Number(bike['JBird Retail Price']).toLocaleString()}` : '';
     const imgHtml = imgUrl
       ? `<img src="${imgUrl}" alt="${title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="no-img" style="display:none;">Image Coming Soon</div>`
       : `<div class="no-img">Image Coming Soon</div>`;
