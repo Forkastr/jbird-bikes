@@ -30,6 +30,7 @@
     .hero-description { font-size: 1rem; line-height: 1.7; color: #374151; margin-bottom: 1.5rem; }
     .colors-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); margin-bottom: 0.4rem; }
     .colors-value { font-size: 0.95rem; color: var(--black); font-weight: 500; }
+    .hero-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--green); letter-spacing: 1px; margin-top: 0.8rem; }
     .badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.2rem; }
     .badge { background: var(--green-pale); color: var(--green); font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 999px; }
     .badge.accent { background: #fff3e0; color: #c05c00; }
@@ -132,9 +133,10 @@
       <div class="hero-text">
         <div class="hero-eyebrow" id="cat-label">eBike</div>
         <h1 class="hero-title" id="bike-title">—</h1>
-        <p class="hero-description" id="bike-desc">—</p>
         <div class="colors-label">Colors Available</div>
         <div class="colors-value" id="bike-colors">—</div>
+        <div class="hero-price" id="bike-price"></div>
+        <div class="badge-row" id="badge-row"></div>
         <div class="badge-row" id="badge-row"></div>
       </div>
       <div class="hero-image">
@@ -185,6 +187,7 @@
         <p>Visit us on the Lafitte Greenway or contact us to schedule a test ride.</p>
       </div>
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
+      <a class="btn btn-primary" id="btn-reserve" href="#" target="_blank">Reserve This Bike</a>
       <button class="btn btn-secondary" onclick="window.open('/print.html?slug=' + new URLSearchParams(window.location.search).get('slug'))">Print / Save PDF</button>
       <a class="btn btn-outline" href="/sales.html">← All Bikes</a>
     </div>
@@ -238,6 +241,13 @@
       set('bike-desc', val(bike, 'Description'));
       set('bike-colors', val(bike, 'Colors Available'));
       set('cat-label', val(bike, 'Category'));
+
+      const priceRaw = bike['JBird Retail Price'];
+      if (priceRaw) {
+        const priceFormatted = '$' + Number(priceRaw).toLocaleString();
+        set('bike-price', priceFormatted);
+        document.getElementById('btn-reserve').href = '/checkout.html?slug=' + encodeURIComponent(slug);
+      }
 
       const img = document.getElementById('bike-img');
       const noImg = document.getElementById('no-img');
