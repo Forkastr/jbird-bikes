@@ -245,7 +245,7 @@
 
       const priceRaw = bike['JBird Retail Price'];
       if (priceRaw) {
-        const priceFormatted = '$' + Number(priceRaw).toLocaleString();
+        const priceFormatted = '$' + Math.round(Number(priceRaw)).toLocaleString('en-US');
         set('bike-price', priceFormatted);
         document.getElementById('btn-reserve').href = '/checkout.html?slug=' + encodeURIComponent(slug);
       }
