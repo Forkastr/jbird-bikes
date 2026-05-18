@@ -7,7 +7,7 @@ export default function Hero() {
     <section style={{ position: 'relative', height: '80vh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', backgroundColor: 'black', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img
-          src="/hero-bike.png"
+          src="/hero-bike.jpg"
           alt="JBird Bikes"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', opacity: 0.6 }}
         />
