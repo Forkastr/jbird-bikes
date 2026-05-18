@@ -5,346 +5,360 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Reserve Your eBike | JBird Bikes New Orleans</title>
   <meta name="description" content="Reserve your eBike at JBird Bikes on the Lafitte Greenway. Professional assembly included. Call or text (504) 521-6997."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="stylesheet" href="/jbird-styles.css">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    :root{
-      --yellow:#F5C842;--blue:#2563EB;--green:#16A34A;--dark:#111827;
-      --mid:#374151;--light:#F9FAFB;--border:#E5E7EB;--radius:12px;
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f3ef;
+      --green: #2d6a4f;
+      --green-light: #40916c;
+      --green-pale: #d8f3dc;
+      --accent: #f4a261;
+      --gray: #6b7280;
+      --gray-light: #e5e7eb;
     }
-    body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark);line-height:1.6;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: #f5f3ef; color: var(--black); }
 
-    /* NAV */
-    nav{background:#fff;border-bottom:2px solid var(--border);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
-    .nav-logo{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem;color:var(--dark);text-decoration:none;}
-    .nav-logo span{color:var(--blue);}
-    .nav-links{display:flex;gap:1.5rem;list-style:none;}
-    .nav-links a{font-size:0.9rem;font-weight:600;color:var(--mid);text-decoration:none;transition:color 0.2s;}
-    .nav-links a:hover{color:var(--blue);}
-
-    /* LAYOUT */
-    .page{max-width:960px;margin:0 auto;padding:2rem 1.5rem;}
+    .page { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 
     /* BREADCRUMB */
-    .breadcrumb{font-size:0.85rem;color:#9CA3AF;margin-bottom:1.5rem;}
-    .breadcrumb a{color:var(--blue);text-decoration:none;}
+    .breadcrumb { font-size: 0.82rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--green); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
 
-    /* PRODUCT SECTION */
-    .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;}
-    @media(max-width:680px){.product-grid{grid-template-columns:1fr;}}
+    /* PRODUCT GRID */
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+    @media (max-width: 680px) { .product-grid { grid-template-columns: 1fr; } }
 
-    .product-image-wrap{border-radius:var(--radius);overflow:hidden;background:#fff;border:1.5px solid var(--border);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;}
-    .product-image-wrap img{width:100%;height:100%;object-fit:contain;padding:1rem;}
+    .product-image-wrap { border-radius: 14px; overflow: hidden; background: white; border: 1px solid var(--gray-light); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+    .product-image-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; }
+    .product-image-wrap .no-img { font-size: 0.85rem; color: var(--gray); }
 
-    .product-info{}
-    .product-badge-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:0.75rem;}
-    .badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;}
-    .badge-green{background:#DCFCE7;color:var(--green);}
-    .badge-blue{background:#DBEAFE;color:var(--blue);}
-    .badge-yellow{background:#FEF9C3;color:#854D0E;}
-    .product-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:clamp(1.4rem,4vw,2rem);line-height:1.2;margin-bottom:0.5rem;}
-    .product-price{font-family:'Nunito',sans-serif;font-weight:800;font-size:1.8rem;color:var(--blue);margin-bottom:0.75rem;}
-    .product-price span{font-size:1rem;color:#9CA3AF;font-weight:400;}
-    .product-desc{color:var(--mid);font-size:0.95rem;margin-bottom:1.25rem;line-height:1.7;}
+    .product-info {}
+    .product-badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .badge { font-size: 0.68rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; letter-spacing: 1px; text-transform: uppercase; }
+    .badge-green { background: var(--green-pale); color: var(--green); }
+    .badge-accent { background: #fff3e0; color: #c05c00; }
+
+    .product-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1; margin-bottom: 0.5rem; letter-spacing: 1px; }
+    .product-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--green); letter-spacing: 1px; margin-bottom: 0.75rem; }
+    .product-desc { color: #374151; font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.7; }
 
     /* SPECS */
-    .specs{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;margin-bottom:1.25rem;}
-    .spec-item{background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:0.6rem 0.75rem;text-align:center;}
-    .spec-label{font-size:0.7rem;color:#9CA3AF;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px;}
-    .spec-value{font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;color:var(--dark);}
+    .specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1.25rem; }
+    .spec-item { background: white; border: 1px solid var(--gray-light); border-radius: 10px; padding: 0.6rem 0.75rem; text-align: center; }
+    .spec-label { font-size: 0.65rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; font-weight: 600; }
+    .spec-value { font-family: 'Bebas Neue', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--black); letter-spacing: 1px; }
 
     /* PRO BUILD BOX */
-    .pro-build{background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.25rem;}
-    .pro-build-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:0.9rem;color:#1E40AF;margin-bottom:0.5rem;}
-    .pro-build ul{list-style:none;display:flex;flex-direction:column;gap:3px;}
-    .pro-build li{font-size:0.85rem;color:#1E40AF;display:flex;gap:6px;align-items:flex-start;}
-    .pro-build li::before{content:'✓';font-weight:700;flex-shrink:0;}
+    .pro-build { background: var(--green-pale); border: 1.5px solid #b7e4c7; border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+    .pro-build-title { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--green); margin-bottom: 0.5rem; letter-spacing: 1px; }
+    .pro-build ul { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+    .pro-build li { font-size: 0.85rem; color: #1a4731; display: flex; gap: 6px; align-items: flex-start; }
+    .pro-build li::before { content: '✓'; font-weight: 700; flex-shrink: 0; color: var(--green); }
 
     /* RESERVE FORM */
-    .reserve-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:1.75rem;margin-bottom:1.5rem;}
-    .reserve-title{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.2rem;margin-bottom:0.4rem;}
-    .reserve-sub{font-size:0.9rem;color:var(--mid);margin-bottom:1.25rem;}
-    .form-group{margin-bottom:1rem;}
-    .form-label{display:block;font-size:0.85rem;font-weight:600;color:var(--mid);margin-bottom:4px;}
-    .form-input{width:100%;padding:0.6rem 0.875rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:'Inter',sans-serif;color:var(--dark);background:#fff;transition:border-color 0.2s;}
-    .form-input:focus{outline:none;border-color:var(--blue);}
-    textarea.form-input{resize:vertical;min-height:80px;}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-    @media(max-width:480px){.form-row{grid-template-columns:1fr;}}
+    .reserve-card { background: white; border: 1px solid var(--gray-light); border-radius: 14px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .reserve-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 1px; margin-bottom: 0.4rem; }
+    .reserve-sub { font-size: 0.9rem; color: var(--gray); margin-bottom: 1.25rem; line-height: 1.6; }
+    .form-group { margin-bottom: 1rem; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 4px; }
+    .form-input { width: 100%; padding: 0.6rem 0.875rem; border: 1.5px solid var(--gray-light); border-radius: 8px; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; color: var(--black); background: white; transition: border-color 0.2s; }
+    .form-input:focus { outline: none; border-color: var(--green); }
+    textarea.form-input { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
 
-    .btn-submit{width:100%;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:0.875rem;font-family:'Nunito',sans-serif;font-weight:800;font-size:1rem;cursor:pointer;transition:background 0.2s;margin-top:0.25rem;}
-    .btn-submit:hover{background:#1D4ED8;}
-    .btn-submit:disabled{background:#93C5FD;cursor:not-allowed;}
+    .btn-submit { width: 100%; background: var(--green); color: white; border: none; border-radius: 10px; padding: 0.875rem; font-family: 'Bebas Neue', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; cursor: pointer; transition: background 0.2s; margin-top: 0.25rem; }
+    .btn-submit:hover { background: var(--green-light); }
+    .btn-submit:disabled { background: #9ca3af; cursor: not-allowed; }
 
-    .success-msg{display:none;background:#DCFCE7;border:1.5px solid #86EFAC;border-radius:10px;padding:1.25rem;text-align:center;margin-top:1rem;}
-    .success-msg h3{font-family:'Nunito',sans-serif;font-weight:800;color:var(--green);margin-bottom:0.4rem;}
-    .success-msg p{font-size:0.9rem;color:#166534;}
+    .success-msg { display: none; background: var(--green-pale); border: 1.5px solid #b7e4c7; border-radius: 10px; padding: 1.25rem; text-align: center; margin-top: 1rem; }
+    .success-msg h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: var(--green); margin-bottom: 0.4rem; }
+    .success-msg p { font-size: 0.9rem; color: #1a4731; }
 
-    /* CONTACT ALTERNATIVES */
-    .contact-alts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
-    @media(max-width:480px){.contact-alts{grid-template-columns:1fr;}}
-    .contact-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:1.25rem;text-align:center;}
-    .contact-card-icon{font-size:1.5rem;margin-bottom:0.5rem;}
-    .contact-card-title{font-family:'Nunito',sans-serif;font-weight:800;font-size:0.95rem;margin-bottom:0.25rem;}
-    .contact-card-sub{font-size:0.8rem;color:var(--mid);margin-bottom:0.75rem;}
-    .btn-contact{display:inline-block;padding:0.5rem 1.25rem;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:800;font-size:0.85rem;text-decoration:none;transition:all 0.2s;}
-    .btn-call{background:var(--yellow);color:var(--dark);}
-    .btn-call:hover{background:#EAB308;}
-    .btn-visit{background:var(--dark);color:#fff;}
-    .btn-visit:hover{background:#1F2937;}
+    /* CONTACT ALTS */
+    .contact-alts { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    @media (max-width: 480px) { .contact-alts { grid-template-columns: 1fr; } }
+    .contact-card { background: white; border: 1px solid var(--gray-light); border-radius: 14px; padding: 1.25rem; text-align: center; }
+    .contact-card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .contact-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px; margin-bottom: 0.25rem; }
+    .contact-card-sub { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.75rem; }
+    .btn-contact { display: inline-block; padding: 0.5rem 1.25rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+    .btn-call { background: var(--accent); color: var(--black); }
+    .btn-call:hover { opacity: 0.88; }
+    .btn-visit { background: var(--black); color: white; }
+    .btn-visit:hover { opacity: 0.88; }
 
     /* NOT FOUND */
-    .not-found{text-align:center;padding:4rem 1rem;}
-    .not-found h2{font-family:'Nunito',sans-serif;font-weight:900;font-size:1.5rem;margin-bottom:0.75rem;}
-    .not-found p{color:var(--mid);margin-bottom:1.5rem;}
-    .btn-back{display:inline-block;background:var(--blue);color:#fff;padding:0.6rem 1.5rem;border-radius:8px;text-decoration:none;font-family:'Nunito',sans-serif;font-weight:700;}
+    .not-found { text-align: center; padding: 4rem 1rem; }
+    .not-found h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 1px; margin-bottom: 0.75rem; }
+    .not-found p { color: var(--gray); margin-bottom: 1.5rem; }
+    .btn-back { display: inline-block; background: var(--green); color: white; padding: 0.7rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
 
-    /* FOOTER */
-    footer{text-align:center;padding:2rem 1.5rem;color:#9CA3AF;font-size:0.85rem;border-top:1px solid var(--border);}
-    footer a{color:#6B7280;text-decoration:none;}
-    footer a:hover{color:var(--blue);}
+    /* LOADING */
+    #loading { text-align: center; padding: 6rem 2rem; font-size: 1rem; color: var(--gray); }
   </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="https://jbirdbikes.com/"><span>j-bird</span> bikes</a>
-  <ul class="nav-links">
-    <li><a href="https://jbirdbikes.com/repairs.html">Repairs</a></li>
-    <li><a href="https://jbirdbikes.com/sales.html">Bike Sales</a></li>
-    <li><a href="https://jbirdbikes.com/assembly.html">Assembly</a></li>
-    <li><a href="https://jbirdbikes.com/nola-incentive.html">Incentive</a></li>
-  </ul>
+<nav class="nav-shim">
+  <a href="/" class="logo">JBIRD BIKES</a>
+  <div class="nav-links">
+    <a href="/repairs.html">Repairs</a>
+    <div class="dropdown">
+      <a href="/sales.html" class="dropdown-toggle">Bike Sales ▾</a>
+      <div class="dropdown-menu">
+        <a href="/sales.html">All Bikes</a>
+        <a href="/gotrax-ebikes-new-orleans">Gotrax</a>
+        <a href="/aventon-ebikes-new-orleans">Aventon</a>
+        <a href="/lectric-ebikes-new-orleans">Lectric</a>
+        <a href="/retrospec-ebikes-new-orleans">Retrospec</a>
+        <a href="/mockwheel-ebikes-new-orleans">Mockwheel</a>
+        <a href="/vanpowers-ebikes-new-orleans">Vanpowers</a>
+      </div>
+    </div>
+    <a href="/assembly.html">Assembly</a>
+    <a href="/nola-incentive.html">Incentive</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<div class="page" id="page-content">
-  <!-- Populated by JS -->
+<div id="mobileSideMenu" class="side-menu">
+  <button class="close-btn" onclick="toggleMenu()">✕</button>
+  <a href="/repairs.html">Repairs & Service</a>
+  <div style="border-bottom:1px solid #eee;padding-bottom:0.8rem;">
+    <div style="font-weight:800;color:#2E7D32;text-transform:uppercase;font-size:0.85rem;padding:0.8rem 0 0.3rem;">Bike Sales</div>
+    <a href="/sales.html" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">All Bikes</a>
+    <a href="/gotrax-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Gotrax</a>
+    <a href="/aventon-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Aventon</a>
+    <a href="/lectric-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Lectric</a>
+    <a href="/retrospec-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Retrospec</a>
+    <a href="/mockwheel-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Mockwheel</a>
+    <a href="/vanpowers-ebikes-new-orleans" style="display:block;padding:0.3rem 0 0.3rem 1rem;font-size:0.85rem;color:#444;text-decoration:none;text-transform:uppercase;">Vanpowers</a>
+  </div>
+  <a href="/assembly.html">eBike Assembly</a>
+  <a href="/nola-incentive.html">NOLA Incentive</a>
+  <a href="/about.html">About Us</a>
+  <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
+  <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
 </div>
 
-<footer>
-  <p>© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
-  <p style="margin-top:0.4rem;">
-    <a href="https://jbirdbikes.com/privacy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="https://jbirdbikes.com/return-policy.html">Return Policy</a> &nbsp;·&nbsp;
-    <a href="https://jbirdbikes.com/">Home</a>
-  </p>
+<div class="page">
+  <div id="loading">Loading bike details…</div>
+  <div id="page-content"></div>
+</div>
+
+<footer style="text-align:center;padding:30px 20px;border-top:1px solid #eee;">
+  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
+  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy Policy</a>
+  &nbsp;·&nbsp;
+  <a href="/return-policy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Return Policy</a>
 </footer>
 
 <script>
-const CATALOG = {
-  "Gotrax-Nano": {title:"Nano Electric Bike",price:350.0,description:"The Nano is a compact 14\" folding eBike featuring a 350W motor and a 15.5-mile range, designed for easy storage and last-mile urban commuting.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/shift-s2-electric-bike-952874.webp",range:"15.5 mi",speed:"15.5 MPH",motor:"350W",testRide:true,sku:"GTX-CM-001",category:"Commuter"},
-  "Gotrax-CTIDol": {title:"CTI Dolphin Commuter E-Bike",price:605.0,description:"A sleek 27.5\" step-through commuter, the Dolphin uses a 350W motor to reach 15.5 MPH, with a high-capacity battery supporting up to 40.5 miles.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/cti-electric-bike-842752.webp",range:"40.5 mi",speed:"15.5 MPH",motor:"350W",testRide:true,sku:"GTX-CM-006",category:"Commuter"},
-  "Gotrax-D1RT": {title:"D1RT Electric Mountain Bike",price:606.0,description:"Built for trails, the D1RT features a responsive torque sensor, front suspension, and 27.5\" tires, powered by a 350W motor for a natural feel.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/d1rt-electric-bike-352454.webp",range:"50 mi",speed:"20 MPH",motor:"350W",testRide:true,sku:"GTX-MT-009",category:"Mountain"},
-  "Gotrax-F1": {title:"F1 2.0 Folding Electric Bike",price:697.0,description:"The F1 2.0 is a versatile 20\" folder with a large 48V battery, providing a massive 50-mile range and 20 MPH speed for long city excursions.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/e-fold-electric-bike-5219339.webp",range:"15.5 mi",speed:"15.5 MPH",motor:"250W",testRide:true,sku:"GTX-FL-010",category:"Folding"},
-  "Gotrax-ECargo": {title:"E-Cargo Electric Bike",price:833.0,description:"Tailored for hauling gear, the E-Cargo features a heavy-duty rear rack and 500W motor, supporting 264 lbs of payload with 50 miles of range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/e-cargo-electric-bike-2143047.webp",range:"40 mi",speed:"20 MPH",motor:"350W",testRide:true,sku:"GTX-CG-013",category:"Commuter"},
-  "Gotrax-S2": {title:"Shift S2 14\" Folding Electric Bike",price:550.0,description:"The Shift S2 is a portable 14\" folding eBike featuring a 250W motor and a 15-mile range, perfect for last-mile commuting and easy storage.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/shift-s2-electric-bike-952874.webp",range:"15 mi",speed:"15.5 MPH",motor:"250W",testRide:false,sku:"GTX-FL-005",category:"Commuter"},
-  "Gotrax-CTITra": {title:"CTI Transfer Commuter E-Bike",price:605.0,description:"The CTI Transfer features a classic 27.5\" step-over frame and 350W motor, balanced for city efficiency with 20 MPH capability and a 40.5-mile range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/cti-electric-bike-794684%20Transfer.webp",range:"40.5 mi",speed:"20 MPH",motor:"350W",testRide:false,sku:"GTX-CM-007",category:"Commuter"},
-  "Gotrax-EFold": {title:"E-Fold Electric Bike",price:605.0,description:"Combining 20\" fat tires with a 350W motor, the E-Fold reaches 20 MPH and 40 miles of range, offering an all-terrain feel in a portable package.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/e-fold-electric-bike-5219339.webp",range:"30 mi",speed:"20 MPH",motor:"350W",testRide:false,sku:"GTX-FL-008",category:"Folding"},
-  "Gotrax-Fitz": {title:"Fitz16 Kids Electric Dirt Bike",price:720.0,description:"A rugged entry for young riders, the Fitz16 features a 250W motor and dirt-bike styling, reaching 15.5 MPH with 16\" pneumatic tires.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/m16-electric-dirt-bike-for-kids-786938.webp",range:"50 mi",speed:"25 MPH",motor:"500W",testRide:false,sku:"GTX-MT-011",category:"Commuter"},
-  "Gotrax-F2": {title:"F2 2.0 Foldable Electric Bike",price:777.0,description:"Step up to the F2 2.0 for a 500W motor and hydraulic disc brakes, paired with 20\" tires and front suspension for a comfortable 25 MPH journey.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/f2-foldable-electric-bike-20-5071934.webp",range:"20 mi",speed:"20 MPH",motor:"500W",testRide:false,sku:"GTX-FL-012",category:"Folding"},
-  "Gotrax-Accord": {title:"Accord Electric Bike",price:835.0,description:"The Accord is a comfort-first 27.5\" eBike with a front suspension fork and cargo rack, reaching 20 MPH with 40 miles of total range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/accord-electric-bike-4178344.webp",range:"61 mi",speed:"28 MPH",motor:"500W",testRide:false,sku:"GTX-CM-014",category:"Commuter"},
-  "Gotrax-F3": {title:"F3 2.0 Fat Tire Folding E-Bike",price:1063.0,description:"Premium performance meets portability in the F3 2.0, featuring a 500W motor, 28 MPH top speed, and high-capacity battery for up to 61 miles.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/f3-fat-tire-folding-e-bike-20-2968113.webp",range:"24 mi",speed:"20 MPH",motor:"500W",testRide:false,sku:"GTX-FL-015",category:"Folding"},
-  "Gotrax-Ranger": {title:"Ranger All-Terrain Electric Bike",price:1063.0,description:"A compact all-terrain specialist, the Ranger uses 20\" fat tires and a 500W motor to handle rougher paths with a 20 MPH speed and 24-mile range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/gotrax-ranger-electric-bike-2584640.webp",range:"25 mi",speed:"20 MPH",motor:"350W",testRide:false,sku:"GTX-MT-016",category:"Mountain"},
-  "Gotrax-Z4-Lite": {title:"Z4 Lite Lightweight Electric Bike",price:1064.0,description:"The Z4 Lite focuses on agility with a lightweight 20\" frame and 350W motor, reaching 20 MPH and offering hydraulic disc brakes for stopping power.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/z4-lite-lightweight-electric-bike-961487.webp",range:"50 mi",speed:"25 MPH",motor:"500W",testRide:false,sku:"GTX-CM-017",category:"Commuter"},
-  "Gotrax-Alpine": {title:"Alpine Fat Tire eBike",price:1177.0,description:"Tackle gravel and trails with the Alpine, featuring 26\" fat tires, a 500W motor, and front suspension for stable 25 MPH rides on all terrains.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/alpine-fat-tire-ebike-829706.webp",range:"60 mi",speed:"28 MPH",motor:"500W",testRide:false,sku:"GTX-MT-018",category:"Mountain"},
-  "Gotrax-CTI3": {title:"CTI 3 Step-Through Electric Bike",price:1177.0,description:"A high-end commuter with full suspension and a 500W motor, the CTI 3 reaches 28 MPH and covers 60 miles with a premium torque sensor.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/cti-3-electric-bike-399086.webp",range:"40 mi",speed:"20 MPH",motor:"500W",testRide:false,sku:"GTX-CM-019",category:"Commuter"},
-  "Gotrax-Porter": {title:"Porter Electric Cargo Bike",price:1177.0,description:"The Porter is a utility-focused cargo bike with 20\" tires and a 500W motor, designed for heavy-duty hauling with 40 miles of range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/cti-3-electric-bike-399086.webp",range:"31 mi",speed:"20 MPH",motor:"500W",testRide:false,sku:"GTX-CG-020",category:"Commuter"},
-  "Gotrax-MX1": {title:"MX1 Mid-Drive Electric Bike",price:1406.0,description:"Gotrax\'s performance flagship, the MX1 utilizes a 500W mid-drive motor and torque sensor for an elite 82-mile range and hill-climbing power.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/mx1-mid-drive-electric-bike-996232.webp",range:"50 mi",speed:"28 MPH",motor:"500W",testRide:false,sku:"GTX-MT-022",category:"Mountain"},
-  "Gotrax-Z4-Pro": {title:"Z4 Pro Folding Fat Tire E-Bike",price:1520.0,description:"The Z4 Pro offers professional-grade power with a 500W motor and 28 MPH top speed, featuring front suspension and 20\" tires.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/z4-pro-folding-fat-tire-electric-bike-492615.webp",range:"86 mi",speed:"28 MPH",motor:"750W",testRide:false,sku:"GTX-FL-023",category:"Folding"},
-  "Gotrax-Mustang": {title:"Mustang All-Terrain Electric Bike",price:1749.0,description:"High power meets high range in the Mustang, featuring a 750W motor, 28 MPH speed, and a massive 86-mile range for adventurers.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/mustang-electric-bike-5613571.webp",range:"74 mi",speed:"28 MPH",motor:"750W",testRide:false,sku:"GTX-MT-024",category:"Mountain"},
-  "Gotrax-Tundra": {title:"Tundra Fat Tire Electric Bike",price:1749.0,description:"The ultimate heavy-hitter, the Tundra combines a 750W motor with 26\" fat tires and a torque sensor for a 28 MPH, 74-mile range.",image:"https://raw.githubusercontent.com/Forkastr/jbird-bikes/main/images/tundra-fat-tire-electric-bike-223714.webp",range:"40 mi",speed:"20 MPH",motor:"500W",testRide:false,sku:"GTX-MT-025",category:"Mountain"},
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
+  const GOOGLE_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/formResponse';
 
-};
-
-const GOOGLE_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSeGv2T-JCm-frM7huUAnQw9cH7UmOVgvh7F1gEiw3RIUWCNpQ/viewform';
-
-function getSlug() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get('slug') || '';
-}
-
-function formatPrice(p) {
-  return '$' + p.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function renderProduct(slug, bike, coupon) {
-  const container = document.getElementById('page-content');
-  const taxPrice = (bike.price * 1.1).toFixed(2);
-
-  container.innerHTML = `
-    <div class="breadcrumb">
-      <a href="https://jbirdbikes.com/sales.html">← Back to all bikes</a>
-    </div>
-
-    <div class="product-grid">
-      <div class="product-image-wrap">
-        <img src="${bike.image}" alt="${bike.title}" loading="eager"/>
-      </div>
-      <div class="product-info">
-        <div class="product-badge-row">
-          <span class="badge badge-blue">${bike.category}</span>
-          ${bike.testRide ? '<span class="badge badge-green">Test Ride Available</span>' : ''}
-          <span class="badge badge-yellow">JBird Pro-Build Included</span>
-        </div>
-        <h1 class="product-title">${bike.title}</h1>
-        <div class="product-price">${formatPrice(bike.price)} <span>+ tax (est. $${taxPrice})</span></div>
-        <p class="product-desc">${bike.description}</p>
-        <div class="specs">
-          <div class="spec-item"><div class="spec-label">Motor</div><div class="spec-value">${bike.motor}</div></div>
-          <div class="spec-item"><div class="spec-label">Range</div><div class="spec-value">${bike.range}</div></div>
-          <div class="spec-item"><div class="spec-label">Top Speed</div><div class="spec-value">${bike.speed}</div></div>
-        </div>
-        <div class="pro-build">
-          <div class="pro-build-title">⚡ JBird Pro-Build Included</div>
-          <ul>
-            <li>Professional 15-point assembly & safety check</li>
-            <li>No-flat tire sealant pre-installed</li>
-            <li>30-day full labor warranty</li>
-            <li>Free tune-up after 6 months</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="reserve-card">
-      <h2 class="reserve-title">Reserve This Bike</h2>
-      <p class="reserve-sub">Fill out the form below and we'll contact you within 2 hours to confirm your reservation and arrange payment & pickup.</p>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">First Name *</label>
-          <input class="form-input" type="text" id="fname" placeholder="Your first name" required/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Last Name *</label>
-          <input class="form-input" type="text" id="lname" placeholder="Your last name" required/>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Phone / Text *</label>
-          <input class="form-input" type="tel" id="phone" placeholder="(504) 000-0000" required/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" id="email" placeholder="your@email.com"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Questions or Notes</label>
-        <textarea class="form-input" id="notes" placeholder="Any questions about this bike? Interested in the NOLA eBike Voucher? Let us know..."></textarea>
-      </div>
-      <input type="hidden" id="bike-sku" value="${bike.sku}"/>
-      <input type="hidden" id="bike-title" value="${bike.title}"/>
-      <input type="hidden" id="bike-price" value="${bike.price}"/>
-      <button class="btn-submit" onclick="submitReservation()">Reserve This Bike — ${formatPrice(bike.price)}</button>
-      <div class="success-msg" id="success-msg">
-        <h3>🎉 Reservation Received!</h3>
-        <p>We'll contact you within 2 hours at the number you provided to confirm your reservation and arrange payment and pickup.</p>
-        <p style="margin-top:0.5rem;"><strong>Questions?</strong> Call or text us at (504) 521-6997</p>
-      </div>
-    </div>
-
-    <div class="contact-alts">
-      <div class="contact-card">
-        <div class="contact-card-icon">📞</div>
-        <div class="contact-card-title">Call or Text Us</div>
-        <div class="contact-card-sub">Mon–Sat 10am–6pm</div>
-        <a href="tel:5045216997" class="btn-contact btn-call">(504) 521-6997</a>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card-icon">📍</div>
-        <div class="contact-card-title">Visit the Shop</div>
-        <div class="contact-card-sub">2336 St. Louis St, New Orleans</div>
-        <a href="https://maps.google.com/?q=JBird+Bikes+New+Orleans" target="_blank" class="btn-contact btn-visit">Get Directions</a>
-      </div>
-    </div>
-  `;
-}
-
-function renderNotFound() {
-  document.getElementById('page-content').innerHTML = `
-    <div class="not-found">
-      <h2>Bike Not Found</h2>
-      <p>We couldn't find that bike. Browse our full catalog to find your perfect ride.</p>
-      <a href="https://jbirdbikes.com/sales.html" class="btn-back">View All Bikes</a>
-    </div>
-  `;
-}
-
-function submitReservation() {
-  const fname = document.getElementById('fname').value.trim();
-  const lname = document.getElementById('lname').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const notes = document.getElementById('notes').value.trim();
-  const sku   = document.getElementById('bike-sku').value;
-  const title = document.getElementById('bike-title').value;
-  const price = document.getElementById('bike-price').value;
-
-  if (!fname || !lname || !phone) {
-    alert('Please fill in your name and phone number.');
-    return;
+  function toggleMenu() {
+    document.getElementById('mobileSideMenu').classList.toggle('open');
   }
 
-  const btn = document.querySelector('.btn-submit');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
+  function formatPrice(p) {
+    return '$' + Math.round(Number(p)).toLocaleString('en-US');
+  }
 
-  // Build Google Form prefill URL with reservation details
-  const formUrl = `${GOOGLE_FORM}?usp=pp_url` +
-    `&entry.name=${encodeURIComponent(fname + ' ' + lname)}` +
-    `&entry.phone=${encodeURIComponent(phone)}` +
-    `&entry.email=${encodeURIComponent(email)}` +
-    `&entry.message=${encodeURIComponent('BIKE RESERVATION: ' + title + ' (' + sku + ') — $' + price + '\n\n' + notes)}`;
+  function val(bike, key) {
+    const v = bike[key];
+    return (v !== undefined && v !== null && v !== '') ? v : '';
+  }
 
-  // Open form in background (silent submission attempt)
-  fetch(formUrl, { mode: 'no-cors' }).catch(() => {});
+  function renderProduct(bike, slug) {
+    const title = val(bike, 'Title') || 'eBike';
+    const price = bike['JBird Retail Price'] ? formatPrice(bike['JBird Retail Price']) : '';
+    const desc = val(bike, 'Description');
+    const imgUrl = val(bike, 'Image-URL');
+    const range = val(bike, 'Range');
+    const speed = val(bike, 'Top Speed');
+    const motor = val(bike, 'Motor Size');
+    const category = val(bike, 'Category');
+    const testRide = (val(bike, 'Test Ride Available') || '').toLowerCase() === 'yes';
+    const status = val(bike, 'JBird Status');
 
-  // Show success message regardless — staff will follow up by phone
-  setTimeout(() => {
-    document.getElementById('success-msg').style.display = 'block';
-    btn.style.display = 'none';
-    window.scrollTo({ top: document.getElementById('success-msg').offsetTop - 100, behavior: 'smooth' });
-  }, 800);
-}
+    const imgHtml = imgUrl
+      ? `<img src="${imgUrl}" alt="${title}" onerror="this.style.display='none'"/>`
+      : `<div class="no-img">Image Coming Soon</div>`;
 
-// Init — handle both Meta's ?products=SKU:1 format and our ?slug=Gotrax-Nano format
-function init() {
-  const params = new URLSearchParams(window.location.search);
-  
-  // Handle Meta's products parameter: ?products=GTX-CM-006%3A1
-  const productsParam = params.get('products');
-  if (productsParam) {
-    // Decode and parse: GTX-CM-006:1
-    const decoded = decodeURIComponent(productsParam);
-    const productId = decoded.split(':')[0].trim();
-    // Find bike by SKU
-    const bike = Object.values(CATALOG).find(b => b.sku === productId);
-    if (bike) {
-      const slug = Object.keys(CATALOG).find(k => CATALOG[k].sku === productId);
-      document.title = bike.title + ' | JBird Bikes New Orleans';
-      // Handle optional coupon
-      const coupon = params.get('coupon') || '';
-      renderProduct(slug, bike, coupon);
+    document.title = `Reserve ${title} | JBird Bikes New Orleans`;
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('page-content').innerHTML = `
+      <div class="breadcrumb">
+        <a href="/sales.html">← All Bikes</a> &nbsp;/&nbsp;
+        <a href="/product.html?slug=${encodeURIComponent(slug)}">${title}</a> &nbsp;/&nbsp;
+        Reserve
+      </div>
+
+      <div class="product-grid">
+        <div class="product-image-wrap">${imgHtml}</div>
+        <div class="product-info">
+          <div class="product-badge-row">
+            ${status ? `<span class="badge badge-green">${status}</span>` : ''}
+            ${testRide ? `<span class="badge badge-accent">Test Ride Available</span>` : ''}
+            ${category ? `<span class="badge badge-green">${category}</span>` : ''}
+          </div>
+          <div class="product-title">${title}</div>
+          ${price ? `<div class="product-price">${price}</div>` : ''}
+          ${desc ? `<p class="product-desc">${desc}</p>` : ''}
+          <div class="specs">
+            ${range ? `<div class="spec-item"><div class="spec-label">Range</div><div class="spec-value">${range}</div></div>` : ''}
+            ${speed ? `<div class="spec-item"><div class="spec-label">Top Speed</div><div class="spec-value">${speed}</div></div>` : ''}
+            ${motor ? `<div class="spec-item"><div class="spec-label">Motor</div><div class="spec-value">${motor}</div></div>` : ''}
+          </div>
+          <div class="pro-build">
+            <div class="pro-build-title">JBird Special Included</div>
+            <ul>
+              <li>Professional 21-point assembly & safety check</li>
+              <li>No-Flat tire sealant applied to both tires</li>
+              <li>60-day shakeout tune-up included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="reserve-card">
+        <h2 class="reserve-title">Reserve This Bike</h2>
+        <p class="reserve-sub">Fill out the form below and we'll contact you within 2 hours to confirm your reservation and arrange payment & pickup.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input class="form-input" type="text" id="fname" placeholder="Your first name"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input class="form-input" type="text" id="lname" placeholder="Your last name"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone / Text *</label>
+            <input class="form-input" type="tel" id="phone" placeholder="(504) 000-0000"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" type="email" id="email" placeholder="your@email.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Questions or Notes</label>
+          <textarea class="form-input" id="notes" placeholder="Any questions about this bike? Interested in the NOLA eBike Voucher? Let us know..."></textarea>
+        </div>
+        <input type="hidden" id="hidden-slug" value="${slug}"/>
+        <input type="hidden" id="hidden-title" value="${title}"/>
+        <input type="hidden" id="hidden-price" value="${price}"/>
+        <button class="btn-submit" onclick="submitReservation()">Reserve This Bike${price ? ' — ' + price : ''}</button>
+        <div class="success-msg" id="success-msg">
+          <h3>🎉 Reservation Received!</h3>
+          <p>We'll contact you within 2 hours at the number you provided to confirm your reservation and arrange payment and pickup.</p>
+          <p style="margin-top:0.5rem;"><strong>Questions?</strong> Call or text us at (504) 521-6997</p>
+        </div>
+      </div>
+
+      <div class="contact-alts">
+        <div class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div class="contact-card-title">Call or Text Us</div>
+          <div class="contact-card-sub">Mon–Sat 10am–6pm</div>
+          <a href="tel:5045216997" class="btn-contact btn-call">(504) 521-6997</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div class="contact-card-title">Visit the Shop</div>
+          <div class="contact-card-sub">2336 St. Louis St, New Orleans</div>
+          <a href="https://maps.google.com/?q=JBird+Bikes+New+Orleans" target="_blank" class="btn-contact btn-visit">Get Directions</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderNotFound() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('page-content').innerHTML = `
+      <div class="not-found">
+        <h2>Bike Not Found</h2>
+        <p>We couldn't find that bike. Browse our full catalog to find your perfect ride.</p>
+        <a href="/sales.html" class="btn-back">View All Bikes</a>
+      </div>
+    `;
+  }
+
+  function submitReservation() {
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const notes = document.getElementById('notes').value.trim();
+    const slug  = document.getElementById('hidden-slug').value;
+    const title = document.getElementById('hidden-title').value;
+    const price = document.getElementById('hidden-price').value;
+
+    if (!fname || !lname || !phone) {
+      alert('Please fill in your name and phone number.');
       return;
     }
-  }
-  
-  // Handle our slug parameter: ?slug=Gotrax-Nano
-  const slug = params.get('slug') || '';
-  const bike = CATALOG[slug];
-  if (bike) {
-    document.title = bike.title + ' | JBird Bikes New Orleans';
-    renderProduct(slug, bike, '');
-  } else {
-    renderNotFound();
-  }
-}
 
-init();
+    const btn = document.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const formUrl = `${GOOGLE_FORM}?usp=pp_url` +
+      `&entry.name=${encodeURIComponent(fname + ' ' + lname)}` +
+      `&entry.phone=${encodeURIComponent(phone)}` +
+      `&entry.email=${encodeURIComponent(email)}` +
+      `&entry.message=${encodeURIComponent('BIKE RESERVATION: ' + title + ' (' + slug + ') — ' + price + '\n\n' + notes)}`;
+
+    fetch(formUrl, { mode: 'no-cors' }).catch(() => {});
+
+    setTimeout(() => {
+      document.getElementById('success-msg').style.display = 'block';
+      btn.style.display = 'none';
+      window.scrollTo({ top: document.getElementById('success-msg').offsetTop - 100, behavior: 'smooth' });
+    }, 800);
+  }
+
+  async function init() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug') || '';
+
+    if (!slug) {
+      renderNotFound();
+      return;
+    }
+
+    try {
+      const res = await fetch(SCRIPT_URL);
+      const bikes = await res.json();
+      const bike = bikes.find(b =>
+        (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase()
+      );
+      if (bike) {
+        renderProduct(bike, slug);
+      } else {
+        renderNotFound();
+      }
+    } catch(e) {
+      renderNotFound();
+    }
+  }
+
+  init();
 </script>
-
 </body>
 </html>
