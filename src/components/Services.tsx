@@ -28,7 +28,8 @@ function Card({ children, bg, text }: { children: React.ReactNode; bg: string; t
 
 export default function Services() {
   return (
-  <div style={{ background: '#0a0a0a', color: 'white', padding: '0.75rem 2rem', textAlign: 'center' }}>
+    <>
+    <div style={{ background: '#0a0a0a', color: 'white', padding: '0.75rem 2rem', textAlign: 'center' as const }}>
       <p style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '1px', color: '#d8f3dc' }}>
         🛡️ Every bike we sell is <strong style={{ color: 'white' }}>UL Certified</strong> — battery, motor, and charger independently tested for safety. &nbsp;
         <a href="/sales.html" style={{ color: '#f4a261', textDecoration: 'none', fontWeight: 700 }}>Browse Our Bikes →</a>
