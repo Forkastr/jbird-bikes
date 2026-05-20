@@ -4,12 +4,61 @@
   <link rel="stylesheet" href="/jbird-styles.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | JBird Bikes New Orleans</title>
+  <title>About JBird Bikes New Orleans | eBike Sales & Service on the Lafitte Greenway</title>
+  <meta name="description" content="JBird Bikes is New Orleans' community eBike shop on the Lafitte Greenway. Affordable, reliable electric bikes with professional assembly and full local service. All brands welcome.">
+  <meta name="keywords" content="JBird Bikes New Orleans, eBike shop Lafitte Greenway, about JBird Bikes, electric bike shop New Orleans, community bike shop NOLA">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <style>
-    .container { max-width: 800px; margin: 60px auto; padding: 0 20px; }
-    h1 { font-size: 3rem; text-transform: uppercase; border-bottom: 4px solid var(--jbird-green); display: inline-block; margin-bottom: 30px; }
-    .bio-text { font-size: 1.1rem; }
-    .highlight-box { background: #f4f4f4; padding: 30px; border-radius: 8px; border-left: 5px solid var(--jbird-green); margin-top: 40px; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background: #f5f3ef; color: #0a0a0a; }
+
+    .about-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
+    .about-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
+    .about-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
+    .about-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4a261; margin-bottom: 0.8rem; }
+    .about-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: white; margin-bottom: 1rem; letter-spacing: 2px; }
+    .about-hero h1 span { color: #f4a261; display: block; }
+    .about-hero p { font-size: 1rem; line-height: 1.75; color: #d1d5db; max-width: 560px; margin: 0 auto; }
+
+    .about-body { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
+
+    .shop-photo { width: 100%; max-height: 400px; object-fit: cover; border-radius: 14px; margin-bottom: 3rem; }
+
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #0a0a0a; margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid #d8f3dc; }
+
+    .mission-block { background: white; border: 1px solid #e5e7eb; border-radius: 14px; padding: 2rem; margin-bottom: 3rem; }
+    .mission-block p { font-size: 1rem; line-height: 1.85; color: #374151; margin-bottom: 1rem; }
+    .mission-block p:last-child { margin-bottom: 0; }
+
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; }
+    .stat-card { background: #0a0a0a; color: white; border-radius: 14px; padding: 1.5rem; text-align: center; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #f4a261; line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 3rem; }
+    .value-card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; padding: 1.5rem; }
+    .value-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .value-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #0a0a0a; margin-bottom: 0.5rem; }
+    .value-desc { font-size: 0.88rem; line-height: 1.7; color: #374151; }
+
+    .greenway-section { background: #f0fdf4; border: 2px solid #b7e4c7; border-radius: 14px; padding: 2rem; margin-bottom: 3rem; }
+    .greenway-section h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: #2d6a4f; margin-bottom: 0.75rem; }
+    .greenway-section p { font-size: 0.95rem; line-height: 1.8; color: #1a4731; }
+
+    .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+    .brand-pill { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1px; color: #2d6a4f; }
+
+    .about-cta { background: #2d6a4f; color: white; text-align: center; padding: 3rem 2rem; }
+    .about-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 0.5rem; color: white; }
+    .about-cta p { color: #d8f3dc; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .btn-cta { display: inline-block; background: #f4a261; color: #0a0a0a; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
+    .btn-cta-outline { display: inline-block; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
+
+    @media (max-width: 680px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -58,30 +107,104 @@
   <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
 </div>
 
-<div class="container">
-  <p style="text-transform:uppercase;font-weight:bold;color:var(--jbird-green);margin-bottom:0;">Our Story</p>
-  <h1>About JBird Bikes</h1>
-
-  <div class="bio-text">
-    <p>Located directly on the <strong>Lafitte Greenway</strong>, JBird Bikes is New Orleans' premier destination for precision eBike service and affordable, high-quality sales.</p>
-    <p>We believe that eBikes are the future of NOLA transportation. Our mission is simple: to provide the community with expert "surgical" maintenance and curated bike options that can handle our unique streets without breaking the bank.</p>
-  </div>
-
-  <div class="highlight-box">
-    <h3>Why "JBird"?</h3>
-    <p>It stands for precision and freedom. Whether we are assembling a brand new bike from a box or diagnosing a complex electrical issue, we treat every bike with the same level of mechanical rigor.</p>
-  </div>
-
-  <div style="margin-top:60px;text-align:center;">
-    <p><strong>Visit us on the Greenway</strong></p>
-    <p>2336 St. Louis Street · New Orleans, LA 70119</p>
-    <a href="tel:5045216997" style="background:black;color:white;padding:15px 30px;text-decoration:none;font-weight:bold;border-radius:4px;">GET IN TOUCH</a>
+<!-- HERO -->
+<div class="about-hero">
+  <div class="about-hero-inner">
+    <div class="about-eyebrow">Our Story</div>
+    <h1>About JBird Bikes <span>New Orleans</span></h1>
+    <p>Born on the Lafitte Greenway. Built for the community. Here to keep New Orleans rolling.</p>
   </div>
 </div>
 
-<footer style="text-align:center;padding:40px 20px;border-top:1px solid #eee;margin-top:60px;">
-  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans</p>
-  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy</a>
+<div class="about-body">
+
+  <!-- SHOP PHOTO -->
+  <img src="/hero-bike.jpg" alt="JBird Bikes shop on the Lafitte Greenway New Orleans" class="shop-photo" onerror="this.style.display='none'"/>
+
+  <!-- MISSION -->
+  <div class="section-title">Why We Started</div>
+  <div class="mission-block">
+    <p>JBird Bikes was founded with a simple mission: to give New Orleans residents access to affordable, reliable electric bikes — with the full service and peace of mind that online retailers simply can't provide.</p>
+    <p>We saw a gap in the market. People were buying eBikes online, struggling with assembly, and having nowhere local to turn when something went wrong. We decided to fix that.</p>
+    <p>Every bike we sell comes professionally assembled, safety-inspected, and backed by our local team. You ride away confident. And if anything ever needs attention, we're right here — on the Greenway, ready to help.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-num">$135</div>
+      <div class="stat-label">Flat Rate Assembly</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">21</div>
+      <div class="stat-label">Point Safety Check</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">60</div>
+      <div class="stat-label">Day Tune-Up Guarantee</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Authorized Brands</div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <div class="section-title">What We Stand For</div>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">💰</div>
+      <div class="value-title">Affordability</div>
+      <div class="value-desc">eBikes starting at $350. We stock models that compete directly with online prices — with the added value of professional assembly and local support built in.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🔧</div>
+      <div class="value-title">Reliability</div>
+      <div class="value-desc">Every bike we sell goes through a 21-point inspection before it leaves the shop. We only carry brands we believe in — UL-listed, tested, and built to last on NOLA streets.</div>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤝</div>
+      <div class="value-title">Community</div>
+      <div class="value-desc">We are not a warehouse or a website. We are your neighbors on the Lafitte Greenway. We service all brands, answer your questions, and stand behind our work.</div>
+    </div>
+  </div>
+
+  <!-- GREENWAY -->
+  <div class="section-title">On the Lafitte Greenway</div>
+  <div class="greenway-section">
+    <h3>Your Greenway Bike Shop</h3>
+    <p>We chose our location deliberately. The Lafitte Greenway is the heart of New Orleans cycling — a 2.6-mile linear park and trail connecting Mid-City to the French Quarter. Being right on the Greenway means we serve everyone: commuters, recreational riders, eBike owners, and pedal cyclists of all kinds. Stop in, test ride, and ride home the same day.</p>
+    <p style="margin-top:1rem;"><strong>2336 St. Louis Street, New Orleans, LA 70119 · Mon–Sat 10am–6pm · (504) 521-6997</strong></p>
+  </div>
+
+  <!-- BRANDS -->
+  <div class="section-title">Authorized Dealer For</div>
+  <div class="brands-grid">
+    <div class="brand-pill">Gotrax</div>
+    <div class="brand-pill">Aventon</div>
+    <div class="brand-pill">Lectric</div>
+    <div class="brand-pill">Retrospec</div>
+    <div class="brand-pill">Mockwheel</div>
+    <div class="brand-pill">Vanpowers</div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="about-cta">
+  <h2>Come Visit Us</h2>
+  <p>We're on the Lafitte Greenway at 2336 St. Louis Street, Monday–Saturday 10am–6pm. Test ride a bike, drop off a repair, or just say hello.</p>
+  <a class="btn-cta" href="/sales.html">Browse Our Bikes</a>
+  <a class="btn-cta-outline" href="tel:5045216997">(504) 521-6997</a>
+</div>
+
+<footer style="text-align:center;padding:30px 20px;border-top:1px solid #eee;">
+  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway</p>
+  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy Policy</a>
+  &nbsp;·&nbsp;
+  <a href="/return-policy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Return Policy</a>
+  &nbsp;·&nbsp;
+  <a href="/faq" style="font-size:0.8rem;color:#666;text-decoration:none;">FAQ</a>
 </footer>
 
 <script>
