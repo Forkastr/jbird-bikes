@@ -10,11 +10,11 @@ export default function TestRideBanner() {
           <h2 style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 900, textTransform: 'uppercase' as const, color: 'var(--text-dark)', marginBottom: '0.5rem' }}>
             Test-Ride an eBike
           </h2>
-          <p style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', fontWeight: 900, color: 'var(--primary-green)', marginBottom: '0.5rem' }}>
-            Get a $20 Voucher
+          <p style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: 'clamp(1.25rem, 3vw, 2rem)', fontWeight: 900, color: 'var(--primary-green)', marginBottom: '0.5rem' }}>
+            Come Try Before You Buy
           </p>
           <p style={{ fontSize: '0.875rem', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.15em', color: 'var(--primary-green)', opacity: 0.7 }}>
-            Limited Time Offer
+            On the Lafitte Greenway · Mon–Sat 10am–6pm
           </p>
         </div>
         <a href={CONTACT_URL} style={{ backgroundColor: '#0000FF', color: 'white', fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.25rem', fontWeight: 900, textTransform: 'uppercase' as const, letterSpacing: '0.05em', padding: '1rem 2.5rem', borderRadius: '0.5rem', display: 'inline-block', whiteSpace: 'nowrap' as const }}>
