@@ -1,7 +1,6 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
-import TestRideBanner from '@/components/TestRideBanner';
 import MapSection from '@/components/MapSection';
 import Footer from '@/components/Footer';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
@@ -13,7 +12,6 @@ export default function HomePage() {
       <Header />
       <Hero />
       <Services />
-      <TestRideBanner />
       <MapSection />
       <Footer />
     </>
