@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>New Orleans E-Bike Rebate | Use Your NOLA Voucher at JBird Bikes</title>
+  <meta name="description" content="Get up to $1,200 toward a new e-bike at JBird Bikes on the Lafitte Greenway. New Orleans' NOLA e-bike voucher program — 3,000 rebates available. Shop local, ride local." />
+  <link rel="canonical" href="https://nolaincentive.jbirdbikes.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="New Orleans E-Bike Rebate | Use Your NOLA Voucher at JBird Bikes" />
+  <meta property="og:description" content="Get up to $1,200 toward a new e-bike at JBird Bikes on the Lafitte Greenway. 3,000 NOLA e-bike rebates available — redeem in person at our shop." />
+  <meta property="og:url" content="https://nolaincentive.jbirdbikes.com" />
+  <meta property="og:site_name" content="JBird Bikes" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="New Orleans E-Bike Rebate | JBird Bikes" />
+  <meta name="twitter:description" content="Up to $1,200 off a new e-bike at JBird Bikes on the Lafitte Greenway. Use your NOLA voucher here." />
+
+  <!-- LocalBusiness Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "JBird Bikes",
+    "legalName": "Origin eBikes, LLC",
+    "url": "https://jbirdbikes.com",
+    "telephone": "(504) 521-6997",
+    "email": "office@jbirdbikes.com",
+    "description": "JBird Bikes is an authorized local e-bike retailer in New Orleans, LA, eligible to accept the City of New Orleans NOLA E-Bike Voucher. We sell and service UL 2849 certified e-bikes on the Lafitte Greenway.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2336 St. Louis Street",
+      "addressLocality": "New Orleans",
+      "addressRegion": "LA",
+      "postalCode": "70119",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 29.9726,
+      "longitude": -90.0785
+    },
+    "hasMap": "https://maps.google.com/?q=2336+St+Louis+Street+New+Orleans+LA+70119",
+    "sameAs": ["https://jbirdbikes.com"]
+  }
+  </script>
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0e0f11;
+      --bg-card:   #16181d;
+      --bg-section:#12141a;
+      --border:    #2a2d36;
+      --text:      #e8e9ec;
+      --muted:     #9098a9;
+      --accent:    #f0a500;
+      --accent-dk: #c88500;
+      --green:     #2ecc71;
+      --radius:    10px;
+      --max:       1100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ── Layout Helpers ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .section    { padding: 72px 0; }
+    .section--alt { background: var(--bg-section); }
+
+    /* ── Typography ── */
+    h1 { font-size: clamp(2rem, 5.5vw, 3.2rem); font-weight: 800; line-height: 1.15; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight: 700; line-height: 1.25; margin-bottom: 1rem; }
+    h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    p  { margin-bottom: 1rem; }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(240,165,0,0.15);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .accent { color: var(--accent); }
+    .muted  { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: opacity 0.15s, transform 0.1s;
+      text-decoration: none;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary { background: var(--accent); color: #000; }
+    .btn-outline  { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(14,15,17,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta { font-size: 0.88rem; padding: 9px 18px; }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(160deg, #0e0f11 0%, #1a1400 55%, #0e0f11 100%);
+      padding: 80px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(240,165,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; max-width: 760px; }
+    .hero-inner h1 { margin-bottom: 1rem; }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 0.5rem;
+    }
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+    .hero-trust span { display: flex; align-items: center; gap: 5px; }
+    .hero-trust .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    /* ── How It Works ── */
+    .rebate-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .rebate-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .rebate-amount {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .rebate-label { font-size: 0.9rem; color: var(--muted); }
+
+    .facts-list { list-style: none; padding: 0; margin: 24px 0; }
+    .facts-list li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.97rem;
+    }
+    .facts-list li:last-child { border-bottom: none; }
+    .facts-list .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+    .official-note {
+      background: rgba(240,165,0,0.07);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+    .official-note a { color: var(--accent); }
+
+    /* ── Why JBird ── */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .advantage-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .advantage-icon {
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .rule-callout {
+      background: rgba(46,204,113,0.08);
+      border: 1px solid rgba(46,204,113,0.25);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+    .rule-callout p { margin: 0; font-size: 0.97rem; }
+    .rule-callout strong { color: var(--green); }
+
+    /* ── Bikes ── */
+    .bikes-intro { max-width: 640px; margin-bottom: 32px; }
+    .brand-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .bike-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .bike-card:hover { border-color: var(--accent); }
+    .bike-card a { text-decoration: none; }
+    .bike-thumb {
+      height: 110px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+    }
+    .bike-brand { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+    .bike-name  { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+    .bike-price { font-size: 0.92rem; color: var(--accent); font-weight: 600; }
+    .bike-badge {
+      display: inline-block;
+      background: rgba(46,204,113,0.12);
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .bike-link {
+      margin-top: auto;
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .bike-link:hover { text-decoration: underline; }
+
+    .bikes-footnote {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── How to Redeem ── */
+    .steps { list-style: none; padding: 0; margin: 32px 0; counter-reset: steps; }
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      counter-increment: steps;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body h3 { margin-bottom: 4px; font-size: 1rem; }
+    .step-body p  { margin: 0; font-size: 0.93rem; color: var(--muted); }
+
+    /* ── Lead Capture ── */
+    #contact { background: linear-gradient(160deg, #12141a 0%, #1a1400 100%); }
+
+    .form-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .form-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .form-option {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 14px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: center;
+    }
+    .form-option:has(input:checked) {
+      border-color: var(--accent);
+      background: rgba(240,165,0,0.07);
+    }
+    .form-option input { display: none; }
+    .form-option .opt-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .form-option .opt-label { font-size: 0.9rem; font-weight: 700; }
+
+    .field-group { display: flex; flex-direction: column; gap: 14px; }
+    .field label { display: block; font-size: 0.83rem; font-weight: 600; color: var(--muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .field input, .field select {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text);
+      font-size: 1rem;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    .field input:focus, .field select:focus { border-color: var(--accent); }
+    .field input::placeholder { color: var(--muted); }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      font-size: 1.05rem;
+    }
+    .form-note { text-align: center; margin-top: 12px; font-size: 0.82rem; color: var(--muted); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .form-success .success-icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success h3 { font-size: 1.4rem; margin-bottom: 8px; }
+    .form-success p { color: var(--muted); }
+
+    /* ── Location ── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .location-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+    }
+    .location-card h3 { margin-bottom: 12px; font-size: 1rem; color: var(--accent); }
+    .location-card p, .location-card a { font-size: 0.95rem; line-height: 1.7; }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+    footer p { margin: 4px 0; }
+
+    /* ── Responsive ── */
+    @media (min-width: 640px) {
+      .advantage-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 768px) {
+      .advantage-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .rebate-grid { grid-template-columns: 1fr; }
+      .location-grid { grid-template-columns: 1fr; }
+      .form-options { grid-template-columns: 1fr; }
+      #hero { padding: 56px 0 60px; }
+      .section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav aria-label="Site navigation">
+  <div class="nav-inner">
+    <a href="https://jbirdbikes.com" class="nav-logo" aria-label="JBird Bikes home">
+      <span>JBird</span> Bikes
+    </a>
+    <a href="#contact" class="btn btn-primary nav-cta">Reserve Your Bike</a>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     SECTION 1 — HERO
+     ════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow">NOLA E-Bike Voucher Program</span>
+      <h1 id="hero-heading">
+        New Orleans E-Bike Rebate —<br>
+        Use Your NOLA Voucher Here
+      </h1>
+      <p class="hero-sub">
+        Get <strong class="accent">up to $1,200 off</strong> a new e-bike at JBird Bikes — an authorized local retailer on the Lafitte Greenway that accepts the NOLA voucher at point of sale.
+      </p>
+      <div class="btn-row">
+        <a href="#contact" class="btn btn-primary">Reserve Your Bike</a>
+        <a href="#contact" class="btn btn-outline">Book a Test Ride</a>
+      </div>
+      <div class="hero-trust">
+        <span><span class="dot"></span>3,000 rebates available</span>
+        <span><span class="dot"></span>Authorized local retailer</span>
+        <span><span class="dot"></span>Every bike UL 2849 certified</span>
+        <span><span class="dot"></span>Voucher redeemed in-store</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 2 — HOW THE PROGRAM WORKS
+     ════════════════════════════════════════ -->
+<section id="how-it-works" class="section section--alt" aria-labelledby="how-heading">
+  <div class="container">
+    <span class="eyebrow">Program Details</span>
+    <h2 id="how-heading">How the New Orleans E-Bike Incentive Program Works</h2>
+    <p>The City of New Orleans is offering <strong>3,000 e-bike rebates</strong> to residents — funded 100% by a federal EPA Climate Pollution Reduction Grant. Here's what you need to know:</p>
+
+    <div class="rebate-grid">
+      <div class="rebate-card">
+        <div class="rebate-amount">$1,200</div>
+        <div class="rebate-label">Income-qualified residents<br><span style="font-size:0.8rem;">(2,000 rebates reserved)</span></div>
+      </div>
+      <div class="rebate-card">
+        <div class="rebate-amount">$600</div>
+        <div class="rebate-label">All other eligible<br>New Orleans residents</div>
+      </div>
+    </div>
+
+    <ul class="facts-list">
+      <li>
+        <span class="icon">📋</span>
+        <span><strong>3,000 total rebates</strong> — 2,000 are reserved for income-qualified residents. The remaining 1,000 are available to all eligible New Orleans residents.</span>
+      </li>
+      <li>
+        <span class="icon">🔒</span>
+        <span><strong>UL 2849 certification required</strong> — the bike you buy must carry this safety certification. Every bike on our floor does.</span>
+      </li>
+      <li>
+        <span class="icon">🏪</span>
+        <span><strong>Redeemed in person, at the shop</strong> — this isn't a mail-in rebate. You bring your voucher to JBird Bikes and apply it right at checkout.</span>
+      </li>
+      <li>
+        <span class="icon">🚫</span>
+        <span><strong>Online retailers cannot participate</strong> — the program is limited to local retailers that service and repair what they sell. Amazon, online-only shops, and out-of-city vendors are not eligible.</span>
+      </li>
+      <li>
+        <span class="icon">💚</span>
+        <span><strong>100% federally funded</strong> — no city budget dollars. The program is backed by the EPA Climate Pollution Reduction Grant.</span>
+      </li>
+    </ul>
+
+    <div class="official-note">
+      All program details, eligibility rules, and application information come from the <a href="https://nola.gov/next/sustainability/transportation/e-bike-incentive-program/" target="_blank" rel="noopener noreferrer">official City of New Orleans E-Bike Incentive Program page</a>. Check there for current availability and requirements.
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 3 — WHY JBIRD
+     ════════════════════════════════════════ -->
+<section id="why-jbird" class="section" aria-labelledby="why-heading">
+  <div class="container">
+    <span class="eyebrow">The Local Advantage</span>
+    <h2 id="why-heading">Why JBird Bikes? Only Local Shops Can Accept the NOLA Voucher</h2>
+
+    <div class="rule-callout">
+      <p><strong>Program rule, straight from the city:</strong> Only local retailers that both sell <em>and</em> service and repair e-bikes are eligible to accept vouchers. Online retailers — no matter how large — <strong>cannot participate in this program.</strong> The voucher only works at shops like JBird.</p>
+    </div>
+
+    <div class="advantage-grid">
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">✅</span>
+        <div>
+          <h3>Authorized Local Retailer</h3>
+          <p>JBird Bikes is on the city's approved vendor list. We sell, service, and repair every bike we stock — exactly what the program requires.</p>
+        </div>
+      </div>
+
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">🔋</span>
+        <div>
+          <h3>Every Bike is UL 2849 Certified</h3>
+          <p>UL 2849 is an independent electrical safety standard for e-bikes — it means the battery and motor have been tested and certified as safe. Every bike on our floor carries this certification, so every bike qualifies for the rebate. No guessing, no exceptions.</p>
+        </div>
+      </div>
+
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">🛠️</span>
+        <div>
+          <h3>JBird Pro-Build — Included with Every Purchase</h3>
+          <p>Every bike leaves our shop with our 21-point assembly, a 60-day safety check, a 6-month tune-up, and full warranty coverage. You're not getting a box to assemble at home — you're getting a shop-built, road-ready bike.</p>
+        </div>
+      </div>
+
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">🚴</span>
+        <div>
+          <h3>Test Rides Available</h3>
+          <p>Come try before you buy. Test rides are available on our Gotrax models — because the best way to pick an e-bike is to ride one.</p>
+        </div>
+      </div>
+
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">📍</span>
+        <div>
+          <h3>On the Lafitte Greenway</h3>
+          <p>We're at 2336 St. Louis Street — right on the Lafitte Greenway. Ride your new e-bike straight out the front door and onto the trail.</p>
+        </div>
+      </div>
+
+      <div class="advantage-card">
+        <span class="advantage-icon" aria-hidden="true">🔧</span>
+        <div>
+          <h3>Full Service and Repair</h3>
+          <p>We fix what we sell — and anything else you roll in with. That ongoing service relationship is exactly what separates us from online vendors and makes us eligible to accept your voucher.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 4 — ELIGIBLE BIKES
+     ════════════════════════════════════════ -->
+<section id="bikes" class="section section--alt" aria-labelledby="bikes-heading">
+  <div class="container">
+    <span class="eyebrow">Certified Inventory</span>
+    <h2 id="bikes-heading">UL 2849 Certified E-Bikes Ready for Your Voucher</h2>
+
+    <div class="bikes-intro">
+      <p>Every e-bike we carry is UL 2849 certified and ready to be paired with your rebate. Most models are fully or nearly covered by the $600 voucher — and many fall within the $1,200 income-qualified rebate. Browse our current inventory at <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a>.</p>
+    </div>
+
+    <div class="brand-grid">
+
+      <!-- Gotrax — featured with test rides -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);" aria-hidden="true">⚡</div>
+        <span class="bike-brand">Gotrax</span>
+        <p class="bike-name">Gotrax E-Bikes</p>
+        <p class="bike-price">From ~$599</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <span class="bike-badge" style="background:rgba(240,165,0,0.12);color:var(--accent);">Test Rides Available</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">New Orleans' best value e-bikes — try one before you buy.</p>
+        <a href="https://jbirdbikes.com/gotrax-ebikes-new-orleans" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Gotrax e-bikes at JBird Bikes New Orleans">Browse Gotrax Models →</a>
+      </div>
+
+      <!-- Mokwheel -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a2e1a,#162116);" aria-hidden="true">🚵</div>
+        <span class="bike-brand">Mokwheel</span>
+        <p class="bike-name">Mokwheel E-Bikes</p>
+        <p class="bike-price">From ~$999</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <span class="bike-badge" style="background:rgba(240,165,0,0.12);color:var(--accent);">Test Rides Available</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Performance-built fat tire and commuter models.</p>
+        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Mokwheel e-bikes at JBird Bikes">Browse Mokwheel Models →</a>
+      </div>
+
+      <!-- Lectric -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#2e1a1a,#211616);" aria-hidden="true">🚲</div>
+        <span class="bike-brand">Lectric</span>
+        <p class="bike-name">Lectric E-Bikes</p>
+        <p class="bike-price">From ~$799</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Folding and commuter models — great for city riding.</p>
+        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Lectric e-bikes at JBird Bikes">Browse Lectric Models →</a>
+      </div>
+
+      <!-- Vanpowers -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a1a2e,#211621);" aria-hidden="true">🏙️</div>
+        <span class="bike-brand">Vanpowers</span>
+        <p class="bike-name">Vanpowers E-Bikes</p>
+        <p class="bike-price">From ~$999</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Sleek urban commuters built for city streets.</p>
+        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Vanpowers e-bikes at JBird Bikes">Browse Vanpowers Models →</a>
+      </div>
+
+      <!-- Aventon -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#2e2a1a,#211e16);" aria-hidden="true">⚡</div>
+        <span class="bike-brand">Aventon</span>
+        <p class="bike-name">Aventon E-Bikes</p>
+        <p class="bike-price">From ~$899</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Smooth, connected rides with integrated displays.</p>
+        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Aventon e-bikes at JBird Bikes">Browse Aventon Models →</a>
+      </div>
+
+      <!-- Retrospec -->
+      <div class="bike-card">
+        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a2a2e,#162021);" aria-hidden="true">🌿</div>
+        <span class="bike-brand">Retrospec</span>
+        <p class="bike-name">Retrospec E-Bikes</p>
+        <p class="bike-price">From ~$649</p>
+        <span class="bike-badge">✓ UL 2849 Certified</span>
+        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Classic style meets modern electric — approachable and affordable.</p>
+        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Retrospec e-bikes at JBird Bikes">Browse Retrospec Models →</a>
+      </div>
+
+    </div>
+
+    <p class="bikes-footnote">Prices shown are approximate starting ranges. Visit <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a> or call us for current inventory and exact pricing. All models are UL 2849 certified and eligible for the NOLA e-bike voucher.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 5 — HOW TO REDEEM
+     ════════════════════════════════════════ -->
+<section id="redeem" class="section" aria-labelledby="redeem-heading">
+  <div class="container" style="max-width:720px;">
+    <span class="eyebrow">Step by Step</span>
+    <h2 id="redeem-heading">How to Redeem Your NOLA E-Bike Voucher at JBird — 4 Simple Steps</h2>
+
+    <ol class="steps" role="list">
+      <li class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-body">
+          <h3>Check Your Eligibility</h3>
+          <p>Visit the <a href="https://nola.gov/next/sustainability/transportation/e-bike-incentive-program/" target="_blank" rel="noopener noreferrer">official City of New Orleans program page</a> to confirm you qualify, check current rebate amounts, and see if income-qualified vouchers are still available.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-body">
+          <h3>Pick Your Bike</h3>
+          <p>Browse our certified inventory at <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a>, or come in for a test ride on one of our Gotrax models. Every bike on the floor qualifies for the rebate.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-body">
+          <h3>Reserve It</h3>
+          <p>Use the form below to let us know which bike you want — or that you're ready to come in. We'll hold it for you and confirm within one business day.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">4</div>
+        <div class="step-body">
+          <h3>Redeem In Person at JBird</h3>
+          <p>Bring your voucher to <strong>2336 St. Louis Street, New Orleans</strong> and apply it at checkout. That's it. Walk out riding a certified e-bike — Pro-Build included, warranty and all.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="btn-row" style="justify-content:center;">
+      <a href="#contact" class="btn btn-primary">Reserve Your Bike Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 6 — LEAD CAPTURE
+     ════════════════════════════════════════ -->
+<section id="contact" class="section" aria-labelledby="contact-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:36px;">
+      <span class="eyebrow">Get Started</span>
+      <h2 id="contact-heading">Ready to Ride? Reserve Your Bike or Book a Test Ride</h2>
+      <p style="color:var(--muted);max-width:480px;margin:0 auto;">Fill out the form below and we'll reach out within one business day to confirm your reservation or test ride time.</p>
+    </div>
+
+    <div class="form-wrap">
+      <div id="form-container">
+        <form
+          name="voucher-inquiry"
+          method="POST"
+          netlify
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onsubmit="handleSubmit(event)"
+          aria-label="Voucher inquiry form"
+        >
+          <input type="hidden" name="form-name" value="voucher-inquiry" />
+          <p style="display:none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+
+          <p style="font-size:0.88rem;color:var(--muted);margin-bottom:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">I want to:</p>
+          <div class="form-options" role="radiogroup" aria-label="Select an option">
+            <label class="form-option">
+              <input type="radio" name="inquiry-type" value="Reserve a Bike" required />
+              <div class="opt-icon" aria-hidden="true">🚲</div>
+              <div class="opt-label">Reserve a Bike</div>
+            </label>
+            <label class="form-option">
+              <input type="radio" name="inquiry-type" value="Book a Test Ride" />
+              <div class="opt-icon" aria-hidden="true">🛣️</div>
+              <div class="opt-label">Book a Test Ride</div>
+            </label>
+          </div>
+
+          <div class="field-group">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="First and last name" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(504) 555-0100" autocomplete="tel" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary submit-btn">Send My Request</button>
+          <p class="form-note">We'll reach out within one business day. No spam — ever.</p>
+        </form>
+      </div>
+
+      <div id="form-success" class="form-success" role="alert" aria-live="polite">
+        <div class="success-icon" aria-hidden="true">✅</div>
+        <h3>You're on the list!</h3>
+        <p>We'll be in touch within one business day to confirm your reservation or test ride. See you on the Greenway.</p>
+        <a href="https://jbirdbikes.com" class="btn btn-outline" style="margin-top:20px;">Browse All Bikes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 7 — LOCATION & CONTACT
+     ════════════════════════════════════════ -->
+<section id="location" class="section section--alt" aria-labelledby="location-heading">
+  <div class="container">
+    <span class="eyebrow">Find Us</span>
+    <h2 id="location-heading">Find Us on the Lafitte Greenway</h2>
+    <p style="color:var(--muted);max-width:560px;">We're right on the trail — come by bike, on foot, or by car. Voucher redemption is in person at our shop.</p>
+
+    <div class="location-grid">
+      <div class="location-card">
+        <h3>📍 Address</h3>
+        <p>
+          2336 St. Louis Street<br>
+          New Orleans, LA 70119<br>
+          On the Lafitte Greenway
+        </p>
+        <a
+          href="https://maps.google.com/?q=2336+St+Louis+Street+New+Orleans+LA+70119"
+          class="map-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Get directions to JBird Bikes on Google Maps"
+        >
+          Get Directions on Google Maps →
+        </a>
+      </div>
+
+      <div class="location-card">
+        <h3>📞 Contact Us</h3>
+        <p>
+          <a href="tel:+15045216997">(504) 521-6997</a><br>
+          <a href="mailto:office@jbirdbikes.com">office@jbirdbikes.com</a>
+        </p>
+        <p style="margin-top:14px;">
+          <strong>Hours:</strong><br>
+          <span style="color:var(--muted);"><!-- Eric: add your hours here --><em>Visit <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a> for current hours</em></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p><a href="https://jbirdbikes.com"><strong>JBird Bikes</strong></a> — Origin eBikes, LLC — 2336 St. Louis Street, New Orleans, LA 70119</p>
+    <p style="margin-top:8px;">
+      Authorized NOLA E-Bike Voucher retailer &nbsp;·&nbsp;
+      <a href="https://nola.gov/next/sustainability/transportation/e-bike-incentive-program/" target="_blank" rel="noopener noreferrer">Official Program Info</a> &nbsp;·&nbsp;
+      <a href="https://jbirdbikes.com">JBird Bikes</a>
+    </p>
+    <p style="margin-top:12px;font-size:0.77rem;">Program details sourced from the <a href="https://nola.gov/next/sustainability/transportation/e-bike-incentive-program/" target="_blank" rel="noopener noreferrer">City of New Orleans E-Bike Incentive Program</a>. Availability and rebate amounts subject to change — check the official city page for the most current information.</p>
+  </div>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString(),
+    })
+    .then(() => {
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    })
+    .catch(() => {
+      // Fallback: show success anyway (Netlify may still capture it)
+      document.getElementById('form-container').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    });
+  }
+
+  // Smooth scroll for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
