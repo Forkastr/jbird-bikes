@@ -96,9 +96,9 @@ export default function Services() {
           <Card bg="var(--primary-green)" text="white">
             <div>
               <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', marginBottom: '1rem' }}>NOLA eBike Incentive</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>The City of New Orleans is launching an eBike incentive program that could put up to $1,200 toward your purchase. Let us know you're interested, and we'll inform you immediately about how to apply.</p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>The City of New Orleans e-bike rebate is here — get up to $1,200 off a new e-bike, redeemed in person at JBird. Every bike we carry is UL 2849 certified and qualifies for the voucher.</p>
             </div>
-            <ContactButton dark />
+            <FindOutMore href="/nolaincentive/" />
           </Card>
 
           {/* UL CERTIFIED */}
