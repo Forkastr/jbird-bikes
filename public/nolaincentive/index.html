@@ -477,6 +477,31 @@
 </nav>
 
 <!-- ════════════════════════════════════════
+     NOTIFY BANNER
+     ════════════════════════════════════════ -->
+<section id="notify" aria-labelledby="notify-heading" style="background:linear-gradient(135deg,#1a1400,#0e0f11);border-bottom:1px solid #2a2d36;padding:48px 0;">
+  <div class="container" style="max-width:680px;text-align:center;">
+    <span class="eyebrow">Limited Vouchers Available</span>
+    <h2 id="notify-heading" style="font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:0.75rem;">Don't Miss Out — Get on the List</h2>
+    <p style="color:#9098a9;font-size:1.05rem;max-width:520px;margin:0 auto 28px;">The NOLA e-bike voucher program has <strong style="color:#f0a500;">3,000 rebates</strong> and they will go fast. Drop your info below and JBird will notify you the moment registration opens so you can claim yours before they're gone.</p>
+    <div id="notify-form-container">
+      <form name="notify-signup" method="POST" netlify data-netlify="true" netlify-honeypot="bot-field-notify" onsubmit="handleNotify(event)" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;" aria-label="Notify me form">
+        <input type="hidden" name="form-name" value="notify-signup" />
+        <p style="display:none;"><label>Do not fill: <input name="bot-field-notify" /></label></p>
+        <input type="text" name="name" placeholder="Your name" required autocomplete="name" style="flex:1;min-width:180px;background:#16181d;border:1px solid #2a2d36;border-radius:8px;color:#e8e9ec;font-size:1rem;padding:13px 16px;outline:none;" />
+        <input type="email" name="email" placeholder="Email address" required autocomplete="email" style="flex:1;min-width:200px;background:#16181d;border:1px solid #2a2d36;border-radius:8px;color:#e8e9ec;font-size:1rem;padding:13px 16px;outline:none;" />
+        <input type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel" style="flex:1;min-width:160px;background:#16181d;border:1px solid #2a2d36;border-radius:8px;color:#e8e9ec;font-size:1rem;padding:13px 16px;outline:none;" />
+        <button type="submit" style="background:#f0a500;color:#000;font-weight:700;font-size:1rem;padding:13px 28px;border:none;border-radius:8px;cursor:pointer;white-space:nowrap;">Notify Me!</button>
+      </form>
+    </div>
+    <div id="notify-success" style="display:none;padding:20px;" role="alert" aria-live="polite">
+      <p style="font-size:1.1rem;font-weight:700;color:#2ecc71;">✅ You're on the list!</p>
+      <p style="color:#9098a9;">We'll reach out as soon as registration opens. First come, first served.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
      SECTION 1 — HERO
      ════════════════════════════════════════ -->
 <section id="hero" aria-labelledby="hero-heading">
@@ -909,6 +934,24 @@
       }
     });
   });
+  function handleNotify(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString(),
+    })
+    .then(() => {
+      document.getElementById("notify-form-container").style.display = "none";
+      document.getElementById("notify-success").style.display = "block";
+    })
+    .catch(() => {
+      document.getElementById("notify-form-container").style.display = "none";
+      document.getElementById("notify-success").style.display = "block";
+    });
+  }
 </script>
 
 </body>
