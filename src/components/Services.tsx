@@ -96,9 +96,18 @@ export default function Services() {
           <Card bg="var(--primary-green)" text="white">
             <div>
               <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', marginBottom: '1rem' }}>NOLA eBike Incentive</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Free vouchers to buy eBikes! Don't miss out. Get on the list to be notified when registration opens.</p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Free vouchers to buy eBikes!</p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Don't miss out.</p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Get on the list to be notified when registration opens.</p>
             </div>
-            <FindOutMore href="/nolaincentive/#contact" />
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', marginTop: '1.5rem', padding: '0.75rem 1.75rem', backgroundColor: 'var(--accent-yellow)', color: 'var(--primary-green)', fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', fontWeight: 900, textTransform: 'uppercase' as const, letterSpacing: '0.05em', borderRadius: '0.5rem', textDecoration: 'none' }}
+            >
+              Register Here
+            </a>
           </Card>
 
           {/* UL CERTIFIED */}
