@@ -268,59 +268,7 @@
     .rule-callout strong { color: var(--green); }
 
     /* ── Bikes ── */
-    .bikes-intro { max-width: 640px; margin-bottom: 32px; }
-    .brand-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .bike-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: border-color 0.2s;
-    }
-    .bike-card:hover { border-color: var(--accent); }
-    .bike-card a { text-decoration: none; }
-    .bike-thumb {
-      height: 110px;
-      border-radius: 7px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.8rem;
-      margin-bottom: 8px;
-    }
-    .bike-brand { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
-    .bike-name  { font-size: 1.05rem; font-weight: 700; color: var(--text); }
-    .bike-price { font-size: 0.92rem; color: var(--accent); font-weight: 600; }
-    .bike-badge {
-      display: inline-block;
-      background: rgba(46,204,113,0.12);
-      color: var(--green);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-    }
-    .bike-link {
-      margin-top: auto;
-      font-size: 0.88rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .bike-link:hover { text-decoration: underline; }
 
-    .bikes-footnote {
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
 
     /* ── How to Redeem ── */
     .steps { list-style: none; padding: 0; margin: 32px 0; counter-reset: steps; }
@@ -650,83 +598,20 @@
     <span class="eyebrow">Certified Inventory</span>
     <h2 id="bikes-heading">UL 2849 Certified E-Bikes Ready for Your Voucher</h2>
 
-    <div class="bikes-intro">
-      <p>Every e-bike we carry is UL 2849 certified and ready to be paired with your rebate. Most models are fully or nearly covered by the $600 voucher — and many fall within the $1,200 income-qualified rebate. Browse our current inventory at <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a>.</p>
+    <p style="color:var(--muted);max-width:600px;margin-bottom:32px;">Every e-bike we carry is UL 2849 certified and qualifies for the NOLA voucher. Browse the full lineup &mdash; most models are fully or nearly covered by the rebate.</p>
+
+    <div style="text-align:center;">
+      <a href="https://jbirdbikes.com/sales.html" target="_blank" rel="noopener noreferrer" aria-label="Browse all e-bikes at JBird Bikes &mdash; opens in new tab" style="display:inline-block;text-decoration:none;">
+        <img
+          src="/hero-bike.jpg"
+          alt="UL 2849 certified e-bike available at JBird Bikes New Orleans &mdash; eligible for the NOLA e-bike voucher rebate"
+          style="max-width:100%;width:600px;border-radius:12px;border:1px solid var(--border);margin-bottom:20px;"
+        />
+        <br>
+        <span class="btn btn-primary" style="font-size:1.05rem;">Browse All Bikes at JBird &rarr;</span>
+      </a>
+      <p style="margin-top:14px;font-size:0.85rem;color:var(--muted);">Opens jbirdbikes.com in a new tab &nbsp;&middot;&nbsp; Every model UL 2849 certified &nbsp;&middot;&nbsp; All qualify for the NOLA voucher</p>
     </div>
-
-    <div class="brand-grid">
-
-      <!-- Gotrax — featured with test rides -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a1a2e,#16213e);" aria-hidden="true">⚡</div>
-        <span class="bike-brand">Gotrax</span>
-        <p class="bike-name">Gotrax E-Bikes</p>
-        <p class="bike-price">From ~$599</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <span class="bike-badge" style="background:rgba(240,165,0,0.12);color:var(--accent);">Test Rides Available</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">New Orleans' best value e-bikes — try one before you buy.</p>
-        <a href="https://jbirdbikes.com/gotrax-ebikes-new-orleans" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Gotrax e-bikes at JBird Bikes New Orleans">Browse Gotrax Models →</a>
-      </div>
-
-      <!-- Mokwheel -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a2e1a,#162116);" aria-hidden="true">🚵</div>
-        <span class="bike-brand">Mokwheel</span>
-        <p class="bike-name">Mokwheel E-Bikes</p>
-        <p class="bike-price">From ~$999</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <span class="bike-badge" style="background:rgba(240,165,0,0.12);color:var(--accent);">Test Rides Available</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Performance-built fat tire and commuter models.</p>
-        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Mokwheel e-bikes at JBird Bikes">Browse Mokwheel Models →</a>
-      </div>
-
-      <!-- Lectric -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#2e1a1a,#211616);" aria-hidden="true">🚲</div>
-        <span class="bike-brand">Lectric</span>
-        <p class="bike-name">Lectric E-Bikes</p>
-        <p class="bike-price">From ~$799</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Folding and commuter models — great for city riding.</p>
-        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Lectric e-bikes at JBird Bikes">Browse Lectric Models →</a>
-      </div>
-
-      <!-- Vanpowers -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a1a2e,#211621);" aria-hidden="true">🏙️</div>
-        <span class="bike-brand">Vanpowers</span>
-        <p class="bike-name">Vanpowers E-Bikes</p>
-        <p class="bike-price">From ~$999</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Sleek urban commuters built for city streets.</p>
-        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Vanpowers e-bikes at JBird Bikes">Browse Vanpowers Models →</a>
-      </div>
-
-      <!-- Aventon -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#2e2a1a,#211e16);" aria-hidden="true">⚡</div>
-        <span class="bike-brand">Aventon</span>
-        <p class="bike-name">Aventon E-Bikes</p>
-        <p class="bike-price">From ~$899</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Smooth, connected rides with integrated displays.</p>
-        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Aventon e-bikes at JBird Bikes">Browse Aventon Models →</a>
-      </div>
-
-      <!-- Retrospec -->
-      <div class="bike-card">
-        <div class="bike-thumb" style="background:linear-gradient(135deg,#1a2a2e,#162021);" aria-hidden="true">🌿</div>
-        <span class="bike-brand">Retrospec</span>
-        <p class="bike-name">Retrospec E-Bikes</p>
-        <p class="bike-price">From ~$649</p>
-        <span class="bike-badge">✓ UL 2849 Certified</span>
-        <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;">Classic style meets modern electric — approachable and affordable.</p>
-        <a href="https://jbirdbikes.com" class="bike-link" target="_blank" rel="noopener noreferrer" aria-label="Browse Retrospec e-bikes at JBird Bikes">Browse Retrospec Models →</a>
-      </div>
-
-    </div>
-
-    <p class="bikes-footnote">Prices shown are approximate starting ranges. Visit <a href="https://jbirdbikes.com" target="_blank" rel="noopener noreferrer">jbirdbikes.com</a> or call us for current inventory and exact pricing. All models are UL 2849 certified and eligible for the NOLA e-bike voucher.</p>
   </div>
 </section>
 
