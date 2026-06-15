@@ -147,6 +147,16 @@
   </div>
 </div>
 
+<!-- SEARCH BAR -->
+<div id="search-bar-wrap" style="background:#f5f3ef;padding:1.25rem 1.5rem;border-bottom:2px solid #e5e7eb;position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:0.75rem;">
+    <span style="font-size:1.2rem;"><!-- CATALOG -->#128269;</span>
+    <input id="bike-search" type="search" placeholder="Search by name, type, or price..." autocomplete="off" oninput="handleSearch(this.value)" style="flex:1;border:2px solid #e5e7eb;border-radius:8px;padding:0.7rem 1rem;font-size:1rem;font-family:inherit;outline:none;" />
+    <button onclick="clearSearch()" id="search-clear" style="display:none;background:#e5e7eb;border:none;border-radius:8px;padding:0.7rem 1rem;font-size:0.85rem;font-weight:600;cursor:pointer;">Clear</button>
+    <span id="search-count" style="font-size:0.82rem;color:#6b7280;white-space:nowrap;min-width:60px;text-align:right;"></span>
+  </div>
+</div>
+
 <!-- CATALOG -->
 <div class="catalog-section" id="catalog">
   <div id="loading-state">
@@ -259,25 +269,58 @@
     if (el) el.scrollBy({ left: dir * 280, behavior: 'smooth' });
   }
 
+  let ALL_BIKES = [];
+
+  function renderCatalog(bikes) {
+    const catalog = document.getElementById("catalog");
+    const query = document.getElementById("bike-search").value.trim();
+    if (bikes.length === 0) {
+      catalog.innerHTML = "<p style=\"color:#666;text-align:center;padding:3rem 1rem;\">No bikes match your search. Try a different term.</p>";
+      return;
+    }
+    if (query) {
+      catalog.innerHTML = "<div style=\"display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1.2rem;padding:1rem 0;\">" + bikes.map(makeCard).join("") + "</div>";
+    } else {
+      catalog.innerHTML = "";
+      CATEGORIES.forEach(cat => {
+        const group = bikes.filter(b => (b["Category"] || "").toString().trim().toLowerCase() === cat.toLowerCase());
+        if (group.length > 0) catalog.innerHTML += makeCarousel(cat, group);
+      });
+    }
+  }
+
+  function handleSearch(query) {
+    const q = query.trim().toLowerCase();
+    document.getElementById("search-clear").style.display = q ? "inline-block" : "none";
+    const countEl = document.getElementById("search-count");
+    if (!q) { countEl.textContent = ""; renderCatalog(ALL_BIKES); return; }
+    const results = ALL_BIKES.filter(b => {
+      const title = (b["Title"] || "").toLowerCase();
+      const cat   = (b["Category"] || "").toLowerCase();
+      const price = b["JBird Retail Price"] ? String(Math.round(Number(b["JBird Retail Price"]))) : "";
+      const range = (b["Range"] || "").toLowerCase();
+      return title.includes(q) || cat.includes(q) || price.includes(q) || range.includes(q);
+    });
+    countEl.textContent = results.length + " result" + (results.length !== 1 ? "s" : "");
+    renderCatalog(results);
+  }
+
+  function clearSearch() {
+    const input = document.getElementById("bike-search");
+    input.value = "";
+    handleSearch("");
+    input.focus();
+  }
+
   async function loadCatalog() {
     try {
       const res = await fetch(SCRIPT_URL);
       const bikes = await res.json();
-      const catalog = document.getElementById('catalog');
-      catalog.innerHTML = '';
-      CATEGORIES.forEach(cat => {
-        const group = bikes.filter(b =>
-          (b['Category'] || '').toString().trim().toLowerCase() === cat.toLowerCase() &&
-          (b['JBird Status'] || '').toString().trim().toLowerCase() === 'available'
-        );
-        if (group.length > 0) catalog.innerHTML += makeCarousel(cat, group);
-      });
-      if (catalog.innerHTML.trim() === '') {
-        catalog.innerHTML = '<p style="color:#666;text-align:center;padding:3rem;">No bikes found in catalog.</p>';
-      }
+      ALL_BIKES = bikes.filter(b => (b["JBird Status"] || "").toString().trim().toLowerCase() === "available");
+      renderCatalog(ALL_BIKES);
     } catch(e) {
-      document.getElementById('catalog').innerHTML =
-        '<p style="color:#c0392b;text-align:center;padding:3rem;">Could not load catalog. Please try again later.</p>';
+      document.getElementById("catalog").innerHTML =
+        "<p style=\"color:#c0392b;text-align:center;padding:3rem;\">Could not load catalog. Please try again later.</p>";
     }
   }
 
