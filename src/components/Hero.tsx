@@ -27,6 +27,7 @@ export default function Hero() {
             Get On the List
           </a>
         </div>
+      </div>
     </section>
   );
 }
