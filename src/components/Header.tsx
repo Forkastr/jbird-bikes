@@ -21,7 +21,6 @@ export default function Header() {
             <a href="/repairs.html" style={navStyle}>Repairs</a>
             <a href="/sales.html" style={navStyle}>Bike Sales</a>
             <a href="/assembly.html" style={navStyle}>Assembly</a>
-            <a href="/nolaincentive/" style={navStyle}>Incentive</a>
           </nav>
 
           <button onClick={toggleMenu} style={hamburgerStyle} aria-label="Menu" className="hamburger-btn">
@@ -37,7 +36,6 @@ export default function Header() {
         <a href="/repairs.html" onClick={toggleMenu} style={mobileNavLink}>Repairs & Service</a>
         <a href="/sales.html" onClick={toggleMenu} style={mobileNavLink}>Bike Sales</a>
         <a href="/assembly.html" onClick={toggleMenu} style={mobileNavLink}>eBike Assembly</a>
-        <a href="/nolaincentive/" onClick={toggleMenu} style={mobileNavLink}>NOLA Incentive</a>
         <a href="/about.html" onClick={toggleMenu} style={mobileNavLink}>About Us</a>
         <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '10px 0' }} />
         <a href="tel:5045216997" style={{ fontWeight: 800, color: 'black', textDecoration: 'none', fontSize: '1.2rem', padding: '0.5rem 0' }}>(504) 521-6997</a>
