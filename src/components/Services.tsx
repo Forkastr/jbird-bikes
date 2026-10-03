@@ -92,24 +92,6 @@ export default function Services() {
             <FindOutMore href="/assembly.html" />
           </Card>
 
-          {/* NOLA INCENTIVE */}
-          <Card bg="var(--primary-green)" text="white">
-            <div>
-              <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', marginBottom: '1rem' }}>NOLA eBike Incentive</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Free vouchers to buy eBikes!</p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Don't miss out.</p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Get on the list to be notified when registration opens.</p>
-            </div>
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ display: 'inline-block', marginTop: '1.5rem', padding: '0.75rem 1.75rem', backgroundColor: 'var(--accent-yellow)', color: 'var(--primary-green)', fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1rem', fontWeight: 900, textTransform: 'uppercase' as const, letterSpacing: '0.05em', borderRadius: '0.5rem', textDecoration: 'none' }}
-            >
-              Register Here
-            </a>
-          </Card>
-
           {/* UL CERTIFIED */}
           <Card bg="#0a0a0a" text="white">
             <div>
@@ -117,15 +99,6 @@ export default function Services() {
               <p style={{ fontSize: '1rem', lineHeight: 1.7, color: '#d1d5db' }}>Every bike we sell carries UL Certification — the gold standard of electrical safety. Battery, motor, charger, and electrical system independently tested to prevent overheating and fire hazards. Plug it in with absolute peace of mind.</p>
             </div>
             <FindOutMore href="/sales.html" />
-          </Card>
-
-          {/* TEST RIDE */}
-          <Card bg="var(--accent-yellow)">
-            <div>
-              <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', color: 'var(--text-dark)', marginBottom: '1rem' }}>Test Ride Available</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Not sure which eBike is right for you? Come try before you buy. We're right on the Lafitte Greenway — the perfect place to test ride. No pressure, no commitment. Just you and the open trail.</p>
-            </div>
-            <ContactButton />
           </Card>
 
         </div>
