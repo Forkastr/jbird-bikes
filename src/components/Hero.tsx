@@ -23,9 +23,6 @@ export default function Hero() {
           <a href={CONTACT_URL} style={{ backgroundColor: "var(--accent-yellow)", color: "var(--primary-green)", fontFamily: "Barlow Condensed, sans-serif", fontSize: "1.5rem", fontWeight: 900, padding: "1rem 3rem", borderRadius: "0.5rem", textTransform: "uppercase", letterSpacing: "0.05em", display: "inline-block", textDecoration: "none" }}>
             Contact Us
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfPl-2QS3RT0H0DIvKFICwW98HJ08rWNfJDebp8H-I75dtq1Q/viewform" target="_blank" rel="noopener noreferrer" style={{ backgroundColor: "var(--primary-green)", color: "white", fontFamily: "Barlow Condensed, sans-serif", fontSize: "1.5rem", fontWeight: 900, padding: "1rem 3rem", borderRadius: "0.5rem", textTransform: "uppercase", letterSpacing: "0.05em", display: "inline-block", textDecoration: "none" }}>
-            Get On the List
-          </a>
         </div>
       </div>
     </section>
