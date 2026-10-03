@@ -22,7 +22,6 @@ export default function Header() {
             <a href="/sales.html" style={navStyle}>Bike Sales</a>
             <a href="/assembly.html" style={navStyle}>Assembly</a>
             <a href="/nolaincentive/" style={navStyle}>Incentive</a>
-            <a href={CONTACT_URL} target="_blank" style={testRideBtn}>BOOK TEST-RIDE</a>
           </nav>
 
           <button onClick={toggleMenu} style={hamburgerStyle} aria-label="Menu" className="hamburger-btn">
@@ -42,7 +41,6 @@ export default function Header() {
         <a href="/about.html" onClick={toggleMenu} style={mobileNavLink}>About Us</a>
         <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '10px 0' }} />
         <a href="tel:5045216997" style={{ fontWeight: 800, color: 'black', textDecoration: 'none', fontSize: '1.2rem', padding: '0.5rem 0' }}>(504) 521-6997</a>
-        <a href={CONTACT_URL} target="_blank" style={{ ...testRideBtn, marginTop: '1rem', display: 'block', textAlign: 'center' as const }}>BOOK TEST-RIDE</a>
       </div>
 
       {isOpen && (
