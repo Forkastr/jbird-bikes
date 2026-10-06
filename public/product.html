@@ -97,7 +97,8 @@
     .spec-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 5.4vw, 64px); line-height: .9; }
     .key-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 12px; }
     .key-card { background: #26231c; border: 1px solid rgba(250, 247, 239, .15); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .key-card .dot { width: 12px; height: 12px; border-radius: 50%; }
+    /* The icons are black line art; invert to white on the dark cards. */
+    .key-card .icon { width: 44px; height: 44px; object-fit: contain; filter: invert(1); display: block; }
     .key-card .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #d9d4c7; }
     .key-card .v { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; overflow-wrap: anywhere; }
     .full-specs { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 20px; }
@@ -281,7 +282,11 @@
 <script src="/catalog.js"></script>
 <script>
   const KEY_SPECS = ['Range', 'Top Speed', 'Tire Size', 'Payload', 'Motor Size', 'Easy Storage', 'Warranty', 'Safety'];
-  const KEY_DOTS = ['#2e8b3e', '#d43a2f', '#1f5fc8', '#f7d23e'];
+  // Icons from the previous product page, now served from /images/specs.
+  const KEY_ICONS = {
+    'Range': 'range', 'Top Speed': 'top-speed', 'Tire Size': 'tire-size', 'Payload': 'payload',
+    'Motor Size': 'motor-size', 'Easy Storage': 'easy-storage', 'Warranty': 'warranty', 'Safety': 'safety',
+  };
   // Everything else with a value is a full spec, except these non-spec columns.
   const NOT_SPECS = new Set(['Brand', 'Slug', 'Title', 'Description', 'Image-URL', 'Colors Available', 'Category',
     'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease To Own Weekly', 'Same-As-Cash', ...KEY_SPECS]);
@@ -387,8 +392,8 @@
 
     const keys = KEY_SPECS.filter(k => str(bike[k]));
     $('key-section').hidden = keys.length === 0;
-    $('key-grid').innerHTML = keys.map((k, i) =>
-      `<div class="key-card"><span class="dot" style="background:${KEY_DOTS[i % KEY_DOTS.length]}"></span><span class="k">${esc(k)}</span><span class="v">${esc(bike[k])}</span></div>`).join('');
+    $('key-grid').innerHTML = keys.map(k =>
+      `<div class="key-card"><img class="icon" src="/images/specs/${KEY_ICONS[k]}.png" alt="" width="44" height="44"><span class="k">${esc(k)}</span><span class="v">${esc(bike[k])}</span></div>`).join('');
 
     const full = Object.keys(bike).filter(k => !NOT_SPECS.has(k) && str(bike[k]));
     $('full-section').hidden = full.length === 0;

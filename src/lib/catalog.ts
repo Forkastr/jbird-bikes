@@ -11,7 +11,6 @@ const PUBLIC_FIELDS = [
   'JBird Status', 'Battery', 'Battery Size', 'Class', 'Bike Weight',
   'Charge Time', 'Charger', 'Headlight', 'Sensor Type', 'Frame Material',
   'Waterproof Rating', 'Display / Console', 'Gears', 'Suspension', 'Brakes',
-  'Throttle', 'Pedal Assist',
   'JBird Retail Price', 'Cash Price', 'Lease To Own Weekly', 'Same-As-Cash',
 ];
 
