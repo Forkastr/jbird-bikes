@@ -75,6 +75,7 @@
 .heroTop { padding-top: clamp(28px, 5vw, 64px); padding-bottom: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(24px, 4vw, 48px); align-items: center; }
 .heroText { display: flex; flex-direction: column; gap: 20px; }
 .heroBadge { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 15px; }
+.page sup { font-size: 0.55em; line-height: 0; }
 .page .heroTitle { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(54px, 9vw, 112px); line-height: .88; letter-spacing: -.005em; text-wrap: balance; }
 .heroPrice { color: var(--red); }
 .heroTitle sup { font-size: .3em; font-style: normal; vertical-align: top; position: relative; top: .3em; }
@@ -133,7 +134,7 @@
 /* Snap */
 .snap { background: var(--ink); color: var(--cream); }
 .snapInner { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); display: flex; flex-direction: column; gap: clamp(32px, 5vw, 56px); }
-.snapIntro { display: flex; flex-direction: column; gap: 18px; max-width: 820px; }
+.snapIntro { display: flex; flex-direction: column; gap: 18px; }
 .snapEyebrow { align-self: flex-start; background: var(--yellow); color: var(--ink); padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
 .page .snapTitle { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(40px, 6vw, 72px); line-height: .92; text-wrap: balance; }
 .page .snapLead { font-size: clamp(18px, 2vw, 22px); line-height: 1.45; text-wrap: pretty; }

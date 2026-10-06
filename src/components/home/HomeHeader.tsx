@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './home.module.css';
 
 const MENU_LINKS = [
-  { href: '/sales.html', label: 'Bike Sales' },
-  { href: '/repairs.html', label: 'Repairs & Service' },
+  { href: '/sales.html', label: 'Bikes For Sale' },
+  { href: '/repairs.html', label: 'Repairs & Services' },
   { href: '/assembly.html', label: 'eBike Assembly' },
   { href: '/about.html', label: 'About Us' },
   { href: '/faq', label: 'FAQ' },

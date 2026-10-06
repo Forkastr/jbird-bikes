@@ -144,10 +144,10 @@ export default async function HomePage() {
         <section id="snap" className={styles.snap}>
           <div className={`${styles.wrap} ${styles.snapInner}`}>
             <div className={styles.snapIntro}>
-              <span className={styles.snapEyebrow}>A JBird Exclusive</span>
+              <span className={styles.snapEyebrow}>FLEXIBLE PAYMENT OPTIONS</span>
               <h2 className={styles.snapTitle}>A JBird Exclusive</h2>
               <p className={styles.snapLead}>
-                JBird has partnered with Snap Finance to offer lease-to-own financing<Sup n={2} /> — no credit needed.<Sup n={1} />
+                JBird has partnered with Snap Finance to offer lease-to-own financing<Sup n={2} />, no credit needed!<Sup n={1} />
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default async function HomePage() {
               <h3 className={styles.snapH3}>Snap Finance at a glance</h3>
               <div className={styles.stats}>
                 <div className={styles.stat}>
-                  <span className={styles.statBig}>8.5M+</span>
+                  <span className={styles.statBig}>8.5M+ Benefactors</span>
                   <span className={styles.statSmall}>Trusted by 8.5 million+ customers</span>
                 </div>
                 <div className={styles.stat}>
@@ -200,7 +200,7 @@ export default async function HomePage() {
           <div className={styles.serviceGrid}>
             <a href="/repairs.html" className={styles.serviceCard} style={{ background: '#d43a2f' }}>
               <h3>Repair &amp; Maintenance</h3>
-              <p>We diagnose every bike — any brand, any condition.</p>
+              <p>We diagnose every bike of any brand, in any condition.</p>
               <span className={styles.serviceBtn}>Find Out More</span>
             </a>
             <a href="/assembly.html" className={styles.serviceCard} style={{ background: '#2e8b3e' }}>
