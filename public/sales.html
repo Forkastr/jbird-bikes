@@ -257,7 +257,6 @@
     const imgUrl = bike['Image-URL'] || '';
     const range = bike['Range'] ? `Range: ${bike['Range']}` : '';
     const status = bike['JBird Status'] || '';
-    const testRide = (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? ' · Test Ride' : '';
     const price = bike['JBird Retail Price'] ? `$${Math.round(Number(bike['JBird Retail Price'])).toLocaleString('en-US')}` : '';
     const imgHtml = imgUrl
       ? `<img src="${imgUrl}" alt="${title}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="no-img" style="display:none;">Image Coming Soon</div>`
@@ -266,7 +265,7 @@
       <div class="bike-card">
         <div class="bike-card-img">${imgHtml}</div>
         <div class="bike-card-body">
-          <div class="bike-card-status">${status}${testRide}</div>
+          <div class="bike-card-status">${status}</div>
           <div class="bike-card-title">${title}</div>
           <div class="bike-card-range">${range}</div>
           <div class="bike-card-price">${price}</div>

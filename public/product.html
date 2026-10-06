@@ -118,7 +118,14 @@
         <div class="colors-value" id="bike-colors">—</div>
         <div class="hero-price" id="bike-price"></div>
         <div class="badge-row" id="badge-row"></div>
+                <div class="hero-price" id="bike-price"></div>
+        <div class="snap-finance">
+          <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer"><img src="https://app.snapfinance.com/images/apply_image_01.jpeg" alt="Snap Finance - Apply Here" style="box-shadow:4px 2px 6px #010101; border:none; max-width:100%; height:auto;"/></a>
+        </div>
         <div class="badge-row" id="badge-row"></div>
+
+
+
       </div>
       <div class="hero-image">
         <img id="bike-img" src="" alt="Bike image" style="display:none"/>
@@ -158,14 +165,12 @@
 
     <div class="status-bar">
       <div class="status-item"><div class="status-dot green"></div><span id="status-jbird">—</span></div>
-      <div class="status-item"><div class="status-dot"></div><span id="status-testride">—</span></div>
       <div class="status-item"><div class="status-dot"></div><span id="status-category">—</span></div>
     </div>
-
     <div class="cta-block">
       <div class="cta-text">
         <h3>Ready to Ride?</h3>
-        <p>Visit us on the Lafitte Greenway or contact us to schedule a test ride.</p>
+        <p>Visit us on the Lafitte Greenway or contact us with any questions.</p>
       </div>
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
       <a class="btn btn-primary" id="btn-reserve" href="#" target="_blank">Reserve This Bike</a>
@@ -259,12 +264,6 @@
 
       const badgeRow = document.getElementById('badge-row');
       badgeRow.innerHTML = '';
-      if ((bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes') {
-        const b = document.createElement('span');
-        b.className = 'badge accent';
-        b.textContent = 'Test Ride Available';
-        badgeRow.appendChild(b);
-      }
       if (val(bike,'JBird Status') !== '—') {
         const b = document.createElement('span');
         b.className = 'badge';
@@ -298,7 +297,6 @@
       hideEmptySpecSection(document.querySelector('.specs-grid'), '.spec-row');
 
       set('status-jbird', val(bike, 'JBird Status'));
-      set('status-testride', (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? 'Test Ride Available' : 'Contact for Test Ride');
       set('status-category', val(bike, 'Category') + ' eBike');
 
       document.getElementById('loading').style.display = 'none';
@@ -317,5 +315,6 @@
 
   loadProduct();
 </script>
+
 </body>
 </html>

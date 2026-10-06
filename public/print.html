@@ -438,7 +438,6 @@
     <!-- STATUS ROW -->
     <div class="status-row">
       <div class="status-item"><div class="status-dot green"></div><span id="status-jbird">—</span></div>
-      <div class="status-item"><div class="status-dot"></div><span id="status-testride">—</span></div>
       <div class="status-item"><div class="status-dot"></div><span id="status-category">—</span></div>
     </div>
 
@@ -522,12 +521,6 @@
 
       const badgeRow = document.getElementById('badge-row');
       badgeRow.innerHTML = '';
-      if ((bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes') {
-        const b = document.createElement('span');
-        b.className = 'badge accent';
-        b.textContent = 'Test Ride Available';
-        badgeRow.appendChild(b);
-      }
       if (val(bike,'JBird Status') !== '—') {
         const b = document.createElement('span');
         b.className = 'badge';
@@ -562,7 +555,6 @@
       hideEmptySpecSection(document.querySelector('.specs-grid'), '.spec-row');
 
       set('status-jbird', val(bike, 'JBird Status'));
-      set('status-testride', (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? 'Test Ride Available' : 'Contact for Test Ride');
       set('status-category', val(bike, 'Category') + ' eBike');
 
       document.getElementById('loading').style.display = 'none';

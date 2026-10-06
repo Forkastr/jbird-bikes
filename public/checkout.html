@@ -169,7 +169,6 @@
     const speed = val(bike, 'Top Speed');
     const motor = val(bike, 'Motor Size');
     const category = val(bike, 'Category');
-    const testRide = (val(bike, 'Test Ride Available') || '').toLowerCase() === 'yes';
     const status = val(bike, 'JBird Status');
 
     const imgHtml = imgUrl
@@ -191,7 +190,6 @@
         <div class="product-info">
           <div class="product-badge-row">
             ${status ? `<span class="badge badge-green">${status}</span>` : ''}
-            ${testRide ? `<span class="badge badge-accent">Test Ride Available</span>` : ''}
             ${category ? `<span class="badge badge-green">${category}</span>` : ''}
           </div>
           <div class="product-title">${title}</div>
