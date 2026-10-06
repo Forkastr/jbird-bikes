@@ -302,11 +302,14 @@
   const $ = id => document.getElementById(id);
 
   // "850" -> "$850", "18.5" -> "$18.50"; text such as "$18" is shown as entered.
-  function money(v) {
+  // wholeDollars rounds to the nearest dollar, as the sheet displays the weekly amounts
+  // (it stores exact values such as 29.868...).
+  function money(v, wholeDollars) {
     const s = str(v);
     if (!s) return '';
-    const n = Number(s.replace(/[$,]/g, ''));
+    let n = Number(s.replace(/[$,]/g, ''));
     if (isNaN(n)) return s;
+    if (wholeDollars) n = Math.round(n);
     return '$' + (Number.isInteger(n) ? n.toLocaleString('en-US') : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
   }
 
@@ -377,8 +380,8 @@
     }).join('');
 
     // Prices: Cash Price falls back to JBird Retail Price until the feed sends Cash Price.
-    const weekly = money(bike['Lease to Own Weekly']);
-    const sac = money(bike['Same-As-Cash']);
+    const weekly = money(bike['Lease to Own Weekly'], true);
+    const sac = money(bike['Same-As-Cash'], true);
     const cash = money(bike['Cash Price']) || money(bike['JBird Retail Price']);
     $('price-weekly').hidden = !weekly;
     $('weekly-value').textContent = weekly;
