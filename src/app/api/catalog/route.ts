@@ -21,13 +21,19 @@ const PUBLIC_FIELDS = [
 
 type Bike = Record<string, unknown>;
 
-export async function GET() {
-  const res = await fetch(FEED_URL, { cache: 'no-store' });
+// Google's feed occasionally hangs for ~20s and then returns an error page, so
+// each attempt is time-limited and retried. The build has no time limit, so it
+// tries harder; background refreshes on Netlify must finish within the function
+// time limit, and a failed refresh just keeps the last good catalog live.
+const IS_BUILD = process.env.NEXT_PHASE === 'phase-production-build';
+const ATTEMPTS = IS_BUILD ? 3 : 2;
+const ATTEMPT_TIMEOUT_MS = IS_BUILD ? 15000 : 4500;
+
+async function fetchBikes(): Promise<Bike[]> {
+  const res = await fetch(FEED_URL, { cache: 'no-store', signal: AbortSignal.timeout(ATTEMPT_TIMEOUT_MS) });
   if (!res.ok) throw new Error(`Catalog feed returned HTTP ${res.status}`);
 
-  // Throwing here keeps the last good catalog live: Next.js only replaces the
-  // cached response when regeneration succeeds. Google sometimes returns an
-  // HTML error page with status 200, which fails to parse as JSON.
+  // Google sometimes returns an HTML error page with status 200, which fails to parse as JSON.
   const data: unknown = await res.json();
   if (!Array.isArray(data) || data.length === 0) throw new Error('Catalog feed returned no bikes');
 
@@ -35,6 +41,20 @@ export async function GET() {
     .filter((b) => b && typeof b === 'object' && String(b['Slug'] ?? '').trim())
     .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])));
   if (bikes.length === 0) throw new Error('Catalog feed returned no bikes with a Slug');
+  return bikes;
+}
 
-  return NextResponse.json(bikes);
+export async function GET() {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+    try {
+      return NextResponse.json(await fetchBikes());
+    } catch (err) {
+      lastError = err;
+      console.warn(`Catalog feed attempt ${attempt}/${ATTEMPTS} failed:`, err instanceof Error ? err.message : err);
+    }
+  }
+  // Throwing keeps the last good catalog live: Next.js only replaces the
+  // cached response when regeneration succeeds.
+  throw lastError;
 }
