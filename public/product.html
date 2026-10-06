@@ -289,7 +289,7 @@
   };
   // Everything else with a value is a full spec, except these non-spec columns.
   const NOT_SPECS = new Set(['Brand', 'Slug', 'Title', 'Description', 'Image-URL', 'Colors Available', 'Category',
-    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease To Own Weekly', 'Same-As-Cash', ...KEY_SPECS]);
+    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly', 'Same-As-Cash', ...KEY_SPECS]);
   // Swatch colours for known colour names; anything else shows as a plain label.
   const COLOR_HEX = {
     black: '#1b1b1b', 'r8 black': '#1b1b1b', white: '#f4f4f0', 'stratus white': '#eef0f2', blue: '#2f5fb3', 'navy blue': '#1f2f5a',
@@ -377,7 +377,7 @@
     }).join('');
 
     // Prices: Cash Price falls back to JBird Retail Price until the feed sends Cash Price.
-    const weekly = money(bike['Lease To Own Weekly']);
+    const weekly = money(bike['Lease to Own Weekly']);
     const sac = money(bike['Same-As-Cash']);
     const cash = money(bike['Cash Price']) || money(bike['JBird Retail Price']);
     $('price-weekly').hidden = !weekly;
