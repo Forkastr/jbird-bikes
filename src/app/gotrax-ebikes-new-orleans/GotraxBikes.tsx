@@ -2,15 +2,26 @@
 
 import { useEffect, useState } from 'react';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
+// Served by the site itself (src/app/api/catalog/route.ts), which caches the Google Sheet feed.
+const CATALOG_URL = '/api/catalog';
+
+// eBike categories only; this page is about Gotrax eBikes, not their scooters.
+const NON_EBIKE_CATEGORIES = ['escooters', 'etrikes', 'accessories'];
 
 interface Bike {
+  Brand?: string;
   Slug: string;
   Title: string;
   'Image-URL': string;
   Range: string;
+  Category?: string;
   'JBird Status': string;
-  'Test Ride Available': string;
+}
+
+// Brand comes from the sheet's Brand column; falls back to the Slug prefix (e.g. "Gotrax-ECargo").
+function brandOf(b: Bike) {
+  const brand = (b.Brand || '').toString().trim();
+  return (brand || (b.Slug || '').toString().split('-')[0]).toLowerCase();
 }
 
 export default function GotraxBikes() {
@@ -19,11 +30,15 @@ export default function GotraxBikes() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch(SCRIPT_URL)
-      .then(res => res.json())
-      .then(data => {
-        const gotrax = data.filter((b: Bike) =>
-          (b['Slug'] || '').toString().toLowerCase().startsWith('gotrax-') &&
+    fetch(CATALOG_URL)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data: Bike[]) => {
+        const gotrax = data.filter(b =>
+          brandOf(b) === 'gotrax' &&
+          !NON_EBIKE_CATEGORIES.includes((b.Category || '').toString().trim().toLowerCase()) &&
           (b['JBird Status'] || '').toString().trim().toLowerCase() === 'available'
         );
         setBikes(gotrax);
@@ -67,7 +82,6 @@ export default function GotraxBikes() {
       `}</style>
       <div className="g-bike-grid">
         {bikes.map(bike => {
-          const testRide = (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? ' · Test Ride' : '';
           return (
             <div className="g-bike-card" key={bike.Slug}>
               <div className="g-bike-img">
@@ -82,7 +96,7 @@ export default function GotraxBikes() {
                 )}
               </div>
               <div className="g-bike-body">
-                <div className="g-bike-status">{bike['JBird Status']}{testRide}</div>
+                <div className="g-bike-status">{bike['JBird Status']}</div>
                 <div className="g-bike-title">{bike.Title}</div>
                 <div className="g-bike-range">{bike.Range ? `Range: ${bike.Range}` : ''}</div>
                 <a className="g-btn-findout" href={`/product.html?slug=${encodeURIComponent(bike.Slug)}`}>Find Out More</a>
