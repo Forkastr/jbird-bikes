@@ -191,5 +191,4 @@
 .page .disclosures h2 { font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .page .disclosures p { font-size: 14px; line-height: 1.6; }
 .page .disclosures a { text-decoration: underline; }
-.disclosurePending { border: 1px dashed #b3263a; border-radius: 8px; padding: 10px 12px; color: #8a1d2c; }
 .copyright { color: #5a554a; }

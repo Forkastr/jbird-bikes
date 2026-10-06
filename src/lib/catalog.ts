@@ -22,7 +22,7 @@ export type Bike = Record<string, unknown>;
 // time limit, and a failed refresh just keeps the last good version live.
 const IS_BUILD = process.env.NEXT_PHASE === 'phase-production-build';
 const ATTEMPTS = IS_BUILD ? 3 : 2;
-const ATTEMPT_TIMEOUT_MS = IS_BUILD ? 15000 : 4500;
+const ATTEMPT_TIMEOUT_MS = IS_BUILD ? 30000 : 4500;
 
 async function fetchOnce(): Promise<Bike[]> {
   const res = await fetch(FEED_URL, { cache: 'no-store', signal: AbortSignal.timeout(ATTEMPT_TIMEOUT_MS) });

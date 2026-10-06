@@ -67,7 +67,6 @@ export default async function HomePage() {
               <h1 className={styles.heroTitle}>
                 Get your <span className={styles.lower}>e</span>Ride for as low as{' '}
                 <span className={styles.heroPrice}>$18 a week.</span>
-                <Sup n={4} />
               </h1>
               <p className={styles.heroSub}>
                 <span className={styles.lower}>e</span>Bikes, <span className={styles.lower}>e</span>Scooters, and{' '}
@@ -190,7 +189,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnYellow} ${styles.snapApply}`}>Apply Now</a>
+            <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnYellow} ${styles.snapApply}`}>Apply Now with Snap Finance</a>
           </div>
         </section>
 
@@ -236,8 +235,6 @@ export default async function HomePage() {
           <p id="d1"><strong>¹</strong> Not all applicants are approved. While no credit history is required, Snap obtains information from consumer reporting agencies in connection with submitted applications, and your score with those agencies may be affected.</p>
           <p id="d2"><strong>²</strong> Snap-branded product offering includes retail installment contracts, bank installment loans, and lease-to-own financing. Talk with your local Snap merchant for more details on which product qualifies at your store location. For more detailed information, please visit <a href="https://snapfinance.com/legal/products" target="_blank" rel="noopener noreferrer">https://snapfinance.com/legal/products</a></p>
           <p id="d3"><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe. The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
-          {/* TODO: replace with the Snap-approved payment example before this goes live. */}
-          <p id="d4" className={styles.disclosurePending}><strong>⁴</strong> [Placeholder — pending Snap-approved payment example for &quot;as low as $18 a week&quot;: cash price, number of payments, total cost.]</p>
           <p className={styles.copyright}>© 2026 JBird Bikes. All Rights Reserved.</p>
         </div>
       </section>
