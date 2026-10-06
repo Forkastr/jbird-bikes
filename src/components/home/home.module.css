@@ -57,17 +57,30 @@
 }
 .page .headerApply:hover { background: var(--blue); color: #fff; }
 .menuButton {
-  width: 44px; height: 44px; flex: none; border-radius: 50%; border: 2px solid var(--ink); background: var(--cream); color: var(--ink);
-  font-size: 20px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; flex: none; border-radius: 50%; border: 2px solid var(--ink); background: var(--cream); color: var(--ink);
+  cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;
 }
 .menuButton:hover { background: var(--yellow); }
-.menuPanel {
-  position: absolute; right: 0; top: calc(100% + 10px); min-width: 220px; background: var(--cream);
-  border: 2px solid var(--ink); border-radius: 18px; padding: 8px; display: flex; flex-direction: column; z-index: 60;
-  box-shadow: 0 12px 24px -12px rgba(22, 20, 15, .4);
+.burger { display: flex; flex-direction: column; gap: 4px; }
+.burger span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+
+/* Slide-in menu (same design as the panel on /sales.html) */
+.menuOverlay { position: fixed; inset: 0; z-index: 90; background: rgba(22, 20, 15, .6); }
+.menuDrawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow);
+  border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto;
 }
-.page .menuPanel a { padding: 12px 14px; border-radius: 12px; font-weight: 700; font-size: 16px; }
-.page .menuPanel a:hover { background: var(--yellow); color: var(--ink); }
+.menuClose {
+  align-self: flex-end; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
+  cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px;
+}
+.page .menuLink { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+.page .menuLink:hover { color: var(--blue); }
+.page .menuPhone {
+  margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px;
+  font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em;
+}
+.page .menuPhone:hover { background: var(--blue); color: #fff; }
 @media (max-width: 380px) { .headerPhone { display: none; } }
 
 /* Hero */
