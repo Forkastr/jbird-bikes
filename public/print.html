@@ -470,6 +470,22 @@
     if (el) el.textContent = text;
   }
 
+  // Hides the spec's tile/row when the sheet cell is blank or missing.
+  function setSpec(id, bike, key) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const v = (bike[key] ?? '').toString().trim();
+    el.textContent = v;
+    const item = el.closest('.icon-card, .spec-row');
+    if (item) item.style.display = v ? '' : 'none';
+  }
+
+  // Hides a whole spec section (label + grid) when every spec in it is hidden.
+  function hideEmptySpecSection(grid, itemSelector) {
+    const anyShown = [...grid.querySelectorAll(itemSelector)].some(i => i.style.display !== 'none');
+    grid.parentElement.style.display = anyShown ? '' : 'none';
+  }
+
   async function loadSheet() {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug') || params.get('model');
@@ -521,29 +537,31 @@
         badgeRow.appendChild(b);
       }
 
-      set('spec-range', val(bike, 'Range'));
-      set('spec-speed', val(bike, 'Top Speed'));
-      set('spec-tire', val(bike, 'Tire Size'));
-      set('spec-payload', val(bike, 'Payload'));
-      set('spec-motor', val(bike, 'Motor Size'));
-      set('spec-storage', val(bike, 'Easy Storage'));
-      set('spec-warranty', val(bike, 'Warranty'));
-      set('spec-safety', val(bike, 'Safety'));
+      setSpec('spec-range', bike, 'Range');
+      setSpec('spec-speed', bike, 'Top Speed');
+      setSpec('spec-tire', bike, 'Tire Size');
+      setSpec('spec-payload', bike, 'Payload');
+      setSpec('spec-motor', bike, 'Motor Size');
+      setSpec('spec-storage', bike, 'Easy Storage');
+      setSpec('spec-warranty', bike, 'Warranty');
+      setSpec('spec-safety', bike, 'Safety');
 
-      set('spec-battery', val(bike, 'Battery'));
-      set('spec-batterysize', val(bike, 'Battery Size'));
-      set('spec-class', val(bike, 'Class'));
-      set('spec-weight', val(bike, 'Bike Weight'));
-      set('spec-chargetime', val(bike, 'Charge Time'));
-      set('spec-charger', val(bike, 'Charger'));
-      set('spec-headlight', val(bike, 'Headlight'));
-      set('spec-sensor', val(bike, 'Sensor Type'));
-      set('spec-frame', val(bike, 'Frame Material'));
-      set('spec-waterproof', val(bike, 'Waterproof Rating'));
-      set('spec-display', val(bike, 'Display / Console'));
-      set('spec-gears', val(bike, 'Gears'));
-      set('spec-suspension', val(bike, 'Suspension'));
-      set('spec-brakes', val(bike, 'Brakes'));
+      setSpec('spec-battery', bike, 'Battery');
+      setSpec('spec-batterysize', bike, 'Battery Size');
+      setSpec('spec-class', bike, 'Class');
+      setSpec('spec-weight', bike, 'Bike Weight');
+      setSpec('spec-chargetime', bike, 'Charge Time');
+      setSpec('spec-charger', bike, 'Charger');
+      setSpec('spec-headlight', bike, 'Headlight');
+      setSpec('spec-sensor', bike, 'Sensor Type');
+      setSpec('spec-frame', bike, 'Frame Material');
+      setSpec('spec-waterproof', bike, 'Waterproof Rating');
+      setSpec('spec-display', bike, 'Display / Console');
+      setSpec('spec-gears', bike, 'Gears');
+      setSpec('spec-suspension', bike, 'Suspension');
+      setSpec('spec-brakes', bike, 'Brakes');
+      hideEmptySpecSection(document.querySelector('.icon-row'), '.icon-card');
+      hideEmptySpecSection(document.querySelector('.specs-grid'), '.spec-row');
 
       set('status-jbird', val(bike, 'JBird Status'));
       set('status-testride', (bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes' ? 'Test Ride Available' : 'Contact for Test Ride');
