@@ -1,320 +1,418 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JBird Bikes — Product</title>
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="/jbird-styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #0a0a0a;
-      --white: #f5f3ef;
-      --green: #2d6a4f;
-      --green-light: #40916c;
-      --green-pale: #d8f3dc;
-      --accent: #f4a261;
-      --gray: #6b7280;
-      --gray-light: #e5e7eb;
-      --card-bg: #ffffff;
+      --ink: #16140f; --cream: #faf7ef; --yellow: #f7d23e; --blue: #1f5fc8; --green: #2e8b3e; --red: #d43a2f;
+      --muted: #5a554a; --body: #3a362e; --display: 'Barlow Condensed', sans-serif;
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); }
-    main { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 2px solid var(--green-pale); }
-    .hero-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem; }
-    .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--black); margin-bottom: 1rem; }
-    .hero-description { font-size: 1rem; line-height: 1.7; color: #374151; margin-bottom: 1.5rem; }
-    .colors-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--gray); margin-bottom: 0.4rem; }
-    .colors-value { font-size: 0.95rem; color: var(--black); font-weight: 500; }
-    .hero-price { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--green); letter-spacing: 1px; margin-top: 0.8rem; }
-    .badge-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.2rem; }
-    .badge { background: var(--green-pale); color: var(--green); font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 999px; }
-    .badge.accent { background: #fff3e0; color: #c05c00; }
-    .hero-image img { width: 100%; max-height: 380px; object-fit: contain; border-radius: 12px; background: #f0f4f0; padding: 1rem; }
-    .hero-image .no-image { width: 100%; height: 320px; background: var(--green-pale); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--green); font-size: 0.9rem; font-weight: 500; }
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 2px; color: var(--black); margin-bottom: 1.2rem; }
-    .icon-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 2px solid var(--green-pale); }
-    .icon-card { background: var(--card-bg); border: 1px solid var(--gray-light); border-radius: 12px; padding: 1.2rem 0.8rem; text-align: center; transition: box-shadow 0.2s, transform 0.2s; }
-    .icon-card:hover { box-shadow: 0 4px 20px rgba(45,106,79,0.12); transform: translateY(-2px); }
-    .icon-card img { width: 48px; height: 48px; object-fit: contain; margin-bottom: 0.6rem; }
-    .icon-label { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray); margin-bottom: 0.3rem; }
-    .icon-value { font-size: 0.95rem; font-weight: 600; color: var(--black); }
-    .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 2rem; margin-bottom: 3rem; }
-    .spec-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.55rem 0; border-bottom: 1px solid var(--gray-light); }
-    .spec-key { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); flex-shrink: 0; margin-right: 1rem; }
-    .spec-val { font-size: 0.9rem; font-weight: 500; color: var(--black); text-align: right; }
-    .status-bar { display: flex; gap: 1rem; flex-wrap: wrap; background: var(--black); color: var(--white); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 3rem; align-items: center; }
-    .status-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; font-weight: 500; }
-    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .status-dot.green { background: #4ade80; }
-    .cta-block { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; padding: 2rem; background: var(--green-pale); border-radius: 12px; margin-bottom: 2rem; }
-    .cta-text { flex: 1; min-width: 200px; }
-    .cta-text h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.3rem; }
-    .cta-text p { font-size: 0.85rem; color: #374151; }
-    .btn { display: inline-block; padding: 0.75rem 1.8rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: opacity 0.2s, transform 0.15s; }
-    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-primary { background: var(--green); color: white; }
-    .btn-secondary { background: var(--black); color: white; }
-    .btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green); }
-    #loading { text-align: center; padding: 6rem 2rem; font-size: 1rem; color: var(--gray); }
-    #error-msg { display: none; text-align: center; padding: 4rem 2rem; color: #c0392b; font-size: 1rem; }
-    #product-content { display: none; }
-    @media print {
-      @page { size: 8.5in 11in; margin: 0.6in; }
-      header, footer, .cta-block, .btn, nav, .nav-shim, .side-menu { display: none !important; }
-      body { background: white; color: black; font-size: 11pt; }
-      main { max-width: 100%; padding: 0; }
-    }
-    @media (max-width: 680px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-image { order: -1; }
-      .hero-title { font-size: 2.8rem; }
-      .icon-grid { grid-template-columns: repeat(2, 1fr); }
-      .specs-grid { grid-template-columns: 1fr; }
-    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: 'DM Sans', Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--blue); }
+    p, h1, h2, h3, dl, dd, dt, ul { margin: 0; }
+    sup a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+    .lower { text-transform: none; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding-left: clamp(16px, 3vw, 32px); padding-right: clamp(16px, 3vw, 32px); }
+    [hidden] { display: none !important; }
+
+    /* Header + slide-in menu (same design as the homepage and sales page) */
+    .site-header { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 2px solid var(--ink); }
+    .site-header-inner { max-width: 1240px; margin: 0 auto; padding: 12px clamp(12px, 3vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .logo { display: flex; gap: 8px; font-family: var(--display); font-weight: 900; font-size: clamp(24px, 6.4vw, 30px); line-height: 1; text-transform: lowercase; flex: none; }
+    .logo > span { display: flex; }
+    .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(8px, 2vw, 14px); min-width: 0; margin-left: auto; }
+    .header-apply { background: var(--ink); color: var(--yellow); padding: clamp(9px, 2.4vw, 11px) clamp(12px, 3.4vw, 18px); border-radius: 999px; font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 17px); text-transform: uppercase; letter-spacing: .03em; white-space: nowrap; min-height: 44px; display: flex; align-items: center; }
+    .header-apply:hover { background: var(--blue); color: #fff; }
+    .menu-button { width: 48px; height: 48px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; }
+    .menu-button:hover { background: var(--yellow); }
+    .menu-button span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+    .menu-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(22, 20, 15, .6); }
+    .menu-drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow); border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+    .menu-close { align-self: flex-end; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream); cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .menu-link { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+    .menu-link.current { color: var(--red); }
+    .menu-phone { margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px; font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em; }
+    .menu-phone:hover { background: var(--blue); color: #fff; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; border-radius: 999px; font-family: var(--display); font-weight: 800; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; }
+    .back { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 15px; }
+    .back-row { padding-top: 16px; }
+
+    /* Product */
+    .product { padding-top: 4px; padding-bottom: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(20px, 4vw, 48px); align-items: start; }
+    .photo { aspect-ratio: 4 / 3; border: 2px solid var(--ink); border-radius: 24px; background: #f2eee4; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 3vw, 32px); overflow: hidden; }
+    .photo img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+    .photo .no-img { background: var(--cream); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; }
+    .info { display: flex; flex-direction: column; gap: 20px; }
+    .title-block { display: flex; flex-direction: column; gap: 8px; }
+    .type-badge { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .info h1 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(48px, 7vw, 84px); line-height: .88; }
+    .desc { font-size: 17px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
+    .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .colors { display: flex; flex-direction: column; gap: 10px; }
+    .color-list { display: flex; gap: 10px; flex-wrap: wrap; }
+    .color-chip { min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-radius: 999px; font-weight: 700; font-size: 15px; background: #fff; border: 2px solid var(--ink); }
+    .color-chip.has-dot { padding-left: 8px; }
+    .color-dot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
+
+    .price-box { background: var(--yellow); border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; }
+    .price-main { padding: 20px 22px; display: flex; flex-direction: column; gap: 2px; }
+    .price-main:not([hidden]) + .price-grid { border-top: 2px solid var(--ink); }
+    .price-main .label { color: var(--ink); }
+    .price-weekly { display: flex; align-items: baseline; gap: 6px; line-height: .9; }
+    .price-weekly .big { font-family: var(--display); font-weight: 900; font-size: clamp(60px, 9vw, 80px); color: var(--red); }
+    .price-weekly .per { font-family: var(--display); font-weight: 800; font-size: 28px; text-transform: uppercase; }
+    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); background: var(--cream); }
+    .price-cell { padding: 16px 22px; display: flex; flex-direction: column; gap: 2px; }
+    .price-cell:not([hidden]) + .price-cell { border-left: 2px solid var(--ink); }
+    .price-cell .label { letter-spacing: .04em; color: var(--body); }
+    .price-cell .value { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1; }
+    .price-cell .value small { font-size: 20px; font-weight: 800; }
+    .price-call { padding: 20px 22px; background: var(--cream); display: flex; flex-direction: column; gap: 4px; }
+    .price-call .value { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1; text-transform: uppercase; }
+    .price-call a { text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+    .price-note { padding: 12px 22px; background: #fff; border-top: 2px solid var(--ink); font-size: 13px; line-height: 1.5; color: var(--body); }
+
+    .perks { border: 2px solid var(--ink); border-radius: 22px; background: #fff; padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .perks-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 24px; line-height: 1; }
+    .perks ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+    .perks li { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; }
+    .tick { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    .apply-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .apply-big { flex: 1 1 200px; background: var(--ink); color: var(--yellow); padding: 16px 24px; font-size: 22px; min-height: 56px; }
+    .apply-big:hover { background: var(--blue); color: #fff; }
+    .after-apply { display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; }
+    .after-apply a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Specs */
+    .key-specs { background: var(--ink); color: var(--cream); }
+    .key-inner { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 24px; }
+    .spec-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 5.4vw, 64px); line-height: .9; }
+    .key-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 12px; }
+    .key-card { background: #26231c; border: 1px solid rgba(250, 247, 239, .15); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+    /* The icons are black line art; invert to white on the dark cards. */
+    .key-card .icon { width: 44px; height: 44px; object-fit: contain; filter: invert(1); display: block; }
+    .key-card .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #d9d4c7; }
+    .key-card .v { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; overflow-wrap: anywhere; }
+    .full-specs { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 20px; }
+    .full-specs dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); column-gap: 40px; border-top: 2px solid var(--ink); }
+    .spec-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(22, 20, 15, .2); }
+    .spec-row dt { font-size: 16px; color: var(--muted); }
+    .spec-row dd { font-size: 16px; font-weight: 700; text-align: right; }
+
+    /* Ready to ride */
+    .ready { padding-bottom: clamp(48px, 7vw, 96px); }
+    .ready-card { background: var(--blue); color: #fff; border: 2px solid var(--ink); border-radius: 24px; padding: clamp(28px, 5vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .ready-text { display: flex; flex-direction: column; gap: 8px; max-width: 560px; }
+    .ready h2 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(38px, 5vw, 60px); line-height: .92; }
+    .ready p { font-size: 18px; line-height: 1.5; }
+    .ready-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-contact { background: var(--yellow); color: var(--ink); border: 2px solid var(--ink); padding: 14px 24px; font-size: 20px; }
+    .btn-contact:hover { background: #fff; color: var(--ink); }
+    .btn-print { background: transparent; color: #fff; border: 2px solid #fff; padding: 12px 22px; font-size: 20px; }
+    .btn-print:hover { background: #fff; color: var(--blue); }
+
+    .state { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); }
+    .state-card { padding: 32px; border: 2px dashed rgba(22, 20, 15, .35); border-radius: 20px; text-align: center; font-size: 17px; line-height: 1.6; }
+    .state-card a { font-weight: 700; text-decoration: underline; }
+
+    /* Footer */
+    .site-footer { background: var(--yellow); border-top: 2px solid var(--ink); }
+    .footer-inner { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 24px; }
+    .footer-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 5vw, 56px); line-height: .95; text-wrap: balance; }
+    .footer-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .footer-hours { background: var(--ink); color: var(--yellow); padding: 14px 24px; font-size: 20px; }
+    .footer-hours:hover { background: var(--blue); color: #fff; }
+    .footer-phone { border: 2px solid var(--ink); padding: 12px 22px; font-size: 20px; }
+    .footer-phone:hover { background: var(--ink); color: var(--yellow); }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700; padding-top: 20px; border-top: 2px solid var(--ink); }
+    .footer-note { font-size: 13px; line-height: 1.6; color: #2a2620; }
+    .footer-copy { font-size: 14px; }
+
+    @media print { .site-header, .menu-drawer, .menu-overlay, .no-print { display: none !important; } }
   </style>
 </head>
 <body>
 
-<nav class="nav-shim">
-  <a href="/" class="logo">JBIRD BIKES</a>
-  <div class="nav-links">
-    <a href="/repairs.html">Repairs</a>
-    <a href="/sales.html" style="font-family:inherit;font-size:inherit;font-weight:bold;text-decoration:none;color:inherit;">Bike Sales</a>
-    <a href="/assembly.html">Assembly</a>
-    <a href="/nolaincentive/">Incentive</a>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" aria-label="JBird Bikes home" class="logo">
+      <span><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>
+      <span><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>
+    </a>
+    <div class="header-actions">
+      <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="header-apply">Apply Now</a>
+      <button type="button" class="menu-button" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
+    </div>
   </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+</header>
+<!-- Same menu as the homepage (src/components/home/HomeHeader.tsx) and sales.html; keep them in sync. -->
+<div class="menu-overlay" id="menu-overlay" hidden></div>
+<nav class="menu-drawer" id="site-menu" aria-label="Main" hidden>
+  <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+  <a href="/repairs.html" class="menu-link">Repairs &amp; Services</a>
+  <a href="/sales.html" class="menu-link current"><span class="lower">e</span>Rides for Sale</a>
+  <a href="/assembly.html" class="menu-link"><span class="lower">e</span>Bike Assembly</a>
+  <a href="/about.html" class="menu-link">About Us</a>
+  <a href="/faq" class="menu-link">FAQ</a>
+  <a href="tel:5045216997" class="menu-phone">(504) 521-6997</a>
 </nav>
 
-<div id="mobileSideMenu" class="side-menu">
-  <button class="close-btn" onclick="toggleMenu()">✕</button>
-  <a href="/repairs.html">Repairs & Service</a>
-  <a href="/sales.html" onclick="toggleMenu()" style="display:block;padding:0.8rem 0;font-weight:800;color:#2E7D32;text-transform:uppercase;font-size:0.9rem;text-decoration:none;border-bottom:1px solid #eee;">Bike Sales</a>
-  <a href="/assembly.html">eBike Assembly</a>
-  <a href="/nolaincentive/">NOLA Incentive</a>
-  <a href="/about.html">About Us</a>
-  <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
-  <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
+<div class="wrap back-row no-print">
+  <a href="/sales.html" class="back">← All Rides</a>
 </div>
 
 <main>
-  <div id="loading">Loading product data…</div>
-  <div id="error-msg">Product not found. <a href="/sales.html">Return to catalog →</a></div>
+  <div class="wrap state" id="loading"><p class="state-card">Loading…</p></div>
+  <div class="wrap state" id="error-msg" hidden>
+    <p class="state-card">We couldn't find that ride. It may have sold out.<br>
+      <a href="/sales.html">See all rides for sale</a> or call us at <a href="tel:5045216997">(504) 521-6997</a>.</p>
+  </div>
 
-  <div id="product-content">
-    <section class="hero">
-      <div class="hero-text">
-        <div class="hero-eyebrow" id="cat-label">eBike</div>
-        <h1 class="hero-title" id="bike-title">—</h1>
-        <p class="hero-description" id="bike-desc">—</p>
-        <div class="colors-label">Colors Available</div>
-        <div class="colors-value" id="bike-colors">—</div>
-        <div class="hero-price" id="bike-price"></div>
-        <div class="badge-row" id="badge-row"></div>
-                <div class="hero-price" id="bike-price"></div>
-        <div class="snap-finance">
-          <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer"><img src="https://app.snapfinance.com/images/apply_image_01.jpeg" alt="Snap Finance - Apply Here" style="box-shadow:4px 2px 6px #010101; border:none; max-width:100%; height:auto;"/></a>
+  <div id="product-content" hidden>
+    <section class="wrap product">
+      <div class="photo" id="photo"></div>
+
+      <div class="info">
+        <div class="title-block">
+          <span class="type-badge" id="type-badge"></span>
+          <h1 id="bike-title"></h1>
+          <p class="desc" id="bike-desc"></p>
         </div>
-        <div class="badge-row" id="badge-row"></div>
 
+        <div class="colors" id="colors">
+          <span class="label">Colors Available</span>
+          <div class="color-list" id="color-list"></div>
+        </div>
 
+        <div class="price-box" id="price-box">
+          <div class="price-main" id="price-weekly">
+            <span class="label">Lowest Price</span>
+            <span class="price-weekly"><span class="big" id="weekly-value"></span><span class="per">/week</span></span>
+          </div>
+          <div class="price-grid" id="price-grid">
+            <div class="price-cell" id="cell-sac">
+              <span class="label">90-Day Same As Cash<sup><a href="#d3">3</a></sup></span>
+              <span class="value"><span id="sac-value"></span><small>/week</small></span>
+            </div>
+            <div class="price-cell" id="cell-cash">
+              <span class="label">Cash Price</span>
+              <span class="value" id="cash-value"></span>
+            </div>
+          </div>
+          <div class="price-call" id="price-call">
+            <span class="label">Price</span>
+            <span class="value">Call for price</span>
+            <span>Call or text <a href="tel:5045216997">(504) 521-6997</a>, or apply below to see what you qualify for.</span>
+          </div>
+          <p class="price-note" id="price-note">Disclaimer: Weekly prices are estimated, apply for approval to receive exact amounts.</p>
+        </div>
 
-      </div>
-      <div class="hero-image">
-        <img id="bike-img" src="" alt="Bike image" style="display:none"/>
-        <div class="no-image" id="no-img">Image Coming Soon</div>
+        <div class="perks">
+          <span class="perks-title">Free with Lease-to-Own Purchase:</span>
+          <ul>
+            <li><span class="tick" style="background:#2e8b3e">✓</span>Flat Free Sealant in All Tires</li>
+            <li><span class="tick" style="background:#1f5fc8">✓</span>Tracker</li>
+            <li><span class="tick" style="background:#d43a2f">✓</span>Set of Wheel Lights</li>
+          </ul>
+        </div>
+
+        <div class="apply-row no-print">
+          <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn apply-big">Apply Now with Snap Finance</a>
+        </div>
+        <div class="after-apply">
+          <p>Once we receive your approval, we will contact you to complete your sale.</p>
+          <p><strong>Questions:</strong> Call or Text: <a href="tel:5045216997">(504) 521-6997</a></p>
+        </div>
       </div>
     </section>
 
-    <h2 class="section-title">Key Specifications</h2>
-    <div class="icon-grid">
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1cl4DGrCVN_I9g4bG5uRgdAgqK52YKjTh&sz=w96" alt="Range"/><div class="icon-label">Range</div><div class="icon-value" id="spec-range">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1y1vSCUFY5XHdP6oSlJTHEeOOeyD59L1V&sz=w96" alt="Top Speed"/><div class="icon-label">Top Speed</div><div class="icon-value" id="spec-speed">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1ROBpnZZjU-E4QfLdDNAsUEsnO2eF6sIP&sz=w96" alt="Tire Size"/><div class="icon-label">Tire Size</div><div class="icon-value" id="spec-tire">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1uu7TQCQThHNSCnizHcBhFMaOoMbAy5OI&sz=w96" alt="Payload"/><div class="icon-label">Payload</div><div class="icon-value" id="spec-payload">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1GAR14wmTYe5XDip5Z6dEiYhembF95fdR&sz=w96" alt="Motor Size"/><div class="icon-label">Motor Size</div><div class="icon-value" id="spec-motor">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1UX5we1AbEX0WwPwebnpyHniDy8Nmo1x6&sz=w96" alt="Easy Storage"/><div class="icon-label">Easy Storage</div><div class="icon-value" id="spec-storage">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1CX95NwQ1voa-e3qyvMizofmsuKTxcwCv&sz=w96" alt="Warranty"/><div class="icon-label">Warranty</div><div class="icon-value" id="spec-warranty">—</div></div>
-      <div class="icon-card"><img src="https://drive.google.com/thumbnail?id=1VRe52zS-MvL-6ITqBoVh2e9HQv6-sq3S&sz=w96" alt="Safety"/><div class="icon-label">Safety</div><div class="icon-value" id="spec-safety">—</div></div>
-    </div>
-
-    <h2 class="section-title">Full Specifications</h2>
-    <div class="specs-grid">
-      <div class="spec-row"><span class="spec-key">Battery</span><span class="spec-val" id="spec-battery">—</span></div>
-      <div class="spec-row"><span class="spec-key">Battery Size</span><span class="spec-val" id="spec-batterysize">—</span></div>
-      <div class="spec-row"><span class="spec-key">Class</span><span class="spec-val" id="spec-class">—</span></div>
-      <div class="spec-row"><span class="spec-key">Bike Weight</span><span class="spec-val" id="spec-weight">—</span></div>
-      <div class="spec-row"><span class="spec-key">Charge Time</span><span class="spec-val" id="spec-chargetime">—</span></div>
-      <div class="spec-row"><span class="spec-key">Charger</span><span class="spec-val" id="spec-charger">—</span></div>
-      <div class="spec-row"><span class="spec-key">Headlight</span><span class="spec-val" id="spec-headlight">—</span></div>
-      <div class="spec-row"><span class="spec-key">Sensor Type</span><span class="spec-val" id="spec-sensor">—</span></div>
-      <div class="spec-row"><span class="spec-key">Frame Material</span><span class="spec-val" id="spec-frame">—</span></div>
-      <div class="spec-row"><span class="spec-key">Waterproof Rating</span><span class="spec-val" id="spec-waterproof">—</span></div>
-      <div class="spec-row"><span class="spec-key">Display / Console</span><span class="spec-val" id="spec-display">—</span></div>
-      <div class="spec-row"><span class="spec-key">Gears</span><span class="spec-val" id="spec-gears">—</span></div>
-      <div class="spec-row"><span class="spec-key">Suspension</span><span class="spec-val" id="spec-suspension">—</span></div>
-      <div class="spec-row"><span class="spec-key">Brakes</span><span class="spec-val" id="spec-brakes">—</span></div>
-    </div>
-
-    <div class="status-bar">
-      <div class="status-item"><div class="status-dot green"></div><span id="status-jbird">—</span></div>
-      <div class="status-item"><div class="status-dot"></div><span id="status-category">—</span></div>
-    </div>
-    <div class="cta-block">
-      <div class="cta-text">
-        <h3>Ready to Ride?</h3>
-        <p>Visit us on the Lafitte Greenway or contact us with any questions.</p>
+    <section class="key-specs" id="key-section">
+      <div class="wrap key-inner">
+        <h2 class="spec-title">Key Specifications</h2>
+        <div class="key-grid" id="key-grid"></div>
       </div>
-      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
-      <a class="btn btn-primary" id="btn-reserve" href="#" target="_blank">Reserve This Bike</a>
-      <button class="btn btn-secondary" onclick="window.open('/print.html?slug=' + new URLSearchParams(window.location.search).get('slug'))">Print / Save PDF</button>
-      <a class="btn btn-outline" href="/sales.html">← All Bikes</a>
-    </div>
+    </section>
+
+    <section class="wrap full-specs" id="full-section">
+      <h2 class="spec-title">Full Specifications</h2>
+      <dl id="full-list"></dl>
+    </section>
+
+    <section class="wrap ready">
+      <div class="ready-card">
+        <div class="ready-text">
+          <h2>Ready to Ride?</h2>
+          <p>Visit us on the Lafitte Greenway or contact us with any questions.</p>
+        </div>
+        <div class="ready-btns no-print">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-contact">Contact Us</a>
+          <a href="/print.html" target="_blank" rel="noopener" class="btn btn-print" id="print-link">Print / Save PDF</a>
+        </div>
+      </div>
+    </section>
   </div>
 </main>
 
-<footer style="text-align:center;padding:30px 20px;border-top:1px solid #eee;">
-  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
-  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy Policy</a>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-title">JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
+    <div class="footer-btns">
+      <a href="https://share.google/votmFNHcQjONuZMF3" target="_blank" rel="noopener noreferrer" class="btn footer-hours">See Our Hours</a>
+      <a href="tel:5045216997" class="btn footer-phone">(504) 521-6997</a>
+    </div>
+    <nav class="footer-nav" aria-label="Policies">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/return-policy.html">Return Policy</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <p class="footer-note" id="d3"><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe. The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
+    <p class="footer-copy">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
+  </div>
 </footer>
 
 <script src="/catalog.js"></script>
 <script>
+  const KEY_SPECS = ['Range', 'Top Speed', 'Tire Size', 'Payload', 'Motor Size', 'Easy Storage', 'Warranty', 'Safety'];
+  // Icons from the previous product page, now served from /images/specs.
+  const KEY_ICONS = {
+    'Range': 'range', 'Top Speed': 'top-speed', 'Tire Size': 'tire-size', 'Payload': 'payload',
+    'Motor Size': 'motor-size', 'Easy Storage': 'easy-storage', 'Warranty': 'warranty', 'Safety': 'safety',
+  };
+  // Everything else with a value is a full spec, except these non-spec columns.
+  const NOT_SPECS = new Set(['Brand', 'Slug', 'Title', 'Description', 'Image-URL', 'Colors Available', 'Category',
+    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly', 'Same-As-Cash', ...KEY_SPECS]);
+  // Swatch colours for known colour names; anything else shows as a plain label.
+  const COLOR_HEX = {
+    black: '#1b1b1b', 'r8 black': '#1b1b1b', white: '#f4f4f0', 'stratus white': '#eef0f2', blue: '#2f5fb3', 'navy blue': '#1f2f5a',
+    'raindrop blue': '#7fa6c9', red: '#c8322b', orange: '#e8742a', silver: '#c0c3c6', graphite: '#4a4d50', 'nardo gray': '#8a8d8f',
+    'tempest grey': '#6e7377', gray: '#8a8d8f', grey: '#8a8d8f', champagne: '#d9c7a1', 'seafoam green': '#8fd1b9', 'pine green': '#2f5d46', green: '#2e8b3e',
+  };
 
-  function toggleMenu() {
-    document.getElementById('mobileSideMenu').classList.toggle('open');
+  const str = v => (v ?? '').toString().trim();
+  const esc = s => str(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const $ = id => document.getElementById(id);
+
+  // "850" -> "$850", "18.5" -> "$18.50"; text such as "$18" is shown as entered.
+  // wholeDollars rounds to the nearest dollar, as the sheet displays the weekly amounts
+  // (it stores exact values such as 29.868...).
+  function money(v, wholeDollars) {
+    const s = str(v);
+    if (!s) return '';
+    let n = Number(s.replace(/[$,]/g, ''));
+    if (isNaN(n)) return s;
+    if (wholeDollars) n = Math.round(n);
+    return '$' + (Number.isInteger(n) ? n.toLocaleString('en-US') : n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
   }
 
-  function val(bike, key) {
-    const v = bike[key];
-    return (v !== undefined && v !== null && v !== '') ? v : '—';
+  function getBrand(b) {
+    const brand = str(b['Brand']);
+    if (brand) return brand;
+    const prefix = str(b['Slug']).split('-')[0];
+    return prefix ? prefix.charAt(0).toUpperCase() + prefix.slice(1).toLowerCase() : '';
+  }
+  const shortName = t => str(t).replace(/\s+(electric\s+(bike|bicycle)|e-?bike)$/i, '') || str(t);
+  function typeLabel(b) {
+    const c = str(b['Category']).toLowerCase();
+    if (c === 'escooters') return '<span class="lower">e</span>Scooter';
+    if (c === 'etrikes') return '<span class="lower">e</span>Trike';
+    if (c === 'accessories') return 'Accessory';
+    return '<span class="lower">e</span>Bike';
   }
 
-  function set(id, text) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = text;
+  // Menu
+  function setMenu(open) {
+    $('site-menu').hidden = !open;
+    $('menu-overlay').hidden = !open;
+    $('menu-open').setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) $('menu-close').focus();
+  }
+  $('menu-open').addEventListener('click', () => setMenu(true));
+  $('menu-close').addEventListener('click', () => setMenu(false));
+  $('menu-overlay').addEventListener('click', () => setMenu(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('site-menu').hidden) setMenu(false); });
+
+  function showError() {
+    $('loading').hidden = true;
+    $('product-content').hidden = true;
+    $('error-msg').hidden = false;
   }
 
-  // Hides the spec's tile/row when the sheet cell is blank or missing.
-  function setSpec(id, bike, key) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const v = (bike[key] ?? '').toString().trim();
-    el.textContent = v;
-    const item = el.closest('.icon-card, .spec-row');
-    if (item) item.style.display = v ? '' : 'none';
-  }
-
-  // Hides a spec section's heading and grid when every spec in it is hidden.
-  function hideEmptySpecSection(grid, itemSelector) {
-    const anyShown = [...grid.querySelectorAll(itemSelector)].some(i => i.style.display !== 'none');
-    const title = grid.previousElementSibling;
-    grid.style.display = anyShown ? '' : 'none';
-    if (title && title.classList.contains('section-title')) title.style.display = anyShown ? '' : 'none';
-  }
-
-  function showProductError() {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('product-content').style.display = 'none';
-    document.getElementById('error-msg').style.display = 'block';
-  }
-
-  // Called with the saved copy first, then again if the background refresh brings changes.
+  // Called with the saved copy first, then again if the background refresh brings changes,
+  // so every part is fully re-rendered each time.
   function showProduct(bikes, slug) {
-      const bike = bikes.find(b =>
-        (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase() ||
-        (b['Title'] || '').toString().toLowerCase() === slug.toLowerCase()
-      );
+    const bike = bikes.find(b => str(b['Slug']).toLowerCase() === slug.toLowerCase() || str(b['Title']).toLowerCase() === slug.toLowerCase());
+    if (!bike) { showError(); return; }
 
-      if (!bike) { showProductError(); return; }
+    const brand = getBrand(bike);
+    const name = shortName(bike['Title']);
+    const fullName = brand && !name.toLowerCase().startsWith(brand.toLowerCase()) ? `${brand} ${name}` : name;
+    document.title = `${fullName} | JBird Bikes New Orleans`;
+    $('bike-title').textContent = fullName;
+    $('type-badge').innerHTML = typeLabel(bike);
+    $('bike-desc').textContent = str(bike['Description']);
+    $('bike-desc').hidden = !str(bike['Description']);
 
-      document.title = `${val(bike,'Title')} — JBird Bikes`;
-      set('bike-title', val(bike, 'Title'));
-      set('bike-desc', val(bike, 'Description'));
-      set('bike-colors', val(bike, 'Colors Available'));
-      set('cat-label', val(bike, 'Category'));
+    const img = str(bike['Image-URL']);
+    if ($('photo').dataset.src !== img) {
+      $('photo').dataset.src = img;
+      $('photo').innerHTML = img
+        ? `<img src="${esc(img)}" alt="${esc(fullName)}" onerror="this.outerHTML='<span class=&quot;no-img&quot;>Photo coming soon</span>'">`
+        : '<span class="no-img">Photo coming soon</span>';
+    }
 
-      const priceRaw = bike['JBird Retail Price'];
-      const reserveBtn = document.getElementById('btn-reserve');
-      if (priceRaw) {
-        const priceFormatted = '$' + Math.round(Number(priceRaw)).toLocaleString('en-US');
-        set('bike-price', priceFormatted);
-        reserveBtn.href = '/checkout.html?slug=' + encodeURIComponent(slug);
-      } else {
-        set('bike-price', '');
-        reserveBtn.href = '#';
-      }
+    const colors = str(bike['Colors Available']).split(',').map(s => s.trim()).filter(Boolean);
+    $('colors').hidden = colors.length === 0;
+    $('color-list').innerHTML = colors.map(c => {
+      const hex = COLOR_HEX[c.toLowerCase()];
+      return hex
+        ? `<span class="color-chip has-dot"><span class="color-dot" style="background:${hex}"></span>${esc(c)}</span>`
+        : `<span class="color-chip">${esc(c)}</span>`;
+    }).join('');
 
-      const img = document.getElementById('bike-img');
-      const noImg = document.getElementById('no-img');
-      const imgUrl = val(bike, 'Image-URL');
-      if (imgUrl && imgUrl !== '—' && img.getAttribute('src') !== imgUrl) {
-        img.onload = function() { img.style.display = 'block'; noImg.style.display = 'none'; };
-        img.onerror = function() { img.style.display = 'none'; noImg.style.display = 'flex'; };
-        img.style.display = 'block';
-        img.src = imgUrl;
-      }
+    // Prices: Cash Price falls back to JBird Retail Price until the feed sends Cash Price.
+    const weekly = money(bike['Lease to Own Weekly'], true);
+    const sac = money(bike['Same-As-Cash'], true);
+    const cash = money(bike['Cash Price']) || money(bike['JBird Retail Price']);
+    $('price-weekly').hidden = !weekly;
+    $('weekly-value').textContent = weekly;
+    $('cell-sac').hidden = !sac;
+    $('sac-value').textContent = sac;
+    $('cell-cash').hidden = !cash;
+    $('cash-value').textContent = cash;
+    $('price-grid').hidden = !sac && !cash;
+    $('price-call').hidden = !!(weekly || sac || cash);
+    $('price-note').hidden = !weekly && !sac;
 
-      const badgeRow = document.getElementById('badge-row');
-      badgeRow.innerHTML = '';
-      if (val(bike,'JBird Status') !== '—') {
-        const b = document.createElement('span');
-        b.className = 'badge';
-        b.textContent = val(bike,'JBird Status');
-        badgeRow.appendChild(b);
-      }
+    const keys = KEY_SPECS.filter(k => str(bike[k]));
+    $('key-section').hidden = keys.length === 0;
+    $('key-grid').innerHTML = keys.map(k =>
+      `<div class="key-card"><img class="icon" src="/images/specs/${KEY_ICONS[k]}.png" alt="" width="44" height="44"><span class="k">${esc(k)}</span><span class="v">${esc(bike[k])}</span></div>`).join('');
 
-      setSpec('spec-range', bike, 'Range');
-      setSpec('spec-speed', bike, 'Top Speed');
-      setSpec('spec-tire', bike, 'Tire Size');
-      setSpec('spec-payload', bike, 'Payload');
-      setSpec('spec-motor', bike, 'Motor Size');
-      setSpec('spec-storage', bike, 'Easy Storage');
-      setSpec('spec-warranty', bike, 'Warranty');
-      setSpec('spec-safety', bike, 'Safety');
-      setSpec('spec-battery', bike, 'Battery');
-      setSpec('spec-batterysize', bike, 'Battery Size');
-      setSpec('spec-class', bike, 'Class');
-      setSpec('spec-weight', bike, 'Bike Weight');
-      setSpec('spec-chargetime', bike, 'Charge Time');
-      setSpec('spec-charger', bike, 'Charger');
-      setSpec('spec-headlight', bike, 'Headlight');
-      setSpec('spec-sensor', bike, 'Sensor Type');
-      setSpec('spec-frame', bike, 'Frame Material');
-      setSpec('spec-waterproof', bike, 'Waterproof Rating');
-      setSpec('spec-display', bike, 'Display / Console');
-      setSpec('spec-gears', bike, 'Gears');
-      setSpec('spec-suspension', bike, 'Suspension');
-      setSpec('spec-brakes', bike, 'Brakes');
-      hideEmptySpecSection(document.querySelector('.icon-grid'), '.icon-card');
-      hideEmptySpecSection(document.querySelector('.specs-grid'), '.spec-row');
+    const full = Object.keys(bike).filter(k => !NOT_SPECS.has(k) && str(bike[k]));
+    $('full-section').hidden = full.length === 0;
+    $('full-list').innerHTML = full.map(k => `<div class="spec-row"><dt>${esc(k)}</dt><dd>${esc(bike[k])}</dd></div>`).join('');
 
-      set('status-jbird', val(bike, 'JBird Status'));
-      set('status-category', val(bike, 'Category') + ' eBike');
+    $('print-link').href = '/print.html?slug=' + encodeURIComponent(str(bike['Slug']));
 
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('error-msg').style.display = 'none';
-      document.getElementById('product-content').style.display = 'block';
+    $('loading').hidden = true;
+    $('error-msg').hidden = true;
+    $('product-content').hidden = false;
   }
 
-  function loadProduct() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug') || params.get('model');
-
-    if (!slug) { showProductError(); return; }
-
-    loadJBirdCatalog(bikes => showProduct(bikes, slug), showProductError);
-  }
-
-  loadProduct();
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug') || params.get('model');
+  if (!slug) showError();
+  else loadJBirdCatalog(bikes => showProduct(bikes, slug), showError);
 </script>
-
 </body>
 </html>
