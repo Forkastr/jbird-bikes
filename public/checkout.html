@@ -143,8 +143,8 @@
   <a href="/return-policy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Return Policy</a>
 </footer>
 
+<script src="/catalog.js"></script>
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
   const GOOGLE_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/formResponse';
 
   function toggleMenu() {
@@ -313,7 +313,7 @@
     }, 800);
   }
 
-  async function init() {
+  function init() {
     const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug') || '';
 
@@ -322,9 +322,8 @@
       return;
     }
 
-    try {
-      const res = await fetch(SCRIPT_URL);
-      const bikes = await res.json();
+    // Fresh data only: a reservation should never show an outdated price.
+    loadJBirdCatalog(bikes => {
       const bike = bikes.find(b =>
         (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase()
       );
@@ -333,9 +332,7 @@
       } else {
         renderNotFound();
       }
-    } catch(e) {
-      renderNotFound();
-    }
+    }, renderNotFound, { freshOnly: true });
   }
 
   init();

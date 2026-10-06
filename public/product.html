@@ -180,8 +180,8 @@
   <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy Policy</a>
 </footer>
 
+<script src="/catalog.js"></script>
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
 
   function toggleMenu() {
     document.getElementById('mobileSideMenu').classList.toggle('open');
@@ -215,25 +215,20 @@
     if (title && title.classList.contains('section-title')) title.style.display = anyShown ? '' : 'none';
   }
 
-  async function loadProduct() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug') || params.get('model');
+  function showProductError() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('product-content').style.display = 'none';
+    document.getElementById('error-msg').style.display = 'block';
+  }
 
-    if (!slug) {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('error-msg').style.display = 'block';
-      return;
-    }
-
-    try {
-      const res = await fetch(SCRIPT_URL);
-      const bikes = await res.json();
+  // Called with the saved copy first, then again if the background refresh brings changes.
+  function showProduct(bikes, slug) {
       const bike = bikes.find(b =>
         (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase() ||
         (b['Title'] || '').toString().toLowerCase() === slug.toLowerCase()
       );
 
-      if (!bike) throw new Error('Not found');
+      if (!bike) { showProductError(); return; }
 
       document.title = `${val(bike,'Title')} — JBird Bikes`;
       set('bike-title', val(bike, 'Title'));
@@ -242,16 +237,20 @@
       set('cat-label', val(bike, 'Category'));
 
       const priceRaw = bike['JBird Retail Price'];
+      const reserveBtn = document.getElementById('btn-reserve');
       if (priceRaw) {
         const priceFormatted = '$' + Math.round(Number(priceRaw)).toLocaleString('en-US');
         set('bike-price', priceFormatted);
-        document.getElementById('btn-reserve').href = '/checkout.html?slug=' + encodeURIComponent(slug);
+        reserveBtn.href = '/checkout.html?slug=' + encodeURIComponent(slug);
+      } else {
+        set('bike-price', '');
+        reserveBtn.href = '#';
       }
 
       const img = document.getElementById('bike-img');
       const noImg = document.getElementById('no-img');
       const imgUrl = val(bike, 'Image-URL');
-      if (imgUrl && imgUrl !== '—') {
+      if (imgUrl && imgUrl !== '—' && img.getAttribute('src') !== imgUrl) {
         img.onload = function() { img.style.display = 'block'; noImg.style.display = 'none'; };
         img.onerror = function() { img.style.display = 'none'; noImg.style.display = 'flex'; };
         img.style.display = 'block';
@@ -259,6 +258,7 @@
       }
 
       const badgeRow = document.getElementById('badge-row');
+      badgeRow.innerHTML = '';
       if ((bike['Test Ride Available'] || '').toString().toLowerCase() === 'yes') {
         const b = document.createElement('span');
         b.className = 'badge accent';
@@ -302,12 +302,17 @@
       set('status-category', val(bike, 'Category') + ' eBike');
 
       document.getElementById('loading').style.display = 'none';
+      document.getElementById('error-msg').style.display = 'none';
       document.getElementById('product-content').style.display = 'block';
+  }
 
-    } catch(e) {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('error-msg').style.display = 'block';
-    }
+  function loadProduct() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug') || params.get('model');
+
+    if (!slug) { showProductError(); return; }
+
+    loadJBirdCatalog(bikes => showProduct(bikes, slug), showProductError);
   }
 
   loadProduct();

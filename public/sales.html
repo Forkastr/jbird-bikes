@@ -243,8 +243,8 @@
  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy</a> &nbsp;·&nbsp; <a href="/return-policy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Return Policy</a>
 </footer>
 
+<script src="/catalog.js"></script>
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxNgtD8K0-yhy505ROQCnRjyyvoim2jVEICq8j81Fbmlm7ko67YOT-BegaByivXlE7aqg/exec';
   const CATEGORIES = ['City & Cargo', 'Folding', 'Fat Tire', 'Mini', 'Moto', 'EScooters', 'ETrikes'];
 
   function toggleMenu() {
@@ -330,13 +330,15 @@
   }
 
   function buildBrandOptions() {
+    // Keep the visitor's ticked brands when the catalog refreshes.
+    const checked = [...document.querySelectorAll('input[name="brand"]:checked')].map(i => i.value);
     const brands = {};
     ALL_BIKES.forEach(b => {
       const brand = getBrand(b);
       if (brand && !brands[brand.toLowerCase()]) brands[brand.toLowerCase()] = brand;
     });
     document.getElementById("brand-options").innerHTML = Object.keys(brands).sort().map(key =>
-      `<label class="filter-option"><input type="checkbox" name="brand" value="${key}" onchange="applyFilters()"> ${brands[key]}</label>`
+      `<label class="filter-option"><input type="checkbox" name="brand" value="${key}"${checked.includes(key) ? " checked" : ""} onchange="applyFilters()"> ${brands[key]}</label>`
     ).join("");
   }
 
@@ -409,20 +411,17 @@
     input.focus();
   }
 
-  async function loadCatalog() {
-    try {
-      const res = await fetch(SCRIPT_URL);
-      const bikes = await res.json();
-      ALL_BIKES = bikes.filter(b => (b["JBird Status"] || "").toString().trim().toLowerCase() === "available");
-      buildBrandOptions();
-      applyFilters();
-    } catch(e) {
-      document.getElementById("catalog").innerHTML =
-        "<p style=\"color:#c0392b;text-align:center;padding:3rem;\">Could not load catalog. Please try again later.</p>";
-    }
+  // Called with the saved copy first, then again if the background refresh brings changes.
+  function showCatalog(bikes) {
+    ALL_BIKES = bikes.filter(b => (b["JBird Status"] || "").toString().trim().toLowerCase() === "available");
+    buildBrandOptions();
+    applyFilters();
   }
 
-  loadCatalog();
+  loadJBirdCatalog(showCatalog, () => {
+    document.getElementById("catalog").innerHTML =
+      "<p style=\"color:#c0392b;text-align:center;padding:3rem;\">Could not load catalog. Please try again later.</p>";
+  });
 </script>
 </body>
 </html>
