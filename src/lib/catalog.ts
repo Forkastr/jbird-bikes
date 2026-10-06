@@ -16,6 +16,15 @@ const PUBLIC_FIELDS = [
 
 export type Bike = Record<string, unknown>;
 
+// The sheet tabs don't spell categories the same way (e.g. ETrikes uses "ETrike");
+// the website expects the plural forms.
+const CATEGORY_ALIASES: Record<string, string> = { etrike: 'ETrikes', escooter: 'EScooters', accessory: 'Accessories' };
+
+function normalizeCategory(b: Bike): Bike {
+  const alias = CATEGORY_ALIASES[String(b['Category'] ?? '').trim().toLowerCase()];
+  return alias ? { ...b, Category: alias } : b;
+}
+
 // Google's feed occasionally hangs for ~20s and then returns an error page, so
 // each attempt is time-limited and retried. The build has no time limit, so it
 // tries harder; background refreshes on Netlify must finish within the function
@@ -34,7 +43,8 @@ async function fetchOnce(): Promise<Bike[]> {
 
   const bikes = (data as Bike[])
     .filter((b) => b && typeof b === 'object' && String(b['Slug'] ?? '').trim())
-    .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])));
+    .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])))
+    .map(normalizeCategory);
   if (bikes.length === 0) throw new Error('Catalog feed returned no bikes with a Slug');
   return bikes;
 }
