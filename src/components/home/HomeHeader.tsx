@@ -54,7 +54,14 @@ export default function HomeHeader({ snapUrl }: { snapUrl: string }) {
           ))}
         </a>
         <div className={styles.headerActions}>
-          <a href="tel:5045216997" className={styles.headerPhone}>(504) 521-6997</a>
+          <a href="tel:5045216997" className={styles.headerPhone} aria-label="Call us at (504) 521-6997">
+            <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+              <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z" />
+            </svg>
+            {/* The full number on wider screens; "Call Us" where the header would get cramped. */}
+            <span className={styles.phoneFull}>(504) 521-6997</span>
+            <span className={styles.phoneShort}>Call Us</span>
+          </a>
           <a href={snapUrl} target="_blank" rel="noopener noreferrer" className={styles.headerApply}>Apply Now</a>
           <button
             type="button"
