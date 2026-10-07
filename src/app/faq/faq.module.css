@@ -1,0 +1,35 @@
+/* FAQ page, in the same style as the homepage (colours and fonts come from .page in home.module.css).
+   Selectors are two classes deep so they win over home.module.css rules like ".page h1". */
+.hero { background: var(--yellow); border-bottom: 2px solid var(--ink); }
+.heroInner { padding-top: clamp(28px, 5vw, 56px); padding-bottom: clamp(28px, 5vw, 56px); display: flex; flex-direction: column; gap: 16px; }
+.eyebrow { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.hero .title { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(48px, 7.4vw, 92px); line-height: .88; text-wrap: balance; }
+.sub { font-size: clamp(17px, 2vw, 19px); line-height: 1.55; max-width: 620px; text-wrap: pretty; }
+
+/* Questions */
+.body { padding-top: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: clamp(36px, 5vw, 56px); max-width: 900px; }
+.category { display: flex; flex-direction: column; gap: 12px; }
+.category .categoryTitle { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(34px, 4.6vw, 52px); line-height: .9; padding-bottom: 10px; border-bottom: 2px solid var(--ink); margin-bottom: 4px; }
+.item { background: #fff; border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; }
+.question { width: 100%; background: none; border: 0; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; text-align: left; font: inherit; font-size: 17px; font-weight: 700; color: var(--ink); cursor: pointer; }
+.question:hover, .questionOpen { background: var(--yellow); }
+.chevron { flex: none; width: 32px; height: 32px; border: 2px solid var(--ink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; transition: transform .2s; background: var(--cream); }
+.chevronOpen { transform: rotate(180deg); }
+.answer { padding: 16px 20px 20px; border-top: 2px solid var(--ink); font-size: 16px; line-height: 1.7; color: #3a362e; }
+.answer .answerLink { display: flex; width: fit-content; margin-top: 12px; background: var(--ink); color: var(--yellow); border-radius: 999px; padding: 10px 18px; font-family: var(--display); font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: .04em; }
+.answer .answerLink:hover { background: var(--blue); color: #fff; }
+@media (max-width: 600px) {
+  .question { font-size: 16px; padding: 16px; }
+  .answer { padding: 14px 16px 18px; }
+}
+
+/* Still have questions */
+.ready { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(48px, 7vw, 96px); }
+.readyCard { background: var(--blue); color: #fff; border: 2px solid var(--ink); border-radius: 24px; padding: clamp(28px, 5vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.readyText { display: flex; flex-direction: column; gap: 8px; max-width: 600px; }
+.readyText .readyTitle { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(38px, 5vw, 60px); line-height: .92; }
+.readyText p { font-size: 18px; line-height: 1.5; }
+.readyBtns { display: flex; flex-wrap: wrap; gap: 10px; }
+.readyBtn { padding: 14px 24px; font-size: 20px; border: 2px solid var(--ink); }
+.readyBtns .readyBtnWhite { background: #fff; color: var(--ink); }
+.readyBtns .readyBtnWhite:hover { background: var(--ink); color: var(--yellow); }

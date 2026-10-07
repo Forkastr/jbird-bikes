@@ -1,19 +1,20 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import HomeHeader from '@/components/home/HomeHeader';
+import home from '@/components/home/home.module.css';
+import { barlow, dmSans, SNAP_URL, SiteFooter, Disclosures } from '@/components/home/shared';
 import FAQAccordion from './FAQAccordion';
+import styles from './faq.module.css';
 
 export const metadata: Metadata = {
   title: 'FAQ | JBird Bikes New Orleans — eBike Questions Answered',
-  description: 'Got questions about eBikes in New Orleans? JBird Bikes answers the most common questions about buying, assembly, repair, and the NOLA eBike Incentive Program.',
+  description: 'Got questions about eBikes in New Orleans? JBird Bikes answers the most common questions about buying, financing, assembly, and repair.',
   keywords: [
     'eBike FAQ New Orleans',
     'where to buy eBike New Orleans',
     'eBike assembly cost New Orleans',
     'eBike repair New Orleans',
-    'NOLA eBike incentive questions',
+    'eBike financing New Orleans',
     'Gotrax Aventon Lectric dealer New Orleans',
-    'eBike test ride New Orleans',
   ],
   openGraph: {
     title: 'FAQ | JBird Bikes New Orleans',
@@ -29,11 +30,7 @@ const faqs = [
     items: [
       {
         q: 'Where can I buy a Gotrax, Aventon, or Lectric eBike in New Orleans?',
-        a: 'Right here at JBird Bikes, located on the Lafitte Greenway at 2336 St. Louis Street. We are an authorized dealer for Gotrax, Aventon, Lectric, Retrospec, Mockwheel, and Vanpowers. Every bike is professionally assembled and ready to ride.',
-      },
-      {
-        q: 'Do you offer test rides?',
-        a: 'Yes! We encourage you to test ride before you buy. Come visit us Monday through Saturday, 10am–6pm, and take a ride on the Lafitte Greenway right from our door.',
+        a: 'Right here at JBird Bikes, located on the Lafitte Greenway at 2336 St. Louis Street. We are an authorized dealer for Gotrax, Aventon, Lectric, Retrospec, Mockwheel, Vanpowers, and Narrak. Every bike is professionally assembled and ready to ride.',
       },
       {
         q: 'What eBikes do you carry under $1,000?',
@@ -41,7 +38,8 @@ const faqs = [
       },
       {
         q: 'Is financing available?',
-        a: 'Yes, financing is available upon purchase. Contact us for details and we will walk you through your options.',
+        a: 'Yes. We offer lease-to-own financing² through Snap Finance, no credit needed.¹ Apply online in minutes and get a decision in seconds. See the disclosures at the bottom of this page.',
+        link: { href: SNAP_URL, label: 'Apply Now with Snap Finance' },
       },
     ],
   },
@@ -62,20 +60,7 @@ const faqs = [
       },
       {
         q: 'How much does an eBike tune-up cost?',
-        a: 'Our eBike Specialized Tune-Up is $95 and covers 15 points of service including brake adjustment, shifting, electrical inspection, spoke tension, and a full frame clean. We also offer a Safety Check for $35 and a flat tire fix starting at $30.',
-      },
-    ],
-  },
-  {
-    category: 'NOLA eBike Incentive',
-    items: [
-      {
-        q: 'What is the New Orleans eBike Incentive Program?',
-        a: 'The City of New Orleans is launching an Electric Bike Incentive Program funded by a Climate Pollution Reduction Grant from the U.S. Environmental Protection Agency. It will allow eligible New Orleans residents to receive discounts at the register when purchasing a qualified eBike from an authorized local retailer.',
-      },
-      {
-        q: 'Do I qualify for the NOLA eBike incentive?',
-        a: "If you live in New Orleans, you may qualify for a standard discount. If you receive government assistance, you may qualify for a larger discount. We are keeping track of the program's progress and will help you through the process. Contact us to find out more.",
+        a: 'Our eBike Specialized Tune-Up is $95 and covers 15 points of service including brake adjustment, shifting, electrical inspection, spoke tension, and a full frame clean. We also offer a Safety Check for $65 and a flat tire fix starting at $30.',
       },
     ],
   },
@@ -117,40 +102,41 @@ export default function FAQPage() {
         }}
       />
 
-      <style dangerouslySetInnerHTML={{ __html: `
-        .faq-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
-        .faq-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
-        .faq-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
-        .faq-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4a261; margin-bottom: 0.8rem; }
-        .faq-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: white; margin-bottom: 1rem; letter-spacing: 2px; }
-        .faq-hero p { font-size: 1rem; line-height: 1.75; color: #d1d5db; max-width: 540px; margin: 0 auto; }
-        .faq-cta { background: #2d6a4f; color: white; text-align: center; padding: 3rem 2rem; }
-        .faq-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
-        .faq-cta p { color: #d8f3dc; font-size: 0.95rem; margin-bottom: 1.5rem; }
-        .btn-cta { display: inline-block; background: #f4a261; color: #0a0a0a; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
-        .btn-cta-outline { display: inline-block; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
-      ` }} />
+      <div className={`${home.page} ${barlow.variable} ${dmSans.variable}`}>
+        <HomeHeader snapUrl={SNAP_URL} />
 
-      <Header />
+        <main>
+          <section className={styles.hero}>
+            <div className={`${home.wrap} ${styles.heroInner}`}>
+              <span className={styles.eyebrow}>Got Questions?</span>
+              <h1 className={styles.title}>Frequently Asked Questions</h1>
+              <p className={styles.sub}>Everything you need to know about buying, assembling, and servicing eBikes in New Orleans.</p>
+            </div>
+          </section>
 
-      <div className="faq-hero">
-        <div className="faq-hero-inner">
-          <div className="faq-eyebrow">Got Questions?</div>
-          <h1>Frequently Asked Questions</h1>
-          <p>Everything you need to know about buying, assembling, and servicing eBikes in New Orleans.</p>
-        </div>
+          <div className={`${home.wrap} ${styles.body}`}>
+            <FAQAccordion faqs={faqs} />
+          </div>
+
+          <section className={`${home.wrap} ${styles.ready}`}>
+            <div className={styles.readyCard}>
+              <div className={styles.readyText}>
+                <h2 className={styles.readyTitle}>Still Have Questions?</h2>
+                <p>We&apos;re here Monday–Saturday, 10am–6pm. Call, text, or send us a message.</p>
+              </div>
+              <div className={styles.readyBtns}>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank" rel="noopener noreferrer" className={`${home.btn} ${home.btnYellow} ${styles.readyBtn}`}>Contact Us</a>
+                <a href="/sales.html" className={`${home.btn} ${styles.readyBtnWhite} ${styles.readyBtn}`}><span>Browse Our <span className={home.lower}>e</span>Bikes</span></a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <SiteFooter />
+
+        {/* Footnotes ¹ and ² in the financing answer. */}
+        <Disclosures notes={[1, 2]} />
       </div>
-
-      <FAQAccordion faqs={faqs} />
-
-      <div className="faq-cta">
-        <h2>Still Have Questions?</h2>
-        <p>We're here Monday–Saturday, 10am–6pm. Call, text, or send us a message.</p>
-        <a className="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
-        <a className="btn-cta-outline" href="/sales.html">Browse Our eBikes</a>
-      </div>
-
-      <Footer />
     </>
   );
 }

@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="/jbird-styles.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>eBike Repair & Service New Orleans | JBird Bikes — Free Diagnostic</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eBike Repair &amp; Service New Orleans | JBird Bikes — Free Diagnostic</title>
   <meta name="description" content="Professional eBike and bike repair in New Orleans on the Lafitte Greenway. Free diagnostic, tune-ups, flat tire fix, and full assembly service. All brands welcome.">
   <meta name="keywords" content="eBike repair New Orleans, bike repair New Orleans, eBike tune up New Orleans, eBike service NOLA, electric bike repair Lafitte Greenway, free eBike diagnostic New Orleans">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -40,255 +38,319 @@
   }
   </script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; background: #f5f3ef; color: #0a0a0a; }
-
-    .repairs-hero { background: #0a0a0a; color: white; padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden; }
-    .repairs-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, #2d6a4f33 0%, transparent 70%); }
-    .repairs-hero-inner { position: relative; max-width: 700px; margin: 0 auto; }
-    .repairs-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #f4a261; margin-bottom: 0.8rem; }
-    .repairs-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; color: white; margin-bottom: 1rem; letter-spacing: 2px; }
-    .repairs-hero h1 span { color: #f4a261; display: block; }
-    .repairs-hero p { font-size: 1rem; line-height: 1.75; color: #d1d5db; max-width: 560px; margin: 0 auto 2rem; }
-    .repairs-badges { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-    .repairs-badge { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #d8f3dc; }
-    .repairs-badge::before { content: '✓'; color: #f4a261; font-weight: 900; }
-
-    .repairs-body { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem; }
-
-    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #0a0a0a; margin-bottom: 1.2rem; padding-bottom: 0.5rem; border-bottom: 2px solid #d8f3dc; }
-
-    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
-
-    .service-card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; }
-    .service-card-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: baseline; }
-    .service-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; color: #0a0a0a; }
-    .service-card-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: #2d6a4f; letter-spacing: 1px; }
-    .service-card-body { padding: 1.2rem 1.5rem; }
-
-    .service-tag { display: inline-block; background: #d8f3dc; color: #2d6a4f; font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 1rem; }
-    .service-tag.free { background: #fff3e0; color: #c05c00; }
-
-    .service-desc { font-size: 0.9rem; line-height: 1.7; color: #374151; margin-bottom: 1rem; }
-
-    .check-list { list-style: none; padding: 0; margin: 0; }
-    .check-list li { position: relative; padding-left: 1.4rem; margin-bottom: 0.5rem; font-size: 0.85rem; line-height: 1.5; color: #374151; }
-    .check-list li::before { content: '✓'; position: absolute; left: 0; color: #2d6a4f; font-weight: 700; }
-
-    .price-row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; border-bottom: 1px solid #f3f4f6; font-size: 0.88rem; }
-    .price-row:last-child { border-bottom: none; }
-    .price-label { color: #374151; font-weight: 500; }
-    .price-val { color: #2d6a4f; font-weight: 700; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1px; }
-
-    .full-width-card { background: white; border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; margin-bottom: 1.5rem; }
-    .full-width-card-header { padding: 1.5rem 1.5rem 1rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
-
-    .addons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-    .addon-card { background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1.2rem; display: flex; justify-content: space-between; align-items: center; }
-    .addon-name { font-size: 0.88rem; font-weight: 600; color: #0a0a0a; }
-    .addon-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: #2d6a4f; letter-spacing: 1px; }
-
-    .note { font-size: 0.8rem; color: #9ca3af; font-style: italic; margin-top: 0.5rem; }
-
-    .repairs-cta { background: #2d6a4f; color: white; text-align: center; padding: 3rem 2rem; }
-    .repairs-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 2px; margin-bottom: 0.5rem; color: white; }
-    .repairs-cta p { color: #d8f3dc; font-size: 0.95rem; margin-bottom: 1.5rem; }
-    .btn-cta { display: inline-block; background: #f4a261; color: #0a0a0a; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
-    .btn-cta-outline { display: inline-block; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
-
-    @media (max-width: 680px) {
-      .service-grid { grid-template-columns: 1fr; }
-      .service-card-header { flex-direction: column; gap: 0.3rem; }
-      .full-width-card-header { flex-direction: column; }
+    :root {
+      --ink: #16140f; --cream: #faf7ef; --yellow: #f7d23e; --blue: #1f5fc8; --green: #2e8b3e; --red: #d43a2f;
+      --display: 'Barlow Condensed', sans-serif;
     }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: 'DM Sans', Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--blue); }
+    p, h1, h2, h3, dl, dd, dt, ul { margin: 0; }
+    .lower { text-transform: none; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding-left: clamp(16px, 3vw, 32px); padding-right: clamp(16px, 3vw, 32px); }
+    [hidden] { display: none !important; }
+
+    /* Header + slide-in menu (same design as the homepage, sales, product and assembly pages) */
+    .site-header { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 2px solid var(--ink); }
+    .site-header-inner { max-width: 1240px; margin: 0 auto; padding: 12px clamp(12px, 3vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .logo { display: flex; gap: 8px; font-family: var(--display); font-weight: 900; font-size: clamp(24px, 6.4vw, 30px); line-height: 1; text-transform: lowercase; flex: none; }
+    .logo > span { display: flex; }
+    .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(8px, 2vw, 14px); min-width: 0; margin-left: auto; }
+    .header-apply { background: var(--ink); color: var(--yellow); padding: clamp(9px, 2.4vw, 11px) clamp(12px, 3.4vw, 18px); border-radius: 999px; font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 17px); text-transform: uppercase; letter-spacing: .03em; white-space: nowrap; min-height: 44px; display: flex; align-items: center; }
+    .header-apply:hover { background: var(--blue); color: #fff; }
+    .menu-button { width: 48px; height: 48px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; }
+    .menu-button:hover { background: var(--yellow); }
+    .menu-button span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+    .menu-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(22, 20, 15, .6); }
+    .menu-drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow); border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto; }
+    .menu-close { align-self: flex-end; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream); cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+    .menu-link { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+    .menu-link.current { color: var(--red); }
+    .menu-phone { margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px; font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em; }
+    .menu-phone:hover { background: var(--blue); color: #fff; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; border-radius: 999px; border: 2px solid var(--ink); font-family: var(--display); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: .04em; padding: 14px 24px; min-height: 52px; }
+    .btn-ink { background: var(--ink); color: var(--yellow); }
+    .btn-ink:hover { background: var(--blue); color: #fff; }
+    .btn-cream { background: var(--cream); color: var(--ink); }
+    .btn-cream:hover, .btn-white:hover { background: var(--ink); color: var(--yellow); }
+    .btn-yellow { background: var(--yellow); color: var(--ink); }
+    .btn-yellow:hover { background: #fff; color: var(--ink); }
+    .btn-white { background: #fff; color: var(--ink); }
+    .phone-icon { flex: none; margin-right: .4em; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    @media (max-width: 600px) {
+      /* Phones: Contact Us and the phone number share one row, text shrinking to fit. */
+      .btn-row { flex-wrap: nowrap; gap: 8px; }
+      .btn-row .btn { flex: 1 1 0; min-width: 0; white-space: nowrap; padding: 12px 8px; min-height: 46px; font-size: clamp(13px, 4.4vw, 20px); }
+    }
+
+    .section-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 5.4vw, 64px); line-height: .9; text-wrap: balance; }
+    .section { padding-top: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 24px; }
+
+    /* Green tick list */
+    .ticks { list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 10px 28px; }
+    .ticks li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; line-height: 1.45; }
+    .ticks li::before { content: '✓'; width: 20px; height: 20px; flex: none; margin-top: 1px; border-radius: 50%; background: var(--green); border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+
+    /* Hero */
+    .hero { background: var(--yellow); border-bottom: 2px solid var(--ink); }
+    .hero-inner { padding-top: clamp(28px, 5vw, 56px); padding-bottom: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: clamp(20px, 4vw, 48px); align-items: center; }
+    .hero-text { display: flex; flex-direction: column; gap: 16px; }
+    .eyebrow { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .hero h1 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(48px, 7.4vw, 92px); line-height: .88; text-wrap: balance; }
+    .hero h1 .accent { color: var(--red); }
+    .hero-sub { font-size: clamp(17px, 2vw, 19px); line-height: 1.55; max-width: 560px; text-wrap: pretty; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 2px solid var(--ink); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 700; background: var(--cream); }
+    .hero .btn-row { margin-top: 4px; }
+    .price-card { background: var(--cream); border: 2px solid var(--ink); border-radius: 22px; padding: clamp(22px, 3vw, 30px); display: flex; flex-direction: column; gap: 14px; }
+    .price-card .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .price-card .amount { font-family: var(--display); font-weight: 900; font-size: clamp(80px, 10vw, 110px); line-height: .8; color: var(--red); }
+    .tag { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+
+    /* Price lists (repair rates, additional options) */
+    .rates { max-width: 720px; display: flex; flex-direction: column; border-top: 2px solid var(--ink); }
+    .rate-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(22, 20, 15, .2); }
+    .rate-row dt { font-size: 16px; }
+    .rate-row dd { font-family: var(--display); font-weight: 800; font-size: 24px; white-space: nowrap; text-align: right; }
+    .note { max-width: 720px; font-size: 15px; line-height: 1.55; color: #4a463c; }
+
+    /* eBike services */
+    .services { background: var(--ink); color: var(--cream); margin-top: clamp(40px, 6vw, 80px); }
+    .services-inner { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 24px; }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 16px; align-items: start; }
+    .service-card { background: var(--cream); color: var(--ink); border: 2px solid var(--ink); border-radius: 22px; padding: clamp(22px, 3vw, 30px); display: flex; flex-direction: column; gap: 14px; }
+    .service-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .service-head h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 3.6vw, 40px); line-height: .95; }
+    .service-price { font-family: var(--display); font-weight: 900; font-size: clamp(44px, 5vw, 60px); line-height: .85; color: var(--red); flex: none; }
+
+    /* Assembly */
+    .assembly { background: var(--yellow); border: 2px solid var(--ink); border-radius: 24px; padding: clamp(24px, 4vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(20px, 4vw, 40px); align-items: center; }
+    .assembly-text { display: flex; flex-direction: column; gap: 12px; }
+    .assembly h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 4vw, 44px); line-height: .95; }
+    .assembly p { font-size: 17px; line-height: 1.55; text-wrap: pretty; }
+    .assembly-price { font-family: var(--display); font-weight: 900; font-size: clamp(80px, 10vw, 120px); line-height: .8; color: var(--red); }
+    .assembly .btn-row { margin-top: 6px; }
+
+    /* Ready */
+    .ready { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(48px, 7vw, 96px); }
+    .ready-card { background: var(--blue); color: #fff; border: 2px solid var(--ink); border-radius: 24px; padding: clamp(28px, 5vw, 48px); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .ready-text { display: flex; flex-direction: column; gap: 8px; max-width: 600px; }
+    .ready h2 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(38px, 5vw, 60px); line-height: .92; text-wrap: balance; }
+    .ready p { font-size: 18px; line-height: 1.5; }
+
+    /* Footer */
+    .site-footer { background: var(--yellow); border-top: 2px solid var(--ink); }
+    .footer-inner { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 24px; }
+    .footer-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 5vw, 56px); line-height: .95; text-wrap: balance; }
+    .footer-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .footer-hours { background: var(--ink); color: var(--yellow); padding: 14px 24px; font-size: 20px; }
+    .footer-hours:hover { background: var(--blue); color: #fff; }
+    .footer-phone { border: 2px solid var(--ink); padding: 12px 22px; font-size: 20px; }
+    .footer-phone:hover { background: var(--ink); color: var(--yellow); }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700; padding-top: 20px; border-top: 2px solid var(--ink); }
+    .footer-copy { font-size: 14px; }
+
+    @media print { .site-header, .menu-drawer, .menu-overlay, .no-print { display: none !important; } }
   </style>
 </head>
 <body>
 
-<nav class="nav-shim">
-  <a href="/" class="logo">JBIRD BIKES</a>
-  <div class="nav-links">
-    <a href="/repairs.html">Repairs</a>
-    <a href="/sales.html" style="font-family:inherit;font-size:inherit;font-weight:bold;text-decoration:none;color:inherit;">Bike Sales</a>
-    <a href="/assembly.html">Assembly</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<div id="mobileSideMenu" class="side-menu">
-  <button class="close-btn" onclick="toggleMenu()">✕</button>
-  <a href="/repairs.html">Repairs & Service</a>
-  <a href="/sales.html" onclick="toggleMenu()" style="display:block;padding:0.8rem 0;font-weight:800;color:#2E7D32;text-transform:uppercase;font-size:0.9rem;text-decoration:none;border-bottom:1px solid #eee;">Bike Sales</a>
-  <a href="/assembly.html">eBike Assembly</a>
-  <a href="/about.html">About Us</a>
-  <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
-  <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
-</div>
-
-<!-- HERO -->
-<div class="repairs-hero">
-  <div class="repairs-hero-inner">
-    <div class="repairs-eyebrow">Surgical Precision</div>
-    <h1>Repair & Service <span>All Brands Welcome</span></h1>
-    <p>Professional eBike and bike repair on the Lafitte Greenway. We diagnose, fix, and tune every bike with surgical-level precision. Bring it in — we'll take care of the rest.</p>
-    <div class="repairs-badges">
-      <div class="repairs-badge">Free Diagnostic</div>
-      <div class="repairs-badge">All Brands</div>
-      <div class="repairs-badge">eBikes & Pedal Bikes</div>
-      <div class="repairs-badge">Tue–Fri 10am–6pm | Sat 10am–5pm</div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="/" aria-label="JBird Bikes home" class="logo">
+      <span><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>
+      <span><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>
+    </a>
+    <div class="header-actions">
+      <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="header-apply">Apply Now</a>
+      <button type="button" class="menu-button" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-</div>
+</header>
+<!-- Same menu as the homepage (src/components/home/HomeHeader.tsx), sales.html and product.html; keep them in sync. -->
+<div class="menu-overlay" id="menu-overlay" hidden></div>
+<nav class="menu-drawer" id="site-menu" aria-label="Main" hidden>
+  <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
+  <a href="/repairs.html" class="menu-link current" aria-current="page">Repairs &amp; Services</a>
+  <a href="/sales.html" class="menu-link"><span class="lower">e</span>Rides for Sale</a>
+  <a href="/assembly.html" class="menu-link"><span class="lower">e</span>Bike Assembly</a>
+  <a href="/about.html" class="menu-link">About Us</a>
+  <a href="/faq" class="menu-link">FAQ</a>
+  <a href="tel:5045216997" class="menu-phone">(504) 521-6997</a>
+</nav>
 
-<div class="repairs-body">
-
-  <!-- GENERAL REPAIRS -->
-  <div class="section-title">General Repairs — All Bikes</div>
-  <div class="service-grid">
-
-    <div class="service-card">
-      <div class="service-card-header">
-        <div class="service-card-title">Free Diagnostic</div>
-        <div class="service-card-price">FREE</div>
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Surgical Precision</span>
+        <h1>Repair &amp; Service — <span class="accent">All Brands Welcome</span></h1>
+        <p class="hero-sub">Professional eBike and bike repair on the Lafitte Greenway. We diagnose, fix, and tune every bike with surgical-level precision. Bring it in — we'll take care of the rest.</p>
+        <div class="chips">
+          <span class="chip">Free Diagnostic</span>
+          <span class="chip">All Brands</span>
+          <span class="chip"><span class="lower">e</span>Bikes &amp; Pedal Bikes</span>
+          <span class="chip">Mon–Sat 10am–6pm</span>
+        </div>
+        <div class="btn-row">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-ink">Contact Us</a>
+          <a href="tel:5045216997" class="btn btn-cream"><svg class="phone-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>(504) 521-6997</a>
+        </div>
       </div>
-      <div class="service-card-body">
-        <span class="service-tag free">Included with every repair</span>
-        <p class="service-desc">We inspect and diagnose the issue before any work begins so you know exactly what to expect.</p>
-        <ul class="check-list">
+      <div class="price-card">
+        <span class="label">Free Diagnostic</span>
+        <span class="amount">FREE</span>
+        <span class="tag">Included with every repair</span>
+        <p>We inspect and diagnose the issue before any work begins so you know exactly what to expect.</p>
+        <ul class="ticks">
           <li>Identify the issue reported</li>
           <li>Determine service required</li>
-          <li>Provide cost estimate for parts & labor</li>
+          <li>Provide cost estimate for parts &amp; labor</li>
           <li>Confirm turnaround time</li>
         </ul>
       </div>
     </div>
+  </section>
 
-    <div class="service-card">
-      <div class="service-card-header">
-        <div class="service-card-title">Repair Rates</div>
+  <section class="wrap section">
+    <h2 class="section-title">General Repairs — All Bikes</h2>
+    <dl class="rates">
+      <div class="rate-row"><dt>Base Price for Repair</dt><dd>$65 + parts</dd></div>
+      <div class="rate-row"><dt>Flat Tire — <span class="lower">e</span>Bike</dt><dd>$30/wheel + parts</dd></div>
+      <div class="rate-row"><dt>Flat Tire — Pedal Bike</dt><dd>$20/wheel + parts</dd></div>
+    </dl>
+    <p class="note">If the base price doesn't cover the repair, extra work will be billed in increments of $35 per 30 minutes.</p>
+  </section>
+
+  <section class="services">
+    <div class="wrap services-inner">
+      <h2 class="section-title"><span class="lower">e</span>Bike Specialized Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-head">
+            <h3><span class="lower">e</span>Bike Tune-Up</h3>
+            <span class="service-price">$95</span>
+          </div>
+          <span class="tag">16-Point Service</span>
+          <ul class="ticks">
+            <li>All fasteners tightened, lubricated and thread locker applied</li>
+            <li>Cockpit accessories adjusted to proper ergonomics</li>
+            <li>Headset adjusted to proper bearing load</li>
+            <li>Front &amp; rear braking system inspected &amp; adjusted</li>
+            <li>Front &amp; rear brake cables lubricated</li>
+            <li>Front &amp; rear brake hydraulic fluid inspected</li>
+            <li>Front &amp; rear rotor bolts inspected and tightened</li>
+            <li>Front &amp; rear brake levers adjusted &amp; lubricated, thread locker applied</li>
+            <li>Shifting adjusted, system cleaned, chain stretch inspected</li>
+            <li>Derailleur alignment inspected and trued if needed</li>
+            <li>Fender positioning adjusted &amp; corrected if out of alignment</li>
+            <li>Front &amp; rear wheel spokes tightened &amp; adjusted</li>
+            <li>All electrical connections &amp; wiring inspected</li>
+            <li>Cable management addressed</li>
+            <li>Frame cleaned</li>
+            <li>General visual inspection</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="service-head">
+            <h3>Safety Check</h3>
+            <span class="service-price">$65</span>
+          </div>
+          <span class="tag">Essential Inspection</span>
+          <ul class="ticks">
+            <li>All fasteners torqued</li>
+            <li>Headset adjusted</li>
+            <li>Brakes aligned</li>
+            <li>Brake pads checked for wear</li>
+            <li>Tires checked for wear</li>
+            <li>Chain checked for wear</li>
+            <li>Shifting adjusted</li>
+            <li>Wire management addressed</li>
+          </ul>
+        </div>
       </div>
-      <div class="service-card-body">
-        <div class="price-row"><span class="price-label">Base Price for Repair</span><span class="price-val">$65 + parts</span></div>
-        <div class="price-row"><span class="price-label">Flat Tire — eBike</span><span class="price-val">$30/wheel + parts</span></div>
-        <div class="price-row"><span class="price-label">Flat Tire — Pedal Bike</span><span class="price-val">$20/wheel + parts</span></div>
-        <p class="note">If the base price doesn't cover the repair, extra work will be billed in increments of $35 per 30 minutes.</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="section-title">JBird Bikes Assembly Build</h2>
+    <div class="assembly">
+      <div class="assembly-text">
+        <span class="tag">Included with every bike purchase</span>
+        <h3>Professional Assembly</h3>
+        <p>Our exclusive JBird Bikes Build is included with every eBike we sell. Buy online and bring it in — we'll handle the rest.</p>
+        <ul class="ticks">
+          <li>All tune-up steps included</li>
+          <li>Tire sealant applied to both tires</li>
+          <li>Free tune-up after 6 months</li>
+        </ul>
+        <div class="btn-row">
+          <a href="/assembly.html" class="btn btn-ink">About Assembly</a>
+        </div>
+      </div>
+      <span class="assembly-price">$135</span>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <h2 class="section-title">Additional Options</h2>
+    <dl class="rates">
+      <div class="rate-row"><dt>Tire Sealant (both tires)</dt><dd>$25</dd></div>
+      <div class="rate-row"><dt>Location Tab Install</dt><dd>$25 + part</dd></div>
+      <div class="rate-row"><dt>Light-Up Installation</dt><dd>$75</dd></div>
+      <div class="rate-row"><dt>Flowers</dt><dd>$25</dd></div>
+    </dl>
+  </section>
+
+  <section class="wrap ready">
+    <div class="ready-card">
+      <div class="ready-text">
+        <h2>Ready to Bring Your Bike In?</h2>
+        <p>Open Mon–Sat, 10am–6pm. No appointment needed for diagnostics.</p>
+      </div>
+      <div class="btn-row">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">Contact Us</a>
+        <a href="tel:5045216997" class="btn btn-white"><svg class="phone-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>(504) 521-6997</a>
       </div>
     </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-title">JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
+    <div class="footer-btns">
+      <a href="https://share.google/votmFNHcQjONuZMF3" target="_blank" rel="noopener noreferrer" class="btn footer-hours">See Our Hours</a>
+      <a href="tel:5045216997" class="btn footer-phone"><svg class="phone-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>(504) 521-6997</a>
+    </div>
+    <nav class="footer-nav" aria-label="Policies">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/return-policy.html">Return Policy</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <p class="footer-copy">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
   </div>
-
-  <!-- EBIKE SERVICES -->
-  <div class="section-title">eBike Specialized Services</div>
-
-  <div class="full-width-card">
-    <div class="full-width-card-header">
-      <div class="service-card-title">eBike Tune-Up</div>
-      <div class="service-card-price">$95</div>
-    </div>
-    <div class="service-card-body">
-      <span class="service-tag">16-Point Service</span>
-      <ul class="check-list">
-        <li>All fasteners tightened, lubricated and thread locker applied</li>
-        <li>Cockpit accessories adjusted to proper ergonomics</li>
-        <li>Headset adjusted to proper bearing load</li>
-        <li>Front & rear braking system inspected & adjusted</li>
-        <li>Front & rear brake cables lubricated</li>
-        <li>Front & rear brake hydraulic fluid inspected</li>
-        <li>Front & rear rotor bolts inspected and tightened</li>
-        <li>Front & rear brake levers adjusted & lubricated, thread locker applied</li>
-        <li>Shifting adjusted, system cleaned, chain stretch inspected</li>
-        <li>Derailleur alignment inspected and trued if needed</li>
-        <li>Fender positioning adjusted & corrected if out of alignment</li>
-        <li>Front & rear wheel spokes tightened & adjusted</li>
-        <li>All electrical connections & wiring inspected</li>
-        <li>Cable management addressed</li>
-        <li>Frame cleaned</li>
-        <li>General visual inspection</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="full-width-card">
-    <div class="full-width-card-header">
-      <div class="service-card-title">Safety Check</div>
-      <div class="service-card-price">$65</div>
-    </div>
-    <div class="service-card-body">
-      <span class="service-tag">Essential Inspection</span>
-      <ul class="check-list">
-        <li>All fasteners torqued</li>
-        <li>Headset adjusted</li>
-        <li>Brakes aligned</li>
-        <li>Brake pads checked for wear</li>
-        <li>Tires checked for wear</li>
-        <li>Chain checked for wear</li>
-        <li>Shifting adjusted</li>
-        <li>Wire management addressed</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ASSEMBLY -->
-  <div class="section-title" style="margin-top:3rem;">JBird Bikes Assembly Build</div>
-  <div class="full-width-card">
-    <div class="full-width-card-header">
-      <div class="service-card-title">Professional Assembly</div>
-      <div class="service-card-price">$135</div>
-    </div>
-    <div class="service-card-body">
-      <span class="service-tag">Included with every bike purchase</span>
-      <p class="service-desc">Our exclusive JBird Bikes Build is included with every eBike we sell. Buy online and bring it in — we'll handle the rest.</p>
-      <ul class="check-list">
-        <li>All tune-up steps included</li>
-        <li>Tire sealant applied to both tires</li>
-        <li>Free tune-up after 6 months</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ADD-ONS -->
-  <div class="section-title" style="margin-top:3rem;">Additional Options</div>
-  <div class="addons-grid">
-    <div class="addon-card">
-      <span class="addon-name">Tire Sealant (both tires)</span>
-      <span class="addon-price">$25</span>
-    </div>
-    <div class="addon-card">
-      <span class="addon-name">Location Tab Install</span>
-      <span class="addon-price">$25 + part</span>
-    </div>
-    <div class="addon-card">
-      <span class="addon-name">Light-Up Installation</span>
-      <span class="addon-price">$75</span>
-    </div>
-    <div class="addon-card">
-      <span class="addon-name">Flowers</span>
-      <span class="addon-price">$25</span>
-    </div>
-  </div>
-
-</div>
-
-<!-- CTA -->
-<div class="repairs-cta">
-  <h2>Ready to Bring Your Bike In?</h2>
-  <p>Open Tue–Fri, 10am–6pm, Sat 10am–5pm. No appointment needed for diagnostics.</p>
-  <a class="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
-  <a class="btn-cta-outline" href="tel:5045216997">(504) 521-6997</a>
-</div>
-
-<footer style="text-align:center;padding:30px 20px;border-top:1px solid #eee;">
-  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway</p>
-  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy</a> &nbsp;·&nbsp; <a href="/return-policy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Return Policy</a>
-  <span style="color:#666;margin:0 0.5rem;">·</span>
-  <a href="/faq" style="font-size:0.8rem;color:#666;text-decoration:none;">FAQ</a>
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById('mobileSideMenu').classList.toggle('open');
+  const $ = id => document.getElementById(id);
+
+  // Menu
+  function setMenu(open) {
+    $('site-menu').hidden = !open;
+    $('menu-overlay').hidden = !open;
+    $('menu-open').setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) $('menu-close').focus();
   }
+  $('menu-open').addEventListener('click', () => setMenu(true));
+  $('menu-close').addEventListener('click', () => setMenu(false));
+  $('menu-overlay').addEventListener('click', () => setMenu(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('site-menu').hidden) setMenu(false); });
 </script>
 </body>
 </html>
