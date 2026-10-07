@@ -32,12 +32,12 @@ function normalizeCategory(b: Bike): Bike {
 }
 
 // Google's feed occasionally hangs for ~20s and then returns an error page, so
-// each attempt is time-limited and retried. The build has no time limit, so it
-// tries harder; background refreshes on Netlify must finish within the function
-// time limit, and a failed refresh just keeps the last good version live.
+// each attempt is time-limited and retried. The build waits longer (it falls back to
+// the saved copy if the feed stays down); background refreshes on Netlify must finish
+// within the function time limit, and a failed refresh just keeps the last good version live.
 const IS_BUILD = process.env.NEXT_PHASE === 'phase-production-build';
-const ATTEMPTS = IS_BUILD ? 3 : 2;
-const ATTEMPT_TIMEOUT_MS = IS_BUILD ? 30000 : 4500;
+const ATTEMPTS = 2;
+const ATTEMPT_TIMEOUT_MS = IS_BUILD ? 20000 : 4500;
 
 async function fetchOnce(): Promise<Bike[]> {
   const res = await fetch(FEED_URL, { cache: 'no-store', signal: AbortSignal.timeout(ATTEMPT_TIMEOUT_MS) });
@@ -55,7 +55,10 @@ async function fetchOnce(): Promise<Bike[]> {
   return bikes;
 }
 
-// Throws if every attempt fails; callers rely on that so Next.js keeps the last good cached version.
+// If every attempt fails during a build, the build uses the saved copy in src/data/catalog-snapshot.json
+// (refresh it with `npm run catalog:snapshot`) so a slow Google feed can't block a deploy; the live site
+// then refreshes from the feed within 5 minutes. Outside a build it throws, which callers rely on so
+// Next.js keeps the last good cached version.
 export async function fetchCatalog(): Promise<Bike[]> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
@@ -65,6 +68,10 @@ export async function fetchCatalog(): Promise<Bike[]> {
       lastError = err;
       console.warn(`Catalog feed attempt ${attempt}/${ATTEMPTS} failed:`, err instanceof Error ? err.message : err);
     }
+  }
+  if (IS_BUILD) {
+    console.warn('Catalog feed unavailable during the build; using the saved copy in src/data/catalog-snapshot.json.');
+    return (await import('@/data/catalog-snapshot.json')).default as Bike[];
   }
   throw lastError;
 }
