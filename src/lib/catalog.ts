@@ -12,6 +12,7 @@ const PUBLIC_FIELDS = [
   'Charge Time', 'Charger', 'Headlight', 'Sensor Type', 'Frame Material',
   'Waterproof Rating', 'Display / Console', 'Gears', 'Suspension', 'Brakes',
   'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly', 'Same-As-Cash',
+  'Subcategory', 'Fits',
 ];
 
 export type Bike = Record<string, unknown>;
@@ -21,6 +22,11 @@ export type Bike = Record<string, unknown>;
 const CATEGORY_ALIASES: Record<string, string> = { etrike: 'ETrikes', escooter: 'EScooters', accessory: 'Accessories' };
 
 function normalizeCategory(b: Bike): Bike {
+  // Accessories-tab rows use Category for their own grouping (e.g. "Bags & Storage");
+  // the website files them all under Accessories and keeps that grouping as Subcategory.
+  if (String(b['Tab'] ?? '').trim().toLowerCase() === 'accessories') {
+    return { ...b, Category: 'Accessories', Subcategory: String(b['Category'] ?? '').trim() };
+  }
   const alias = CATEGORY_ALIASES[String(b['Category'] ?? '').trim().toLowerCase()];
   return alias ? { ...b, Category: alias } : b;
 }
@@ -43,8 +49,8 @@ async function fetchOnce(): Promise<Bike[]> {
 
   const bikes = (data as Bike[])
     .filter((b) => b && typeof b === 'object' && String(b['Slug'] ?? '').trim())
-    .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])))
-    .map(normalizeCategory);
+    .map(normalizeCategory)
+    .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])));
   if (bikes.length === 0) throw new Error('Catalog feed returned no bikes with a Slug');
   return bikes;
 }

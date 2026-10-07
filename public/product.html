@@ -47,6 +47,7 @@
 
     /* Product */
     .product { padding-top: 4px; padding-bottom: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(20px, 4vw, 48px); align-items: start; }
+    .media { display: flex; flex-direction: column; gap: 16px; }
     .photo { aspect-ratio: 4 / 3; border: 2px solid var(--ink); border-radius: 24px; background: #f2eee4; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 3vw, 32px); overflow: hidden; }
     .photo img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
     .photo .no-img { background: var(--cream); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; }
@@ -81,9 +82,16 @@
     .price-note { padding: 12px 22px; background: #fff; border-top: 2px solid var(--ink); font-size: 13px; line-height: 1.5; color: var(--body); }
 
     .perks { border: 2px solid var(--ink); border-radius: 22px; background: #fff; padding: 18px 22px; display: flex; flex-direction: column; gap: 12px; }
+    .perks-desktop { display: none; }
+    @media (min-width: 980px) {
+      .product { grid-template-columns: 1fr 1fr; }
+      .perks-desktop { display: flex; }
+      .perks-mobile { display: none; }
+    }
     .perks-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 24px; line-height: 1; }
     .perks ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
     .perks li { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; }
+    .perks .fits-list li { display: list-item; list-style: disc; margin-left: 20px; }
     .tick { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
     .apply-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .apply-big { flex: 1 1 200px; background: var(--ink); color: var(--yellow); padding: 16px 24px; font-size: 22px; min-height: 56px; }
@@ -178,7 +186,20 @@
 
   <div id="product-content" hidden>
     <section class="wrap product">
-      <div class="photo" id="photo"></div>
+      <div class="media">
+        <div class="photo" id="photo"></div>
+
+        <!-- Desktop copy; the mobile copy below the prices must match. -->
+        <div class="perks perks-desktop">
+          <span class="perks-title">Free with Lease-to-Own Purchase:</span>
+          <ul class="fits-list" hidden></ul>
+          <ul class="perks-list">
+            <li><span class="tick" style="background:#2e8b3e">✓</span>Flat Free Sealant in All Tires</li>
+            <li><span class="tick" style="background:#1f5fc8">✓</span>Tracker</li>
+            <li><span class="tick" style="background:#d43a2f">✓</span>Set of Wheel Lights</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="info">
         <div class="title-block">
@@ -215,9 +236,11 @@
           <p class="price-note" id="price-note">Disclaimer: Weekly prices are estimated, apply for approval to receive exact amounts.</p>
         </div>
 
-        <div class="perks">
+        <!-- Mobile copy; the desktop copy under the photo must match. -->
+        <div class="perks perks-mobile">
           <span class="perks-title">Free with Lease-to-Own Purchase:</span>
-          <ul>
+          <ul class="fits-list" hidden></ul>
+          <ul class="perks-list">
             <li><span class="tick" style="background:#2e8b3e">✓</span>Flat Free Sealant in All Tires</li>
             <li><span class="tick" style="background:#1f5fc8">✓</span>Tracker</li>
             <li><span class="tick" style="background:#d43a2f">✓</span>Set of Wheel Lights</li>
@@ -289,7 +312,8 @@
   };
   // Everything else with a value is a full spec, except these non-spec columns.
   const NOT_SPECS = new Set(['Brand', 'Slug', 'Title', 'Description', 'Image-URL', 'Colors Available', 'Category',
-    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly', 'Same-As-Cash', ...KEY_SPECS]);
+    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly', 'Same-As-Cash',
+    'Subcategory', 'Fits', ...KEY_SPECS]);
   // Swatch colours for known colour names; anything else shows as a plain label.
   const COLOR_HEX = {
     black: '#1b1b1b', 'r8 black': '#1b1b1b', white: '#f4f4f0', 'stratus white': '#eef0f2', blue: '#2f5fb3', 'navy blue': '#1f2f5a',
@@ -370,7 +394,7 @@
         : '<span class="no-img">Photo coming soon</span>';
     }
 
-    const colors = str(bike['Colors Available']).split(',').map(s => s.trim()).filter(Boolean);
+    const colors = str(bike['Colors Available']).split(/[,;]/).map(s => s.trim()).filter(Boolean);
     $('colors').hidden = colors.length === 0;
     $('color-list').innerHTML = colors.map(c => {
       const hex = COLOR_HEX[c.toLowerCase()];
@@ -393,12 +417,23 @@
     $('price-call').hidden = !!(weekly || sac || cash);
     $('price-note').hidden = !weekly && !sac;
 
-    const keys = KEY_SPECS.filter(k => str(bike[k]));
+    // Accessories show what they fit in place of the lease-to-own perks (no Fits value, no box) and have no spec sections.
+    const isAccessory = str(bike['Category']).toLowerCase() === 'accessories';
+    const fits = str(bike['Fits']).split(/[;\n]/).map(s => s.trim()).filter(Boolean);
+    document.querySelectorAll('.perks').forEach(box => {
+      box.hidden = isAccessory && fits.length === 0;
+      box.querySelector('.perks-title').textContent = isAccessory ? 'Fits:' : 'Free with Lease-to-Own Purchase:';
+      box.querySelector('.perks-list').hidden = isAccessory;
+      box.querySelector('.fits-list').hidden = !isAccessory;
+      box.querySelector('.fits-list').innerHTML = fits.map(f => `<li>${esc(f)}</li>`).join('');
+    });
+
+    const keys = isAccessory ? [] : KEY_SPECS.filter(k => str(bike[k]));
     $('key-section').hidden = keys.length === 0;
     $('key-grid').innerHTML = keys.map(k =>
       `<div class="key-card"><img class="icon" src="/images/specs/${KEY_ICONS[k]}.png" alt="" width="44" height="44"><span class="k">${esc(k)}</span><span class="v">${esc(bike[k])}</span></div>`).join('');
 
-    const full = Object.keys(bike).filter(k => !NOT_SPECS.has(k) && str(bike[k]));
+    const full = isAccessory ? [] : Object.keys(bike).filter(k => !NOT_SPECS.has(k) && str(bike[k]));
     $('full-section').hidden = full.length === 0;
     $('full-list').innerHTML = full.map(k => `<div class="spec-row"><dt>${esc(k)}</dt><dd>${esc(bike[k])}</dd></div>`).join('');
 
