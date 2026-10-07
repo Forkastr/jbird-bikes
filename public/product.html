@@ -53,7 +53,9 @@
     .photo .no-img { background: var(--cream); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; }
     .info { display: flex; flex-direction: column; gap: 20px; }
     .title-block { display: flex; flex-direction: column; gap: 8px; }
-    .type-badge { align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    .photo-frame { position: relative; }
+    .type-badge { position: absolute; bottom: 14px; right: 14px; z-index: 1; max-width: calc(100% - 28px); background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+    @media (max-width: 600px) { .type-badge { bottom: 10px; right: 10px; padding: 4px 9px; font-size: 10px; letter-spacing: .06em; } }
     .info h1 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(48px, 7vw, 84px); line-height: .88; }
     .desc { font-size: 17px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
     .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -63,18 +65,46 @@
     .color-chip.has-dot { padding-left: 8px; }
     .color-dot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
 
-    .price-box { background: var(--yellow); border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; }
+    .price-box { background: var(--yellow); border: 2px solid var(--ink); border-radius: 22px; overflow: hidden; container-type: inline-size; }
+    /* Only a weekly and a cash price: side by side, the weekly price (the main selling point) wider and larger. */
+    .price-box.two-up { display: grid; grid-template-columns: 69fr 31fr; }
+    .two-up .price-main, .two-up #cell-cash { justify-content: space-between; }
+    .two-up .price-weekly { padding-left: clamp(11px, 2.66cqi, 27px); }
+    .two-up .price-weekly .big { font-size: clamp(40px, 13cqi, 88px); line-height: .9; }
+    /* Cash Price sizes to its own (narrower) column: as large as fits, up to 7 characters ("$12,499"). */
+    .two-up #cell-cash { container-type: inline-size; }
+    .two-up #cash-value { font-size: clamp(20px, 35cqi, 72px); line-height: .9; }
+    .two-up .price-main:not([hidden]) + .price-grid { border-top: 0; border-left: 2px solid var(--ink); display: flex; }
+    .two-up #cell-cash { flex: 1; padding: 20px 14px; }
+    .two-up #cash-value { margin-top: 8px; }
+    .two-up .price-note { grid-column: 1 / -1; }
+    @media (max-width: 519px) {
+      /* Narrow phones: tighter padding and smaller "Only" / "/week" so the row fits beside Cash Price. */
+      .two-up .price-main { padding: 16px; }
+      .two-up #cell-cash { padding: 16px 8px; }
+      .two-up .price-weekly { flex-wrap: wrap; }
+      .two-up .price-weekly .per { font-size: 20px; }
+    }
+    @media (max-width: 380px) {
+      /* Narrowest phones: smaller labels and tighter spacing so nothing wraps. */
+      .two-up .price-main { padding: 14px 10px 14px 12px; }
+      .two-up .price-weekly { padding-left: 6px; gap: 4px; flex-wrap: nowrap; }
+      .two-up .price-weekly .per { font-size: 16px; }
+      .two-up .label { font-size: 11px; letter-spacing: .02em; white-space: nowrap; }
+      .two-up #cell-cash { padding: 14px 6px; }
+    }
     .price-main { padding: 20px 22px; display: flex; flex-direction: column; gap: 2px; }
     .price-main:not([hidden]) + .price-grid { border-top: 2px solid var(--ink); }
     .price-main .label { color: var(--ink); }
-    .price-weekly { display: flex; align-items: baseline; gap: 6px; line-height: .9; }
-    .price-weekly .big { font-family: var(--display); font-weight: 900; font-size: clamp(60px, 9vw, 80px); color: var(--red); }
+    .price-weekly { display: flex; align-items: baseline; gap: 6px; line-height: .9; margin-top: 8px; padding-left: clamp(24px, 6vw, 56px); }
+    .price-weekly .big { font-family: var(--display); font-weight: 900; font-size: clamp(80px, 12vw, 106px); color: var(--red); }
     .price-weekly .per { font-family: var(--display); font-weight: 800; font-size: 28px; text-transform: uppercase; }
     .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); background: var(--cream); }
     .price-cell { padding: 16px 22px; display: flex; flex-direction: column; gap: 2px; }
     .price-cell:not([hidden]) + .price-cell { border-left: 2px solid var(--ink); }
     .price-cell .label { letter-spacing: .04em; color: var(--body); }
     .price-cell .value { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1; }
+    #cash-value { font-size: 48px; }
     .price-cell .value small { font-size: 20px; font-weight: 800; }
     .price-call { padding: 20px 22px; background: var(--cream); display: flex; flex-direction: column; gap: 4px; }
     .price-call .value { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1; text-transform: uppercase; }
@@ -91,8 +121,9 @@
     .perks-title { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 24px; line-height: 1; }
     .perks ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
     .perks li { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; }
-    .perks .fits-list li { display: list-item; list-style: disc; margin-left: 20px; }
+    .addon-price { margin-left: auto; font-family: var(--display); font-weight: 900; font-size: 20px; }
     .tick { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    .perks .fits-list li { display: list-item; list-style: disc; margin-left: 20px; }
     .apply-row { display: flex; gap: 10px; flex-wrap: wrap; }
     .apply-big { flex: 1 1 200px; background: var(--ink); color: var(--yellow); padding: 16px 24px; font-size: 22px; min-height: 56px; }
     .apply-big:hover { background: var(--blue); color: #fff; }
@@ -109,6 +140,16 @@
     .key-card .icon { width: 44px; height: 44px; object-fit: contain; filter: invert(1); display: block; }
     .key-card .k { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #d9d4c7; }
     .key-card .v { font-family: var(--display); font-weight: 800; font-size: 28px; line-height: 1; overflow-wrap: anywhere; }
+    /* Spec sections collapse on phones (tap the heading); always open on larger screens. */
+    .spec-toggle { font: inherit; color: inherit; text-transform: inherit; background: none; border: 0; padding: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left; cursor: default; }
+    .chev { display: none; font-size: .6em; transition: transform .2s; }
+    @media (max-width: 767px) {
+      .spec-toggle { cursor: pointer; }
+      .chev { display: inline-block; }
+      .spec-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+      .is-collapsed #key-grid, .is-collapsed #full-list { display: none; }
+    }
+    @media print { .is-collapsed #key-grid, .is-collapsed #full-list { display: grid; } .chev { display: none; } }
     .full-specs { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 20px; }
     .full-specs dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); column-gap: 40px; border-top: 2px solid var(--ink); }
     .spec-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(22, 20, 15, .2); }
@@ -126,6 +167,12 @@
     .btn-contact:hover { background: #fff; color: var(--ink); }
     .btn-print { background: transparent; color: #fff; border: 2px solid #fff; padding: 12px 22px; font-size: 20px; }
     .btn-print:hover { background: #fff; color: var(--blue); }
+    @media (max-width: 600px) {
+      /* Phones: both buttons on one line, text shrinking to fit. */
+      .ready-card { padding: 28px 20px; }
+      .ready-btns { width: 100%; flex-wrap: nowrap; gap: 8px; }
+      .ready-btns .btn { flex: 1 1 0; min-width: 0; white-space: nowrap; padding: 12px 8px; font-size: clamp(11px, 4.5vw, 20px); }
+    }
 
     .state { padding-top: clamp(40px, 6vw, 80px); padding-bottom: clamp(40px, 6vw, 80px); }
     .state-card { padding: 32px; border: 2px dashed rgba(22, 20, 15, .35); border-radius: 20px; text-align: center; font-size: 17px; line-height: 1.6; }
@@ -187,36 +234,50 @@
   <div id="product-content" hidden>
     <section class="wrap product">
       <div class="media">
-        <div class="photo" id="photo"></div>
+        <div class="photo-frame">
+          <div class="photo" id="photo"></div>
+          <span class="type-badge" id="type-badge"></span>
+        </div>
 
         <!-- Desktop copy; the mobile copy below the prices must match. -->
-        <div class="perks perks-desktop">
-          <span class="perks-title">Free with Lease-to-Own Purchase:</span>
-          <ul class="fits-list" hidden></ul>
-          <ul class="perks-list">
-            <li><span class="tick" style="background:#2e8b3e">✓</span>Flat Free Sealant in All Tires</li>
-            <li><span class="tick" style="background:#1f5fc8">✓</span>Tracker</li>
-            <li><span class="tick" style="background:#d43a2f">✓</span>Set of Wheel Lights</li>
+        <div class="perks addons perks-desktop">
+          <span class="perks-title">Basic Accessories Available:</span>
+          <ul>
+            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="35" data-trike-price="50">$35</span></li>
+            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">$35</span></li>
+            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="60" data-trike-price="75">$60</span></li>
           </ul>
         </div>
       </div>
 
       <div class="info">
         <div class="title-block">
-          <span class="type-badge" id="type-badge"></span>
           <h1 id="bike-title"></h1>
           <p class="desc" id="bike-desc"></p>
+        </div>
+
+        <div class="perks" id="fits" hidden>
+          <span class="perks-title">Fits:</span>
+          <ul class="fits-list" id="fits-list"></ul>
         </div>
 
         <div class="colors" id="colors">
           <span class="label">Colors Available</span>
           <div class="color-list" id="color-list"></div>
         </div>
+        <div class="colors" id="sizes">
+          <span class="label">Sizes</span>
+          <div class="color-list" id="size-list"></div>
+        </div>
+        <div class="colors" id="variants">
+          <span class="label">Variant</span>
+          <div class="color-list" id="variant-list"></div>
+        </div>
 
         <div class="price-box" id="price-box">
           <div class="price-main" id="price-weekly">
             <span class="label">Lowest Price</span>
-            <span class="price-weekly"><span class="big" id="weekly-value"></span><span class="per">/week</span></span>
+            <span class="price-weekly"><span class="per">Only</span><span class="big" id="weekly-value"></span><span class="per">/week</span></span>
           </div>
           <div class="price-grid" id="price-grid">
             <div class="price-cell" id="cell-sac">
@@ -237,13 +298,12 @@
         </div>
 
         <!-- Mobile copy; the desktop copy under the photo must match. -->
-        <div class="perks perks-mobile">
-          <span class="perks-title">Free with Lease-to-Own Purchase:</span>
-          <ul class="fits-list" hidden></ul>
-          <ul class="perks-list">
-            <li><span class="tick" style="background:#2e8b3e">✓</span>Flat Free Sealant in All Tires</li>
-            <li><span class="tick" style="background:#1f5fc8">✓</span>Tracker</li>
-            <li><span class="tick" style="background:#d43a2f">✓</span>Set of Wheel Lights</li>
+        <div class="perks addons perks-mobile">
+          <span class="perks-title">Basic Accessories Available:</span>
+          <ul>
+            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="35" data-trike-price="50">$35</span></li>
+            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">$35</span></li>
+            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="60" data-trike-price="75">$60</span></li>
           </ul>
         </div>
 
@@ -257,15 +317,15 @@
       </div>
     </section>
 
-    <section class="key-specs" id="key-section">
+    <section class="key-specs is-collapsed" id="key-section">
       <div class="wrap key-inner">
-        <h2 class="spec-title">Key Specifications</h2>
+        <h2 class="spec-title"><button type="button" class="spec-toggle" aria-expanded="false" aria-controls="key-grid">Key Specifications<span class="chev" aria-hidden="true">▾</span></button></h2>
         <div class="key-grid" id="key-grid"></div>
       </div>
     </section>
 
-    <section class="wrap full-specs" id="full-section">
-      <h2 class="spec-title">Full Specifications</h2>
+    <section class="wrap full-specs is-collapsed" id="full-section">
+      <h2 class="spec-title"><button type="button" class="spec-toggle" aria-expanded="false" aria-controls="full-list">Full Specifications<span class="chev" aria-hidden="true">▾</span></button></h2>
       <dl id="full-list"></dl>
     </section>
 
@@ -319,7 +379,18 @@
     black: '#1b1b1b', 'r8 black': '#1b1b1b', white: '#f4f4f0', 'stratus white': '#eef0f2', blue: '#2f5fb3', 'navy blue': '#1f2f5a',
     'raindrop blue': '#7fa6c9', red: '#c8322b', orange: '#e8742a', silver: '#c0c3c6', graphite: '#4a4d50', 'nardo gray': '#8a8d8f',
     'tempest grey': '#6e7377', gray: '#8a8d8f', grey: '#8a8d8f', champagne: '#d9c7a1', 'seafoam green': '#8fd1b9', 'pine green': '#2f5d46', green: '#2e8b3e',
+    'dark gray': '#4f5254', brown: '#7a4b2a', pink: '#e88aa8', yellow: '#f7d23e', purple: '#7b4fa6', lavender: '#b9a7d6', mint: '#a8e0c4',
+    creme: '#f1e6c8', cream: '#f1e6c8', beige: '#e3d3b0', tan: '#c8a97e', titanium: '#9a9a95', gold: '#c9a227', teal: '#2a8c8c',
   };
+  const SIZES = new Set(['xs', 's', 'm', 'l', 'xl', 'xxl', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', 'one size']);
+  // Swatch for a colour name: exact match first, else the first basic colour word in it
+  // ("Stealth Black" -> black, "Step Thru / Gray with Rack" -> gray). Sizes and other variants get none.
+  function colorHex(name) {
+    const n = name.toLowerCase();
+    if (COLOR_HEX[n]) return COLOR_HEX[n];
+    const word = n.split(/[^a-z]+/).find(w => COLOR_HEX[w]);
+    return word ? COLOR_HEX[word] : '';
+  }
 
   const str = v => (v ?? '').toString().trim();
   const esc = s => str(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -344,12 +415,14 @@
     return prefix ? prefix.charAt(0).toUpperCase() + prefix.slice(1).toLowerCase() : '';
   }
   const shortName = t => str(t).replace(/\s+(electric\s+(bike|bicycle)|e-?bike)$/i, '') || str(t);
-  function typeLabel(b) {
-    const c = str(b['Category']).toLowerCase();
-    if (c === 'escooters') return '<span class="lower">e</span>Scooter';
-    if (c === 'etrikes') return '<span class="lower">e</span>Trike';
-    if (c === 'accessories') return 'Accessory';
-    return '<span class="lower">e</span>Bike';
+  // Photo badge: "Brand - Category", using the same category names as the sales page
+  // (accessories show their Subcategory, e.g. "Bags & Storage").
+  function badgeLabel(b) {
+    const c = str(b['Category']);
+    const category = c.toLowerCase() === 'escooters' ? '<span class="lower">e</span>Scooters'
+      : c.toLowerCase() === 'etrikes' ? '<span class="lower">e</span>Trikes'
+      : esc(str(b['Subcategory']) || c);
+    return [esc(getBrand(b)), category].filter(Boolean).join(' - ');
   }
 
   // Menu
@@ -364,6 +437,13 @@
   $('menu-close').addEventListener('click', () => setMenu(false));
   $('menu-overlay').addEventListener('click', () => setMenu(false));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('site-menu').hidden) setMenu(false); });
+
+  // Spec section headings open and close their section (only has a visible effect on phones).
+  document.querySelectorAll('.spec-toggle').forEach(btn => btn.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open);
+    btn.closest('section').classList.toggle('is-collapsed', !open);
+  }));
 
   function showError() {
     $('loading').hidden = true;
@@ -382,7 +462,7 @@
     const fullName = brand && !name.toLowerCase().startsWith(brand.toLowerCase()) ? `${brand} ${name}` : name;
     document.title = `${fullName} | JBird Bikes New Orleans`;
     $('bike-title').textContent = fullName;
-    $('type-badge').innerHTML = typeLabel(bike);
+    $('type-badge').innerHTML = badgeLabel(bike);
     $('bike-desc').textContent = str(bike['Description']);
     $('bike-desc').hidden = !str(bike['Description']);
 
@@ -394,14 +474,30 @@
         : '<span class="no-img">Photo coming soon</span>';
     }
 
-    const colors = str(bike['Colors Available']).split(/[,;]/).map(s => s.trim()).filter(Boolean);
+    // The sheet's Colors Available column also holds sizes (Small, Medium…) and variants (Step Thru, G4 500W…),
+    // sometimes combined with " / " ("Small / Stealth Black (OOS)"). Each part is sorted on its own: a size word is a size,
+    // anything with a colour in its name is a colour, the rest are variants. A part is listed only if at least
+    // one option containing it isn't marked (OOS).
+    const parts = [];
+    str(bike['Colors Available']).split(/[,;]/).map(s => s.trim()).filter(Boolean).forEach(o => {
+      const oos = /\(oos\)/i.test(o);
+      o.replace(/\(oos\)/ig, '').split(/\s\/\s/).map(s => s.trim()).filter(Boolean).forEach(p => {
+        const seen = parts.find(x => x.name.toLowerCase() === p.toLowerCase());
+        if (seen) seen.inStock = seen.inStock || !oos;
+        else parts.push({ name: p, inStock: !oos });
+      });
+    });
+    const options = parts.filter(x => x.inStock).map(x => x.name);
+    const sizes = options.filter(o => SIZES.has(o.toLowerCase()));
+    const colors = options.filter(o => !SIZES.has(o.toLowerCase()) && colorHex(o));
+    const variants = options.filter(o => !SIZES.has(o.toLowerCase()) && !colorHex(o));
     $('colors').hidden = colors.length === 0;
-    $('color-list').innerHTML = colors.map(c => {
-      const hex = COLOR_HEX[c.toLowerCase()];
-      return hex
-        ? `<span class="color-chip has-dot"><span class="color-dot" style="background:${hex}"></span>${esc(c)}</span>`
-        : `<span class="color-chip">${esc(c)}</span>`;
-    }).join('');
+    $('color-list').innerHTML = colors.map(c =>
+      `<span class="color-chip has-dot"><span class="color-dot" style="background:${colorHex(c)}"></span>${esc(c)}</span>`).join('');
+    $('sizes').hidden = sizes.length === 0;
+    $('size-list').innerHTML = sizes.map(o => `<span class="color-chip">${esc(o)}</span>`).join('');
+    $('variants').hidden = variants.length === 0;
+    $('variant-list').innerHTML = variants.map(o => `<span class="color-chip">${esc(o)}</span>`).join('');
 
     // Prices: Cash Price falls back to JBird Retail Price until the feed sends Cash Price.
     const weekly = money(bike['Lease to Own Weekly'], true);
@@ -416,16 +512,24 @@
     $('price-grid').hidden = !sac && !cash;
     $('price-call').hidden = !!(weekly || sac || cash);
     $('price-note').hidden = !weekly && !sac;
+    // Only a weekly and a cash price: show them side by side, cash on the right, both large.
+    $('price-box').classList.toggle('two-up', !!(weekly && cash && !sac));
 
-    // Accessories show what they fit in place of the lease-to-own perks (no Fits value, no box) and have no spec sections.
+    // Bikes, scooters and trikes show the add-ons (no lights for scooters, which can't take them).
+    // eTrikes pay $15 more for sealant and lights because of the third wheel (data-trike-price).
+    // Accessories show what they fit above the colours instead (no Fits value, no box) and have no spec sections.
     const isAccessory = str(bike['Category']).toLowerCase() === 'accessories';
-    const fits = str(bike['Fits']).split(/[;\n]/).map(s => s.trim()).filter(Boolean);
-    document.querySelectorAll('.perks').forEach(box => {
-      box.hidden = isAccessory && fits.length === 0;
-      box.querySelector('.perks-title').textContent = isAccessory ? 'Fits:' : 'Free with Lease-to-Own Purchase:';
-      box.querySelector('.perks-list').hidden = isAccessory;
-      box.querySelector('.fits-list').hidden = !isAccessory;
-      box.querySelector('.fits-list').innerHTML = fits.map(f => `<li>${esc(f)}</li>`).join('');
+    const isScooter = str(bike['Category']).toLowerCase() === 'escooters';
+    const isTrike = str(bike['Category']).toLowerCase() === 'etrikes';
+    const fits = isAccessory ? str(bike['Fits']).split(/[;\n]/).map(s => s.trim()).filter(Boolean) : [];
+    $('fits').hidden = fits.length === 0;
+    $('fits-list').innerHTML = fits.map(f => `<li>${esc(f)}</li>`).join('');
+    document.querySelectorAll('.addons').forEach(box => {
+      box.hidden = isAccessory;
+      box.querySelector('.addon-lights').hidden = isScooter;
+      box.querySelectorAll('[data-trike-price]').forEach(el => {
+        el.textContent = '$' + (isTrike ? el.dataset.trikePrice : el.dataset.price);
+      });
     });
 
     const keys = isAccessory ? [] : KEY_SPECS.filter(k => str(bike[k]));
