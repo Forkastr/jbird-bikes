@@ -31,10 +31,14 @@ function shortName(title: string) {
   return title.replace(/\s+(electric\s+(bike|bicycle)|e-?bike)$/i, '').trim() || title;
 }
 
-// Available bikes with a photo, priced ones first, in sheet order.
+// Available bikes (not accessories) with a photo, priced ones first, in sheet order.
 function pickCarouselBikes(catalog: Bike[]): CarouselBike[] {
   const available = catalog.filter(
-    (b) => str(b['JBird Status']).toLowerCase() === 'available' && str(b['Image-URL']) && str(b['Slug']),
+    (b) =>
+      str(b['JBird Status']).toLowerCase() === 'available' &&
+      str(b['Category']).toLowerCase() !== 'accessories' &&
+      str(b['Image-URL']) &&
+      str(b['Slug']),
   );
   const priced = available.filter((b) => str(b['JBird Retail Price']));
   const unpriced = available.filter((b) => !str(b['JBird Retail Price']));
