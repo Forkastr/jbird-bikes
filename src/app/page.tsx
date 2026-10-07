@@ -1,27 +1,16 @@
-import { Barlow_Condensed, DM_Sans } from 'next/font/google';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import HomeHeader from '@/components/home/HomeHeader';
 import BikeCarousel, { type CarouselBike } from '@/components/home/BikeCarousel';
 import styles from '@/components/home/home.module.css';
 import { fetchCatalog, type Bike } from '@/lib/catalog';
+import { barlow, dmSans, SNAP_URL, Sup, HeroTop, Disclosures, SiteFooter } from '@/components/home/shared';
 
 // Static, rebuilt in the background every 5 minutes so the carousel follows the catalog sheet.
 // If a rebuild fails (feed down), the last good page stays live.
 export const dynamic = 'force-static';
 export const revalidate = 300;
 
-const barlow = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['700', '800', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-barlow',
-});
-const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-dm-sans' });
-
-const SNAP_URL =
-  'https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D';
 const SNAP_REVIEWS_URL = 'https://snapfinance.com';
-const HOURS_URL = 'https://share.google/votmFNHcQjONuZMF3';
 const CAROUSEL_SIZE = 6;
 
 const str = (v: unknown) => (v ?? '').toString().trim();
@@ -50,10 +39,6 @@ function pickCarouselBikes(catalog: Bike[]): CarouselBike[] {
   }));
 }
 
-function Sup({ n }: { n: number }) {
-  return <sup><a href={`#d${n}`}>{n}</a></sup>;
-}
-
 export default async function HomePage() {
   const carouselBikes = pickCarouselBikes(await fetchCatalog());
 
@@ -65,28 +50,7 @@ export default async function HomePage() {
       <main>
         {/* 01 Hero */}
         <section className={styles.hero}>
-          <div className={`${styles.wrap} ${styles.heroTop}`}>
-            <div className={styles.heroText}>
-              <span className={styles.heroBadge}>No credit needed.<Sup n={1} /></span>
-              <h1 className={styles.heroTitle}>
-                Get your <span className={styles.lower}>e</span>Ride for as low as{' '}
-                <span className={styles.heroPrice}>$18 a week.</span>
-              </h1>
-              <p className={styles.heroSub}>
-                <span className={styles.lower}>e</span>Bikes, <span className={styles.lower}>e</span>Scooters, and{' '}
-                <span className={styles.lower}>e</span>Trikes.
-              </p>
-              <div className={styles.chips}>
-                <span className={styles.chip}>Fully Assembled</span>
-                <span className={styles.chip}>Pick Up at Our Shop</span>
-                <span className={styles.chip}>Local Warranty Service</span>
-              </div>
-            </div>
-            <div className={styles.heroPhoto}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/hero-bike.jpg" alt="JBird Bikes shop at 2336 St. Louis St., New Orleans" />
-            </div>
-          </div>
+          <HeroTop />
           <div className={`${styles.wrap} ${styles.heroCards}`}>
             <div className={styles.heroCard}>
               <p>
@@ -98,7 +62,7 @@ export default async function HomePage() {
             <div className={styles.heroCard}>
               <p><strong>Fully assembled, safety certified, ready to ride.</strong> Many brands and models available.</p>
               <a href="/sales.html" className={`${styles.btn} ${styles.btnBlue} ${styles.heroCardBtn}`}>
-                Find Your <span className={styles.lower}>e</span>Ride
+                <span>Find Your <span className={styles.lower}>e</span>Ride</span>
               </a>
             </div>
           </div>
@@ -216,32 +180,10 @@ export default async function HomePage() {
       </main>
 
       {/* 06 Footer */}
-      <footer className={styles.footer}>
-        <div className={`${styles.wrap} ${styles.footerInner}`}>
-          <p className={styles.footerTitle}>JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
-          <div className={styles.footerBtns}>
-            <a href={HOURS_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.footerHours}`}>See Our Hours</a>
-            <a href="tel:5045216997" className={`${styles.btn} ${styles.btnOutline} ${styles.footerPhone}`}>(504) 521-6997</a>
-          </div>
-          <nav className={styles.footerNav} aria-label="Policies">
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms</a>
-            <a href="/return-policy.html">Return Policy</a>
-            <a href="/faq">FAQ</a>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* 07 Disclosures */}
-      <section className={styles.disclosures} aria-labelledby="disclosures-title">
-        <div className={`${styles.wrap} ${styles.disclosuresInner}`}>
-          <h2 id="disclosures-title">Disclosures</h2>
-          <p id="d1"><strong>¹</strong> Not all applicants are approved. While no credit history is required, Snap obtains information from consumer reporting agencies in connection with submitted applications, and your score with those agencies may be affected.</p>
-          <p id="d2"><strong>²</strong> Snap-branded product offering includes retail installment contracts, bank installment loans, and lease-to-own financing. Talk with your local Snap merchant for more details on which product qualifies at your store location. For more detailed information, please visit <a href="https://snapfinance.com/legal/products" target="_blank" rel="noopener noreferrer">https://snapfinance.com/legal/products</a></p>
-          <p id="d3"><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe. The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
-          <p className={styles.copyright}>© 2026 JBird Bikes. All Rights Reserved.</p>
-        </div>
-      </section>
+      <Disclosures notes={[1, 2, 3]} />
     </div>
   );
 }
