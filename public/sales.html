@@ -51,7 +51,8 @@
     .hero-text { flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
     .hero h1 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(34px, 5.4vw, 68px); line-height: .88; text-wrap: balance; }
     .hero-price { color: var(--red); }
-    .hero-sub { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(19px, 2.6vw, 27px); line-height: 1; text-wrap: balance; }
+    .hero-types { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .hero-type { border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px; background: #fff; font-family: var(--display); font-size: clamp(16px, 2vw, 21px); font-weight: 800; line-height: 1; text-transform: uppercase; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip { border: 2px solid var(--ink); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 700; }
     .hero-apply { align-self: flex-start; padding: 10px 24px; font-size: 19px; min-height: 46px; }
@@ -175,14 +176,18 @@
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <h1>Get your <span class="lower">e</span>Ride for as low as <span class="hero-price">$18 a week.</span></h1>
-        <p class="hero-sub"><span class="lower">e</span>Bikes - <span class="lower">e</span>Scooters - <span class="lower">e</span>Trikes</p>
+        <h1>Get your <span class="lower">e</span>Ride for under <span class="hero-price">$19.99/week!</span></h1>
+        <ul class="hero-types" aria-label="Ride types">
+          <li class="hero-type"><span class="lower">e</span>Bikes</li>
+          <li class="hero-type"><span class="lower">e</span>Scooters</li>
+          <li class="hero-type"><span class="lower">e</span>Trikes</li>
+        </ul>
         <div class="chips">
           <span class="chip">✓ Professional Assembly</span>
           <span class="chip">✓ UL Certified</span>
           <span class="chip">✓ Flexible Weekly Payments</span>
         </div>
-        <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn btn-dark hero-apply">Apply Now</a>
+        <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn btn-dark hero-apply">Apply Now with Snap Finance</a>
       </div>
       <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="qr-card" aria-label="Scan to apply with Snap Finance">
         <span class="qr-tag">Scan to apply</span>
@@ -201,6 +206,10 @@
           <div class="filter-group">
             <span class="filter-label">Type</span>
             <div class="filter-chips" id="type-chips"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Category</span>
+            <div class="filter-chips" id="category-chips"></div>
           </div>
           <div class="filter-group">
             <span class="filter-label">Brand</span>
@@ -271,7 +280,7 @@
   const TYPE_ORDER = ['eBikes', 'eScooters', 'eTrikes', 'Accessories'];
 
   let ALL_BIKES = [];
-  const state = { q: '', type: 'All', brand: 'All' };
+  const state = { q: '', type: 'All', category: 'All', brand: 'All' };
 
   const str = v => (v ?? '').toString().trim();
   const esc = s => str(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -325,9 +334,10 @@
   function render() {
     const catalog = document.getElementById('catalog');
     const q = state.q.trim().toLowerCase();
-    const filtered = state.type !== 'All' || state.brand !== 'All';
+    const filtered = state.type !== 'All' || state.category !== 'All' || state.brand !== 'All';
     const shown = ALL_BIKES.filter(b =>
       (state.type === 'All' || getType(b) === state.type) &&
+      (state.category === 'All' || str(b['Category']).toLowerCase() === state.category.toLowerCase()) &&
       (state.brand === 'All' || getBrand(b) === state.brand) &&
       (!q || [b['Title'], b['Category'], b['Subcategory'], categoryLabel(str(b['Category'])), getType(b), getBrand(b)].join(' ').toLowerCase().includes(q))
     );
@@ -335,7 +345,7 @@
     const countLabel = shown.length + (shown.length === 1 ? ' item' : ' items');
     document.getElementById('count').textContent = countLabel;
     document.getElementById('filter-show').textContent = 'Show ' + countLabel;
-    const active = (state.type !== 'All') + (state.brand !== 'All');
+    const active = (state.type !== 'All') + (state.category !== 'All') + (state.brand !== 'All');
     document.getElementById('filter-btn').innerHTML = 'Filter' + (active ? ` (${active})` : '') + ' <small>▾</small>';
 
     if (shown.length === 0) {
@@ -379,13 +389,16 @@
 
   function renderChips() {
     const types = TYPE_ORDER.filter(t => ALL_BIKES.some(b => getType(b) === t));
+    const categories = groupedCategories(ALL_BIKES.filter(b => getType(b) === 'eBikes')).map(g => g.cat);
     const brands = [...new Set(ALL_BIKES.map(getBrand).filter(Boolean))].sort();
     // Drop a chosen filter if a catalog refresh removed it.
     if (state.type !== 'All' && !types.includes(state.type)) state.type = 'All';
+    if (state.category !== 'All' && !categories.some(c => c.toLowerCase() === state.category.toLowerCase())) state.category = 'All';
     if (state.brand !== 'All' && !brands.includes(state.brand)) state.brand = 'All';
-    const chips = (key, values) => ['All', ...values].map(v =>
-      `<button type="button" class="filter-chip" data-key="${key}" data-value="${esc(v)}" aria-pressed="${state[key] === v}">${esc(v)}</button>`).join('');
+    const chips = (key, values, label = v => v) => ['All', ...values].map(v =>
+      `<button type="button" class="filter-chip" data-key="${key}" data-value="${esc(v)}" aria-pressed="${state[key] === v}">${esc(label(v))}</button>`).join('');
     document.getElementById('type-chips').innerHTML = chips('type', types);
+    document.getElementById('category-chips').innerHTML = chips('category', categories, categoryLabel);
     document.getElementById('brand-chips').innerHTML = chips('brand', brands);
   }
 
@@ -408,7 +421,7 @@
   }
   document.getElementById('filter-btn').addEventListener('click', () => setFilterPanel(document.getElementById('filter-panel').hidden));
   document.getElementById('filter-show').addEventListener('click', () => setFilterPanel(false));
-  document.getElementById('filter-reset').addEventListener('click', () => { state.type = 'All'; state.brand = 'All'; renderChips(); render(); });
+  document.getElementById('filter-reset').addEventListener('click', () => { state.type = 'All'; state.category = 'All'; state.brand = 'All'; renderChips(); render(); });
   document.getElementById('filter-panel').addEventListener('click', e => {
     const chip = e.target.closest('.filter-chip');
     if (!chip) return;

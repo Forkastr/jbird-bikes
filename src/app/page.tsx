@@ -57,7 +57,7 @@ export default async function HomePage() {
                 <strong>Get approved for up to $5,000<Sup n={1} /> in lease-to-own financing.<Sup n={2} /></strong>{' '}
                 Apply in minutes, get a decision in seconds.
               </p>
-              <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.heroCardBtn}`}>Apply Now</a>
+              <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.heroCardBtn}`}>Apply Now with Snap Finance</a>
             </div>
             <div className={styles.heroCard}>
               <p><strong>Fully assembled, safety certified, ready to ride.</strong> Many brands and models available.</p>
@@ -143,7 +143,7 @@ export default async function HomePage() {
               <h3 className={styles.snapH3}>Snap Finance at a glance</h3>
               <div className={styles.stats}>
                 <div className={styles.stat}>
-                  <span className={styles.statBig}>8.5M+ Benefactors</span>
+                  <span className={styles.statBig}>8.5M+ Customers</span>
                   <span className={styles.statSmall}>Trusted by 8.5 million+ customers</span>
                 </div>
                 <div className={styles.stat}>

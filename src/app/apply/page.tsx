@@ -7,7 +7,7 @@ import { barlow, dmSans, SNAP_URL, HeroTop, Disclosures } from '@/components/hom
 // Hidden from search engines; it repeats the homepage hero.
 export const metadata: Metadata = {
   title: 'Apply Now',
-  description: 'Get your eRide for as low as $18 a week. No credit needed. Apply now with Snap Finance.',
+  description: 'Get your eRide for under $19.99/week. No credit needed. Apply now with Snap Finance.',
   alternates: { canonical: '/apply' },
   robots: { index: false, follow: true },
 };
@@ -32,7 +32,7 @@ export default function ApplyPage() {
             photo={false}
             cta={
               <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
-                Apply Now with Snap Financing
+                Apply Now with Snap Finance
               </a>
             }
           />

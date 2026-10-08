@@ -188,7 +188,9 @@
     .footer-phone { border: 2px solid var(--ink); padding: 12px 22px; font-size: 20px; }
     .footer-phone:hover { background: var(--ink); color: var(--yellow); }
     .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700; padding-top: 20px; border-top: 2px solid var(--ink); }
-    .footer-note { font-size: 13px; line-height: 1.6; color: #2a2620; }
+    .footer-note { font-size: max(12px, .8125rem); line-height: 1.6; color: #2a2620; }
+    .footer-note summary { width: fit-content; cursor: pointer; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .footer-note details p { margin-top: 4px; }
     .footer-copy { font-size: 14px; }
 
     @media print { .site-header, .menu-drawer, .menu-overlay, .no-print { display: none !important; } }
@@ -311,7 +313,7 @@
           <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn apply-big">Apply Now with Snap Finance</a>
         </div>
         <div class="after-apply">
-          <p>Once we receive your approval, we will contact you to complete your sale.</p>
+          <p>Once we receive your approval, we will contact you to complete your lease agreement.</p>
           <p><strong>Questions:</strong> Call or Text: <a href="tel:5045216997">(504) 521-6997</a></p>
         </div>
       </div>
@@ -357,7 +359,14 @@
       <a href="/return-policy.html">Return Policy</a>
       <a href="/faq">FAQ</a>
     </nav>
-    <p class="footer-note" id="d3"><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe. The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
+    <p class="footer-note" id="d1"><strong>¹</strong> Not all applicants are approved. While no credit history is required, Snap obtains information from consumer reporting agencies in connection with submitted applications, and your score with those agencies may be affected.</p>
+    <p class="footer-note" id="d2"><strong>²</strong> Lease-to-own agreement provided by Snap RTO LLC.</p>
+    <div class="footer-note" id="d3" hidden><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe.
+      <details>
+        <summary>Full terms</summary>
+        <p>The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
+      </details>
+    </div>
     <p class="footer-copy">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
   </div>
 </footer>
@@ -497,6 +506,7 @@
     $('sizes').hidden = sizes.length === 0;
     $('size-list').innerHTML = sizes.map(o => `<span class="color-chip">${esc(o)}</span>`).join('');
     $('variants').hidden = variants.length === 0;
+    $('d3').hidden = !sac;
     $('variant-list').innerHTML = variants.map(o => `<span class="color-chip">${esc(o)}</span>`).join('');
 
     // Prices: Cash Price falls back to JBird Retail Price until the feed sends Cash Price.

@@ -103,8 +103,21 @@
 .heroPrice { color: var(--red); }
 .heroTitle sup { font-size: .3em; font-style: normal; vertical-align: top; position: relative; top: .3em; }
 .page .heroSub { font-family: var(--display); font-size: clamp(28px, 4.2vw, 44px); font-weight: 800; text-transform: uppercase; line-height: 1; letter-spacing: .005em; text-wrap: balance; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { border: 2px solid var(--ink); border-radius: 999px; padding: 5px 12px; font-size: 14px; font-weight: 700; }
+.chips { display: flex; flex-wrap: wrap; gap: 9.2px; }
+.chip { border: 2px solid var(--ink); border-radius: 999px; padding: 5.75px 13.8px; font-size: 14px; font-weight: 700; }
+@media (min-width: 601px) {
+  .heroTop .chips { gap: 12px; }
+  .heroTop .chip { padding: clamp(7px, .75vw, 10px) clamp(16px, 1.25vw, 20px); font-size: clamp(15px, 1.1vw, 17px); }
+}
+@media (max-width: 600px) {
+  .heroTop .chips { flex-wrap: nowrap; gap: clamp(3px, 1vw, 8px); }
+  .heroTop .chip {
+    flex: 0 1 auto;
+    white-space: nowrap;
+    padding: clamp(5.75px, 1.4vw, 8px) clamp(2px, .9vw, 6px);
+    font-size: clamp(8px, calc(3.29vw - 2.27px), 15px);
+  }
+}
 .heroPhoto { border: 2px solid var(--ink); border-radius: 24px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--ink); }
 .heroPhoto img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 45%; display: block; max-width: none; }
 /* /apply campaign landing page: video background with a dark overlay, white text, yellow price */
@@ -210,8 +223,11 @@
 
 /* Disclosures */
 .disclosures { background: var(--cream); border-top: 2px solid var(--ink); }
-.disclosuresInner { padding-top: clamp(32px, 5vw, 56px); padding-bottom: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; gap: 14px; font-size: 14px; line-height: 1.6; color: #3a362e; }
+.disclosuresInner { padding-top: clamp(32px, 5vw, 56px); padding-bottom: clamp(32px, 5vw, 56px); display: flex; flex-direction: column; gap: 14px; font-size: max(12px, .875rem); line-height: 1.6; color: #3a362e; }
 .page .disclosures h2 { font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
-.page .disclosures p { font-size: 14px; line-height: 1.6; }
+.page .disclosures p { font-size: max(12px, .875rem); line-height: 1.6; }
 .page .disclosures a { text-decoration: underline; }
+.disclosure details { margin-top: 4px; }
+.disclosure summary { width: fit-content; cursor: pointer; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.disclosure details p { margin-top: 4px; }
 .copyright { color: #5a554a; }
