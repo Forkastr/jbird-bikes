@@ -88,9 +88,9 @@
     .group-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
     .group-head h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(30px, 4vw, 44px); line-height: 1; }
     .accessories { gap: clamp(24px, 4vw, 36px); }
+    .group-head h2 .hero-price, .group-head h2 .sale-price-red { color: var(--red); }
     .accessories .group-head h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(22px, 3vw, 28px); line-height: 1; }
-    .accessories .group .group-head { border-bottom-width: 1px; }
-    .group-tools { display: flex; align-items: center; gap: 8px; flex: none; }
+    .accessories .group .group-head { border-bottom-width: 1px; }    .group-tools { display: flex; align-items: center; gap: 8px; flex: none; }
     .group-count { flex: none; background: var(--yellow); border: 2px solid var(--ink); border-radius: 999px; padding: 3px 12px; font-size: 14px; font-weight: 700; }
     .arrow { width: 44px; height: 44px; flex: none; border-radius: 50%; border: 2px solid var(--ink); background: var(--cream); font-size: 18px; font-weight: 700; cursor: pointer; color: var(--ink); }
     .arrow:hover { background: var(--yellow); }
@@ -176,7 +176,7 @@
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <h1>Get your <span class="lower">e</span>Ride for under <span class="hero-price">$19.99/week!</span></h1>
+        <h1>Get your <span class="lower">e</span>Ride for under <span class="hero-price">$29.99/week!</span></h1>
         <ul class="hero-types" aria-label="Ride types">
           <li class="hero-type"><span class="lower">e</span>Bikes</li>
           <li class="hero-type"><span class="lower">e</span>Scooters</li>
@@ -331,6 +331,30 @@
       .filter(g => g.items.length > 0); // empty categories are hidden
   }
 
+  function isUnder29Weekly(b) {
+    const weekly = Number(str(b['Lease to Own Weekly']) || 0);
+    return Number.isFinite(weekly) && weekly > 0 && weekly <= 29.99;
+  }
+
+  function isUnder29VehicleWeekly(b) {
+    return getType(b) !== 'Accessories' && isUnder29Weekly(b);
+  }
+
+  function under29WeeklyGroup(items) {
+    const under29 = items.filter(isUnder29VehicleWeekly);
+    if (!under29.length) return '';
+    const arrows = under29.length > 1
+      ? '<button type="button" class="arrow" aria-label="Previous under-$29.99 models" data-row="row-under-29-weekly" data-dir="-1">←</button><button type="button" class="arrow" aria-label="Next under-$29.99 models" data-row="row-under-29-weekly" data-dir="1">→</button>'
+      : '';
+    return `<div class="group">
+      <div class="group-head">
+      <h2>UNDER <span class="sale-price-red">$29.99/WEEK</span></h2>
+        <div class="group-tools"><span class="group-count">${under29.length} model${under29.length === 1 ? '' : 's'}</span>${arrows}</div>
+      </div>
+      <div class="row" id="row-under-29-weekly">${under29.map(makeCard).join('')}</div>
+    </div>`;
+  }
+
   function render() {
     const catalog = document.getElementById('catalog');
     const q = state.q.trim().toLowerCase();
@@ -356,9 +380,10 @@
       catalog.innerHTML = '<div class="grid">' + shown.map(makeCard).join('') + '</div>';
       return;
     }
-    catalog.innerHTML = '<div class="groups">' + groupedCategories(shown).map(g =>
+    const remaining = shown.filter(b => !isUnder29VehicleWeekly(b));
+    catalog.innerHTML = '<div class="groups">' + [under29WeeklyGroup(shown), ...groupedCategories(remaining).map(g =>
       g.cat === LAST_CATEGORY ? accessoriesHtml(g.items) : groupHtml(g.cat, categoryLabel(g.cat), g.items, 'h2', 'model')
-    ).join('') + '</div>';
+    )].filter(Boolean).join('') + '</div>';
   }
 
   function groupHtml(key, label, items, tag, unit) {

@@ -23,10 +23,13 @@ export function HeroTop({ cta, photo = true }: { cta?: React.ReactNode; photo?: 
   return (
     <div className={`${styles.wrap} ${styles.heroTop}`}>
       <div className={styles.heroText}>
-        <span className={styles.heroBadge}>No credit needed.<Sup n={1} /></span>
+        <div className={styles.heroBadges}>
+          <span className={styles.heroBadge}>No credit needed.<Sup n={1} /></span>
+          <span className={styles.shopLocalBadge}>Shop Local!</span>
+        </div>
         <h1 className={styles.heroTitle}>
           Get your <span className={styles.lower}>e</span>Ride for under{' '}
-          <span className={styles.heroPrice}>$19.99/week!</span>
+          <span className={styles.heroPrice}>$29.99/week!</span>
         </h1>
         <p className={styles.heroSub}>
           <span className={styles.lower}>e</span>Bikes, <span className={styles.lower}>e</span>Scooters, and{' '}

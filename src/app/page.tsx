@@ -1,47 +1,13 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import HomeHeader from '@/components/home/HomeHeader';
-import BikeCarousel, { type CarouselBike } from '@/components/home/BikeCarousel';
 import styles from '@/components/home/home.module.css';
-import { fetchCatalog, type Bike } from '@/lib/catalog';
 import { barlow, dmSans, SNAP_URL, Sup, HeroTop, Disclosures, SiteFooter } from '@/components/home/shared';
 
-// Static, rebuilt in the background every 5 minutes so the carousel follows the catalog sheet.
-// If a rebuild fails (feed down), the last good page stays live.
 export const dynamic = 'force-static';
-export const revalidate = 300;
 
 const SNAP_REVIEWS_URL = 'https://snapfinance.com';
-const CAROUSEL_SIZE = 6;
-
-const str = (v: unknown) => (v ?? '').toString().trim();
-
-// "Tundra Fat Tire Electric Bike" -> "Tundra Fat Tire": the carousel label is large, so drop the generic suffix.
-function shortName(title: string) {
-  return title.replace(/\s+(electric\s+(bike|bicycle)|e-?bike)$/i, '').trim() || title;
-}
-
-// Available bikes (not accessories) with a photo, priced ones first, in sheet order.
-function pickCarouselBikes(catalog: Bike[]): CarouselBike[] {
-  const available = catalog.filter(
-    (b) =>
-      str(b['JBird Status']).toLowerCase() === 'available' &&
-      str(b['Category']).toLowerCase() !== 'accessories' &&
-      str(b['Image-URL']) &&
-      str(b['Slug']),
-  );
-  const priced = available.filter((b) => str(b['JBird Retail Price']));
-  const unpriced = available.filter((b) => !str(b['JBird Retail Price']));
-  return [...priced, ...unpriced].slice(0, CAROUSEL_SIZE).map((b) => ({
-    name: shortName(str(b['Title'])),
-    type: str(b['Category']) ? `${str(b['Category'])} eBike` : 'eBike',
-    img: str(b['Image-URL']),
-    href: `/product.html?slug=${encodeURIComponent(str(b['Slug']))}`,
-  }));
-}
 
 export default async function HomePage() {
-  const carouselBikes = pickCarouselBikes(await fetchCatalog());
-
   return (
     <div className={`${styles.page} ${barlow.variable} ${dmSans.variable}`}>
       <LocalBusinessSchema />
@@ -59,17 +25,21 @@ export default async function HomePage() {
               </p>
               <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.heroCardBtn}`}>Apply Now with Snap Finance</a>
             </div>
-            <div className={styles.heroCard}>
-              <p><strong>Fully assembled, safety certified, ready to ride.</strong> Many brands and models available.</p>
-              <a href="/sales.html" className={`${styles.btn} ${styles.btnBlue} ${styles.heroCardBtn}`}>
-                <span>Find Your <span className={styles.lower}>e</span>Ride</span>
-              </a>
-            </div>
           </div>
         </section>
 
-        {/* 02 Carousel */}
-        <BikeCarousel bikes={carouselBikes} />
+        {/* 02 Ready-to-ride callout */}
+        <section className={styles.readySection}>
+          <div className={styles.readyInner}>
+            <div className={styles.readyCopy}>
+              <h2>Fully assembled, safety certified, ready to ride.</h2>
+              <p>Many brands and models available<br className={styles.readyBreak} /> under <strong>$29.99/week</strong></p>
+            </div>
+            <a href="/sales.html" className={`${styles.btn} ${styles.btnBlue} ${styles.readyButton}`}>
+              <span>Find Your <span className={styles.lower}>e</span>Ride Now</span>
+            </a>
+          </div>
+        </section>
 
         {/* 03 Why JBird */}
         <section className={`${styles.wrap} ${styles.why}`}>
@@ -77,9 +47,8 @@ export default async function HomePage() {
             <div className={styles.whyText}>
               <h2 className={`${styles.h2} ${styles.whyTitle}`}>Why JBird Bikes</h2>
               <p>
-                JBird Bikes is your neighborhood electric ride shop, right on the Lafitte Greenway at 2336 St. Louis St.
-                We&apos;re not a website or a warehouse — we build, sell and fix every ride ourselves, and we&apos;re right
-                down the street when you need us.
+                We&apos;re a neighborhood shop at 2336 St. Louis St. We build every ride ourselves, and when it needs work,
+                you bring it back to us right down the street!
               </p>
               <div className={styles.whyPhoto}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -97,11 +66,11 @@ export default async function HomePage() {
               </li>
               <li className={styles.whyItem}>
                 <span className={styles.whyIcon} style={{ background: '#d43a2f' }}>NF</span>
-                <p><strong>Built for New Orleans streets.</strong>No-Flat tire sealant pre-installed.</p>
+                <p><strong>Built for New Orleans streets.</strong> We picked out the right eBike for the city.</p>
               </li>
               <li className={styles.whyItem}>
                 <span className={styles.whyIcon} style={{ background: '#f7d23e', color: '#16140f', border: '2px solid #16140f', fontSize: 20 }}>NOLA</span>
-                <p><strong>We&apos;re right here on the Greenway.</strong>On-site service and warranty work — no mailing parts to a warehouse.</p>
+                <p><strong>We&apos;re right here on the Greenway.</strong>Warranty work happens here. We never mail your parts away.</p>
               </li>
             </ul>
           </div>
@@ -133,7 +102,7 @@ export default async function HomePage() {
                   <p>Apply in minutes, get a decision in seconds. Approvals from $300 to $5,000.<Sup n={1} /></p>
                 </div>
                 <div className={styles.snapCard}>
-                  <h4>90-Day Same as Cash<Sup n={3} /> or low payments for 18 months.</h4>
+                  <h4>100-day option or low payments for 18 months.</h4>
                   <p>Get it now with lease-to-own financing.<Sup n={2} /></p>
                 </div>
               </div>
