@@ -380,8 +380,7 @@
       catalog.innerHTML = '<div class="grid">' + shown.map(makeCard).join('') + '</div>';
       return;
     }
-    const remaining = shown.filter(b => !isUnder29VehicleWeekly(b));
-    catalog.innerHTML = '<div class="groups">' + [under29WeeklyGroup(shown), ...groupedCategories(remaining).map(g =>
+    catalog.innerHTML = '<div class="groups">' + [under29WeeklyGroup(shown), ...groupedCategories(shown).map(g =>
       g.cat === LAST_CATEGORY ? accessoriesHtml(g.items) : groupHtml(g.cat, categoryLabel(g.cat), g.items, 'h2', 'model')
     )].filter(Boolean).join('') + '</div>';
   }
