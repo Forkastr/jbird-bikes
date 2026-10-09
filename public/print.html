@@ -5,578 +5,518 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JBird Bikes — Spec Sheet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"></noscript>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink: #16140f;
+      --cream: #faf7ef;
+      --yellow: #f7d23e;
+      --red: #d43a2f;
+      --muted: #77736b;
+      --line: #bcb8ae;
+      --display: 'Barlow Condensed', Impact, sans-serif;
+      --body: 'DM Sans', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px 16px; background: #d9d6ce; color: var(--ink); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+    [hidden] { display: none !important; }
+    .print-btn { position: fixed; z-index: 10; top: 16px; right: 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--yellow); color: var(--ink); padding: 12px 20px; font: 800 16px var(--display); text-transform: uppercase; cursor: pointer; }
+    .print-btn:hover { background: var(--ink); color: var(--yellow); }
+    .sheet { width: min(100%, 8.5in); min-height: 11in; margin: 0 auto; padding: .42in .45in .34in; background: var(--cream); box-shadow: 0 8px 40px rgba(0, 0, 0, .2); display: flex; flex-direction: column; gap: .13in; }
+    #sheet-content { display: flex; flex-direction: column; gap: .13in; }
+    #loading, #error-msg { margin: auto; padding: 3rem; text-align: center; }
+    #error-msg { color: var(--red); }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: #e5e7eb;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 2rem;
-    }
+    .sheet-header { min-height: .42in; padding-bottom: .1in; border-bottom: 2px solid var(--ink); display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; }
+    .brand-logo { display: flex; font: 900 30pt/ .82 var(--display); letter-spacing: .005em; text-transform: lowercase; white-space: nowrap; }
+    .brand-logo .j { color: #d43a2f; }
+    .brand-logo .b { color: #1f5fc8; }
+    .brand-logo .i { color: #2e8b3e; }
+    .brand-logo .d { color: #c99700; }
+    .brand-logo .k { color: #b3263a; }
+    .brand-logo .e { color: #2e8b3e; }
+    .header-contact { text-align: right; font-size: 8.5pt; line-height: 1.3; color: #555149; }
+    .header-contact strong { color: var(--ink); font-size: 9pt; }
 
-    /* ── PRINT BUTTON (screen only) ── */
-    .print-btn {
-      position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: #2d6a4f;
-      color: white;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      cursor: pointer;
-      z-index: 100;
-      transition: opacity 0.2s;
-    }
-    .print-btn:hover { opacity: 0.85; }
+    .top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .2in; align-items: stretch; }
+    .media-col, .offer-col { min-width: 0; min-height: 0; display: flex; flex-direction: column; gap: .12in; }
+    .photo-frame { position: relative; flex: 1 1 auto; min-height: 0; aspect-ratio: 1.22 / 1; overflow: hidden; border: 2px solid var(--ink); border-radius: 18px; background: #f1ede4; display: grid; place-items: center; }
+    .photo-frame img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; padding: .12in; object-fit: contain; object-position: center; mix-blend-mode: multiply; }
+    .no-image { color: var(--muted); font-size: 10pt; }
+    .photo-badge { position: absolute; right: 10px; bottom: 10px; max-width: calc(100% - 20px); border-radius: 999px; background: var(--ink); color: var(--yellow); padding: 5px 12px; font: 800 10pt var(--display); letter-spacing: .06em; text-transform: uppercase; }
+    .description { font-size: 9.2pt; line-height: 1.45; color: #514d45; }
+    .accessories { padding: .13in .17in; border: 2px solid var(--ink); border-radius: 16px; background: #fff; }
+    .accessories h2 { margin: 0 0 7px; font: 900 15pt/1 var(--display); text-transform: uppercase; }
+    .accessories ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+    .accessories li { display: grid; grid-template-columns: 10px 1fr auto; align-items: center; gap: 7px; font-size: 9pt; font-weight: 600; }
+    .addon-dot { width: 9px; height: 9px; border-radius: 50%; background: #2e8b3e; }
+    .addon-dot.blue { background: #1f5fc8; }
+    .addon-dot.red { background: var(--red); }
+    .addon-price { font: 900 12pt var(--display); white-space: nowrap; }
+    .addon-note { margin-top: 6px; color: #5b574e; font-size: 7pt; }
 
-    /* ── PAGE ── */
-    .page {
-      background: white;
-      width: 8.5in;
-      min-height: 11in;
-      padding: 0.5in 0.55in;
-      box-shadow: 0 4px 40px rgba(0,0,0,0.15);
-      display: flex;
-      flex-direction: column;
-      gap: 0.35in;
-    }
+    .product-title { margin: 0; font: 900 italic clamp(27pt, 4vw, 38pt)/.88 var(--display); text-transform: uppercase; overflow-wrap: anywhere; }
+    .color-line { min-height: 18px; display: flex; align-items: center; flex-wrap: wrap; gap: 7px; font-size: 9pt; font-weight: 700; }
+    .color-label { color: var(--muted); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; }
+    .color-chip { display: inline-flex; align-items: center; gap: 5px; }
+    .color-dot { width: 11px; height: 11px; border: 1px solid rgba(0,0,0,.3); border-radius: 50%; background: #bcb8ae; }
+    .price-card { flex: 1 1 auto; min-height: 0; border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; background: var(--cream); display: flex; flex-direction: column; }
+    .weekly-block { flex: 1 0 auto; min-height: 2.05in; padding: .17in .2in .12in; background: var(--yellow); display: flex; flex-direction: column; justify-content: center; }
+    .price-label { font-size: 8.5pt; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .weekly-value { display: flex; align-items: baseline; gap: 4px; white-space: nowrap; }
+    .weekly-value strong { color: var(--red); font: 900 clamp(98.8pt, 15.6vw, 140.4pt)/.82 var(--display); letter-spacing: -.04em; }
+    .weekly-value sup { align-self: flex-start; margin: .08in 0 0 0; color: var(--red); font: 900 20pt var(--display); }
+    .weekly-value span { font: 900 22pt/1 var(--display); white-space: nowrap; }
+    .weekly-note { margin: .08in 0 0; font-size: 8pt; font-weight: 600; line-height: 1.25; }
+    #sac-row .price-number { color: #2e8b3e; }
+    #sac-row .price-number small { color: var(--ink); }
+    .price-row { min-height: .52in; padding: .09in .17in; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 2px solid var(--ink); }
+    .price-row .price-label { max-width: 58%; font-size: 8.2pt; letter-spacing: .07em; }
+    .price-row .price-number { font: 900 29pt/.9 var(--display); white-space: nowrap; text-align: right; }
+    .price-row .price-number small { font-size: .52em; }
+    .price-note { padding: 7px 12px; border-top: 2px solid var(--ink); background: transparent; font-size: 7pt; line-height: 1.35; color: #514d45; }
+    .apply-panel { min-height: 1.55in; margin-top: -.06in; padding: .13in .15in; border: 2px solid var(--ink); border-radius: 17px; background: var(--ink); color: var(--cream); display: grid; grid-template-columns: 1.03in 1fr; gap: .14in; align-items: center; }
+    .qr { width: 1.03in; height: 1.03in; padding: 4px; border-radius: 10px; background: #fff; object-fit: contain; }
+    .apply-copy h2 { margin: 0 0 5px; color: var(--yellow); font: 900 16pt/.94 var(--display); text-transform: uppercase; }
+    .apply-copy p { margin: 0; font-size: 7.5pt; line-height: 1.35; color: #e5e1d8; }
+    .apply-copy .questions { margin-top: 5px; font-weight: 600; }
 
-    /* ── HEADER ── */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding-bottom: 0.15in;
-      border-bottom: 2.5px solid #2d6a4f;
-    }
-    .brand-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28pt;
-      letter-spacing: 2px;
-      color: #2d6a4f;
-      line-height: 1;
-    }
-    .brand-sub {
-      font-size: 8pt;
-      color: #6b7280;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-    .header-contact {
-      text-align: right;
-      font-size: 8.5pt;
-      color: #6b7280;
-      line-height: 1.6;
-    }
-    .header-contact strong {
-      color: #0a0a0a;
-      font-weight: 600;
-    }
+    .key-panel { min-width: 0; padding: .14in; border-radius: 17px; background: var(--ink); color: var(--cream); }
+    .section-title { margin: 0 0 8px; font: 900 17pt/.95 var(--display); text-transform: uppercase; }
+    .key-panel .section-title { color: var(--cream); }
+    .key-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+    .key-item { min-height: .58in; padding: 6px 8px; border-radius: 11px; background: #292720; display: flex; flex-direction: column; justify-content: center; gap: 2px; }
+    .key-item .key { color: #bbb7ad; font-size: 6.6pt; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .key-item .value { font: 900 15pt/.95 var(--display); overflow-wrap: anywhere; }
+    .key-grid:empty::after { content: 'Specifications not available'; color: #bbb7ad; font-size: 8pt; }
 
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.3in;
-      align-items: center;
-    }
-    .hero-text {}
-    .hero-eyebrow {
-      font-size: 7.5pt;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #2d6a4f;
-      margin-bottom: 4px;
-    }
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 36pt;
-      line-height: 1;
-      color: #0a0a0a;
-      margin-bottom: 8px;
-    }
-    .hero-desc {
-      font-size: 9pt;
-      line-height: 1.65;
-      color: #374151;
-      margin-bottom: 10px;
-    }
-    .hero-colors-label {
-      font-size: 7pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #9ca3af;
-      margin-bottom: 2px;
-    }
-    .hero-colors-val {
-      font-size: 9pt;
-      font-weight: 600;
-      color: #0a0a0a;
-    }
-    .badge-row {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .badge {
-      font-size: 7pt;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: #d8f3dc;
-      color: #2d6a4f;
-    }
-    .badge.accent { background: #fff3e0; color: #c05c00; }
+    .full-specs { display: block; }
+    .full-specs .section-title { margin-bottom: 5px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; }
+    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: .25in; }
+    .spec-row { min-width: 0; min-height: .22in; padding: 3px 0; border-bottom: 1px solid #d8d4cb; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 8pt; line-height: 1.2; }
+    .spec-row .key { color: #514d45; }
+    .spec-row .value { font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+    .legal { padding-top: 6px; border-top: 2px solid var(--ink); color: #514d45; font-size: 6.1pt; line-height: 1.25; }
+    .legal p { margin: 0 0 3px; }
+    .copyright { margin-top: 4px !important; font-weight: 600; }
 
-    .hero-img-wrap {
-      background: #f0f4f0;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      height: 2.6in;
-    }
-    .hero-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 0.1in;
-    }
-    .no-image {
-      font-size: 9pt;
-      color: #9ca3af;
+    @media (max-width: 700px) {
+      body { padding: 0; }
+      .print-btn { position: sticky; top: 8px; display: block; margin: 8px 8px 0 auto; }
+      .sheet { width: 100%; min-height: 100vh; padding: 18px; gap: 15px; box-shadow: none; }
+      .sheet-header { align-items: center; }
+      .brand-logo { font-size: 25pt; }
+      .header-contact { font-size: 7.5pt; }
+      .top-grid { grid-template-columns: 1fr; gap: 14px; }
+      .media-col, .offer-col { display: flex; gap: 14px; }
+      .product-title { font-size: clamp(34pt, 12vw, 50pt); }
+      .apply-panel { margin-top: -8px; }
+      .weekly-block { min-height: 1.7in; }
+      .weekly-value strong { font-size: clamp(88.4pt, 28.6vw, 119.6pt); }
+      .key-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .key-item { min-height: 62px; }
+      .spec-row { min-height: 28px; }
+      .legal { font-size: 7pt; }
     }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid #e5e7eb;
-    }
-
-    /* ── SECTION LABEL ── */
-    .section-label {
-      font-size: 7.5pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #9ca3af;
-      margin-bottom: 0.1in;
-    }
-
-    /* ── ICON ROW ── */
-    .icon-row {
-      display: grid;
-      grid-template-columns: repeat(8, 1fr);
-      gap: 8px;
-    }
-    .icon-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      background: #f8faf8;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 8px 4px;
-    }
-    .icon-card img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      margin-bottom: 5px;
-    }
-    .icon-label {
-      font-size: 6.5pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #9ca3af;
-      margin-bottom: 2px;
-    }
-    .icon-value {
-      font-size: 8pt;
-      font-weight: 600;
-      color: #0a0a0a;
-    }
-
-    /* ── FULL SPECS ── */
-    .specs-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 0.4in;
-    }
-    .spec-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 4px 0;
-      border-bottom: 0.5px solid #e5e7eb;
-    }
-    .spec-key {
-      font-size: 7.5pt;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #9ca3af;
-    }
-    .spec-val {
-      font-size: 8.5pt;
-      font-weight: 500;
-      color: #0a0a0a;
-      text-align: right;
-    }
-
-    /* ── STATUS ROW ── */
-    .status-row {
-      display: flex;
-      gap: 1.5rem;
-      background: #0a0a0a;
-      color: white;
-      border-radius: 8px;
-      padding: 8px 14px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .status-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 8pt;
-      font-weight: 500;
-    }
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #f4a261;
-      flex-shrink: 0;
-    }
-    .status-dot.green { background: #4ade80; }
-
-    /* ── FOOTER ── */
-    .footer {
-      margin-top: auto;
-      padding-top: 0.1in;
-      border-top: 1px solid #e5e7eb;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-left {
-      font-size: 7.5pt;
-      color: #9ca3af;
-      line-height: 1.5;
-    }
-    .footer-right {
-      font-size: 7.5pt;
-      color: #2d6a4f;
-      font-weight: 600;
-      text-align: right;
-    }
-
-    /* ── LOADING / ERROR ── */
-    #loading {
-      text-align: center;
-      padding: 3rem;
-      color: #6b7280;
-      font-size: 10pt;
-    }
-    #error-msg {
-      display: none;
-      text-align: center;
-      padding: 3rem;
-      color: #c0392b;
-      font-size: 10pt;
-    }
-    #sheet-content { display: none; }
-
-    /* ── PRINT ── */
     @media print {
-      @page { size: 8.5in 11in; margin: 0; }
-      body { background: white; padding: 0; }
+      @page { size: letter; margin: 0; }
+      html, body { width: 8.5in; min-height: 11in; margin: 0; padding: 0; background: var(--cream); print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       .print-btn { display: none !important; }
-      .page {
-        box-shadow: none;
-        width: 100%;
-        min-height: 100vh;
-        padding: 0.55in 0.6in;
-      }
+      .sheet { width: 8.5in; height: 11in; min-height: 11in; margin: 0; padding: .34in .42in .28in; box-shadow: none; gap: .095in; overflow: hidden; }
+      #sheet-content { gap: .095in; }
+      .sheet-header { min-height: .39in; padding-bottom: .07in; }
+      .brand-logo { font-size: 27pt; }
+      .top-grid { min-height: 7in; gap: .16in; }
+      .media-col, .offer-col { gap: .09in; }
+      .photo-frame { aspect-ratio: 1.2 / 1; border-radius: 15px; }
+      .photo-badge { right: 7px; bottom: 7px; padding: 4px 9px; font-size: 8.5pt; }
+      .description { font-size: 8.3pt; line-height: 1.35; }
+      .accessories { padding: .1in .13in; border-radius: 13px; }
+      .accessories h2 { font-size: 13pt; }
+      .accessories li { font-size: 8pt; }
+      .addon-price { font-size: 11pt; }
+      .product-title { font-size: 32pt; }
+      .color-line { font-size: 8.5pt; }
+      .weekly-block { min-height: 1.8in; padding: .13in .16in .1in; }
+      .weekly-value strong { font-size: 122.2pt; }
+      .weekly-value span { font-size: 19pt; }
+      .weekly-note { font-size: 7.2pt; }
+      .price-row { min-height: .47in; padding: .07in .14in; }
+      .price-row .price-number { font-size: 26pt; }
+      .price-note { padding: 5px 10px; font-size: 6.4pt; }
+      .apply-panel { min-height: 1.35in; margin-top: -.04in; padding: .1in .12in; grid-template-columns: .9in 1fr; gap: .12in; border-radius: 14px; }
+      .price-card { border-radius: 14px; }
+      .qr { width: .9in; height: .9in; }
+      .apply-copy h2 { font-size: 14pt; }
+      .apply-copy p { font-size: 6.7pt; }
+      .key-panel { padding: .11in; border-radius: 14px; }
+      .section-title { font-size: 15pt; margin-bottom: 6px; }
+      .key-grid { gap: 5px; }
+      .key-item { min-height: .5in; padding: 5px 6px; border-radius: 9px; }
+      .key-item .key { font-size: 6pt; }
+      .key-item .value { font-size: 13pt; }
+      .spec-grid { column-gap: .2in; }
+      .spec-row { min-height: .19in; padding: 2px 0; font-size: 7.2pt; }
+      .legal { padding-top: 4px; font-size: 5.6pt; line-height: 1.18; }
+      .legal p { margin-bottom: 2px; }
+      .copyright { margin-top: 2px !important; }
+      .top-grid, .full-specs, .legal, .price-card, .accessories, .apply-panel { break-inside: avoid; page-break-inside: avoid; }
     }
   </style>
 </head>
 <body>
+<button class="print-btn" type="button" onclick="window.print()">Print / Save PDF</button>
 
-<button class="print-btn" onclick="window.print()">⎙ Print / Save PDF</button>
-
-<div class="page">
+<main class="sheet">
   <div id="loading">Loading spec sheet…</div>
-  <div id="error-msg">Bike not found. <a href="sales.html">Return to catalog →</a></div>
+  <div id="error-msg" hidden>Bike not found. <a href="/sales.html">Return to catalog →</a></div>
 
-  <div id="sheet-content">
-
-    <!-- HEADER -->
-    <div class="header">
-      <div>
-        <div class="brand-name">JBird Bikes</div>
-        <div class="brand-sub">New Orleans · On the Lafitte Greenway</div>
+  <div id="sheet-content" hidden>
+    <header class="sheet-header">
+      <div class="brand-logo" aria-label="j-bird bikes">
+        <span><span class="j">j</span>-<span class="b">b</span><span class="i">i</span><span class="j">r</span><span class="d">d</span></span>
+        <span>&nbsp;<span class="b">b</span><span class="d">i</span><span class="k">k</span><span class="e">e</span><span class="j">s</span></span>
       </div>
       <div class="header-contact">
-        <strong>(504) 521-6997</strong><br>
-        jbirdbikes.com<br>
-        2336 St. Louis Street, New Orleans
+        <strong>2336 St. Louis St., New Orleans</strong><br>
+        On the Lafitte Greenway · (504) 521-6997
       </div>
-    </div>
+    </header>
 
-    <!-- HERO -->
-    <div class="hero">
-      <div class="hero-text">
-        <div class="hero-eyebrow" id="cat-label">eBike</div>
-        <div class="hero-title" id="bike-title">—</div>
-        <div class="hero-desc" id="bike-desc">—</div>
-        <div class="hero-colors-label">Colors Available</div>
-        <div class="hero-colors-val" id="bike-colors">—</div>
-        <div class="badge-row" id="badge-row"></div>
+    <section class="top-grid" aria-label="Ride details and pricing">
+      <div class="media-col">
+        <div class="photo-frame">
+          <img id="bike-img" alt="">
+          <span class="no-image" id="no-img">Image coming soon</span>
+          <span class="photo-badge" id="photo-badge"></span>
+        </div>
+        <div class="color-line" id="color-line" hidden>
+          <span class="color-label">Colors available:</span>
+          <span id="bike-colors"></span>
+        </div>
+        <section class="accessories" id="accessories">
+          <h2>Basic Accessories Available:</h2>
+          <ul>
+            <li><span class="addon-dot"></span><span>Flat-Free Tire Sealant</span><strong class="addon-price">Add $1.15*</strong></li>
+            <li><span class="addon-dot blue"></span><span>Tracker</span><strong class="addon-price">Add $1.15*</strong></li>
+            <li class="addon-lights"><span class="addon-dot red"></span><span>Lights</span><strong class="addon-price">Add $1.92*</strong></li>
+          </ul>
+          <p class="addon-note">*Estimated weekly payment; does not include tax.</p>
+        </section>
+        <section class="key-panel" aria-label="Key specifications">
+          <h2 class="section-title">Key Specifications</h2>
+          <div class="key-grid" id="key-grid"></div>
+        </section>
       </div>
-      <div class="hero-img-wrap">
-        <img id="bike-img" src="" alt="Bike image" style="display:none"/>
-        <div class="no-image" id="no-img">Image Coming Soon</div>
+
+      <div class="offer-col">
+        <h1 class="product-title" id="bike-title">—</h1>
+        <p class="description" id="bike-desc" hidden></p>
+        <section class="price-card" aria-label="Ride pricing">
+          <div class="weekly-block" id="weekly-block" hidden>
+            <span class="price-label">Lowest Lease Payment</span>
+            <div class="weekly-value"><strong id="weekly-value"></strong><sup id="weekly-star" hidden>*</sup><span>/week</span></div>
+            <p class="weekly-note" id="weekly-note" hidden><br><span>*72 weekly lease payments totaling <span id="total-lto-value"></span> to own.</span></p>
+          </div>
+          <div class="price-row" id="sac-row" hidden>
+            <span class="price-label">100-Day No Finance Fee<sup><a href="#d3">3</a></sup></span>
+            <strong class="price-number"><span id="sac-value"></span><small>/week</small></strong>
+          </div>
+          <div class="price-row" id="cash-row" hidden>
+            <span class="price-label">Cash Price</span>
+            <strong class="price-number" id="cash-value"></strong>
+          </div>
+          <div class="price-row" id="call-row" hidden>
+            <span class="price-label">Price</span>
+            <strong class="price-number">Call for price</strong>
+          </div>
+          <p class="price-note">Disclaimer: Weekly payments are estimated and do not include tax; apply for approval to receive exact amounts.</p>
+        </section>
+
+        <section class="apply-panel" aria-label="Apply with Snap Finance">
+          <img class="qr" src="/images/snap-small.png" alt="Scan to apply for Snap Finance">
+          <div class="apply-copy">
+            <h2>Scan to apply for an instant decision</h2>
+            <p>No credit needed.<sup>1</sup> Lease-to-own with Snap Finance.<sup>2</sup> Once approved, we’ll contact you to complete the transaction.</p>
+            <p class="questions">Questions: Call or Text: (504) 521-6997</p>
+          </div>
+        </section>
       </div>
-    </div>
+    </section>
 
-    <hr class="divider"/>
+    <section class="full-specs">
+      <h2 class="section-title">Full Specifications</h2>
+      <div class="spec-grid" id="spec-grid"></div>
+    </section>
 
-    <!-- ICON ROW -->
-    <div>
-      <div class="section-label">Key Specifications</div>
-      <div class="icon-row">
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1cl4DGrCVN_I9g4bG5uRgdAgqK52YKjTh&sz=w96" alt="Range"/>
-          <div class="icon-label">Range</div>
-          <div class="icon-value" id="spec-range">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1y1vSCUFY5XHdP6oSlJTHEeOOeyD59L1V&sz=w96" alt="Top Speed"/>
-          <div class="icon-label">Top Speed</div>
-          <div class="icon-value" id="spec-speed">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1ROBpnZZjU-E4QfLdDNAsUEsnO2eF6sIP&sz=w96" alt="Tire Size"/>
-          <div class="icon-label">Tire Size</div>
-          <div class="icon-value" id="spec-tire">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1uu7TQCQThHNSCnizHcBhFMaOoMbAy5OI&sz=w96" alt="Payload"/>
-          <div class="icon-label">Payload</div>
-          <div class="icon-value" id="spec-payload">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1GAR14wmTYe5XDip5Z6dEiYhembF95fdR&sz=w96" alt="Motor Size"/>
-          <div class="icon-label">Motor</div>
-          <div class="icon-value" id="spec-motor">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1UX5we1AbEX0WwPwebnpyHniDy8Nmo1x6&sz=w96" alt="Easy Storage"/>
-          <div class="icon-label">Storage</div>
-          <div class="icon-value" id="spec-storage">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1CX95NwQ1voa-e3qyvMizofmsuKTxcwCv&sz=w96" alt="Warranty"/>
-          <div class="icon-label">Warranty</div>
-          <div class="icon-value" id="spec-warranty">—</div>
-        </div>
-        <div class="icon-card">
-          <img src="https://drive.google.com/thumbnail?id=1VRe52zS-MvL-6ITqBoVh2e9HQv6-sq3S&sz=w96" alt="Safety"/>
-          <div class="icon-label">Safety</div>
-          <div class="icon-value" id="spec-safety">—</div>
-        </div>
-      </div>
-    </div>
-
-    <hr class="divider"/>
-
-    <!-- FULL SPECS -->
-    <div>
-      <div class="section-label">Full Specifications</div>
-      <div class="specs-grid">
-        <div class="spec-row"><span class="spec-key">Battery</span><span class="spec-val" id="spec-battery">—</span></div>
-        <div class="spec-row"><span class="spec-key">Battery Size</span><span class="spec-val" id="spec-batterysize">—</span></div>
-        <div class="spec-row"><span class="spec-key">Class</span><span class="spec-val" id="spec-class">—</span></div>
-        <div class="spec-row"><span class="spec-key">Bike Weight</span><span class="spec-val" id="spec-weight">—</span></div>
-        <div class="spec-row"><span class="spec-key">Charge Time</span><span class="spec-val" id="spec-chargetime">—</span></div>
-        <div class="spec-row"><span class="spec-key">Charger</span><span class="spec-val" id="spec-charger">—</span></div>
-        <div class="spec-row"><span class="spec-key">Headlight</span><span class="spec-val" id="spec-headlight">—</span></div>
-        <div class="spec-row"><span class="spec-key">Sensor Type</span><span class="spec-val" id="spec-sensor">—</span></div>
-        <div class="spec-row"><span class="spec-key">Frame Material</span><span class="spec-val" id="spec-frame">—</span></div>
-        <div class="spec-row"><span class="spec-key">Waterproof Rating</span><span class="spec-val" id="spec-waterproof">—</span></div>
-        <div class="spec-row"><span class="spec-key">Display / Console</span><span class="spec-val" id="spec-display">—</span></div>
-        <div class="spec-row"><span class="spec-key">Gears</span><span class="spec-val" id="spec-gears">—</span></div>
-        <div class="spec-row"><span class="spec-key">Suspension</span><span class="spec-val" id="spec-suspension">—</span></div>
-        <div class="spec-row"><span class="spec-key">Brakes</span><span class="spec-val" id="spec-brakes">—</span></div>
-      </div>
-    </div>
-
-    <!-- STATUS ROW -->
-    <div class="status-row">
-      <div class="status-item"><div class="status-dot green"></div><span id="status-jbird">—</span></div>
-      <div class="status-item"><div class="status-dot"></div><span id="status-category">—</span></div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      <div class="footer-left">
-        JBird Bikes New Orleans · 2336 St. Louis Street<br>
-        On the Lafitte Greenway · © 2026
-      </div>
-      <div class="footer-right">
-        jbirdbikes.com<br>
-        (504) 521-6997
-      </div>
-    </div>
-
-  </div><!-- end sheet-content -->
-</div><!-- end page -->
+    <footer class="legal">
+      <p id="d1"><strong>¹</strong> Not all applicants are approved. While no credit history is required, Snap obtains information from consumer reporting agencies in connection with submitted applications, and your score with those agencies may be affected.</p>
+      <p id="d2"><strong>²</strong> Lease-to-own agreement provided by Snap RTO LLC.</p>
+      <p id="d3" hidden><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe. The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
+      <p class="copyright">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
+    </footer>
+  </div>
+</main>
 
 <script src="/catalog.js"></script>
 <script>
+  const KEY_SPECS = ['Range', 'Top Speed', 'Tire Size', 'Payload', 'Motor Size', 'Easy Storage', 'Warranty', 'Safety'];
+  const COLOR_HEX = {
+    black: '#1b1b1b', white: '#f4f4f0', blue: '#2f5fb3', red: '#c8322b', orange: '#e8742a', silver: '#c0c3c6',
+    gray: '#8a8d8f', grey: '#8a8d8f', green: '#2e8b3e', brown: '#7a4b2a', pink: '#e88aa8', yellow: '#f7d23e',
+    purple: '#7b4fa6', lavender: '#b9a7d6', mint: '#a8e0c4', cream: '#f1e6c8', beige: '#e3d3b0', tan: '#c8a97e',
+  };
+  const EXCLUDED_SPECS = new Set([
+    'Brand', 'Slug', 'Title', 'Description', 'Image-URL', 'Colors Available', 'Category', 'Subcategory', 'Fits',
+    'Test Ride Available', 'JBird Status', 'JBird Retail Price', 'Cash Price', 'Lease to Own Weekly',
+    'Total LTO Payment', 'Same-As-Cash', ...KEY_SPECS,
+  ]);
+  const str = value => (value ?? '').toString().trim();
+  const $ = id => document.getElementById(id);
 
   function val(bike, key) {
-    const v = bike[key];
-    return (v !== undefined && v !== null && v !== '') ? v : '—';
+    return str(bike[key]) || '—';
   }
 
-  function set(id, text) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = text;
+  function money(value, wholeDollars = false) {
+    const raw = str(value);
+    if (!raw) return '';
+    let amount = Number(raw.replace(/[$,]/g, ''));
+    if (!Number.isFinite(amount)) return raw;
+    if (wholeDollars) amount = Math.round(amount);
+    return '$' + (Number.isInteger(amount)
+      ? amount.toLocaleString('en-US')
+      : amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
   }
 
-  // Hides the spec's tile/row when the sheet cell is blank or missing.
-  function setSpec(id, bike, key) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const v = (bike[key] ?? '').toString().trim();
-    el.textContent = v;
-    const item = el.closest('.icon-card, .spec-row');
-    if (item) item.style.display = v ? '' : 'none';
+  function shortName(title) {
+    return str(title).replace(/\s+(electric\s+(bike|bicycle)|e-?bike)$/i, '').trim() || str(title);
   }
 
-  // Hides a whole spec section (label + grid) when every spec in it is hidden.
-  function hideEmptySpecSection(grid, itemSelector) {
-    const anyShown = [...grid.querySelectorAll(itemSelector)].some(i => i.style.display !== 'none');
-    grid.parentElement.style.display = anyShown ? '' : 'none';
+  function categoryName(bike) {
+    const category = str(bike['Category']);
+    if (category.toLowerCase() === 'escooters') return 'eScooters';
+    if (category.toLowerCase() === 'etrikes') return 'eTrikes';
+    if (category.toLowerCase() === 'accessories') return str(bike['Subcategory']) || 'Accessories';
+    return category || 'eBike';
+  }
+
+  function getBrand(bike) {
+    const brand = str(bike['Brand']);
+    if (brand) return brand;
+    const prefix = str(bike['Slug']).split('-')[0];
+    return prefix ? prefix.charAt(0).toUpperCase() + prefix.slice(1).toLowerCase() : '';
+  }
+
+  function colorHex(name) {
+    const normalized = name.toLowerCase();
+    if (COLOR_HEX[normalized]) return COLOR_HEX[normalized];
+    const match = normalized.split(/[^a-z]+/).find(word => COLOR_HEX[word]);
+    return match ? COLOR_HEX[match] : '';
+  }
+
+  function setImage(url, title) {
+    const image = $('bike-img');
+    const noImage = $('no-img');
+    image.alt = title;
+    image.hidden = !url;
+    noImage.hidden = !!url;
+    if (!url) return;
+    image.onload = () => { image.hidden = false; noImage.hidden = true; };
+    image.onerror = () => { image.hidden = true; noImage.hidden = false; };
+    image.src = url;
+  }
+
+  function renderColors(rawColors) {
+    const container = $('bike-colors');
+    const colors = str(rawColors).split(/[,;]/).map(value => value.trim()).filter(Boolean);
+    container.replaceChildren();
+    colors.forEach((option, index) => {
+      const label = option.replace(/\(oos\)/ig, '').trim();
+      if (!label) return;
+      const parts = label.split(/\s\/\s/).map(value => value.trim()).filter(Boolean);
+      if (index) container.append(' ');
+      parts.forEach((part, partIndex) => {
+        if (partIndex) container.append(' / ');
+        const item = document.createElement('span');
+        item.className = 'color-chip';
+        const color = colorHex(part);
+        if (color) {
+          const dot = document.createElement('span');
+          dot.className = 'color-dot';
+          dot.style.backgroundColor = color;
+          item.appendChild(dot);
+        }
+        item.append(document.createTextNode(part));
+        container.appendChild(item);
+      });
+    });
+    $('color-line').hidden = container.childNodes.length === 0;
+  }
+
+  function renderKeySpecs(bike) {
+    const grid = $('key-grid');
+    grid.replaceChildren();
+    KEY_SPECS.forEach(key => {
+      const value = str(bike[key]);
+      if (!value) return;
+      const item = document.createElement('div');
+      item.className = 'key-item';
+      const label = document.createElement('span');
+      label.className = 'key';
+      label.textContent = key === 'Motor Size' ? 'Motor Size' : key;
+      const output = document.createElement('strong');
+      output.className = 'value';
+      output.textContent = value;
+      item.append(label, output);
+      grid.appendChild(item);
+    });
+  }
+
+  function renderFullSpecs(bike) {
+    const grid = $('spec-grid');
+    grid.replaceChildren();
+    Object.entries(bike).forEach(([key, rawValue]) => {
+      const value = str(rawValue);
+      if (!value || EXCLUDED_SPECS.has(key)) return;
+      const row = document.createElement('div');
+      row.className = 'spec-row';
+      const label = document.createElement('span');
+      label.className = 'key';
+      label.textContent = key;
+      const output = document.createElement('strong');
+      output.className = 'value';
+      output.textContent = value;
+      row.append(label, output);
+      grid.appendChild(row);
+    });
+    document.querySelector('.full-specs').hidden = grid.childElementCount === 0;
+  }
+
+  function renderPricing(bike) {
+    const weekly = money(bike['Lease to Own Weekly'], true);
+    const totalLto = money(bike['Total LTO Payment']) || (str(bike['Slug']).toLowerCase() === 'gotrax-f1' ? '$2,304' : '');
+    const sac = money(bike['Same-As-Cash'], true);
+    const cash = money(bike['Cash Price']) || money(bike['JBird Retail Price']);
+
+    $('weekly-block').hidden = !weekly;
+    $('weekly-value').textContent = weekly;
+    $('weekly-star').hidden = !weekly || !totalLto;
+    $('weekly-note').hidden = !weekly || !totalLto;
+    $('total-lto-value').textContent = totalLto;
+    $('sac-row').hidden = !sac;
+    $('sac-value').textContent = sac;
+    $('cash-row').hidden = !cash;
+    $('cash-value').textContent = cash;
+    $('call-row').hidden = !!(weekly || sac || cash);
+    $('d3').hidden = !sac;
+  }
+
+  function renderAccessories(bike) {
+    const category = str(bike['Category']).toLowerCase();
+    const isAccessory = category === 'accessories';
+    const isScooter = category === 'escooters';
+    $('accessories').hidden = isAccessory;
+    document.querySelector('.addon-lights').hidden = isScooter;
   }
 
   function showSheetError() {
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('sheet-content').style.display = 'none';
-    document.getElementById('error-msg').style.display = 'block';
+    $('loading').hidden = true;
+    $('sheet-content').hidden = true;
+    $('error-msg').hidden = false;
   }
+
+  const keyPanel = document.querySelector('.key-panel');
+  const applyPanel = document.querySelector('.apply-panel');
+  const priceCard = document.querySelector('.price-card');
+  const weeklyBlock = document.querySelector('#weekly-block');
+  const weeklyValue = document.querySelector('.weekly-value');
+  const weeklyPrice = document.querySelector('.weekly-value strong');
+  function syncPanelHeights() {
+    keyPanel.style.height = 'auto';
+    applyPanel.style.height = 'auto';
+    const panelHeight = Math.max(keyPanel.offsetHeight, applyPanel.offsetHeight);
+    keyPanel.style.height = `${panelHeight}px`;
+    applyPanel.style.height = `${panelHeight}px`;
+  }
+
+  function syncWeeklyPriceSize() {
+    weeklyPrice.style.fontSize = '';
+    if (weeklyBlock.hidden) return;
+
+    const baseFontSize = parseFloat(getComputedStyle(weeklyPrice).fontSize);
+    const weeklyStyle = getComputedStyle(weeklyBlock);
+    const weeklyNote = document.querySelector('.weekly-note');
+    const noteMargin = weeklyNote.hidden ? 0 : parseFloat(getComputedStyle(weeklyNote).marginTop);
+    const contentHeight = parseFloat(weeklyStyle.paddingTop) + parseFloat(weeklyStyle.paddingBottom) +
+      document.querySelector('.weekly-block > .price-label').offsetHeight + weeklyValue.offsetHeight +
+      (weeklyNote.hidden ? 0 : weeklyNote.offsetHeight + noteMargin);
+    const baselineWeeklyHeight = Math.max(parseFloat(weeklyStyle.minHeight), contentHeight);
+    const fixedHeight = [...priceCard.querySelectorAll('#sac-row:not([hidden]), #cash-row:not([hidden]), #call-row:not([hidden]), .price-note')]
+      .reduce((height, element) => height + element.offsetHeight, 4);
+    const baselineCardHeight = baselineWeeklyHeight + fixedHeight;
+    const scale = Math.min(1.3, Math.max(1, priceCard.clientHeight / baselineCardHeight));
+    weeklyPrice.style.fontSize = `${baseFontSize * scale}px`;
+  }
+
+  function syncPrintLayout() {
+    syncPanelHeights();
+    syncWeeklyPriceSize();
+  }
+
+  const panelResizeObserver = new ResizeObserver(syncPanelHeights);
+  panelResizeObserver.observe(document.querySelector('#key-grid'));
+  panelResizeObserver.observe(document.querySelector('.product-title'));
+  panelResizeObserver.observe(document.querySelector('.description'));
+  panelResizeObserver.observe(document.querySelector('.price-card'));
+  panelResizeObserver.observe(document.querySelector('.apply-copy'));
+  window.addEventListener('resize', syncPrintLayout);
+  window.addEventListener('beforeprint', syncPrintLayout);
+  document.fonts.ready.then(syncPrintLayout);
 
   let printScheduled = false;
-
-  // Called with the saved copy first, then again if the background refresh brings changes.
   function showSheet(bikes, slug) {
-      const bike = bikes.find(b =>
-        (b['Slug'] || '').toString().toLowerCase() === slug.toLowerCase() ||
-        (b['Title'] || '').toString().toLowerCase() === slug.toLowerCase()
-      );
+    const bike = bikes.find(item =>
+      str(item['Slug']).toLowerCase() === slug.toLowerCase() ||
+      str(item['Title']).toLowerCase() === slug.toLowerCase()
+    );
+    if (!bike) {
+      showSheetError();
+      return;
+    }
 
-      if (!bike) { showSheetError(); return; }
+    const name = shortName(bike['Title']);
+    const brand = getBrand(bike);
+    const fullName = brand && !name.toLowerCase().startsWith(brand.toLowerCase()) ? `${brand} ${name}` : name;
+    document.title = `${fullName} — JBird Bikes Spec Sheet`;
+    $('bike-title').textContent = fullName;
+    $('bike-desc').textContent = str(bike['Description']);
+    $('bike-desc').hidden = !str(bike['Description']);
+    $('photo-badge').textContent = `${brand} - ${categoryName(bike)}`;
+    $('photo-badge').hidden = !brand && !str(bike['Category']);
+    setImage(str(bike['Image-URL']), fullName);
+    renderColors(bike['Colors Available']);
+    renderPricing(bike);
+    renderAccessories(bike);
+    renderKeySpecs(bike);
+    renderFullSpecs(bike);
 
-      document.title = `${val(bike,'Title')} — JBird Bikes Spec Sheet`;
-
-      set('bike-title', val(bike, 'Title'));
-      set('bike-desc', val(bike, 'Description'));
-      set('bike-colors', val(bike, 'Colors Available'));
-      set('cat-label', val(bike, 'Category'));
-
-      const img = document.getElementById('bike-img');
-      const noImg = document.getElementById('no-img');
-      const imgUrl = val(bike, 'Image-URL');
-      if (imgUrl && imgUrl !== '—' && img.getAttribute('src') !== imgUrl) {
-        img.onload = function() { img.style.display = 'block'; noImg.style.display = 'none'; };
-        img.onerror = function() { img.style.display = 'none'; noImg.style.display = 'flex'; };
-        img.style.display = 'block';
-        img.src = imgUrl;
-      }
-
-      const badgeRow = document.getElementById('badge-row');
-      badgeRow.innerHTML = '';
-      if (val(bike,'JBird Status') !== '—') {
-        const b = document.createElement('span');
-        b.className = 'badge';
-        b.textContent = val(bike,'JBird Status');
-        badgeRow.appendChild(b);
-      }
-
-      setSpec('spec-range', bike, 'Range');
-      setSpec('spec-speed', bike, 'Top Speed');
-      setSpec('spec-tire', bike, 'Tire Size');
-      setSpec('spec-payload', bike, 'Payload');
-      setSpec('spec-motor', bike, 'Motor Size');
-      setSpec('spec-storage', bike, 'Easy Storage');
-      setSpec('spec-warranty', bike, 'Warranty');
-      setSpec('spec-safety', bike, 'Safety');
-
-      setSpec('spec-battery', bike, 'Battery');
-      setSpec('spec-batterysize', bike, 'Battery Size');
-      setSpec('spec-class', bike, 'Class');
-      setSpec('spec-weight', bike, 'Bike Weight');
-      setSpec('spec-chargetime', bike, 'Charge Time');
-      setSpec('spec-charger', bike, 'Charger');
-      setSpec('spec-headlight', bike, 'Headlight');
-      setSpec('spec-sensor', bike, 'Sensor Type');
-      setSpec('spec-frame', bike, 'Frame Material');
-      setSpec('spec-waterproof', bike, 'Waterproof Rating');
-      setSpec('spec-display', bike, 'Display / Console');
-      setSpec('spec-gears', bike, 'Gears');
-      setSpec('spec-suspension', bike, 'Suspension');
-      setSpec('spec-brakes', bike, 'Brakes');
-      hideEmptySpecSection(document.querySelector('.icon-row'), '.icon-card');
-      hideEmptySpecSection(document.querySelector('.specs-grid'), '.spec-row');
-
-      set('status-jbird', val(bike, 'JBird Status'));
-      set('status-category', val(bike, 'Category') + ' eBike');
-
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('sheet-content').style.display = 'block';
-
-      // Auto-trigger print once, after a short delay to let images (and any background refresh) land
-      if (!printScheduled) {
-        printScheduled = true;
-        setTimeout(() => window.print(), 1200);
-      }
+    $('loading').hidden = true;
+    $('error-msg').hidden = true;
+    $('sheet-content').hidden = false;
+    syncPrintLayout();
+    if (!printScheduled) {
+      printScheduled = true;
+      setTimeout(() => window.print(), 1200);
+    }
   }
 
-  function loadSheet() {
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug') || params.get('model');
-
-    if (!slug) { showSheetError(); return; }
-
-    loadJBirdCatalog(bikes => showSheet(bikes, slug), showSheetError);
-  }
-
-  loadSheet();
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug') || params.get('model');
+  if (!slug) showSheetError();
+  else loadJBirdCatalog(bikes => showSheet(bikes, slug), showSheetError);
 </script>
 </body>
 </html>

@@ -49,13 +49,34 @@
     .product { padding-top: 4px; padding-bottom: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(20px, 4vw, 48px); align-items: start; }
     .media { display: flex; flex-direction: column; gap: 16px; }
     .photo { aspect-ratio: 4 / 3; border: 2px solid var(--ink); border-radius: 24px; background: #f2eee4; display: flex; align-items: center; justify-content: center; padding: clamp(12px, 3vw, 32px); overflow: hidden; }
-    .photo img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+    .photo img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; transition: transform .12s ease-out; }
+    @media (hover: hover) and (pointer: fine) {
+      .photo.zoom-enabled { cursor: zoom-in; }
+      .photo.zoom-enabled.zoom-active { cursor: zoom-out; }
+      .photo.zoom-enabled.zoom-active img { transform: scale(2.2); transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%); }
+    }
     .photo .no-img { background: var(--cream); border: 2px solid var(--ink); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 700; }
     .info { display: flex; flex-direction: column; gap: 20px; }
     .title-block { display: flex; flex-direction: column; gap: 8px; }
     .photo-frame { position: relative; }
     .type-badge { position: absolute; bottom: 14px; right: 14px; z-index: 1; max-width: calc(100% - 28px); background: var(--ink); color: var(--yellow); padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
     @media (max-width: 600px) { .type-badge { bottom: 10px; right: 10px; padding: 4px 9px; font-size: 10px; letter-spacing: .06em; } }
+    .full-image-button { display: none; }
+    .image-zoom-dialog { position: fixed; inset: 0; width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #16140f; color: var(--cream); overflow: hidden; }
+    .image-zoom-dialog::backdrop { background: #16140f; }
+    .zoom-viewer { position: absolute; inset: 72px 12px 84px; display: flex; align-items: center; justify-content: center; overflow: hidden; touch-action: none; }
+    .zoom-viewer img { max-width: 100%; max-height: 100%; object-fit: contain; transform-origin: center; user-select: none; -webkit-user-drag: none; }
+    .zoom-dialog-controls { position: absolute; top: 12px; left: 12px; right: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .zoom-controls { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; }
+    .zoom-dialog-button { min-width: 48px; min-height: 48px; padding: 8px 14px; border: 2px solid var(--cream); border-radius: 999px; background: #26231c; color: var(--cream); font: 700 18px 'DM Sans', sans-serif; cursor: pointer; }
+    .zoom-dialog-button:hover { background: var(--blue); }
+    #zoom-level { min-width: 58px; text-align: center; font-weight: 700; }
+    @media (max-width: 760px) {
+      .full-image-button { position: absolute; z-index: 2; left: 12px; bottom: 12px; display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 8px 14px; border: 2px solid var(--ink); border-radius: 999px; background: var(--cream); color: var(--ink); font: 800 15px 'Barlow Condensed', sans-serif; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; }
+      .image-zoom-dialog { height: 100dvh; }
+      .zoom-viewer { inset: 72px 12px 84px; }
+      .zoom-dialog-button { min-width: 48px; min-height: 48px; }
+    }
     .info h1 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(48px, 7vw, 84px); line-height: .88; }
     .desc { font-size: 17px; line-height: 1.55; color: var(--body); text-wrap: pretty; }
     .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -105,10 +126,14 @@
     .price-weekly .per { font-family: var(--display); font-weight: 800; font-size: 28px; text-transform: none; }
     .total-lto-note { margin-top: 4px; text-align: left; font-size: 13px; line-height: 1.3; }
     .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); background: var(--cream); }
+    .price-grid.has-sac-and-cash { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
     .price-cell { padding: 16px 22px; display: flex; flex-direction: column; gap: 2px; }
     .price-cell:not([hidden]) + .price-cell { border-left: 2px solid var(--ink); }
     .price-cell .label { letter-spacing: .04em; color: var(--body); }
     .price-cell .value { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1; }
+    #cell-sac .value { font-size: 45px; }
+    #cell-sac #sac-value { color: var(--green); }
+    #cell-sac .value small { color: var(--ink); }
     #cash-value { font-size: 48px; }
     .price-cell .value small { font-size: 20px; font-weight: 800; }
     .price-call { padding: 20px 22px; background: var(--cream); display: flex; flex-direction: column; gap: 4px; }
@@ -128,6 +153,7 @@
     .perks ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; }
     .perks li { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 700; }
     .addon-price { margin-left: auto; font-family: var(--display); font-weight: 900; font-size: 20px; }
+    .addon-note { font-size: 13px; line-height: 1.35; color: var(--muted); }
     .tick { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
     .perks .fits-list li { display: list-item; list-style: disc; margin-left: 20px; }
     .apply-row { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -243,7 +269,8 @@
     <section class="wrap product">
       <div class="media">
         <div class="photo-frame">
-          <div class="photo" id="photo"></div>
+          <div class="photo" id="photo" role="button" tabindex="0" aria-label="Open full-size product image"></div>
+          <button type="button" class="full-image-button" id="full-image-button" hidden>Full Image</button>
           <span class="type-badge" id="type-badge"></span>
         </div>
 
@@ -251,10 +278,11 @@
         <div class="perks addons perks-desktop">
           <span class="perks-title">Basic Accessories Available:</span>
           <ul>
-            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="35" data-trike-price="50">$35</span></li>
-            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">$35</span></li>
-            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="60" data-trike-price="75">$60</span></li>
+            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="Add $1.15*" data-trike-price="Add $1.59*">Add $1.15*</span></li>
+            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">Add $1.15*</span></li>
+            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="Add $1.92*" data-trike-price="Add $2.39*">Add $1.92*</span></li>
           </ul>
+          <p class="addon-note">*Estimated weekly payment; does not include tax.</p>
         </div>
       </div>
 
@@ -290,7 +318,7 @@
           </div>
           <div class="price-grid" id="price-grid">
             <div class="price-cell" id="cell-sac">
-              <span class="label">90-Day No Finance Fee<sup><a href="#d3">3</a></sup></span>
+              <span class="label">100-Day No Finance Fee<sup><a href="#d3">3</a></sup></span>
               <span class="value"><span id="sac-value"></span><small>/week</small></span>
             </div>
             <div class="price-cell" id="cell-cash">
@@ -312,10 +340,11 @@
         <div class="perks addons perks-mobile">
           <span class="perks-title">Basic Accessories Available:</span>
           <ul>
-            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="35" data-trike-price="50">$35</span></li>
-            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">$35</span></li>
-            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="60" data-trike-price="75">$60</span></li>
+            <li><span class="tick" style="background:#2e8b3e"></span>Flat-Free Tire Sealant<span class="addon-price" data-price="Add $1.15*" data-trike-price="Add $1.59*">Add $1.15*</span></li>
+            <li><span class="tick" style="background:#1f5fc8"></span>Tracker<span class="addon-price">Add $1.15*</span></li>
+            <li class="addon-lights"><span class="tick" style="background:#d43a2f"></span>Lights<span class="addon-price" data-price="Add $1.92*" data-trike-price="Add $2.39*">Add $1.92*</span></li>
           </ul>
+          <p class="addon-note">*Estimated weekly payment; does not include tax.</p>
         </div>
 
         <div class="apply-row no-print">
@@ -324,7 +353,7 @@
           </a>
         </div>
         <div class="after-apply">
-          <p>Once we receive your approval, we will contact you to complete your lease agreement.</p>
+          <p>Once approved, we’ll contact you to complete the transaction.</p>
           <p><strong>Questions:</strong> Call or Text: <a href="tel:5045216997">(504) 521-6997</a></p>
         </div>
       </div>
@@ -356,6 +385,21 @@
     </section>
   </div>
 </main>
+
+<dialog class="image-zoom-dialog" id="image-zoom-dialog" aria-label="Full-size product image">
+  <div class="zoom-dialog-controls">
+    <span id="zoom-image-name"></span>
+    <button type="button" class="zoom-dialog-button" id="zoom-close" aria-label="Close full image">Close</button>
+  </div>
+  <div class="zoom-viewer" id="zoom-viewer">
+    <img id="zoom-image" alt="">
+  </div>
+  <div class="zoom-controls" aria-label="Image zoom controls">
+    <button type="button" class="zoom-dialog-button" id="zoom-out" aria-label="Zoom out">−</button>
+    <span id="zoom-level" aria-live="polite">100%</span>
+    <button type="button" class="zoom-dialog-button" id="zoom-in" aria-label="Zoom in">+</button>
+  </div>
+</dialog>
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
@@ -490,8 +534,22 @@
     if ($('photo').dataset.src !== img) {
       $('photo').dataset.src = img;
       $('photo').innerHTML = img
-        ? `<img src="${esc(img)}" alt="${esc(fullName)}" onerror="this.outerHTML='<span class=&quot;no-img&quot;>Photo coming soon</span>'">`
+        ? `<img src="${esc(img)}" alt="${esc(fullName)}">`
         : '<span class="no-img">Photo coming soon</span>';
+    }
+    const photoImage = $('photo').querySelector('img');
+    $('photo').classList.toggle('zoom-enabled', !!photoImage);
+    $('full-image-button').hidden = !photoImage;
+    $('zoom-image').src = photoImage ? photoImage.src : '';
+    $('zoom-image').alt = fullName;
+    $('zoom-image-name').textContent = fullName;
+    if (photoImage) {
+      photoImage.addEventListener('error', () => {
+        $('photo').innerHTML = '<span class="no-img">Photo coming soon</span>';
+        $('photo').classList.remove('zoom-enabled', 'zoom-active');
+        $('full-image-button').hidden = true;
+        $('zoom-image').removeAttribute('src');
+      }, { once: true });
     }
 
     // The sheet's Colors Available column also holds sizes (Small, Medium…) and variants (Step Thru, G4 500W…),
@@ -532,6 +590,7 @@
     $('cell-cash').hidden = !cash;
     $('cash-value').textContent = cash;
     $('price-grid').hidden = !sac && !cash;
+    $('price-grid').classList.toggle('has-sac-and-cash', !!(sac && cash));
     $('price-call').hidden = !!(weekly || sac || cash);
     $('total-payment-star').hidden = !weekly || !totalLto;
     $('total-lto-note').hidden = !weekly || !totalLto;
@@ -540,7 +599,6 @@
     $('price-box').classList.toggle('two-up', !!(weekly && cash && !sac));
 
     // Bikes, scooters and trikes show the add-ons (no lights for scooters, which can't take them).
-    // eTrikes pay $15 more for sealant and lights because of the third wheel (data-trike-price).
     // Accessories show what they fit above the colours instead (no Fits value, no box) and have no spec sections.
     const isAccessory = str(bike['Category']).toLowerCase() === 'accessories';
     const isScooter = str(bike['Category']).toLowerCase() === 'escooters';
@@ -552,7 +610,7 @@
       box.hidden = isAccessory;
       box.querySelector('.addon-lights').hidden = isScooter;
       box.querySelectorAll('[data-trike-price]').forEach(el => {
-        el.textContent = '$' + (isTrike ? el.dataset.trikePrice : el.dataset.price);
+        el.textContent = isTrike ? el.dataset.trikePrice : el.dataset.price;
       });
     });
 
@@ -571,6 +629,99 @@
     $('error-msg').hidden = true;
     $('product-content').hidden = false;
   }
+
+  const imageDialog = $('image-zoom-dialog');
+  const zoomViewer = $('zoom-viewer');
+  let imageZoom = 1;
+  let imagePanX = 0;
+  let imagePanY = 0;
+  let panPointer = null;
+  let panStartX = 0;
+  let panStartY = 0;
+  let bodyOverflowBeforeZoom = '';
+  let imageZoomOpener = null;
+
+  function renderImageZoom() {
+    $('zoom-image').style.transform = `translate(${imagePanX}px, ${imagePanY}px) scale(${imageZoom})`;
+    $('zoom-level').textContent = `${Math.round(imageZoom * 100)}%`;
+    $('zoom-out').disabled = imageZoom <= 1;
+  }
+
+  function openImageZoom(event) {
+    if (!$('zoom-image').getAttribute('src')) return;
+    imageZoomOpener = event.currentTarget;
+    imageZoom = 1;
+    imagePanX = 0;
+    imagePanY = 0;
+    renderImageZoom();
+    bodyOverflowBeforeZoom = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    imageDialog.showModal();
+    $('zoom-close').focus();
+  }
+
+  function closeImageZoom() {
+    if (imageDialog.open) imageDialog.close();
+  }
+
+  $('full-image-button').addEventListener('click', openImageZoom);
+  $('photo').addEventListener('click', openImageZoom);
+  $('photo').addEventListener('keydown', e => {
+    if (e.target === $('photo') && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      openImageZoom(e);
+    }
+  });
+  $('photo').addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse' || !window.matchMedia('(hover: hover) and (pointer: fine)').matches || !$('photo').classList.contains('zoom-enabled')) return;
+    const bounds = $('photo').getBoundingClientRect();
+    const image = $('photo').querySelector('img');
+    image.style.transformOrigin = `${Math.max(0, Math.min(100, ((e.clientX - bounds.left) / bounds.width) * 100))}% ${Math.max(0, Math.min(100, ((e.clientY - bounds.top) / bounds.height) * 100))}%`;
+    image.style.transform = 'scale(2.2)';
+    $('photo').classList.add('zoom-active');
+  });
+  $('photo').addEventListener('pointerleave', () => {
+  const image = $('photo').querySelector('img');
+  if (image) {
+    image.style.transform = '';
+    image.style.transformOrigin = '';
+  }
+  $('photo').classList.remove('zoom-active');
+  });
+  $('zoom-close').addEventListener('click', closeImageZoom);
+  imageDialog.addEventListener('click', e => {
+    if (e.target === imageDialog) closeImageZoom();
+  });
+  imageDialog.addEventListener('close', () => {
+    document.body.style.overflow = bodyOverflowBeforeZoom;
+    (imageZoomOpener && imageZoomOpener.isConnected && !imageZoomOpener.hidden ? imageZoomOpener : $('photo')).focus();
+  });
+  $('zoom-in').addEventListener('click', () => {
+    imageZoom = Math.min(4, imageZoom + 0.5);
+    renderImageZoom();
+  });
+  $('zoom-out').addEventListener('click', () => {
+    imageZoom = Math.max(1, imageZoom - 0.5);
+    if (imageZoom === 1) imagePanX = imagePanY = 0;
+    renderImageZoom();
+  });
+  zoomViewer.addEventListener('pointerdown', e => {
+    if (imageZoom <= 1 || e.target !== $('zoom-image')) return;
+    panPointer = e.pointerId;
+    panStartX = e.clientX - imagePanX;
+    panStartY = e.clientY - imagePanY;
+    zoomViewer.setPointerCapture(e.pointerId);
+  });
+  zoomViewer.addEventListener('pointermove', e => {
+    if (e.pointerId !== panPointer) return;
+    imagePanX = e.clientX - panStartX;
+    imagePanY = e.clientY - panStartY;
+    renderImageZoom();
+  });
+  zoomViewer.addEventListener('pointerup', e => {
+    if (e.pointerId === panPointer) panPointer = null;
+  });
+  zoomViewer.addEventListener('pointercancel', () => { panPointer = null; });
 
   const params = new URLSearchParams(window.location.search);
   const slug = params.get('slug') || params.get('model');
