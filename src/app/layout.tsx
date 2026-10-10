@@ -7,11 +7,11 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://jbirdbikes.com'),
   title: {
-    default: 'JBird Bikes | Authorized Dealer: Gotrax, Aventon, Lectric eBikes New Orleans',
+    default: 'JBird Bikes | Lease-to-Own eBikes in New Orleans',
     template: '%s | JBird Bikes New Orleans',
   },
   description:
-    'Buy Gotrax, Aventon, Lectric & Retrospec eBikes fully assembled with local service on the Lafitte Greenway in New Orleans. In-store pickup today!',
+    'Flexible lease-to-own options on eBikes. Check your eligibility and terms in minutes. Local shop on the Lafitte Greenway.',
   keywords: [
     'Aventon eBikes New Orleans',
     'Lectric eBike dealer NOLA',
@@ -39,23 +39,23 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://jbirdbikes.com',
     siteName: 'JBird Bikes New Orleans',
-    title: 'JBird Bikes | Authorized Dealer: Gotrax, Aventon, Lectric eBikes New Orleans',
+    title: 'JBird Bikes | Lease-to-Own eBikes in New Orleans',
     description:
-      'Buy Gotrax, Aventon, Lectric & Retrospec eBikes fully assembled with local service on the Lafitte Greenway in New Orleans. In-store pickup today!',
+      'Flexible lease-to-own options on eBikes. Check your eligibility and terms in minutes. Local shop on the Lafitte Greenway.',
     images: [
       {
         url: '/hero-bike.jpg',
         width: 1200,
         height: 630,
-        alt: 'JBird Bikes — Authorized eBike Dealer on the Lafitte Greenway, New Orleans',
+        alt: 'JBird Bikes — Lease-to-Own eBikes in New Orleans',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'JBird Bikes | Authorized eBike Dealer — New Orleans',
+    title: 'JBird Bikes | Lease-to-Own eBikes in New Orleans',
     description:
-      'Buy Gotrax, Aventon, Lectric & Retrospec eBikes fully assembled with local service on the Lafitte Greenway in New Orleans. In-store pickup today!',
+      'Flexible lease-to-own options on eBikes. Check your eligibility and terms in minutes. Local shop on the Lafitte Greenway.',
     images: ['/hero-bike.jpg'],
   },
   robots: {
