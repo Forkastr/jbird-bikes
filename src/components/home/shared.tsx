@@ -14,6 +14,39 @@ export const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'
 export const SNAP_URL =
   'https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D';
 
+export function SocialButtons() {
+  return (
+    <section className={styles.socialCta} aria-labelledby="social-cta-title">
+      <h2 id="social-cta-title" className={styles.socialTitle}>Follow &amp; Review Us</h2>
+      <nav className={styles.socialLinks} aria-label="Follow and review JBird Bikes">
+        <a href="https://facebook.com/JBirdBikeShop" target="_blank" rel="noopener noreferrer" className={`${styles.socialButton} ${styles.socialFacebookButton}`}>
+          <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.1h2.8v8h3.4z" />
+          </svg>
+          Facebook
+        </a>
+        <a href="https://instagram.com/jbirdbikes" target="_blank" rel="noopener noreferrer" className={`${styles.socialButton} ${styles.socialInstagramButton}`}>
+          <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          Instagram
+        </a>
+        <a href="https://www.google.com/search?kgmid=/g/11z5pgpn_8&q=JBird+Bike+Shop" target="_blank" rel="noopener noreferrer" className={`${styles.socialButton} ${styles.socialGoogleButton}`}>
+          <svg className={styles.socialIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47c-.28 1.45-1.1 2.68-2.33 3.51v2.93h3.78c2.21-2.04 3.57-5.05 3.57-8.68z" />
+            <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.93l-3.78-2.93c-1.08.72-2.46 1.15-4.15 1.15-3.19 0-5.89-2.15-6.85-5.04H1.25v3.02C3.22 21.17 7.26 24 12 24z" />
+            <path fill="#FBBC05" d="M5.15 14.25A7.2 7.2 0 0 1 4.77 12c0-.78.13-1.54.38-2.25V6.73H1.25A12 12 0 0 0 0 12c0 1.93.46 3.76 1.25 5.27l3.9-3.02z" />
+            <path fill="#EA4335" d="M12 4.71c1.77 0 3.35.61 4.6 1.8l3.45-3.45C17.94 1.14 15.24 0 12 0 7.26 0 3.22 2.83 1.25 6.73l3.9 3.02c.96-2.89 3.66-5.04 6.85-5.04z" />
+          </svg>
+          Google
+        </a>
+      </nav>
+    </section>
+  );
+}
+
 export function Sup({ n }: { n: number }) {
   return <sup><a href={`#d${n}`}>{n}</a></sup>;
 }
@@ -29,15 +62,14 @@ export function HeroTop({ cta, photo = true }: { cta?: React.ReactNode; photo?: 
         </div>
         <h1 className={styles.heroTitle}>
           Get your <span className={styles.lower}>e</span>Ride for under{' '}
-          <span className={styles.heroPrice}>$29.99/week!</span>
+          <span className={styles.heroPrice}>$29<sup>.99</sup>/week!</span>
         </h1>
         <p className={styles.heroSub}>
-          <span className={styles.lower}>e</span>Bikes, <span className={styles.lower}>e</span>Scooters, and{' '}
-          <span className={styles.lower}>e</span>Trikes.
+          eBikes - eScooters - ETrikes
         </p>
         <div className={styles.chips}>
           <span className={styles.chip}>Fully Assembled</span>
-          <span className={styles.chip}>Pick Up At Our Local Shop</span>
+          <span className={styles.chip}>Local Shop Pickup</span>
           <span className={styles.chip}>Local Warranty</span>
         </div>
         {cta}

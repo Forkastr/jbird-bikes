@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeHeader from '@/components/home/HomeHeader';
 import styles from '@/components/home/home.module.css';
-import { barlow, dmSans, SNAP_URL, HeroTop, Disclosures } from '@/components/home/shared';
+import { barlow, dmSans, SNAP_URL, HeroTop, Disclosures, SocialButtons } from '@/components/home/shared';
 
 // Campaign landing page: the QR code on printed business cards points here, so keep the /apply URL.
 // Hidden from search engines; it repeats the homepage hero.
@@ -31,9 +31,12 @@ export default function ApplyPage() {
           <HeroTop
             photo={false}
             cta={
-              <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
-                Apply Now with Snap Finance
-              </a>
+              <>
+                <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
+                  Apply Now with Snap Finance
+                </a>
+                <SocialButtons />
+              </>
             }
           />
         </section>
