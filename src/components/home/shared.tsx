@@ -11,8 +11,7 @@ export const barlow = Barlow_Condensed({
 });
 export const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-dm-sans' });
 
-export const SNAP_URL =
-  'https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D';
+export const APPLY_URL = 'https://forms.gle/zWrq6nnSNzs2j9Z69';
 
 export function Sup({ n }: { n: number }) {
   return <sup><a href={`#d${n}`}>{n}</a></sup>;

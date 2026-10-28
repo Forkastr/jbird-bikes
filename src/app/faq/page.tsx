@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeHeader from '@/components/home/HomeHeader';
 import home from '@/components/home/home.module.css';
-import { barlow, dmSans, SNAP_URL, SiteFooter, Disclosures } from '@/components/home/shared';
+import { barlow, dmSans, APPLY_URL, SiteFooter, Disclosures } from '@/components/home/shared';
 import FAQAccordion from './FAQAccordion';
 import styles from './faq.module.css';
 
@@ -39,7 +39,7 @@ const faqs = [
       {
         q: 'Is financing available?',
         a: 'Yes. We offer lease-to-own financing² through Snap Finance, no credit needed.¹ Apply online in minutes and get a decision in seconds. See the disclosures at the bottom of this page.',
-        link: { href: SNAP_URL, label: 'Apply Now with Snap Finance' },
+        link: { href: APPLY_URL, label: 'Apply Now with Snap Finance' },
       },
     ],
   },
@@ -103,7 +103,7 @@ export default function FAQPage() {
       />
 
       <div className={`${home.page} ${barlow.variable} ${dmSans.variable}`}>
-        <HomeHeader snapUrl={SNAP_URL} />
+        <HomeHeader snapUrl={APPLY_URL} />
 
         <main>
           <section className={styles.hero}>

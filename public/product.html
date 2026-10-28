@@ -9,6 +9,23 @@
     gtag('js', new Date());
     gtag('config', 'G-M3FXW67JFV');
   </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2622313938237789');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2622313938237789&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JBird Bikes — Product</title>
@@ -245,7 +262,7 @@
       <span><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>
     </a>
     <div class="header-actions">
-      <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="header-apply">Apply Now</a>
+      <a href="https://forms.gle/zWrq6nnSNzs2j9Z69" target="_blank" rel="noopener noreferrer" class="header-apply">Apply Now</a>
       <button type="button" class="menu-button" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -356,8 +373,8 @@
         </div>
 
         <div class="apply-row no-print">
-          <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn apply-big">
-            Apply now for an instant decision
+          <a href="https://forms.gle/zWrq6nnSNzs2j9Z69" target="_blank" rel="noopener noreferrer" class="btn apply-big">
+            APPLY FOR THE PROMO
           </a>
         </div>
         <div class="after-apply">
@@ -736,5 +753,14 @@
   if (!slug) showError();
   else loadJBirdCatalog(bikes => showProduct(bikes, slug), showError);
 </script>
+  <script>
+  document.addEventListener('click', function (e) {
+    var a = e.target instanceof Element ? e.target.closest('a') : null;
+    if (!a || typeof fbq !== 'function') return;
+    if (/kDxn67zHqWbz9AiXA|zWrq6nnSNzs2j9Z69/.test(a.href)) {
+      fbq('track', 'Lead', {content_name: 'JBird Apply Form'});
+    }
+  });
+  </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import HomeHeader from '@/components/home/HomeHeader';
 import styles from '@/components/home/home.module.css';
-import { barlow, dmSans, SNAP_URL, Sup, HeroTop, Disclosures, SiteFooter } from '@/components/home/shared';
+import { barlow, dmSans, APPLY_URL, Sup, HeroTop, Disclosures, SiteFooter } from '@/components/home/shared';
 
 export const dynamic = 'force-static';
 
@@ -11,7 +11,7 @@ export default async function HomePage() {
   return (
     <div className={`${styles.page} ${barlow.variable} ${dmSans.variable}`}>
       <LocalBusinessSchema />
-      <HomeHeader snapUrl={SNAP_URL} />
+      <HomeHeader snapUrl={APPLY_URL} />
 
       <main>
         {/* 01 Hero */}
@@ -23,7 +23,7 @@ export default async function HomePage() {
                 <strong>Get approved for up to $5,000<Sup n={1} /> in lease-to-own financing.<Sup n={2} /></strong>{' '}
                 Apply in minutes, get a decision in seconds.
               </p>
-              <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.heroCardBtn}`}>Apply Now with Snap Finance</a>
+              <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.heroCardBtn}`}>APPLY FOR THE PROMO</a>
             </div>
           </div>
         </section>
@@ -126,7 +126,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnYellow} ${styles.snapApply}`}>Apply Now with Snap Finance</a>
+            <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnYellow} ${styles.snapApply}`}>APPLY FOR THE PROMO</a>
           </div>
         </section>
 

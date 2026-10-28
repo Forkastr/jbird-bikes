@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeHeader from '@/components/home/HomeHeader';
 import styles from '@/components/home/home.module.css';
-import { barlow, dmSans, SNAP_URL, HeroTop, Disclosures } from '@/components/home/shared';
+import { barlow, dmSans, APPLY_URL, HeroTop, Disclosures } from '@/components/home/shared';
 
 // Campaign landing page: the QR code on printed business cards points here, so keep the /apply URL.
 // Hidden from search engines; it repeats the homepage hero.
@@ -17,7 +17,7 @@ const POSTER = '/video-banner-poster.jpg';
 export default function ApplyPage() {
   return (
     <div className={`${styles.page} ${barlow.variable} ${dmSans.variable}`}>
-      <HomeHeader snapUrl={SNAP_URL} />
+      <HomeHeader snapUrl={APPLY_URL} />
 
       <main>
         {/* Muted looping video behind the hero; the poster shows while it loads, if it can't play,
@@ -31,8 +31,8 @@ export default function ApplyPage() {
           <HeroTop
             photo={false}
             cta={
-              <a href={SNAP_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
-                Apply Now with Snap Finance
+              <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
+                APPLY FOR THE PROMO
               </a>
             }
           />

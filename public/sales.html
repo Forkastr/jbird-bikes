@@ -9,6 +9,23 @@
     gtag('js', new Date());
     gtag('config', 'G-M3FXW67JFV');
   </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2622313938237789');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2622313938237789&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>eBike Sales | JBird Bikes New Orleans</title>
@@ -195,9 +212,9 @@
           <span class="chip">✓ UL Certified</span>
           <span class="chip">✓ Flexible Weekly Payments</span>
         </div>
-        <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="btn btn-dark hero-apply">Apply Now with Snap Finance</a>
+        <a href="https://forms.gle/zWrq6nnSNzs2j9Z69" target="_blank" rel="noopener noreferrer" class="btn btn-dark hero-apply">APPLY FOR THE PROMO</a>
       </div>
-      <a href="https://bk.snapfinance.com/origination?paramId=3w%2FEWVFzVGcQioSdKn1vuqdr2hNr3A1xiMt4CtG%2BqOXv5CWpL9qV%2Bq2lEkK1hZ0tog9ZSjNG2GyQln5HQrzShOzYiaK%2FnFnEZXfXtyBXVEw%3D" target="_blank" rel="noopener noreferrer" class="qr-card" aria-label="Scan to apply with Snap Finance">
+      <a href="https://forms.gle/zWrq6nnSNzs2j9Z69" target="_blank" rel="noopener noreferrer" class="qr-card" aria-label="Scan to apply with Snap Finance">
         <span class="qr-tag">Scan to apply</span>
         <img src="/images/snap-small.png" alt="Snap Finance application QR code" width="170" height="170">
         <span class="qr-note">No credit needed</span>
@@ -496,5 +513,14 @@
       '<p class="message">Could not load the catalog. Please try again later, or call us at <a href="tel:5045216997">(504) 521-6997</a>.</p>';
   });
 </script>
+  <script>
+  document.addEventListener('click', function (e) {
+    var a = e.target instanceof Element ? e.target.closest('a') : null;
+    if (!a || typeof fbq !== 'function') return;
+    if (/kDxn67zHqWbz9AiXA|zWrq6nnSNzs2j9Z69/.test(a.href)) {
+      fbq('track', 'Lead', {content_name: 'JBird Apply Form'});
+    }
+  });
+  </script>
 </body>
 </html>

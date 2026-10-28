@@ -9,6 +9,23 @@
     gtag('js', new Date());
     gtag('config', 'G-M3FXW67JFV');
   </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2622313938237789');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2622313938237789&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Return & Exchange Policy | JBird Bikes New Orleans</title>
@@ -525,5 +542,14 @@
   </p>
 </footer>
 
+  <script>
+  document.addEventListener('click', function (e) {
+    var a = e.target instanceof Element ? e.target.closest('a') : null;
+    if (!a || typeof fbq !== 'function') return;
+    if (/kDxn67zHqWbz9AiXA|zWrq6nnSNzs2j9Z69/.test(a.href)) {
+      fbq('track', 'Lead', {content_name: 'JBird Apply Form'});
+    }
+  });
+  </script>
 </body>
 </html>
