@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import HomeHeader from '@/components/home/HomeHeader';
 import styles from '@/components/home/home.module.css';
-import { barlow, dmSans, APPLY_URL, HeroTop, Disclosures } from '@/components/home/shared';
+import { barlow, dmSans, APPLY_URL, HeroTop, Disclosures, SocialButtons } from '@/components/home/shared';
 
 // Campaign landing page: the QR code on printed business cards points here, so keep the /apply URL.
 // Hidden from search engines; it repeats the homepage hero.
@@ -31,9 +31,12 @@ export default function ApplyPage() {
           <HeroTop
             photo={false}
             cta={
-              <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
-                APPLY FOR THE PROMO
-              </a>
+              <>
+                <a href={APPLY_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.applyBtn}`}>
+                  APPLY FOR THE PROMO
+                </a>
+                <SocialButtons />
+              </>
             }
           />
         </section>
