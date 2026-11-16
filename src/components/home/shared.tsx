@@ -1,15 +1,8 @@
 // Pieces shared by the homepage and the /apply campaign landing page, so the hero
 // offer and the Snap disclosures it relies on stay identical on both.
-import { Barlow_Condensed, DM_Sans } from 'next/font/google';
 import styles from './home.module.css';
 
-export const barlow = Barlow_Condensed({
-  subsets: ['latin'],
-  weight: ['700', '800', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-barlow',
-});
-export const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-dm-sans' });
+export { barlow, dmSans } from '@/lib/fonts';
 
 export const APPLY_URL = 'https://forms.gle/zWrq6nnSNzs2j9Z69';
 
@@ -80,28 +73,6 @@ export function HeroTop({ cta, photo = true }: { cta?: React.ReactNode; photo?: 
         </div>
       )}
     </div>
-  );
-}
-
-const HOURS_URL = 'https://share.google/votmFNHcQjONuZMF3';
-
-export function SiteFooter() {
-  return (
-    <footer className={styles.footer}>
-      <div className={`${styles.wrap} ${styles.footerInner}`}>
-        <p className={styles.footerTitle}>JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
-        <div className={styles.footerBtns}>
-          <a href={HOURS_URL} target="_blank" rel="noopener noreferrer" className={`${styles.btn} ${styles.btnDark} ${styles.footerHours}`}>See Our Hours</a>
-          <a href="tel:5045216997" className={`${styles.btn} ${styles.btnOutline} ${styles.footerPhone}`}>(504) 521-6997</a>
-        </div>
-        <nav className={styles.footerNav} aria-label="Policies">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/terms.html">Terms</a>
-          <a href="/return-policy.html">Return Policy</a>
-          <a href="/faq">FAQ</a>
-        </nav>
-      </div>
-    </footer>
   );
 }
 

@@ -252,32 +252,11 @@
 
     @media print { .site-header, .menu-drawer, .menu-overlay, .no-print { display: none !important; } }
   </style>
+  <link rel="stylesheet" href="/site-chrome.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a href="/" aria-label="JBird Bikes home" class="logo">
-      <span><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>
-      <span><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>
-    </a>
-    <div class="header-actions">
-      <a href="https://forms.gle/zWrq6nnSNzs2j9Z69" target="_blank" rel="noopener noreferrer" class="header-apply">Apply Now</a>
-      <button type="button" class="menu-button" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<!-- Same menu as the homepage (src/components/home/HomeHeader.tsx) and sales.html; keep them in sync. -->
-<div class="menu-overlay" id="menu-overlay" hidden></div>
-<nav class="menu-drawer" id="site-menu" aria-label="Main" hidden>
-  <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
-  <a href="/repairs.html" class="menu-link">Repairs &amp; Services</a>
-  <a href="/sales.html" class="menu-link current"><span class="lower">e</span>Rides for Sale</a>
-  <a href="/assembly.html" class="menu-link"><span class="lower">e</span>Bike Assembly</a>
-  <a href="/about.html" class="menu-link">About Us</a>
-  <a href="/faq" class="menu-link">FAQ</a>
-  <a href="tel:5045216997" class="menu-phone">(504) 521-6997</a>
-</nav>
+<script src="/site-chrome.js" data-part="header"></script>
 
 <div class="wrap back-row no-print">
   <a href="/sales.html" class="back">← All Rides</a>
@@ -426,19 +405,9 @@
   </div>
 </dialog>
 
-<footer class="site-footer">
+<!-- Snap financing disclosures for the footnotes on this page. -->
+<section class="site-footer" aria-label="Disclosures" style="background:var(--cream)">
   <div class="wrap footer-inner">
-    <p class="footer-title">JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
-    <div class="footer-btns">
-      <a href="https://share.google/votmFNHcQjONuZMF3" target="_blank" rel="noopener noreferrer" class="btn footer-hours">See Our Hours</a>
-      <a href="tel:5045216997" class="btn footer-phone">(504) 521-6997</a>
-    </div>
-    <nav class="footer-nav" aria-label="Policies">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/return-policy.html">Return Policy</a>
-      <a href="/faq">FAQ</a>
-    </nav>
     <p class="footer-note" id="d1"><strong>¹</strong> Not all applicants are approved. While no credit history is required, Snap obtains information from consumer reporting agencies in connection with submitted applications, and your score with those agencies may be affected.</p>
     <p class="footer-note" id="d2"><strong>²</strong> Lease-to-own agreement provided by Snap RTO LLC.</p>
     <div class="footer-note" id="d3" hidden><strong>³</strong> To exercise the Initial Promotional Period option, consumers must make all scheduled payments on time and either (1) ensure the required amount is paid within the applicable timeframe through the customer portal, or (2) contact Customer Care at 1-877-557-3769 to schedule payments to ensure the required amount is paid within the applicable timeframe.
@@ -447,9 +416,10 @@
         <p>The cost and duration of the Initial Promotional Period may vary based on merchant location and product offering. Additional charges above the merchandise price may apply. Consumers may still reduce the overall cost by exercising available early payoff or buyout options after the Initial Promotional Period, where applicable. See your agreement for details and limitations.</p>
       </details>
     </div>
-    <p class="footer-copy">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
   </div>
-</footer>
+</section>
+
+<script src="/site-chrome.js" data-part="footer"></script>
 
 <script src="/catalog.js"></script>
 <script>
@@ -514,18 +484,6 @@
     return [esc(getBrand(b)), category].filter(Boolean).join(' - ');
   }
 
-  // Menu
-  function setMenu(open) {
-    $('site-menu').hidden = !open;
-    $('menu-overlay').hidden = !open;
-    $('menu-open').setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) $('menu-close').focus();
-  }
-  $('menu-open').addEventListener('click', () => setMenu(true));
-  $('menu-close').addEventListener('click', () => setMenu(false));
-  $('menu-overlay').addEventListener('click', () => setMenu(false));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('site-menu').hidden) setMenu(false); });
 
   // Spec section headings open and close their section (only has a visible effect on phones).
   document.querySelectorAll('.spec-toggle').forEach(btn => btn.addEventListener('click', () => {

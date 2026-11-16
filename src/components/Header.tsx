@@ -1,59 +1,129 @@
-"use client";
+'use client';
 
-import React, { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import styles from './SiteChrome.module.css';
 
-const CONTACT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform?usp=header";
+const PHONE_HREF = 'tel:5045216997';
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+// Primary pill nav. /sales.html and /repairs.html are static pages in public/, so they use plain links.
+const NAV = [
+  { href: '/sales.html', label: 'Buy', className: styles.pillBuy },
+  { href: '/sell-your-ebike', label: 'Sell', className: styles.pillSell },
+  { href: '/trade', label: 'Trade', className: styles.pillTrade },
+  { href: '/repairs.html', label: 'Repair', className: styles.pillRepair },
+];
 
+const MENU_LINKS = [
+  { href: '/sell-your-ebike', label: 'Sell Your eBike' },
+  { href: '/repairs.html', label: 'Repairs & Services' },
+  { href: '/sales.html', label: 'Rides for Sale' },
+  { href: '/assembly.html', label: 'eBike Assembly' },
+  { href: '/about.html', label: 'About Us' },
+  { href: '/faq', label: 'FAQ' },
+];
+
+const LOGO = [
+  [['j', '#d43a2f'], ['-', undefined], ['b', '#1f5fc8'], ['i', '#2e8b3e'], ['r', '#d43a2f'], ['d', '#c99700']],
+  [['b', '#1f5fc8'], ['i', '#c99700'], ['k', '#b3263a'], ['e', '#2e8b3e'], ['s', '#d43a2f']],
+] as const;
+
+// Keeps the lowercase "e" in eBike while the rest of the label is uppercase.
+function MenuLabel({ text }: { text: string }) {
+  const parts = text.split(/\be(?=Bike)/);
   return (
     <>
-      <header style={{ backgroundColor: 'white', borderBottom: '2px solid #000', padding: '0.75rem 1.5rem', position: 'sticky' as const, top: 0, zIndex: 100 }}>
-        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-
-          <a href="/" style={{ fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.8rem', fontWeight: 900, color: '#2E7D32', fontStyle: 'italic', letterSpacing: '-1px', textDecoration: 'none' }}>
-            JBIRD BIKES
-          </a>
-
-          <nav className="desktop-nav" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-            <a href="/repairs.html" style={navStyle}>Repairs</a>
-            <a href="/sales.html" style={navStyle}>Bike Sales</a>
-            <a href="/assembly.html" style={navStyle}>Assembly</a>
-          </nav>
-
-          <button onClick={toggleMenu} style={hamburgerStyle} aria-label="Menu" className="hamburger-btn">
-            <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
-            <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
-            <div style={{ width: '25px', height: '3px', background: 'black', margin: '5px 0' }}></div>
-          </button>
-        </div>
-      </header>
-
-      <div style={{ position: 'fixed' as const, top: 0, right: isOpen ? 0 : '-100%', width: '280px', height: '100%', backgroundColor: 'white', boxShadow: '-5px 0 15px rgba(0,0,0,0.1)', zIndex: 1000, transition: '0.3s ease-in-out', padding: '2rem', display: 'flex', flexDirection: 'column' as const, gap: '0', overflowY: 'auto' as const }}>
-        <button onClick={toggleMenu} style={{ alignSelf: 'flex-end', background: 'none', border: 'none', fontSize: '1.5rem', fontWeight: 'bold', cursor: 'pointer', marginBottom: '1rem' }}>✕</button>
-        <a href="/repairs.html" onClick={toggleMenu} style={mobileNavLink}>Repairs & Service</a>
-        <a href="/sales.html" onClick={toggleMenu} style={mobileNavLink}>Bike Sales</a>
-        <a href="/assembly.html" onClick={toggleMenu} style={mobileNavLink}>eBike Assembly</a>
-        <a href="/about.html" onClick={toggleMenu} style={mobileNavLink}>About Us</a>
-        <hr style={{ border: 'none', borderTop: '1px solid #eee', margin: '10px 0' }} />
-        <a href="tel:5045216997" style={{ fontWeight: 800, color: 'black', textDecoration: 'none', fontSize: '1.2rem', padding: '0.5rem 0' }}>(504) 521-6997</a>
-      </div>
-
-      {isOpen && (
-        <div onClick={toggleMenu} style={{ position: 'fixed' as const, inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 999 }} />
-      )}
-
-      <style>{`
-        @media (max-width: 900px) { .desktop-nav { display: none !important; } .hamburger-btn { display: block !important; } }
-        @media (min-width: 901px) { .hamburger-btn { display: none !important; } }
-      `}</style>
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 && <span className={styles.lower}>e</span>}
+          {part}
+        </span>
+      ))}
     </>
   );
 }
 
-const navStyle = { textDecoration: 'none', color: '#444', fontWeight: 700, fontSize: '0.8rem', textTransform: 'uppercase' as const, letterSpacing: '0.02em' };
-const mobileNavLink = { display: 'block', textDecoration: 'none', color: '#222', fontWeight: 700, fontSize: '1rem', textTransform: 'uppercase' as const, letterSpacing: '0.05em', borderBottom: '1px solid #eee', paddingBottom: '0.8rem', paddingTop: '0.8rem' };
-const hamburgerStyle = { background: 'none', border: 'none', cursor: 'pointer', padding: '0', display: 'none' };
-const testRideBtn = { textDecoration: 'none', backgroundColor: '#0000FF', color: 'white', padding: '12px 24px', borderRadius: '4px', fontWeight: 800, fontSize: '0.9rem', textAlign: 'center' as const };
+// Next routes get client-side navigation; the static .html pages need a full page load.
+function SiteLink({ href, ...rest }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
+  return href.endsWith('.html') ? <a href={href} {...rest} /> : <Link href={href} {...rest} />;
+}
+
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
+  // Sticky on inner pages only; the homepage header scrolls away with the hero.
+  const sticky = pathname !== '/';
+
+  return (
+    <header className={`${styles.header} ${sticky ? styles.sticky : ''}`}>
+      <div className={styles.headerInner}>
+        <Link href="/" aria-label="JBird Bikes home" className={styles.logo}>
+          {LOGO.map((word, w) => (
+            <span key={w} className={styles.logoWord}>
+              {word.map(([ch, color], i) => (
+                <span key={i} style={color ? { color } : undefined}>{ch}</span>
+              ))}
+            </span>
+          ))}
+        </Link>
+
+        <nav aria-label="Primary" className={styles.nav}>
+          {NAV.map((item) => (
+            <SiteLink key={item.href} href={item.href} className={`${styles.pill} ${item.className}`}>{item.label}</SiteLink>
+          ))}
+        </nav>
+
+        <div className={styles.actions}>
+          <a href={PHONE_HREF} className={styles.call} aria-label="Call us at (504) 521-6997">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" />
+            </svg>
+            Call Us
+          </a>
+          <button
+            type="button"
+            className={styles.menuButton}
+            aria-label="Open menu"
+            aria-expanded={open}
+            aria-controls="site-menu"
+            onClick={() => setOpen(true)}
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <>
+          <div className={styles.menuOverlay} onClick={() => setOpen(false)} />
+          <nav id="site-menu" aria-label="Main" className={styles.menuDrawer}>
+            <button ref={closeRef} type="button" aria-label="Close menu" className={styles.menuClose} onClick={() => setOpen(false)}>✕</button>
+            {MENU_LINKS.map((l) => (
+              <SiteLink key={l.href} href={l.href} className={styles.menuLink} onClick={() => setOpen(false)}>
+                <MenuLabel text={l.label} />
+              </SiteLink>
+            ))}
+            <a href={PHONE_HREF} className={styles.menuPhone}>(504) 521-6997</a>
+          </nav>
+        </>
+      )}
+    </header>
+  );
+}

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import HomeHeader from '@/components/home/HomeHeader';
 import home from '@/components/home/home.module.css';
-import { barlow, dmSans, APPLY_URL, SiteFooter, Disclosures } from '@/components/home/shared';
+import { barlow, dmSans, APPLY_URL, Disclosures } from '@/components/home/shared';
 import FAQAccordion from './FAQAccordion';
 import styles from './faq.module.css';
 
 export const metadata: Metadata = {
-  title: 'FAQ | JBird Bikes New Orleans — eBike Questions Answered',
+  title: 'FAQ | JBird Bikes — eBike Questions Answered',
   description: 'Got questions about eBikes in New Orleans? JBird Bikes answers the most common questions about buying, financing, assembly, and repair.',
   keywords: [
     'eBike FAQ New Orleans',
@@ -103,8 +102,6 @@ export default function FAQPage() {
       />
 
       <div className={`${home.page} ${barlow.variable} ${dmSans.variable}`}>
-        <HomeHeader snapUrl={APPLY_URL} />
-
         <main>
           <section className={styles.hero}>
             <div className={`${home.wrap} ${styles.heroInner}`}>
@@ -131,8 +128,6 @@ export default function FAQPage() {
             </div>
           </section>
         </main>
-
-        <SiteFooter />
 
         {/* Footnotes ¹ and ² in the financing answer. */}
         <Disclosures notes={[1, 2]} />

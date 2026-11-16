@@ -170,32 +170,11 @@
     .footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700; padding-top: 20px; border-top: 2px solid var(--ink); }
     .footer-copy { font-size: 14px; }
   </style>
+  <link rel="stylesheet" href="/site-chrome.css">
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header-inner">
-    <a href="/" aria-label="JBird Bikes home" class="logo">
-      <span><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>
-      <span><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>
-    </a>
-    <div class="header-actions">
-      <a href="tel:5045216997" class="header-phone">(504) 521-6997</a>
-      <button type="button" class="menu-button" id="menu-open" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-</header>
-<!-- Same menu as the homepage (src/components/home/HomeHeader.tsx); keep the two in sync. -->
-<div class="menu-overlay" id="menu-overlay" hidden></div>
-<nav class="menu-drawer" id="site-menu" aria-label="Main" hidden>
-  <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">✕</button>
-  <a href="/repairs.html" class="menu-link">Repairs &amp; Services</a>
-  <a href="/sales.html" class="menu-link current" aria-current="page"><span class="lower">e</span>Rides for Sale</a>
-  <a href="/assembly.html" class="menu-link"><span class="lower">e</span>Bike Assembly</a>
-  <a href="/about.html" class="menu-link">About Us</a>
-  <a href="/faq" class="menu-link">FAQ</a>
-  <a href="tel:5045216997" class="menu-phone">(504) 521-6997</a>
-</nav>
+<script src="/site-chrome.js" data-part="header"></script>
 
 <main>
   <section class="hero">
@@ -248,7 +227,7 @@
       </div>
       <p class="count" id="count" aria-live="polite"></p>
     </div>
-    <div id="catalog"><p class="message">Loading…</p></div>
+    <div id="catalog" style="scroll-margin-top:150px"><p class="message">Loading…</p></div>
   </section>
 
   <section class="safety">
@@ -279,22 +258,7 @@
   </section>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <p class="footer-title">JBird Bikes · 2336 St. Louis St., New Orleans — on the Lafitte Greenway</p>
-    <div class="footer-btns">
-      <a href="https://share.google/votmFNHcQjONuZMF3" target="_blank" rel="noopener noreferrer" class="btn btn-dark footer-hours">See Our Hours</a>
-      <a href="tel:5045216997" class="btn footer-phone">(504) 521-6997</a>
-    </div>
-    <nav class="footer-nav" aria-label="Policies">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/return-policy.html">Return Policy</a>
-      <a href="/faq">FAQ</a>
-    </nav>
-    <p class="footer-copy">© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
-  </div>
-</footer>
+<script src="/site-chrome.js" data-part="footer"></script>
 
 <script src="/catalog.js"></script>
 <script>
@@ -306,6 +270,9 @@
 
   let ALL_BIKES = [];
   const state = { q: '', type: 'All', category: 'All', brand: 'All' };
+  // Links like /sales.html?type=eScooters#catalog (homepage hero pills) open with that ride type already filtered.
+  const wantedType = new URLSearchParams(location.search).get('type');
+  if (TYPE_ORDER.includes(wantedType)) state.type = wantedType;
 
   const str = v => (v ?? '').toString().trim();
   const esc = s => str(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -451,17 +418,6 @@
     document.getElementById('brand-chips').innerHTML = chips('brand', brands);
   }
 
-  // Menu
-  function setMenu(open) {
-    document.getElementById('site-menu').hidden = !open;
-    document.getElementById('menu-overlay').hidden = !open;
-    document.getElementById('menu-open').setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) document.getElementById('menu-close').focus();
-  }
-  document.getElementById('menu-open').addEventListener('click', () => setMenu(true));
-  document.getElementById('menu-close').addEventListener('click', () => setMenu(false));
-  document.getElementById('menu-overlay').addEventListener('click', () => setMenu(false));
 
   // Filter panel
   function setFilterPanel(open) {
@@ -487,7 +443,6 @@
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
     setFilterPanel(false);
-    if (!document.getElementById('site-menu').hidden) setMenu(false);
   });
 
   // Search

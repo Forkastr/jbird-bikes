@@ -31,30 +31,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms and Conditions | JBird Bikes</title>
   <meta name="description" content="Terms and Conditions for mobile SMS messaging at JBird Bikes, New Orleans. Message frequency, opt-out instructions, and carrier information.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site-chrome.css">
 </head>
 <body>
 
-<nav class="nav-shim">
-  <a href="/" class="logo">JBIRD BIKES</a>
-  <div class="nav-links">
-    <a href="/repairs.html">Repairs</a>
-    <a href="/sales.html" style="font-family:inherit;font-size:inherit;font-weight:bold;text-decoration:none;color:inherit;">Bike Sales</a>
-    <a href="/assembly.html">Assembly</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
-
-<div id="mobileSideMenu" class="side-menu">
-  <button class="close-btn" onclick="toggleMenu()">✕</button>
-  <a href="/repairs.html">Repairs & Service</a>
-  <a href="/sales.html" onclick="toggleMenu()" style="display:block;padding:0.8rem 0;font-weight:800;color:#2E7D32;text-transform:uppercase;font-size:0.9rem;text-decoration:none;border-bottom:1px solid #eee;">Bike Sales</a>
-  <a href="/assembly.html">eBike Assembly</a>
-  <a href="/about.html">About Us</a>
-  <hr style="border:none;border-top:1px solid #eee;margin:10px 0;">
-  <a href="tel:5045216997" style="color:black;font-weight:800;text-decoration:none;">(504) 521-6997</a>
-</div>
+<script src="/site-chrome.js" data-part="header"></script>
 
 <div class="container">
   <p style="text-transform:uppercase;font-weight:bold;color:var(--jbird-green);margin-bottom:0;">Legal</p>
@@ -90,18 +72,8 @@
   </div>
 </div>
 
-<footer style="text-align:center;padding:40px 20px;border-top:1px solid #eee;margin-top:60px;">
-  <p style="font-size:0.8rem;color:#666;">© 2026 JBird Bikes New Orleans</p>
-  <a href="/privacy.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Privacy Policy</a>
-  &nbsp;·&nbsp;
-  <a href="/terms.html" style="font-size:0.8rem;color:#666;text-decoration:none;">Terms &amp; Conditions</a>
-</footer>
+<script src="/site-chrome.js" data-part="footer"></script>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('mobileSideMenu').classList.toggle('open');
-  }
-</script>
   <script>
   document.addEventListener('click', function (e) {
     var a = e.target instanceof Element ? e.target.closest('a') : null;

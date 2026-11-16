@@ -1,0 +1,117 @@
+/* Shared Header + Footer for the static pages in public/ (injected by /site-chrome.js).
+   Mirror of src/components/SiteChrome.module.css with jb- prefixed class names: keep the two in sync. */
+.jb-header, .jb-footer {
+  --ink: #16140f;
+  --cream: #faf7ef;
+  --yellow: #f7d23e;
+  --blue: #1f5fc8;
+  --green: #2e8b3e;
+  --red: #d43a2f;
+  --display: 'Barlow Condensed', sans-serif;
+  color: var(--ink);
+  font-family: 'DM Sans', Helvetica, sans-serif;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+}
+.jb-header *, .jb-footer * { box-sizing: border-box; }
+.jb-header a, .jb-footer a { color: inherit; text-decoration: none; }
+.jb-header a:focus-visible, .jb-header button:focus-visible, .jb-footer a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.jb-lower { text-transform: none; }
+
+/* ---------- Header ---------- */
+.jb-header { background: var(--cream); border-bottom: 2px solid var(--ink); }
+.jb-sticky { position: sticky; top: 0; z-index: 50; }
+.jb-headerInner {
+  max-width: 1240px; margin: 0 auto; padding: 12px clamp(12px, 3vw, 32px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px clamp(16px, 3vw, 32px);
+}
+.jb-logo { display: flex; gap: 8px; font-family: var(--display); font-weight: 900; font-size: clamp(24px, 6.4vw, 30px); line-height: 1; text-transform: lowercase; flex: none; min-height: 44px; align-items: center; }
+.jb-logoWord { display: flex; }
+
+.jb-nav {
+  display: flex; flex-grow: 1; align-items: center; justify-content: center; gap: clamp(8px, 2.6vw, 32px);
+  font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(18px, 2vw, 22px); letter-spacing: .04em; text-align: center;
+}
+.jb-pill {
+  flex: 0 1 auto; min-width: min(80px, 22%); min-height: 44px; padding: 0 clamp(10px, 2vw, 16px); white-space: nowrap;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink); border-radius: 999px; box-shadow: 0 4px 0 var(--ink);
+  transition: transform .12s, box-shadow .12s, background .12s;
+}
+.jb-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+.jb-pill:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.jb-header .jb-pillBuy { background: var(--blue); color: #fff; }
+.jb-header .jb-pillSell { background: var(--red); color: #fff; }
+.jb-header .jb-pillTrade { background: var(--green); color: #fff; }
+.jb-header .jb-pillRepair { background: var(--yellow); color: var(--ink); }
+
+.jb-actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(8px, 2vw, 14px); min-width: 0; margin-left: auto; }
+.jb-header .jb-call {
+  background: var(--ink); color: var(--yellow); padding: clamp(9px, 2.4vw, 11px) clamp(12px, 3.4vw, 18px); border-radius: 999px;
+  font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 17px); text-transform: uppercase; letter-spacing: .03em;
+  white-space: nowrap; min-height: 44px; display: flex; align-items: center; gap: 6px;
+}
+.jb-header .jb-call:hover { background: var(--blue); color: #fff; }
+.jb-menuButton {
+  width: 48px; height: 48px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0;
+}
+.jb-menuButton:hover { background: var(--yellow); }
+.jb-menuButton span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+
+/* Under 760px: row 1 = logo + Call Us + menu, row 2 = the four pills. */
+@media (max-width: 759px) {
+  .jb-nav { order: 3; flex-basis: 100%; }
+}
+
+/* Slide-in menu */
+.jb-menuOverlay { position: fixed; inset: 0; z-index: 90; background: #16140f99; }
+.jb-menuDrawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow);
+  border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto;
+  animation: jb-slideIn .2s ease-out;
+}
+@keyframes jb-slideIn { from { transform: translateX(100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .jb-menuDrawer { animation: none; } .jb-pill { transition: none; } }
+.jb-menuClose {
+  align-self: flex-end; flex: none; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
+  cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px;
+}
+.jb-menuLink { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+.jb-header .jb-menuLink:hover { color: var(--blue); }
+.jb-header .jb-menuPhone {
+  margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px;
+  font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em;
+}
+.jb-header .jb-menuPhone:hover { background: var(--blue); color: #fff; }
+
+/* ---------- Footer ---------- */
+.jb-footer { background: var(--yellow); border-top: 2px solid var(--ink); }
+.jb-footer p, .jb-footer h2 { margin: 0; }
+.jb-footerInner {
+  max-width: 1240px; margin: 0 auto; padding: clamp(32px, 6vw, 64px) clamp(16px, 3vw, 32px) clamp(24px, 6vw, 96px);
+  display: flex; flex-direction: column; gap: clamp(24px, 4vw, 36px);
+}
+.jb-footerGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 32px clamp(24px, 3vw, 40px); }
+.jb-footerCol { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.jb-footer .jb-footerHeading { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 24px; line-height: 1.05; letter-spacing: .02em; }
+.jb-footerPhone { font-size: 17px; font-weight: 700; align-self: flex-start; min-height: 44px; display: flex; align-items: center; margin: -10px 0; }
+.jb-footer a.footerPhone:hover, .jb-footerNav a:hover { color: var(--blue); }
+.jb-footer .jb-footerAddress { font-size: 17px; line-height: 1.5; }
+.jb-footer .jb-footerNote { font-size: 15px; line-height: 1.4; }
+.jb-hours { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 17px; align-items: baseline; line-height: 1.3; margin: 0; }
+.jb-hours dt { font-weight: 700; }
+.jb-hours dd { margin: 0; }
+.jb-socials { display: flex; gap: 12px; }
+.jb-social { width: 56px; height: 56px; border: 2px solid var(--ink); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: transform .12s; }
+.jb-social:hover { transform: translateY(-2px); }
+.jb-map { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 10; background: #e9e4d6; }
+.jb-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.jb-footerNav { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 15px; font-weight: 700; padding-top: 12px; border-top: 2px solid var(--ink); }
+.jb-footerNav a { min-height: 44px; display: flex; align-items: center; }
+.jb-footer .jb-copy { font-size: 14px; color: #3a362e; line-height: 1.4; }
+
+.jb-header button { font-family: inherit; }
+.jb-footer a.jb-social:hover { color: inherit; }
+@media print { .jb-header { display: none !important; } }
+.jb-menuOverlay[hidden], .jb-menuDrawer[hidden] { display: none; }

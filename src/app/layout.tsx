@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { barlow, dmSans } from '@/lib/fonts';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -106,11 +109,13 @@ fbq('track', 'PageView');`}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${barlow.variable} ${dmSans.variable}`}>
         <noscript>
           <img height="1" width="1" style={{ display: 'none' }} src="https://www.facebook.com/tr?id=2622313938237789&ev=PageView&noscript=1" alt="" />
         </noscript>
+        <Header />
         {children}
+        <Footer />
         <Script id="meta-lead" strategy="afterInteractive">
           {`document.addEventListener('click', function (e) {
   var a = e.target instanceof Element ? e.target.closest('a') : null;

@@ -43,56 +43,6 @@
 .page .btnOutline { border: 2px solid var(--ink); }
 .page .btnOutline:hover { background: var(--ink); color: var(--yellow); }
 
-/* Header */
-.header { position: sticky; top: 0; z-index: 50; background: var(--cream); border-bottom: 2px solid var(--ink); }
-.headerInner { max-width: 1240px; margin: 0 auto; padding: 12px clamp(12px, 3vw, 32px); display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-.logo { display: flex; gap: 8px; font-family: var(--display); font-weight: 900; font-size: clamp(24px, 6.4vw, 30px); line-height: 1; text-transform: lowercase; flex: none; }
-.logoWord { display: flex; }
-.headerActions { position: relative; display: flex; align-items: center; gap: clamp(8px, 2vw, 14px); min-width: 0; }
-.headerPhone { font-weight: 700; font-size: clamp(13px, 3.4vw, 15px); white-space: nowrap; display: inline-flex; align-items: center; gap: .35em; }
-.page .headerApply {
-  background: var(--ink); color: var(--yellow); padding: clamp(9px, 2.4vw, 11px) clamp(12px, 3.4vw, 18px); border-radius: 999px;
-  font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 17px); text-transform: uppercase; letter-spacing: .03em;
-  white-space: nowrap; min-height: 44px; display: flex; align-items: center;
-}
-.page .headerApply:hover { background: var(--blue); color: #fff; }
-.menuButton {
-  width: 48px; height: 48px; flex: none; border-radius: 50%; border: 2px solid var(--ink); background: var(--cream); color: var(--ink);
-  cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0;
-}
-.menuButton:hover { background: var(--yellow); }
-.burger { display: flex; flex-direction: column; gap: 4px; }
-.burger span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
-
-/* Slide-in menu (same design as the panel on /sales.html) */
-.menuOverlay { position: fixed; inset: 0; z-index: 90; background: rgba(22, 20, 15, .6); }
-.menuDrawer {
-  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow);
-  border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto;
-}
-.menuClose {
-  align-self: flex-end; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
-  cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px;
-}
-.page .menuLink { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
-.page .menuLink:hover { color: var(--blue); }
-.page .menuPhone {
-  margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px;
-  font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em;
-}
-.page .menuPhone:hover { background: var(--blue); color: #fff; }
-.phoneShort { display: none; text-transform: uppercase; }
-@media (max-width: 600px) { .phoneFull { display: none; } .phoneShort { display: inline; } }
-@media (max-width: 380px) {
-  /* Smallest phones: tighter header so logo, Call Us, Apply Now and the menu stay on one row. */
-  .headerInner { padding: 10px; gap: 6px; flex-wrap: nowrap; }
-  .logo { font-size: 21px; gap: 5px; }
-  .headerActions { gap: 6px; }
-  .headerPhone { font-size: 12px; gap: .25em; }
-  .page .headerApply { padding: 8px 10px; font-size: 14px; min-height: 42px; }
-  .menuButton { width: 42px; height: 42px; }
-}
-
 /* Hero */
 .hero { background: var(--yellow); }
 .heroTop { padding-top: clamp(28px, 5vw, 64px); padding-bottom: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: clamp(24px, 4vw, 48px); align-items: center; }
@@ -144,26 +94,48 @@
   .page .socialButton { min-height: 48px; padding: 6px 4px; gap: 4px; font-size: clamp(12px, 3.3vw, 15px); }
   .socialIcon { width: 16px; height: 16px; }
 }
-.heroCards { padding-bottom: clamp(32px, 5vw, 64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
-.heroCard { background: var(--cream); border: 2px solid var(--ink); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 20px; justify-content: space-between; }
-.page .heroCard p { font-size: 18px; line-height: 1.45; text-wrap: pretty; }
-.heroCardBtn { padding: 16px 24px; font-size: 22px; min-height: 52px; }
-
-/* Ready-to-ride banner */
-.readySection { padding: clamp(48px, 5.6vw, 112px) clamp(20px, 2.8vw, 56px); border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--cream); }
-.readyInner { width: min(100%, 1888px); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 80px); align-items: center; }
-.readyCopy { min-width: 0; }
-.page .readyCopy h2 { font-family: var(--display); font-size: clamp(40px, 4.2vw, 84px); font-weight: 900; line-height: .98; text-transform: uppercase; text-wrap: balance; }
-.page .readyCopy p { margin-top: 16px; font-size: clamp(22px, 2vw, 40px); font-weight: 700; line-height: 1.4; text-wrap: pretty; }
-.readyCopy strong { color: var(--red); white-space: nowrap; }
-.readyButton { min-height: clamp(96px, 9.2vw, 184px); padding: clamp(24px, 3vw, 56px) clamp(20px, 3vw, 56px); border: 2px solid var(--ink); box-shadow: 0 10px 0 var(--ink); font-size: clamp(30px, 3.5vw, 68px); line-height: 1; white-space: nowrap; }
-.page .readyButton:hover { box-shadow: 0 6px 0 var(--ink); transform: translateY(4px); }
-@media (max-width: 760px) {
-  .readyInner { grid-template-columns: 1fr; gap: 28px; }
-  .page .readyCopy h2 { font-size: clamp(38px, 10vw, 64px); }
-  .page .readyCopy p { font-size: clamp(21px, 5.2vw, 30px); }
-  .readyButton { width: 100%; min-height: 84px; font-size: clamp(27px, 7.5vw, 42px); white-space: normal; }
+/* Homepage hero (Design A): storefront photo band, headline, category pills, three image cards */
+.heroA { background: var(--blue); border-bottom: 2px solid var(--ink); }
+.heroBand { position: relative; height: clamp(420px, 48vw, 560px); background: var(--ink); overflow: hidden; }
+.heroImg { position: absolute; inset: 0; }
+/* 34% lines the crop up with the design's -260px offset at 1280px, and keeps the sign in frame at other widths. */
+.heroImg img { object-fit: cover; object-position: 50% 34%; }
+.heroShade { position: absolute; inset: 0; background: linear-gradient(180deg, #16140f10 30%, #16140fcc 100%); }
+.heroContent {
+  position: relative; max-width: 1240px; height: 100%; margin: 0 auto;
+  padding: clamp(24px, 4vw, 48px) clamp(16px, 3vw, 32px) 100px;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; gap: 18px; color: var(--cream);
 }
+.page .heroATitle { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(56px, 9vw, 100px); line-height: .9; text-wrap: balance; color: #fff; text-shadow: 0 4px 12px #000; }
+.heroATitle span { color: #ffd323; }
+.heroPills { display: flex; flex-wrap: nowrap; justify-content: center; gap: clamp(6px, 2vw, 14px); max-width: 100%; }
+.page .heroPill {
+  background: #fff; color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: clamp(8px, 2vw, 12px) clamp(12px, 3.4vw, 22px);
+  min-height: 44px; display: inline-flex; align-items: center;
+  font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 18px); white-space: nowrap; text-transform: uppercase; letter-spacing: .04em;
+}
+.page .pillGreen { background: var(--green); color: #fff; }
+.page .pillBlue { background: var(--blue); color: #fff; }
+.page .pillRed { background: var(--red); color: #fff; }
+.page .heroPill:hover { background: var(--yellow); color: var(--ink); }
+/* The cards sit about a quarter of their height over the bottom of the photo band. */
+.cards {
+  position: relative; max-width: 1240px; margin: clamp(-72px, -17vw, -60px) auto 0; padding: 0 clamp(16px, 3vw, 32px) clamp(40px, 6vw, 72px);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px;
+}
+.page .card { position: relative; display: block; aspect-ratio: 4 / 3; border: 2px solid var(--ink); border-radius: 20px; overflow: hidden; background: var(--ink); color: #fff; box-shadow: 0 6px 0 var(--ink); transition: transform .12s; }
+.page .card:hover { color: #fff; transform: translateY(-3px); }
+.card img { object-fit: cover; }
+.cardOverlay { position: absolute; inset: 0; background: #16140f80; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 16px; }
+.cardWord { font-family: var(--display); font-weight: 900; font-style: italic; font-size: clamp(88px, 10vw, 128px); line-height: .85; color: #ffd323; text-shadow: 0 4px 0 var(--ink), 0 6px 18px #000; }
+.cardSub { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(26px, 3vw, 36px); letter-spacing: .03em; text-shadow: 0 2px 10px #000; }
+.cardSubSmall { font-size: clamp(24px, 2.8vw, 32px); }
+@media (max-width: 759px) {
+  /* Phones: the photo fills the band, nudged and enlarged; the extra 20px stops a dark strip showing at the bottom. */
+  .heroImg { inset: auto; top: 0; left: 0; width: 100%; height: calc(100% + 20px); transform: translate(10px, -30px) scale(1.1); }
+  .heroImg img { object-position: 50% 50%; }
+}
+@media (prefers-reduced-motion: reduce) { .page .card { transition: none; } }
 
 /* Why JBird */
 .why { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); }
@@ -171,54 +143,13 @@
 .whyText { display: flex; flex-direction: column; gap: 20px; }
 .page .whyTitle { font-size: clamp(44px, 6vw, 76px); }
 .page .whyText > p { font-size: 18px; line-height: 1.55; text-wrap: pretty; max-width: 34em; }
-.whyPhoto { border: 2px solid var(--ink); border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 10; }
-.whyPhoto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; max-width: none; }
+.whyPhoto { position: relative; border: 2px solid var(--ink); border-radius: 20px; overflow: hidden; aspect-ratio: 16 / 10; }
+.whyPhoto img { object-fit: cover; object-position: 50% 35%; }
 .whyList { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; align-self: center; }
 .whyItem { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border: 2px solid var(--ink); border-radius: 18px; background: #fff; }
 .page .whyItem p { font-size: 16px; line-height: 1.5; }
 .page .whyItem strong { display: block; font-size: 18px; margin-bottom: 2px; }
 .whyIcon { flex: none; width: 52px; height: 52px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 900; font-size: 22px; }
-
-/* Snap */
-.snap { background: var(--ink); color: var(--cream); }
-.snapInner { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); display: flex; flex-direction: column; gap: clamp(32px, 5vw, 56px); }
-.snapIntro { display: flex; flex-direction: column; gap: 18px; }
-.snapEyebrow { align-self: flex-start; background: var(--yellow); color: var(--ink); padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
-.page .snapTitle { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: clamp(40px, 6vw, 72px); line-height: .92; text-wrap: balance; }
-.page .snapLead { font-size: clamp(18px, 2vw, 22px); line-height: 1.45; text-wrap: pretty; }
-.snapBlock { display: flex; flex-direction: column; gap: 20px; }
-.page .snapH3 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(28px, 3.5vw, 40px); line-height: 1; color: var(--yellow); }
-.page .snapNote { font-size: 17px; line-height: 1.5; color: var(--muted); margin-top: 6px; }
-.snapCards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
-.snapCard { background: #26231c; border: 1px solid rgba(250, 247, 239, .15); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-.page .snapCard h4 { font-family: inherit; font-size: 20px; font-weight: 700; text-transform: none; line-height: 1.25; }
-.page .snapCard p { font-size: 16px; line-height: 1.55; color: var(--muted); }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); border-top: 1px solid rgba(250, 247, 239, .2); }
-.stat { padding: 24px 4px; border-bottom: 1px solid rgba(250, 247, 239, .2); display: flex; flex-direction: column; gap: 6px; }
-.statBig { font-family: var(--display); font-weight: 900; font-size: 44px; line-height: 1; }
-.statSmall { font-size: 16px; color: var(--muted); }
-.page a.stat:hover { color: var(--yellow); }
-.statLink { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
-.snapApply { align-self: flex-start; padding: 18px 36px; font-size: 24px; }
-
-/* Other services */
-.services { padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); }
-.services .h2 { margin-bottom: 28px; }
-.serviceGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; }
-.page .serviceCard { color: #fff; border: 2px solid var(--ink); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition: transform .15s; }
-.page .serviceCard:hover { color: #fff; transform: translateY(-3px); }
-.page .serviceCard h3 { font-family: var(--display); font-weight: 900; font-style: italic; text-transform: uppercase; font-size: 40px; line-height: .95; }
-.page .serviceCard p { font-size: 17px; line-height: 1.5; flex: 1; }
-.serviceBtn { align-self: flex-start; background: #fff; color: var(--ink); border: 2px solid var(--ink); padding: 12px 22px; border-radius: 999px; font-family: var(--display); font-weight: 800; font-size: 18px; text-transform: uppercase; letter-spacing: .04em; }
-
-/* Footer */
-.footer { background: var(--yellow); border-top: 2px solid var(--ink); }
-.footerInner { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); display: flex; flex-direction: column; gap: 24px; }
-.page .footerTitle { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 5vw, 56px); line-height: .95; text-wrap: balance; }
-.footerBtns { display: flex; flex-wrap: wrap; gap: 12px; }
-.footerHours { padding: 14px 24px; font-size: 20px; }
-.footerPhone { padding: 12px 22px; font-size: 20px; }
-.footerNav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 700; padding-top: 20px; border-top: 2px solid var(--ink); }
 
 /* Disclosures */
 .disclosures { background: var(--cream); border-top: 2px solid var(--ink); }

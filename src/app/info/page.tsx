@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import HomeHeader from '@/components/home/HomeHeader';
 import styles from '@/components/home/home.module.css';
 import { barlow, dmSans, APPLY_URL, HeroTop, Disclosures, SocialButtons } from '@/components/home/shared';
 
@@ -15,8 +14,6 @@ const POSTER = '/video-banner-poster.jpg';
 export default function InfoPage() {
   return (
     <div className={`${styles.page} ${barlow.variable} ${dmSans.variable}`}>
-      <HomeHeader snapUrl={APPLY_URL} />
-
       <main>
         {/* Muted looping video behind the hero; the poster shows while it loads, if it can't play,
             and (via CSS) for visitors who ask for reduced motion. */}

@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Lectric eBikes New Orleans | Authorized Dealer — JBird Bikes',
@@ -64,7 +62,6 @@ export default function LectricPage() {
         .btn-cta-outline { display: inline-block; background: transparent; border: 2px solid white; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; margin: 0 0.5rem 0.5rem; }
         @media (max-width: 680px) { .brand-about { grid-template-columns: 1fr; } .jbird-special-inner { grid-template-columns: 1fr; } }
       ` }} />
-      <Header />
       <div className="brand-hero">
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
@@ -114,7 +111,6 @@ export default function LectricPage() {
         <a className="btn-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank">Contact Us</a>
         <a className="btn-cta-outline" href="/sales.html">Browse All Bikes</a>
       </div>
-      <Footer />
     </>
   );
 }

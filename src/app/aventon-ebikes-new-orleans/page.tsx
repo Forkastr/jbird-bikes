@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Aventon eBikes New Orleans | Authorized Dealer — JBird Bikes',
@@ -78,8 +76,6 @@ export default function AventonPage() {
         @media (max-width: 680px) { .brand-about { grid-template-columns: 1fr; } .jbird-special-inner { grid-template-columns: 1fr; } }
       ` }} />
 
-      <Header />
-
       <div className="brand-hero">
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
@@ -146,7 +142,6 @@ export default function AventonPage() {
         <a className="btn-cta-outline" href="/sales.html">Browse All Bikes</a>
       </div>
 
-      <Footer />
     </>
   );
 }

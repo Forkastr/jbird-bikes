@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import GotraxBikes from './GotraxBikes';
 
 export const metadata: Metadata = {
@@ -83,8 +81,6 @@ export default function GotraxPage() {
         }
       ` }} />
 
-      <Header />
-
       <div className="brand-hero">
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
@@ -147,7 +143,6 @@ export default function GotraxPage() {
         <a className="btn-cta-outline" href="/sales.html">Browse All Bikes</a>
       </div>
 
-      <Footer />
     </>
   );
 }

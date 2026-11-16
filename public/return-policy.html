@@ -55,19 +55,6 @@
       line-height: 1.7;
     }
 
-    /* NAV — matches site */
-    nav {
-      background: #fff;
-      border-bottom: 2px solid var(--border);
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
 
     .nav-logo {
       font-family: 'Nunito', sans-serif;
@@ -259,6 +246,12 @@
     .warranty-table tr:nth-child(even) td { background: #F9FAFB; }
     .warranty-table tr:last-child td { border-bottom: none; }
 
+    /* Phones: tighter cells and wrapping so the table never pushes the page wider than the screen. */
+    @media (max-width: 600px) {
+      .warranty-table { font-size: 0.8rem; table-layout: fixed; }
+      .warranty-table th, .warranty-table td { padding: 0.5rem 0.45rem; overflow-wrap: anywhere; }
+    }
+
     .badge {
       display: inline-block;
       font-size: 0.75rem;
@@ -318,17 +311,6 @@
     .btn-outline { background: transparent; color: #fff; border: 1.5px solid #374151; }
     .btn-outline:hover { border-color: #6B7280; }
 
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      color: #9CA3AF;
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
-    }
-
-    footer a { color: #6B7280; text-decoration: none; }
-    footer a:hover { color: var(--blue); }
 
     /* LAST UPDATED */
     .last-updated {
@@ -343,19 +325,12 @@
       .policy-card { padding: 1.25rem; }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site-chrome.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="https://jbirdbikes.com/"><span>j-bird</span> bikes</a>
-  <ul class="nav-links">
-    <li><a href="https://jbirdbikes.com/repairs">Repairs</a></li>
-    <li><a href="https://jbirdbikes.com/sales">Bike Sales</a></li>
-    <li><a href="https://jbirdbikes.com/assembly">Assembly</a></li>
-    <li><a href="https://jbirdbikes.com/nola-incentive">Incentive</a></li>
-  </ul>
-</nav>
+<script src="/site-chrome.js" data-part="header"></script>
 
 <!-- HERO -->
 <div class="hero">
@@ -532,15 +507,7 @@
 
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 JBird Bikes New Orleans · On the Lafitte Greenway · (504) 521-6997</p>
-  <p style="margin-top: 0.4rem;">
-    <a href="https://jbirdbikes.com/privacy">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="https://jbirdbikes.com/return-policy">Return Policy</a> &nbsp;·&nbsp;
-    <a href="https://jbirdbikes.com/">Home</a>
-  </p>
-</footer>
+<script src="/site-chrome.js" data-part="footer"></script>
 
   <script>
   document.addEventListener('click', function (e) {

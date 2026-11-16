@@ -1,0 +1,111 @@
+/* Shared site Header + Footer (rendered from the root layout). Ported from the redesign handoff. */
+.header, .footer {
+  --ink: #16140f;
+  --cream: #faf7ef;
+  --yellow: #f7d23e;
+  --blue: #1f5fc8;
+  --green: #2e8b3e;
+  --red: #d43a2f;
+  --display: var(--font-barlow), 'Barlow Condensed', sans-serif;
+  color: var(--ink);
+  font-family: var(--font-dm-sans), 'DM Sans', Helvetica, sans-serif;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+}
+.header *, .footer * { box-sizing: border-box; }
+.header a, .footer a { color: inherit; text-decoration: none; }
+.header a:focus-visible, .header button:focus-visible, .footer a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.lower { text-transform: none; }
+
+/* ---------- Header ---------- */
+.header { background: var(--cream); border-bottom: 2px solid var(--ink); }
+.sticky { position: sticky; top: 0; z-index: 50; }
+.headerInner {
+  max-width: 1240px; margin: 0 auto; padding: 12px clamp(12px, 3vw, 32px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px clamp(16px, 3vw, 32px);
+}
+.logo { display: flex; gap: 8px; font-family: var(--display); font-weight: 900; font-size: clamp(24px, 6.4vw, 30px); line-height: 1; text-transform: lowercase; flex: none; min-height: 44px; align-items: center; }
+.logoWord { display: flex; }
+
+.nav {
+  display: flex; flex-grow: 1; align-items: center; justify-content: center; gap: clamp(8px, 2.6vw, 32px);
+  font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(18px, 2vw, 22px); letter-spacing: .04em; text-align: center;
+}
+.pill {
+  flex: 0 1 auto; min-width: min(80px, 22%); min-height: 44px; padding: 0 clamp(10px, 2vw, 16px); white-space: nowrap;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--ink); border-radius: 999px; box-shadow: 0 4px 0 var(--ink);
+  transition: transform .12s, box-shadow .12s, background .12s;
+}
+.pill:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--ink); }
+.pill:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--ink); }
+.header .pillBuy { background: var(--blue); color: #fff; }
+.header .pillSell { background: var(--red); color: #fff; }
+.header .pillTrade { background: var(--green); color: #fff; }
+.header .pillRepair { background: var(--yellow); color: var(--ink); }
+
+.actions { display: flex; align-items: center; justify-content: flex-end; gap: clamp(8px, 2vw, 14px); min-width: 0; margin-left: auto; }
+.header .call {
+  background: var(--ink); color: var(--yellow); padding: clamp(9px, 2.4vw, 11px) clamp(12px, 3.4vw, 18px); border-radius: 999px;
+  font-family: var(--display); font-weight: 800; font-size: clamp(15px, 4vw, 17px); text-transform: uppercase; letter-spacing: .03em;
+  white-space: nowrap; min-height: 44px; display: flex; align-items: center; gap: 6px;
+}
+.header .call:hover { background: var(--blue); color: #fff; }
+.menuButton {
+  width: 48px; height: 48px; flex: none; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
+  cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0;
+}
+.menuButton:hover { background: var(--yellow); }
+.menuButton span { display: block; width: 20px; height: 2.5px; border-radius: 2px; background: var(--ink); }
+
+/* Under 760px: row 1 = logo + Call Us + menu, row 2 = the four pills. */
+@media (max-width: 759px) {
+  .nav { order: 3; flex-basis: 100%; }
+}
+
+/* Slide-in menu */
+.menuOverlay { position: fixed; inset: 0; z-index: 90; background: #16140f99; }
+.menuDrawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100; width: min(88vw, 380px); background: var(--yellow);
+  border-left: 2px solid var(--ink); padding: 16px 24px 28px; display: flex; flex-direction: column; gap: 6px; overflow-y: auto;
+  animation: slideIn .2s ease-out;
+}
+@keyframes slideIn { from { transform: translateX(100%); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .menuDrawer { animation: none; } .pill { transition: none; } }
+.menuClose {
+  align-self: flex-end; flex: none; width: 48px; height: 48px; border: 2px solid var(--ink); border-radius: 50%; background: var(--cream);
+  cursor: pointer; font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 12px;
+}
+.menuLink { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 34px; line-height: 1; padding: 10px 0; border-bottom: 2px solid var(--ink); }
+.header .menuLink:hover { color: var(--blue); }
+.header .menuPhone {
+  margin-top: 20px; align-self: flex-start; background: var(--ink); color: var(--yellow); padding: 14px 24px; border-radius: 999px;
+  font-family: var(--display); font-weight: 800; font-size: 20px; letter-spacing: .04em;
+}
+.header .menuPhone:hover { background: var(--blue); color: #fff; }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--yellow); border-top: 2px solid var(--ink); }
+.footer p, .footer h2 { margin: 0; }
+.footerInner {
+  max-width: 1240px; margin: 0 auto; padding: clamp(32px, 6vw, 64px) clamp(16px, 3vw, 32px) clamp(24px, 6vw, 96px);
+  display: flex; flex-direction: column; gap: clamp(24px, 4vw, 36px);
+}
+.footerGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 32px clamp(24px, 3vw, 40px); }
+.footerCol { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.footer .footerHeading { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 24px; line-height: 1.05; letter-spacing: .02em; }
+.footerPhone { font-size: 17px; font-weight: 700; align-self: flex-start; min-height: 44px; display: flex; align-items: center; margin: -10px 0; }
+.footer a.footerPhone:hover, .footerNav a:hover { color: var(--blue); }
+.footer .footerAddress { font-size: 17px; line-height: 1.5; }
+.footer .footerNote { font-size: 15px; line-height: 1.4; }
+.hours { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 17px; align-items: baseline; line-height: 1.3; margin: 0; }
+.hours dt { font-weight: 700; }
+.hours dd { margin: 0; }
+.socials { display: flex; gap: 12px; }
+.social { width: 56px; height: 56px; border: 2px solid var(--ink); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: transform .12s; }
+.social:hover { transform: translateY(-2px); }
+.map { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 10; background: #e9e4d6; }
+.map iframe { width: 100%; height: 100%; border: 0; display: block; }
+.footerNav { display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 15px; font-weight: 700; padding-top: 12px; border-top: 2px solid var(--ink); }
+.footerNav a { min-height: 44px; display: flex; align-items: center; }
+.footer .copy { font-size: 14px; color: #3a362e; line-height: 1.4; }
