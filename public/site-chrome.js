@@ -19,7 +19,7 @@
         '</a>' +
         '<nav aria-label="Primary" class="jb-nav">' +
           '<a href="/sales.html" class="jb-pill jb-pillBuy">Buy</a>' +
-          '<a href="/sell-your-ebike" class="jb-pill jb-pillSell">Sell</a>' +
+          '<a href="/sell" class="jb-pill jb-pillSell">Sell</a>' +
           '<a href="/trade" class="jb-pill jb-pillTrade">Trade</a>' +
           '<a href="/repairs.html" class="jb-pill jb-pillRepair">Repair</a>' +
         '</nav>' +
@@ -31,7 +31,7 @@
       '<div class="jb-menuOverlay" hidden></div>' +
       '<nav id="jb-site-menu" aria-label="Main" class="jb-menuDrawer" hidden>' +
         '<button type="button" aria-label="Close menu" class="jb-menuClose">✕</button>' +
-        '<a href="/sell-your-ebike" class="jb-menuLink">Sell Your ' + E + 'Bike</a>' +
+        '<a href="/sell" class="jb-menuLink">Sell Your ' + E + 'Bike</a>' +
         '<a href="/repairs.html" class="jb-menuLink">Repairs &amp; Services</a>' +
         '<a href="/sales.html" class="jb-menuLink">Rides for Sale</a>' +
         '<a href="/assembly.html" class="jb-menuLink">' + E + 'Bike Assembly</a>' +

@@ -10,13 +10,13 @@ const PHONE_HREF = 'tel:5045216997';
 // Primary pill nav. /sales.html and /repairs.html are static pages in public/, so they use plain links.
 const NAV = [
   { href: '/sales.html', label: 'Buy', className: styles.pillBuy },
-  { href: '/sell-your-ebike', label: 'Sell', className: styles.pillSell },
+  { href: '/sell', label: 'Sell', className: styles.pillSell },
   { href: '/trade', label: 'Trade', className: styles.pillTrade },
   { href: '/repairs.html', label: 'Repair', className: styles.pillRepair },
 ];
 
 const MENU_LINKS = [
-  { href: '/sell-your-ebike', label: 'Sell Your eBike' },
+  { href: '/sell', label: 'Sell Your eBike' },
   { href: '/repairs.html', label: 'Repairs & Services' },
   { href: '/sales.html', label: 'Rides for Sale' },
   { href: '/assembly.html', label: 'eBike Assembly' },

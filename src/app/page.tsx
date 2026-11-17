@@ -32,7 +32,7 @@ export default async function HomePage() {
           </div>
 
           <div className={styles.cards}>
-            <Link href="/sell-your-ebike" className={styles.card}>
+            <Link href="/sell" className={styles.card}>
               <Image src="/images/redesign/card-cash.jpg" alt="" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '40% 45%' }} />
               <div className={styles.cardOverlay}>
                 <span className={styles.cardWord}>CASH</span>
