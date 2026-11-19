@@ -87,7 +87,7 @@ export default function Services() {
           <Card bg="var(--neutral-gray)">
             <div>
               <h2 style={{ fontSize: 'clamp(1.3rem, 2.5vw, 2rem)', color: 'var(--primary-green)', marginBottom: '1rem' }}>Professional Assembly</h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Bought your bike online? Don't wrestle with a box. Bring it in and we'll assemble it professionally, apply our No-Flat tire sealant, and have it tuned and ready to ride — flat rate $135.</p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.7 }}>Bought your bike online? Don't wrestle with a box. Bring it in and we'll assemble it professionally and have it tuned and ready to ride — flat rate $135. No-Flat tire sealant is a $30 add-on.</p>
             </div>
             <FindOutMore href="/assembly.html" />
           </Card>

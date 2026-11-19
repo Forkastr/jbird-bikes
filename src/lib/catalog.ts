@@ -19,7 +19,24 @@ export type Bike = Record<string, unknown>;
 
 // The sheet tabs don't spell categories the same way (e.g. ETrikes uses "ETrike");
 // the website expects the plural forms.
-const CATEGORY_ALIASES: Record<string, string> = { etrike: 'ETrikes', escooter: 'EScooters', accessory: 'Accessories' };
+const CATEGORY_ALIASES: Record<string, string> = {
+  etrike: 'ETrikes', escooter: 'EScooters', accessory: 'Accessories',
+  // Pre-owned bikes are marked in the Category column; any common spelling becomes "Preowned".
+  preowned: 'Preowned', 'pre-owned': 'Preowned', 'pre owned': 'Preowned', used: 'Preowned',
+};
+
+// Google Drive share links (e.g. from the pre-owned bike form) open a Drive page, not an image.
+// Rewrite them to Drive's direct image address; the file must be shared "Anyone with the link".
+function driveImageUrl(url: unknown): unknown {
+  const s = String(url ?? '').trim();
+  if (!/^https?:\/\/(drive|docs)\.google\.com\//.test(s)) return url;
+  const id = s.match(/[?&]id=([\w-]+)/)?.[1] ?? s.match(/\/d\/([\w-]+)/)?.[1];
+  return id ? `https://drive.google.com/thumbnail?id=${id}&sz=w1200` : url;
+}
+
+function normalizeImage(b: Bike): Bike {
+  return 'Image-URL' in b ? { ...b, 'Image-URL': driveImageUrl(b['Image-URL']) } : b;
+}
 
 function normalizeCategory(b: Bike): Bike {
   // Accessories-tab rows use Category for their own grouping (e.g. "Bags & Storage");
@@ -50,6 +67,7 @@ async function fetchOnce(): Promise<Bike[]> {
   const bikes = (data as Bike[])
     .filter((b) => b && typeof b === 'object' && String(b['Slug'] ?? '').trim())
     .map(normalizeCategory)
+    .map(normalizeImage)
     .map((b) => Object.fromEntries(PUBLIC_FIELDS.filter((k) => k in b).map((k) => [k, b[k]])));
   if (bikes.length === 0) throw new Error('Catalog feed returned no bikes with a Slug');
   return bikes;

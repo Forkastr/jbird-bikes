@@ -14,7 +14,7 @@ export default function TestRideBanner() {
             Come Try Before You Buy
           </p>
           <p style={{ fontSize: '0.875rem', fontWeight: 700, textTransform: 'uppercase' as const, letterSpacing: '0.15em', color: 'var(--primary-green)', opacity: 0.7 }}>
-            On the Lafitte Greenway · Mon–Sat 10am–6pm
+            On the Lafitte Greenway · Mon–Sat 10am–5pm
           </p>
         </div>
         <a href={CONTACT_URL} style={{ backgroundColor: '#0000FF', color: 'white', fontFamily: 'Barlow Condensed, sans-serif', fontSize: '1.25rem', fontWeight: 900, textTransform: 'uppercase' as const, letterSpacing: '0.05em', padding: '1rem 2.5rem', borderRadius: '0.5rem', display: 'inline-block', whiteSpace: 'nowrap' as const }}>

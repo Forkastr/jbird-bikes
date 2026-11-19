@@ -14,8 +14,8 @@
     '<header class="jb-header jb-sticky">' +
       '<div class="jb-headerInner">' +
         '<a href="/" aria-label="JBird Bikes home" class="jb-logo">' +
-          '<span class="jb-logoWord"><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>' +
-          '<span class="jb-logoWord"><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>' +
+          '<span class="jb-logoWord" aria-hidden="true"><span style="color:#d43a2f">j</span><span>-</span><span style="color:#1f5fc8">b</span><span style="color:#2e8b3e">i</span><span style="color:#d43a2f">r</span><span style="color:#c99700">d</span></span>' +
+          '<span class="jb-logoWord" aria-hidden="true"><span style="color:#1f5fc8">b</span><span style="color:#c99700">i</span><span style="color:#b3263a">k</span><span style="color:#2e8b3e">e</span><span style="color:#d43a2f">s</span></span>' +
         '</a>' +
         '<nav aria-label="Primary" class="jb-nav">' +
           '<a href="/sales.html" class="jb-pill jb-pillBuy">Buy</a>' +
@@ -58,7 +58,7 @@
           '</div>' +
           '<div class="jb-footerCol">' +
             '<h2 class="jb-footerHeading">Store Hours</h2>' +
-            '<dl class="jb-hours"><dt>Mon – Sat:</dt><dd>10:00 AM – 6:00 PM</dd><dt>Sundays:</dt><dd>Closed</dd></dl>' +
+            '<dl class="jb-hours"><dt>Mon – Sat:</dt><dd>10:00 AM – 5:00 PM</dd><dt>Sundays:</dt><dd>Closed</dd></dl>' +
           '</div>' +
           '<div class="jb-footerCol">' +
             '<h2 class="jb-footerHeading">Follow Us for Inventory Updates</h2>' +

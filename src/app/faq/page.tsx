@@ -5,6 +5,7 @@ import FAQAccordion from './FAQAccordion';
 import styles from './faq.module.css';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/faq' },
   title: 'FAQ | JBird Bikes — eBike Questions Answered',
   description: 'Got questions about eBikes in New Orleans? JBird Bikes answers the most common questions about buying, financing, assembly, and repair.',
   keywords: [
@@ -47,15 +48,15 @@ const faqs = [
     items: [
       {
         q: 'What is included in your professional assembly?',
-        a: 'Every bike we sell comes with our JBird Special — a full 21-point professional assembly that covers fasteners, brakes, gears, electrical connections, spoke tension, cable management, and more. We also apply our No-Flat tire sealant and include a 60-day shakeout tune-up.',
+        a: 'Every bike we sell comes with our JBird Special — a full 21-point professional assembly that covers fasteners, brakes, gears, electrical connections, spoke tension, cable management, and more. We also include a free 30-day shakeout tune-up, and you can add No-Flat tire sealant for $30.',
       },
       {
         q: 'How much does eBike assembly cost?',
-        a: 'Our flat-rate assembly service is $135. This includes full professional assembly, a 21-point safety inspection, packaging disposal, and a 60-day complimentary adjustment period. If you bought your bike online and need it assembled, bring it in.',
+        a: 'Our flat-rate assembly service is $135. This includes full professional assembly, a 21-point safety inspection, packaging disposal, and a free 30-day shakeout tune-up. If you bought your bike online and need it assembled, bring it in.',
       },
       {
         q: 'Do you repair all brands of eBikes?',
-        a: "Yes. We service all brands of eBikes and pedal bikes, not just the ones we sell. Whether it's a vintage cruiser or a complex electric system, we offer a free diagnostic and expert repair.",
+        a: "Yes. We service all brands of eBikes, eScooters, and eTrikes, not just the ones we sell. We offer a free diagnostic and expert repair. We don't work on pedal bikes.",
       },
       {
         q: 'How much does an eBike tune-up cost?',
@@ -72,7 +73,7 @@ const faqs = [
       },
       {
         q: 'What are your hours?',
-        a: 'We are open Monday through Saturday, 10am to 6pm. You can also reach us by phone or text at (504) 521-6997.',
+        a: 'We are open Monday through Saturday, 10am to 5pm. You can also reach us by phone or text at (504) 521-6997.',
       },
     ],
   },
@@ -119,7 +120,7 @@ export default function FAQPage() {
             <div className={styles.readyCard}>
               <div className={styles.readyText}>
                 <h2 className={styles.readyTitle}>Still Have Questions?</h2>
-                <p>We&apos;re here Monday–Saturday, 10am–6pm. Call, text, or send us a message.</p>
+                <p>We&apos;re here Monday–Saturday, 10am–5pm. Call, text, or send us a message.</p>
               </div>
               <div className={styles.readyBtns}>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3jjkIX_bqHy_3Vnk3t-UKb5kh8UWBOM6wAUOYzu3hFzME4w/viewform" target="_blank" rel="noopener noreferrer" className={`${home.btn} ${home.btnYellow} ${styles.readyBtn}`}>Contact Us</a>

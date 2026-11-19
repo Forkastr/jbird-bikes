@@ -28,7 +28,8 @@
   <!-- End Meta Pixel Code -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>eBike Sales | JBird Bikes New Orleans</title>
+  <title>eBikes for Sale in New Orleans | JBird Bikes</title>
+  <meta name="description" content="New and pre-owned UL-certified eBikes, eScooters, and eTrikes, assembled in our shop. Lease-to-own from $29.99/week with Snap Finance.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -180,7 +181,7 @@
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="hero-text">
-        <h1>Get your <span class="lower">e</span>Ride for under <span class="hero-price">$29.99/week!</span></h1>
+        <h1>Get your <span class="lower">e</span>Ride from <span class="hero-price">$29.99/week</span></h1>
         <ul class="hero-types" aria-label="Ride types">
           <li class="hero-type"><span class="lower">e</span>Bikes</li>
           <li class="hero-type"><span class="lower">e</span>Scooters</li>
@@ -265,7 +266,7 @@
   // Category rows in display order; any other category in the sheet shows before Accessories.
   const CATEGORY_ORDER = ['City & Cargo', 'Folding', 'Fat Tire', 'Mini', 'Moto', 'EScooters', 'ETrikes'];
   const LAST_CATEGORY = 'Accessories';
-  const CATEGORY_LABELS = { EScooters: 'eScooters', ETrikes: 'eTrikes' };
+  const CATEGORY_LABELS = { EScooters: 'eScooters', ETrikes: 'eTrikes', Preowned: 'Pre-Owned' };
   const TYPE_ORDER = ['eBikes', 'eScooters', 'eTrikes', 'Accessories'];
 
   let ALL_BIKES = [];
@@ -329,7 +330,18 @@
   }
 
   function isUnder29VehicleWeekly(b) {
-    return getType(b) !== 'Accessories' && isUnder29Weekly(b);
+    return getType(b) !== 'Accessories' && !isPreowned(b) && isUnder29Weekly(b);
+  }
+
+  // Pre-owned bikes have "Preowned" in the sheet's Category column (spelling-tolerant).
+  function isPreowned(b) {
+    return ['preowned', 'used'].includes(str(b['Category']).toLowerCase().replace(/[^a-z]/g, ''));
+  }
+
+  // PRE-OWNED row sits under UNDER $29.99/WEEK; hidden when no pre-owned bike is available.
+  function preownedGroup(items) {
+    const preowned = items.filter(isPreowned);
+    return preowned.length ? groupHtml('preowned', 'PRE-OWNED', preowned, 'h2', 'model') : '';
   }
 
   function under29WeeklyGroup(items) {
@@ -372,7 +384,7 @@
       catalog.innerHTML = '<div class="grid">' + shown.map(makeCard).join('') + '</div>';
       return;
     }
-    catalog.innerHTML = '<div class="groups">' + [under29WeeklyGroup(shown), ...groupedCategories(shown).map(g =>
+    catalog.innerHTML = '<div class="groups">' + [under29WeeklyGroup(shown), preownedGroup(shown), ...groupedCategories(shown.filter(b => !isPreowned(b))).map(g =>
       g.cat === LAST_CATEGORY ? accessoriesHtml(g.items) : groupHtml(g.cat, categoryLabel(g.cat), g.items, 'h2', 'model')
     )].filter(Boolean).join('') + '</div>';
   }

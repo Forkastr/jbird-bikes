@@ -73,9 +73,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: 'https://jbirdbikes.com',
-  },
 };
 
 export default function RootLayout({
@@ -122,6 +119,10 @@ fbq('track', 'PageView');`}
   if (!a || typeof fbq !== 'function') return;
   if (/kDxn67zHqWbz9AiXA|zWrq6nnSNzs2j9Z69/.test(a.href)) {
     fbq('track', 'Lead', {content_name: 'JBird Apply Form'});
+  }
+  // Sell Your eBike and Trade page buttons (FORM_URL in components/landing/shared.tsx).
+  if (/RjvmxTR9xL2i1Xxw7/.test(a.href)) {
+    fbq('track', 'Lead', {content_name: 'Sell/Trade-In'});
   }
 });`}
         </Script>

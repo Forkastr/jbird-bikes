@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mockwheel eBikes New Orleans | Authorized Dealer — JBird Bikes',
-  description: 'Buy Mockwheel eBikes fully assembled in New Orleans. Authorized dealer on the Lafitte Greenway. Test ride today. Professional 21-point assembly included.',
+  alternates: { canonical: '/mockwheel-ebikes-new-orleans' },
+  title: { absolute: 'Mockwheel eBikes New Orleans | JBird Bikes' },
+  description: 'Mockwheel eBikes in New Orleans, assembled and safety-checked in our shop on the Lafitte Greenway. Test rides Mon–Sat. Lease-to-own from $29.99/week.',
   keywords: ['Mockwheel eBike New Orleans', 'Mockwheel dealer New Orleans', 'Mockwheel eBike NOLA', 'buy Mockwheel eBike assembled New Orleans', 'Mockwheel authorized dealer Louisiana'],
   openGraph: { title: 'Mockwheel eBikes New Orleans | JBird Bikes', description: 'Come test-ride a Mockwheel eBike on the Lafitte Greenway. Professional assembly included.', url: 'https://jbirdbikes.com/mockwheel-ebikes-new-orleans', images: [{ url: '/hero-bike.jpg', width: 1200, height: 630 }] },
 };
@@ -54,7 +55,7 @@ export default function MockwheelPage() {
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
           <h1>Mockwheel eBikes <span>In New Orleans</span></h1>
-          <p>Come test-ride a Mockwheel eBike on the Lafitte Greenway. Every bike comes fully assembled with our JBird Special — a professional 21-point safety inspection, No-Flat tire treatment, and a 60-day shakeout tune-up. Built for NOLA streets. Built to last.</p>
+          <p>Come test-ride a Mockwheel eBike on the Lafitte Greenway. Every bike comes fully assembled with our JBird Special — a professional 21-point safety inspection and a free 30-day shakeout tune-up. Add No-Flat tire sealant for $30. Built for NOLA streets. Built to last.</p>
           <div className="brand-badges">
             <div className="brand-badge">Authorized Dealer</div>
             <div className="brand-badge">Test Rides Available</div>
@@ -80,8 +81,8 @@ export default function MockwheelPage() {
         <div className="jbird-special-title">The JBird Special</div>
         <div className="jbird-special-inner">
           <div className="special-card"><div className="special-num">21</div><div className="special-title">Point Safety Check</div><div className="special-desc">Every bike professionally assembled and inspected. Brakes, gears, electricals — all verified.</div></div>
-          <div className="special-card"><div className="special-num">No</div><div className="special-title">Flat Tire Treatment</div><div className="special-desc">Proprietary No-Flat sealant applied to every tire. NOLA streets are tough — your tires won't be a problem.</div></div>
-          <div className="special-card"><div className="special-num">60</div><div className="special-title">Day Shakeout Tune-Up</div><div className="special-desc">Cables stretch. Spokes settle. Come back within 60 days and we'll re-tune everything for free.</div></div>
+          <div className="special-card"><div className="special-num">No</div><div className="special-title">Flat Tire Sealant</div><div className="special-desc">$30 add-on. We seal both tires so NOLA potholes and glass don't end your ride.</div></div>
+          <div className="special-card"><div className="special-num">30</div><div className="special-title">Day Shakeout Tune-Up</div><div className="special-desc">Cables stretch. Spokes settle. Come back within 30 days and we'll re-tune everything for free.</div></div>
         </div>
       </div>
       <div className="bikes-section">

@@ -2,7 +2,7 @@ import styles from './SiteChrome.module.css';
 
 // Store hours: single source for the footer. Change here only when the shop's hours change.
 const HOURS = [
-  { days: 'Mon – Sat:', time: '10:00 AM – 6:00 PM' },
+  { days: 'Mon – Sat:', time: '10:00 AM – 5:00 PM' },
   { days: 'Sundays:', time: 'Closed' },
 ];
 

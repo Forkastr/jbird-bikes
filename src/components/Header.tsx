@@ -76,7 +76,7 @@ export default function Header() {
       <div className={styles.headerInner}>
         <Link href="/" aria-label="JBird Bikes home" className={styles.logo}>
           {LOGO.map((word, w) => (
-            <span key={w} className={styles.logoWord}>
+            <span key={w} className={styles.logoWord} aria-hidden="true">
               {word.map(([ch, color], i) => (
                 <span key={i} style={color ? { color } : undefined}>{ch}</span>
               ))}

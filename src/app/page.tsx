@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
@@ -5,6 +6,13 @@ import styles from '@/components/home/home.module.css';
 import { barlow, dmSans } from '@/components/home/shared';
 
 export const dynamic = 'force-static';
+
+export const metadata: Metadata = {
+  title: { absolute: 'eBike Shop New Orleans | JBird Bikes on the Lafitte Greenway' },
+  description:
+    'Neighborhood eBike shop at 2336 St. Louis St. UL-certified eBikes, pro assembly, repair, and lease-to-own from $29.99/week. Mon–Sat 10–5.',
+  alternates: { canonical: '/' },
+};
 
 const STOREFRONT = '/images/redesign/storefront.jpg';
 
@@ -33,21 +41,21 @@ export default async function HomePage() {
 
           <div className={styles.cards}>
             <Link href="/sell" className={styles.card}>
-              <Image src="/images/redesign/card-cash.jpg" alt="" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '40% 45%' }} />
+              <Image src="/images/redesign/card-cash.jpg" alt="Cash for your eBike at JBird Bikes" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '40% 45%' }} />
               <div className={styles.cardOverlay}>
                 <span className={styles.cardWord}>CASH</span>
                 <span className={styles.cardSub}>for your <span className={styles.lower}>e</span>Bike</span>
               </div>
             </Link>
             <a href="/sales.html" className={styles.card}>
-              <Image src="/images/redesign/card-shop.jpg" alt="" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '50% 55%' }} />
+              <Image src="/images/redesign/card-shop.jpg" alt="New and pre-owned eBikes for sale at JBird Bikes" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '50% 55%' }} />
               <div className={styles.cardOverlay}>
                 <span className={styles.cardWord}>SHOP</span>
                 <span className={styles.cardSub}>New &amp; Pre-owned</span>
               </div>
             </a>
             <a href="/repairs.html" className={styles.card}>
-              <Image src="/images/redesign/card-repair.jpg" alt="" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '50% 55%' }} />
+              <Image src="/images/redesign/card-repair.jpg" alt="eBike repair and assembly at JBird Bikes" fill sizes="(max-width: 640px) 100vw, 400px" style={{ objectPosition: '50% 55%' }} />
               <div className={styles.cardOverlay}>
                 <span className={styles.cardWord}>FIX</span>
                 <span className={`${styles.cardSub} ${styles.cardSubSmall}`}>Repair or Assemble</span>

@@ -12,7 +12,7 @@ export default function LocalBusinessSchema() {
         image: 'https://jbirdbikes.com/hero-bike.jpg',
         logo: 'https://jbirdbikes.com/hero-bike.jpg',
         description:
-          'Authorized dealer for Gotrax, Aventon, Lectric, Retrospec, Mockwheel, and Vanpowers eBikes in New Orleans. Every bike sold fully assembled with a 21-point safety check and No-Flat tire treatment. Located on the Lafitte Greenway.',
+          'Authorized dealer for Gotrax, Aventon, Lectric, Retrospec, Mockwheel, and Vanpowers eBikes in New Orleans. Every bike sold fully assembled with a 21-point safety check and a free 30-day shakeout tune-up. Located on the Lafitte Greenway.',
         address: {
           '@type': 'PostalAddress',
           streetAddress: '2336 St. Louis Street',
@@ -43,7 +43,7 @@ export default function LocalBusinessSchema() {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
             opens: '10:00',
-            closes: '18:00',
+            closes: '17:00',
           },
         ],
         makesOffer: [
@@ -59,7 +59,7 @@ export default function LocalBusinessSchema() {
             '@type': 'Offer',
             name: 'No-Flat Tire Sealant Treatment',
             description:
-              'Proprietary No-Flat tire sealant treatment applied to all new bike sales. Prevents flats on NOLA streets.',
+              'No-Flat tire sealant applied to both tires. Optional add-on.',
             price: '30.00',
             priceCurrency: 'USD',
           },
@@ -78,7 +78,7 @@ export default function LocalBusinessSchema() {
         '@id': 'https://jbirdbikes.com/#product-ebikes',
         name: 'Professional Assembled eBikes — Aventon, Lectric, Retrospec, Gotrax, Mockwheel, Vanpowers',
         description:
-          'Authorized dealer stock of Aventon, Lectric, Retrospec, Gotrax, Mockwheel, and Vanpowers eBikes. Every unit sold includes professional 21-point assembly, No-Flat tire treatment, and a 30-day shakeout tune-up. Available for in-store pickup in New Orleans.',
+          'Authorized dealer stock of Aventon, Lectric, Retrospec, Gotrax, Mockwheel, and Vanpowers eBikes. Every unit sold includes professional 21-point assembly and a free 30-day shakeout tune-up. No-Flat tire sealant is an optional $30 add-on. Available for in-store pickup in New Orleans.',
         brand: [
           { '@type': 'Brand', name: 'Aventon' },
           { '@type': 'Brand', name: 'Lectric' },

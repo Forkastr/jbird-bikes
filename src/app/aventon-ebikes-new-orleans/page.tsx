@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Aventon eBikes New Orleans | Authorized Dealer — JBird Bikes',
-  description: 'Buy Aventon eBikes fully assembled in New Orleans. Authorized dealer on the Lafitte Greenway. Test ride today. Professional 21-point assembly included.',
+  alternates: { canonical: '/aventon-ebikes-new-orleans' },
+  title: { absolute: 'Aventon eBikes New Orleans | JBird Bikes' },
+  description: 'Aventon eBikes in New Orleans, assembled and safety-checked in our shop on the Lafitte Greenway. Test rides Mon–Sat. Lease-to-own from $29.99/week.',
   keywords: [
     'Aventon eBike New Orleans',
     'Aventon dealer New Orleans',
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: 'Aventon eBikes New Orleans | JBird Bikes — Authorized Dealer',
-    description: 'Come test-ride an Aventon eBike on the Lafitte Greenway. Every bike comes with our JBird Special Assembly — 21-point safety check, No-Flat treatment, 60-day tune-up.',
+    description: 'Come test-ride an Aventon eBike on the Lafitte Greenway. Every bike comes with our JBird Special Assembly — 21-point safety check and a free 30-day tune-up.',
     url: 'https://jbirdbikes.com/aventon-ebikes-new-orleans',
     images: [{ url: '/hero-bike.jpg', width: 1200, height: 630 }],
   },
@@ -80,7 +81,7 @@ export default function AventonPage() {
         <div className="brand-hero-inner">
           <div className="brand-eyebrow">Authorized Dealer · New Orleans</div>
           <h1>Aventon eBikes <span>In New Orleans</span></h1>
-          <p>Come test-ride an Aventon eBike on the Lafitte Greenway. Every bike comes fully assembled with our JBird Special — a professional 21-point safety inspection, No-Flat tire treatment, and a 60-day shakeout tune-up. Built for NOLA streets. Built to last.</p>
+          <p>Come test-ride an Aventon eBike on the Lafitte Greenway. Every bike comes fully assembled with our JBird Special — a professional 21-point safety inspection and a free 30-day shakeout tune-up. Add No-Flat tire sealant for $30. Built for NOLA streets. Built to last.</p>
           <div className="brand-badges">
             <div className="brand-badge">Authorized Dealer</div>
             <div className="brand-badge">Test Rides Available</div>
@@ -114,13 +115,13 @@ export default function AventonPage() {
           </div>
           <div className="special-card">
             <div className="special-num">No</div>
-            <div className="special-title">Flat Tire Treatment</div>
-            <div className="special-desc">We apply our proprietary No-Flat sealant to every tire. NOLA streets are tough — your tires won't be a problem.</div>
+            <div className="special-title">Flat Tire Sealant</div>
+            <div className="special-desc">$30 add-on. We seal both tires so NOLA potholes and glass don't end your ride.</div>
           </div>
           <div className="special-card">
-            <div className="special-num">60</div>
+            <div className="special-num">30</div>
             <div className="special-title">Day Shakeout Tune-Up</div>
-            <div className="special-desc">Cables stretch. Spokes settle. Come back within 60 days and we'll re-tune everything for free.</div>
+            <div className="special-desc">Cables stretch. Spokes settle. Come back within 30 days and we'll re-tune everything for free.</div>
           </div>
         </div>
       </div>
