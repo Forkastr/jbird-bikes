@@ -182,8 +182,10 @@
     .tick { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 2px solid var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; }
     .perks .fits-list li { display: list-item; list-style: disc; margin-left: 20px; }
     .apply-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .apply-big { flex: 1 1 200px; background: var(--ink); color: var(--yellow); padding: 24px; font-size: 22px; min-height: 72px; }
+    .apply-big { flex: 1 1 200px; background: var(--ink); color: var(--yellow); padding: 24px; font-size: clamp(22px, 6.4vw, 32px); min-height: 72px; }
     .apply-big:hover { background: var(--blue); color: #fff; }
+    .text-big { flex: 1 1 200px; background: var(--blue); color: #fff; border: 2px solid var(--ink); padding: 18px 24px; font-size: clamp(22px, 6.4vw, 32px); min-height: 64px; }
+    .text-big:hover { background: var(--ink); color: var(--yellow); }
     .after-apply { display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.5; }
     .after-apply a { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -212,6 +214,26 @@
     .spec-row { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(22, 20, 15, .2); }
     .spec-row dt { font-size: 16px; color: var(--muted); }
     .spec-row dd { font-size: 16px; font-weight: 700; text-align: right; }
+
+    /* Recommended accessories */
+    .recs { padding-bottom: clamp(40px, 6vw, 80px); display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+    .recs-divider { border: 0; border-top: 2px solid var(--ink); margin: 0 0 clamp(20px, 4vw, 40px); }
+    /* One line at every width: shrinks with the screen, capped at the other section headings' size. */
+    .recs .spec-title { white-space: nowrap; font-size: clamp(18px, 7.6vw, 64px); }
+    .rec-row { min-width: 0; max-width: 100%; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+    @media (max-width: 979px) {
+      .rec-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+      .rec-row .rec-card { flex: 0 0 min(62%, 220px); scroll-snap-align: start; }
+    }
+    .rec-card { border: 2px solid var(--ink); border-radius: 18px; overflow: hidden; background: #fff; display: flex; flex-direction: column; color: var(--ink); transition: transform .15s; }
+    .rec-card:hover { transform: translateY(-3px); color: var(--ink); }
+    .rec-img { aspect-ratio: 1 / 1; background: #f2eee4; padding: 12px; border-bottom: 2px solid var(--ink); }
+    .rec-img img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+    .rec-img .no-img { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: var(--muted); }
+    .rec-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .rec-meta { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .rec-name { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: 19px; line-height: 1.05; }
+    .rec-price { margin-top: auto; font-family: var(--display); font-weight: 900; font-size: 22px; }
 
     /* Ready to ride */
     .ready { padding-bottom: clamp(48px, 7vw, 96px); }
@@ -356,9 +378,11 @@
             APPLY FOR THE PROMO
           </a>
         </div>
+        <div class="apply-row no-print">
+          <a href="sms:+15045216997" class="btn text-big">TEXT: (504) 521-6997</a>
+        </div>
         <div class="after-apply">
           <p>Once approved, we’ll contact you to complete the transaction.</p>
-          <p><strong>Questions:</strong> Call or Text: <a href="tel:5045216997">(504) 521-6997</a></p>
         </div>
       </div>
     </section>
@@ -373,6 +397,12 @@
     <section class="wrap full-specs is-collapsed" id="full-section">
       <h2 class="spec-title"><button type="button" class="spec-toggle" aria-expanded="false" aria-controls="full-list">Full Specifications<span class="chev" aria-hidden="true">▾</span></button></h2>
       <dl id="full-list"></dl>
+    </section>
+
+    <section class="wrap recs no-print" id="recs-section" hidden>
+      <hr class="recs-divider">
+      <h2 class="spec-title">Recommended Accessories</h2>
+      <div class="rec-row" id="recs-list"></div>
     </section>
 
     <section class="wrap ready">
@@ -422,6 +452,7 @@
 <script src="/site-chrome.js" data-part="footer"></script>
 
 <script src="/catalog.js"></script>
+<script src="/recommend-accessories.js"></script>
 <script>
   const KEY_SPECS = ['Range', 'Top Speed', 'Tire Size', 'Payload', 'Motor Size', 'Easy Storage', 'Warranty', 'Safety'];
   // Icons from the previous product page, now served from /images/specs.
@@ -605,6 +636,25 @@
     const full = isAccessory ? [] : Object.keys(bike).filter(k => !NOT_SPECS.has(k) && str(bike[k]));
     $('full-section').hidden = full.length === 0;
     $('full-list').innerHTML = full.map(k => `<div class="spec-row"><dt>${esc(k)}</dt><dd>${esc(bike[k])}</dd></div>`).join('');
+
+    // Same-brand accessories that fit this model (see /recommend-accessories.js); none on accessory pages.
+    const recs = window.recommendAccessories ? window.recommendAccessories(bikes, bike, 5) : [];
+    $('recs-section').hidden = recs.length === 0;
+    $('recs-list').innerHTML = recs.map(a => {
+      const aName = shortName(a['Title']);
+      const aImg = str(a['Image-URL']);
+      const aPrice = money(a['Cash Price']) || money(a['JBird Retail Price']);
+      return `<a class="rec-card" href="/product.html?slug=${encodeURIComponent(str(a['Slug']))}">
+        <div class="rec-img">${aImg
+          ? `<img src="${esc(aImg)}" alt="${esc(aName)}" loading="lazy" onerror="this.outerHTML='<div class=&quot;no-img&quot;>Image coming soon</div>'">`
+          : '<div class="no-img">Image coming soon</div>'}</div>
+        <div class="rec-body">
+          <span class="rec-meta">${esc([getBrand(a), str(a['Subcategory'])].filter(Boolean).join(' - '))}</span>
+          <span class="rec-name">${esc(aName)}</span>
+          ${aPrice ? `<span class="rec-price">${esc(aPrice)}</span>` : ''}
+        </div>
+      </a>`;
+    }).join('');
 
     $('print-link').href = '/print.html?slug=' + encodeURIComponent(str(bike['Slug']));
 
